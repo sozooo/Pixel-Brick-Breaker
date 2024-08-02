@@ -3,15 +3,18 @@
 [RequireComponent(typeof(Rigidbody))]
 public class Bullet : MonoBehaviour
 {
-    private Rigidbody _rigidbody;
+    [SerializeField] private float _speed;
 
-    private void Awake()
-    {
-        _rigidbody = GetComponent<Rigidbody>();
-    }
+    //private Rigidbody _rigidbody;
 
-    private void FixedUpdate()
+    //private void Awake()
+    //{
+    //    _rigidbody = GetComponent<Rigidbody>();
+    //}
+
+    private void Update()
     {
-        transform.Translate(transform.forward * Time.deltaTime, Space.World);
+        transform.Translate(_speed * Time.deltaTime * transform.forward, Space.World);
+        //_rigidbody.Move(transform.position + _speed * Time.deltaTime * transform.forward, transform.rotation);
     }
 }

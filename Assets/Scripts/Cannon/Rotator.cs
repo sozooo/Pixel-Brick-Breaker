@@ -3,8 +3,8 @@ using UnityEngine;
 public class Rotator : MonoBehaviour
 {
     [SerializeField] private float _speed = 20;
-    [SerializeField] private float _localMinRatation = -60;
-    [SerializeField] private float _localMaxRotation = 40;
+    [SerializeField] private float _minRatation = -80;
+    [SerializeField] private float _maxRotation = 80;
 
     private float _startMousePosition;
     private Vector3 _startEulerAngles;
@@ -29,13 +29,17 @@ public class Rotator : MonoBehaviour
         {
             float currentMousePosition = Input.mousePosition.x;
             float mousePositionDelta = currentMousePosition - _startMousePosition;
+            _startMousePosition = currentMousePosition;
 
-            _xRotation = Mathf.Clamp(_xRotation + mousePositionDelta * _speed * Time.deltaTime, _localMinRatation, _localMaxRotation);
+            _xRotation = Mathf.Clamp(_xRotation + mousePositionDelta * _speed * Time.deltaTime, _minRatation, _maxRotation);
 
             transform.localRotation = Quaternion.Euler(_xRotation, 0f, 0f);
-        }
 
-        if (Input.GetMouseButtonUp(0))
-            transform.localEulerAngles = _startEulerAngles;
+        } 
+    }
+
+    public void Reset()
+    {
+        transform.localEulerAngles = _startEulerAngles;
     }
 }

@@ -1,16 +1,13 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class Shooter : MonoBehaviour
 {
     [SerializeField] private float _startBulletCount;
     [SerializeField] private Bullet _bulletPrefab;
+    [SerializeField] private Transform _spawnRotation;
 
-    private void Update()
+    public void Shoot()
     {
-        if (Input.GetMouseButtonUp(0))
-        {
-            Instantiate(_bulletPrefab, transform.position, transform.rotation);
-        }
+        Instantiate(_bulletPrefab, _spawnRotation.position, _spawnRotation.rotation);
     }
 }

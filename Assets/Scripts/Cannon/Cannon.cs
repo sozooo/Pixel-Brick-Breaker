@@ -11,4 +11,13 @@ public class Cannon : MonoBehaviour
         _rotator = GetComponent<Rotator>();
         _shooter = GetComponent<Shooter>();
     }
+
+    private void Update()
+    {
+        if (Input.GetMouseButtonUp(0))
+        {
+            _shooter.Shoot();
+            _rotator.Reset();
+        }
+    }
 }
