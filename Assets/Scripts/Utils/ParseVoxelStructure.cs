@@ -82,6 +82,7 @@ public class ParseVoxelStructure : MonoBehaviour
 			throw new InvalidOperationException(nameof(rawVoxelData));
 
 		GameObject root = new();
+		Rigidbody rootRigidbody = root.AddComponent<Rigidbody>();
 
 		GameObject primitive = AssetDatabase.LoadAssetAtPath(
 			$"Assets/Prefabs/Primitive.prefab",
@@ -100,6 +101,9 @@ public class ParseVoxelStructure : MonoBehaviour
 
 			TrailRenderer trail = GetTrailRenderer(cube);
 			trail.enabled = false;
+
+			FixedJoint fixedJoint = GetFixedJoint(cube);
+			fixedJoint.connectedBody = rootRigidbody;
 
 			Material material = GetOrCreateVoxelMaterial(voxelData.Color);
 			cube.GetComponent<Renderer>().sharedMaterial = material;
@@ -146,5 +150,18 @@ public class ParseVoxelStructure : MonoBehaviour
 
 		return trail;
     }
+
+	private static FixedJoint GetFixedJoint(GameObject voxel)
+    {
+		if (voxel == null)
+			throw new InvalidOperationException(nameof(voxel));
+
+		voxel.TryGetComponent(out FixedJoint joint);
+
+		if (joint == null)
+			throw new InvalidOperationException("Trail not found");
+
+		return joint;
+	}
 }
 #endif

@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5326054149093162338}
   - component: {fileID: 5908307363566015784}
   - component: {fileID: 6609079010877946908}
+  - component: {fileID: 3295468584440177513}
   m_Layer: 0
   m_Name: Primitive
   m_TagString: Untagged
@@ -247,3 +248,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 64
   m_CollisionDetection: 0
+--- !u!138 &3295468584440177513
+FixedJoint:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2082286643396157915}
+  m_ConnectedBody: {fileID: 0}
+  m_ConnectedArticulationBody: {fileID: 0}
+  m_BreakForce: Infinity
+  m_BreakTorque: Infinity
+  m_EnableCollision: 1
+  m_EnablePreprocessing: 1
+  m_MassScale: 1
+  m_ConnectedMassScale: 1
