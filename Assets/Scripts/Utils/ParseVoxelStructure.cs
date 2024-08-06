@@ -7,6 +7,8 @@ using UnityEngine;
 
 public class ParseVoxelStructure : MonoBehaviour
 {
+	private const string VoxelLayer = "Voxel";
+
 	struct RawVoxelData
 	{
 		private readonly Vector3 _position;
@@ -38,8 +40,10 @@ public class ParseVoxelStructure : MonoBehaviour
 
 			var rootGameObject = CreateVoxelStructure(rawVoxelDatas);
 			Selection.activeObject = rootGameObject;
+			rootGameObject.layer = LayerMask.NameToLayer(VoxelLayer);
+
 			PrefabUtility.SaveAsPrefabAsset(rootGameObject,
-				"Assets/Prefabs/VoxelStructures/" + Path.GetFileName(path) + ".prefab");
+				$"Assets/Prefabs/VoxelStructures/Difficulties/{Path.GetFileName(path)}.prefab");
 			DestroyImmediate(rootGameObject);
         }
 	}
@@ -92,6 +96,7 @@ public class ParseVoxelStructure : MonoBehaviour
 
 			cube.transform.SetParent(root.transform);
 			cube.transform.position = voxelData.Position;
+			cube.layer = LayerMask.NameToLayer(VoxelLayer);
 
 			TrailRenderer trail = GetTrailRenderer(cube);
 			trail.enabled = false;
@@ -124,8 +129,8 @@ public class ParseVoxelStructure : MonoBehaviour
 			throw new InvalidOperationException($"Couldn't parse color: #{colorCode}");
 
 		material.color = color;
-
 		AssetDatabase.CreateAsset(material, $"Assets/Prefabs/VoxelStructures/Materials/{colorCode}.mat");
+
 		return material;
 	}
 
@@ -137,7 +142,7 @@ public class ParseVoxelStructure : MonoBehaviour
         voxel.TryGetComponent(out TrailRenderer trail);
 
         if (trail == null)
-			throw new InvalidOperationException("trail not found");
+			throw new InvalidOperationException("Trail not found");
 
 		return trail;
     }

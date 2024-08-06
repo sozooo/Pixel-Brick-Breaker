@@ -16,6 +16,8 @@ GameObject:
   - component: {fileID: 658148143233177153}
   - component: {fileID: -9051022125703405005}
   - component: {fileID: 7495555145574654241}
+  - component: {fileID: 2289055075421413570}
+  - component: {fileID: 3291695231737167332}
   m_Layer: 6
   m_Name: Bullet
   m_TagString: Untagged
@@ -274,3 +276,32 @@ TrailRenderer:
   m_Autodestruct: 0
   m_Emitting: 1
   m_ApplyActiveColorSpace: 1
+--- !u!114 &2289055075421413570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4542550351932796505}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8d5dabcebe604d7a8278f8d384e58f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _range: 5
+  _strength: 10
+  _voxelLayer:
+    serializedVersion: 2
+    m_Bits: 128
+--- !u!114 &3291695231737167332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4542550351932796505}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae68ab71abdb9457e841dbb68d2a346d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
