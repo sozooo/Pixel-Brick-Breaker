@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEditor;
 using UnityEngine;
-using UnityEngine.Rendering;
 
 public class ParseVoxelStructure : MonoBehaviour
 {
@@ -80,14 +79,22 @@ public class ParseVoxelStructure : MonoBehaviour
 
 		GameObject root = new();
 
-		foreach(RawVoxelData voxelData in rawVoxelData)
+		GameObject primitive = AssetDatabase.LoadAssetAtPath(
+			$"Assets/Prefabs/Primitive.prefab",
+			typeof(GameObject)) as GameObject;
+
+		if (primitive == null)
+			throw new InvalidCastException(nameof(primitive));
+
+		foreach (RawVoxelData voxelData in rawVoxelData)
         {
-			GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
+			GameObject cube = Instantiate(primitive);
 
 			cube.transform.SetParent(root.transform);
 			cube.transform.position = voxelData.Position;
 
-			CreateTrailRenderer(cube);
+			TrailRenderer trail = GetTrailRenderer(cube);
+			trail.enabled = false;
 
 			Material material = GetOrCreateVoxelMaterial(voxelData.Color);
 			cube.GetComponent<Renderer>().sharedMaterial = material;
@@ -122,51 +129,17 @@ public class ParseVoxelStructure : MonoBehaviour
 		return material;
 	}
 
-	private static void CreateTrailRenderer(GameObject voxel)
+	private static TrailRenderer GetTrailRenderer(GameObject voxel)
     {
 		if (voxel == null)
 			throw new InvalidOperationException(nameof(voxel));
 
-		float startTime = 0;
-		float startValue = 1;
-		float endTime = 1;
-		float endValue = 0;
+        voxel.TryGetComponent(out TrailRenderer trail);
 
-		float trailTime = 0.14f;
+        if (trail == null)
+			throw new InvalidOperationException("trail not found");
 
-		string defaultColor = "ffffff";
-
-		TrailRenderer trail = voxel.AddComponent<TrailRenderer>();
-
-		AnimationCurve curve = new();
-		curve.AddKey(startTime, startValue);
-		curve.AddKey(endTime, endValue);
-
-		trail.widthCurve = curve;
-		trail.time = trailTime;
-
-		Gradient gradient = new();
-		gradient.alphaKeys = new GradientAlphaKey[] {
-			new GradientAlphaKey(startValue, startTime),
-			new GradientAlphaKey(endValue, endTime) };
-
-		trail.colorGradient = gradient;
-
-		trail.shadowCastingMode = ShadowCastingMode.Off;
-		trail.receiveShadows = false;
-
-		Material material = CreateVoxelMaterial(defaultColor);
-
-		if (material == null)
-			throw new ArgumentNullException(nameof(material));
-
-		trail.SetSharedMaterials(new List<Material>() { material });
-
-		//trail.SetMaterials(new List<Material>() { material });
-
-		//trail.materials = new Material[] { material };
-
-		trail.enabled = false;
+		return trail;
     }
 }
 #endif
