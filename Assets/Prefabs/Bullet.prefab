@@ -13,7 +13,8 @@ GameObject:
   - component: {fileID: 2942819623365029644}
   - component: {fileID: 2956549392328909360}
   - component: {fileID: -8406280001436994694}
-  - component: {fileID: 4188893681668378441}
+  - component: {fileID: 658148143233177153}
+  - component: {fileID: -9051022125703405005}
   m_Layer: 6
   m_Name: Bullet
   m_TagString: Untagged
@@ -31,7 +32,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 2.9592364, y: 2.5796916, z: -14.727228}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -64,7 +65,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: f5e88c08e7e324f8b833e6246a1f9c98, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -116,11 +117,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 4542550351932796505}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 720ec1c8b352a4dfeae1fa1c25b1f92b, type: 3}
+  m_Script: {fileID: 11500000, guid: 78cb10f5a41f64e9fb9faacdda854cd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 1
---- !u!54 &4188893681668378441
+  _speed: 10
+--- !u!114 &658148143233177153
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4542550351932796505}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 961d169af21b6484d9ccca48957788d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!54 &-9051022125703405005
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -145,5 +158,5 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 64
   m_CollisionDetection: 1
