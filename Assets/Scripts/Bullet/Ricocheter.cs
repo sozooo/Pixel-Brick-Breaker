@@ -1,9 +1,12 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 [RequireComponent(typeof(Collider), typeof(Mover))]
 public class Ricocheter : MonoBehaviour
 {
     private Mover _mover;
+
+    public event Action FigureCollided;
 
     private void Awake()
     {
@@ -16,5 +19,10 @@ public class Ricocheter : MonoBehaviour
 
         Vector3 newDirection = Vector3.Reflect(_mover.MoveDirection.normalized, firstContact.normal);
         _mover.SetDirection(newDirection);
+
+        if(collision.collider.TryGetComponent(out Voxel voxel))
+        {
+            FigureCollided?.Invoke();
+        }
     }
 }
