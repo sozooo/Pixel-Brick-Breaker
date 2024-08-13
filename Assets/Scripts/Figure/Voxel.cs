@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 
 public class Voxel : MonoBehaviour
@@ -13,6 +14,8 @@ public class Voxel : MonoBehaviour
     private Coroutine _falling;
     private Animator _animator;
     private TrailRenderer _trail;
+
+    public event Action Falled;
 
     public Vector3 Position => _position;
 

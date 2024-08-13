@@ -1,17 +1,16 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 [RequireComponent(typeof(Mover), typeof(Exploder), typeof(Ricocheter))]
-public class Bullet : MonoBehaviour
+public class Bullet : MonoBehaviour, ISpawnable<Bullet>
 {
-    private Mover _mover;
     private Exploder _exploder;
     private Ricocheter _ricocheter;
 
+    public event Action<Bullet> Despawn;
+
     private void Awake()
     {
-        _mover = GetComponent<Mover>();
         _exploder = GetComponent<Exploder>();
         _ricocheter = GetComponent<Ricocheter>();
     }
@@ -19,6 +18,17 @@ public class Bullet : MonoBehaviour
     private void OnEnable()
     {
         _ricocheter.FigureCollided += Explode;
+    }
+
+    private void OnDisable()
+    {
+        Despawn?.Invoke(this);
+    }
+
+    public void Initialize(Vector3 position, Quaternion rotation)
+    {
+        transform.position = position;
+        transform.rotation = rotation;
     }
 
     private void Explode()

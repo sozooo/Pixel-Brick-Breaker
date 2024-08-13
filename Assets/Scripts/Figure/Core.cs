@@ -13,7 +13,6 @@ public class Core : MonoBehaviour
 
     private Coroutine _explosion;
 
-
     public void StartExplosion()
     {
         if(_explosion == null)

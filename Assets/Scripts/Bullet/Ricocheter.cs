@@ -20,7 +20,7 @@ public class Ricocheter : MonoBehaviour
         Vector3 newDirection = Vector3.Reflect(_mover.MoveDirection.normalized, firstContact.normal);
         _mover.SetDirection(newDirection);
 
-        if(collision.collider.TryGetComponent(out Voxel voxel))
+        if (collision.collider.TryGetComponent(out Voxel voxel))
         {
             FigureCollided?.Invoke();
         }
