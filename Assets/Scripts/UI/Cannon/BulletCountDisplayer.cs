@@ -1,18 +1,29 @@
-using System.Collections;
-using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using System;
 
+[RequireComponent(typeof(TextMeshProUGUI))]
 public class BulletCountDisplayer : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private Shooter _cannon;
+
+    private TextMeshProUGUI _text;
+
+    private void Awake()
     {
-        
+        _text = GetComponent<TextMeshProUGUI>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnEnable()
     {
-        
+        if (_cannon == null)
+            throw new ArgumentNullException();
+
+        _cannon.BulletCountChanged += SetNumber;
+    }
+
+    private void SetNumber(float number)
+    {
+        _text.text = number.ToString();
     }
 }
