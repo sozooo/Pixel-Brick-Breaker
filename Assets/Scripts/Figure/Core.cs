@@ -1,7 +1,5 @@
 using System;
-using System.Collections.Generic;
 using System.Collections;
-using System.Linq;
 using UnityEngine;
 
 public class Core : MonoBehaviour
@@ -29,10 +27,18 @@ public class Core : MonoBehaviour
         if(_explosionParticle == null)
             throw new ArgumentNullException(nameof(_explosionParticle));
 
-        if(_figure == null)
+        if (_figure == null)
             throw new ArgumentNullException(nameof(_figure));
 
         _standbyParticle.Play();
+    }
+
+    public void SetFigure(Figure figure)
+    {
+        if (figure == null)
+            throw new InvalidOperationException(nameof(figure));
+
+        _figure = figure;
     }
 
     private void VoxelsFall()

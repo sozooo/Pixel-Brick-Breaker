@@ -8,6 +8,7 @@ using UnityEngine;
 public class ParseVoxelStructure : MonoBehaviour
 {
 	private const string VoxelLayer = "Voxel";
+	private const float FigureLocalScale = 0.25f;
 
 	struct RawVoxelData
 	{
@@ -32,15 +33,14 @@ public class ParseVoxelStructure : MonoBehaviour
 
 		foreach(string guid in Selection.assetGUIDs)
         {
-			var path = AssetDatabase.GUIDToAssetPath(guid);
+			string path = AssetDatabase.GUIDToAssetPath(guid);
 
 			StreamReader file = new(path);
-			var rawVoxelDatas = ParseRawVoxelsFromFile(file);
+			List<RawVoxelData> rawVoxelDatas = ParseRawVoxelsFromFile(file);
 			file.Close();
 
-			var rootGameObject = CreateVoxelStructure(rawVoxelDatas);
+			GameObject rootGameObject = CreateVoxelStructure(rawVoxelDatas);
 			Selection.activeObject = rootGameObject;
-			rootGameObject.layer = LayerMask.NameToLayer(VoxelLayer);
 
 			PrefabUtility.SaveAsPrefabAsset(rootGameObject,
 				$"Assets/Prefabs/VoxelStructures/Difficulties/{Path.GetFileName(path)}.prefab");
@@ -82,14 +82,15 @@ public class ParseVoxelStructure : MonoBehaviour
 			throw new InvalidOperationException(nameof(rawVoxelData));
 
 		GameObject root = new();
-		Rigidbody rootRigidbody = root.AddComponent<Rigidbody>();
+		SetupConstraints(root.AddComponent<Rigidbody>());
+		Figure figure = root.AddComponent<Figure>();
 
+		
 		GameObject primitive = AssetDatabase.LoadAssetAtPath(
-			$"Assets/Prefabs/Primitive.prefab",
-			typeof(GameObject)) as GameObject;
+			$"Assets/Prefabs/Primitive.prefab", typeof(GameObject)) as GameObject;
 
 		if (primitive == null)
-			throw new InvalidCastException(nameof(primitive));
+			throw new InvalidCastException($"Initialize new {nameof(primitive)}");
 
 		foreach (RawVoxelData voxelData in rawVoxelData)
         {
@@ -102,12 +103,16 @@ public class ParseVoxelStructure : MonoBehaviour
 			TrailRenderer trail = GetTrailRenderer(cube);
 			trail.enabled = false;
 
-			FixedJoint fixedJoint = GetFixedJoint(cube);
-			fixedJoint.connectedBody = rootRigidbody;
-
 			Material material = GetOrCreateVoxelMaterial(voxelData.Color);
 			cube.GetComponent<Renderer>().sharedMaterial = material;
 		}
+
+		root.layer = LayerMask.NameToLayer(VoxelLayer);
+		root.transform.localScale = new Vector3(FigureLocalScale, FigureLocalScale, FigureLocalScale);
+
+		Core core = CreateCore();
+		core.transform.parent = root.transform;
+		core.transform.position = root.transform.position;
 
 		return root;
 	}
@@ -151,17 +156,24 @@ public class ParseVoxelStructure : MonoBehaviour
 		return trail;
     }
 
-	private static FixedJoint GetFixedJoint(GameObject voxel)
+	private static Core CreateCore()
     {
-		if (voxel == null)
-			throw new InvalidOperationException(nameof(voxel));
+		Core corePrefab = AssetDatabase.LoadAssetAtPath(
+			$"Assets/Prefabs/Core.prefab", typeof(Core)) as Core;
 
-		voxel.TryGetComponent(out FixedJoint joint);
+		if (corePrefab == null)
+			throw new InvalidCastException($"Initialize new {nameof(corePrefab)}");
 
-		if (joint == null)
-			throw new InvalidOperationException("Trail not found");
+		Core core = Instantiate(corePrefab);
 
-		return joint;
+		return core;
+    }
+
+	private static void SetupConstraints(Rigidbody rigidbody)
+    {
+		rigidbody.constraints = RigidbodyConstraints.FreezePositionZ
+			| RigidbodyConstraints.FreezeRotationZ
+			| RigidbodyConstraints.FreezeRotationX;
 	}
 }
 #endif

@@ -15,7 +15,7 @@ public class Voxel : MonoBehaviour
     private Animator _animator;
     private TrailRenderer _trail;
 
-    public event Action Falled;
+    public event Action<Voxel> Falled;
 
     public Vector3 Position => _position;
 
@@ -41,7 +41,6 @@ public class Voxel : MonoBehaviour
 
     public void Fall()
     {
-
         if (TryGetComponent(out Rigidbody rigidbody) == false)
             gameObject.AddComponent<Rigidbody>();
 
@@ -49,11 +48,12 @@ public class Voxel : MonoBehaviour
 
         if (_falling == null)
             _falling = StartCoroutine(Falling());
+
+        Falled?.Invoke(this);
     }
 
     private IEnumerator Falling()
     {
-
         WaitForSeconds wait = new(_timeToDisapear);
         WaitForSeconds waitForAnimationEnd = new(_animationLength);
 
@@ -62,7 +62,6 @@ public class Voxel : MonoBehaviour
         _animator.SetBool(DisapearAnimation, true);
 
         yield return waitForAnimationEnd;
-        Debug.Log("Fall");
 
         gameObject.SetActive(false);
 

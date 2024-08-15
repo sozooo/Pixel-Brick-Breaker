@@ -8,6 +8,7 @@ public class Figure : MonoBehaviour, ISpawnable<Figure>
     private float _voxelsLeft = 0;
 
     public event Action<Figure> Despawn;
+    public event Action VoxelFelled;
 
     public IReadOnlyList<Voxel> Voxels => _voxels;
 
@@ -19,6 +20,9 @@ public class Figure : MonoBehaviour, ISpawnable<Figure>
             {
                 voxel.SetPosition(voxel.transform.localPosition);
                 _voxels.Add(voxel);
+                _voxelsLeft++;
+
+                voxel.Falled += DecreaseVoxelsCount;
             }
         }
     }
@@ -36,9 +40,12 @@ public class Figure : MonoBehaviour, ISpawnable<Figure>
         }
     }
 
-    private void DecreaseVoxelsCount()
+    private void DecreaseVoxelsCount(Voxel voxel)
     {
+        voxel.Falled -= DecreaseVoxelsCount;
+
         _voxelsLeft--;
+        VoxelFelled?.Invoke();
 
         if (_voxelsLeft == 0)
             Despawn?.Invoke(this);
@@ -46,7 +53,6 @@ public class Figure : MonoBehaviour, ISpawnable<Figure>
 
     public void Initialize(Vector3 position, Quaternion rotation)
     {
-        transform.position = position;
-        transform.rotation = rotation;
+        transform.SetPositionAndRotation(position, rotation);
     }
 }

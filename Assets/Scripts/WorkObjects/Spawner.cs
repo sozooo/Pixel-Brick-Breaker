@@ -10,9 +10,8 @@ public class Spawner<T> : MonoBehaviour where T : MonoBehaviour, ISpawnable<T>
         T spawnable = Pool.Give();
 
         spawnable.Despawn += Despawn;
-        spawnable.gameObject.SetActive(true);
-
         spawnable.Initialize(Spawnpoint.position, Spawnpoint.rotation);
+        spawnable.gameObject.SetActive(true);
 
         return spawnable;
     }
