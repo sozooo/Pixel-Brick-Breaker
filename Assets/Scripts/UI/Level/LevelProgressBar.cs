@@ -15,7 +15,7 @@ public class LevelProgressBar : ProgressBar
 
     private new void OnEnable()
     {
-        _maxIndicator.text = Maximum.ToString();
+        _maxIndicator.text = (Maximum - Minimum).ToString();
         Current = 0;
 
         _figureSpawner.FigureSpawned += SetNewFigure;
@@ -45,13 +45,21 @@ public class LevelProgressBar : ProgressBar
     {
         base.IncreaseMaximum(increaser);
 
-        _maxIndicator.text = Maximum.ToString();
+        _maxIndicator.text = (Maximum - Minimum).ToString();
 
     }
 
     private void SetNewFigure(Figure figure)
     {
         _figure = figure;
+
         _figure.VoxelFelled += Fill;
+        _figure.Despawn += RemoveFigure;
+    }
+
+    private void RemoveFigure(Figure figure)
+    {
+        _figure.VoxelFelled -= Fill;
+        _figure.Despawn -= RemoveFigure;
     }
 }
