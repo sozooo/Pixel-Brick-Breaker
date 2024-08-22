@@ -8,6 +8,7 @@ public class Voxel : MonoBehaviour
     [SerializeField] private float _animationLength = 0.5f;
 
     private const string DisapearAnimation = "Disapear";
+    private const string FallingVoxelLayer = "Falling Voxel";
 
     private Vector3 _position;
 
@@ -45,6 +46,7 @@ public class Voxel : MonoBehaviour
             gameObject.AddComponent<Rigidbody>();
 
         _trail.enabled = true;
+        gameObject.layer = LayerMask.NameToLayer(FallingVoxelLayer);
 
         if (_falling == null)
             _falling = StartCoroutine(Falling());

@@ -8,6 +8,7 @@ public class Core : MonoBehaviour
     [SerializeField] private ParticleSystem _standbyParticle;
     [SerializeField] private ParticleSystem _explosionParticle;
     [SerializeField] private float _explodeTime = 1.35f;
+    [SerializeField] private CoreAudio _audio;
 
     private Coroutine _explosion;
 
@@ -33,28 +34,21 @@ public class Core : MonoBehaviour
         _standbyParticle.Play();
     }
 
-    public void SetFigure(Figure figure)
+    private void OnDisable()
     {
-        if (figure == null)
-            throw new InvalidOperationException(nameof(figure));
-
-        _figure = figure;
+        _figure.VoxelsFall();
     }
 
-    private void VoxelsFall()
+    public void SetFigure(Figure figure)
     {
-        foreach (Voxel voxel in _figure.Voxels)
-        {
-            if(voxel.isActiveAndEnabled)
-                voxel.Fall();
-        }
+        _figure = figure != null ? figure : throw new InvalidOperationException(nameof(figure));
     }
 
     private IEnumerator Explode()
     {
         yield return PlayOneShotParticle(_explosionParticle);
 
-        VoxelsFall();
+        _figure.VoxelsFall();
         gameObject.SetActive(false);
 
         _explosion = null;
@@ -68,9 +62,10 @@ public class Core : MonoBehaviour
         WaitForSeconds wait = new(time);
 
         particleSystem.Play(withChildren);
+        _audio.PlayMagic();
 
         yield return wait;
 
-        particleSystem.Stop(withChildren, ParticleSystemStopBehavior.StopEmittingAndClear);
+        //particleSystem.Stop(withChildren, ParticleSystemStopBehavior.StopEmittingAndClear);
     }
 }

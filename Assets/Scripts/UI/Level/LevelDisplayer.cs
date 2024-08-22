@@ -1,26 +1,25 @@
 using UnityEngine;
 using TMPro;
+using System;
 
 [RequireComponent(typeof(TextMeshProUGUI))]
 public class LevelDisplayer : MonoBehaviour
 {
-    [SerializeField] private FigureHandler _figureHandler;
-
     private TextMeshProUGUI _text;
 
     private void Awake()
     {
         _text = GetComponent<TextMeshProUGUI>();
-        Display(_figureHandler.StartLevel);
     }
 
-    private void OnEnable()
+    public void Display(int level)
     {
-        _figureHandler.LevelUped += Display;
-    }
+        if (_text == null)
+            throw new ArgumentNullException($"{nameof(_text)} doesnt exist");
 
-    private void Display(int level)
-    {
+        if (level <= 0)
+            throw new InvalidOperationException(nameof(level));
+
         _text.text = level.ToString();
     }
 }

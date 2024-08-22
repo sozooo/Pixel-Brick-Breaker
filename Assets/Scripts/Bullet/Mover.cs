@@ -6,23 +6,25 @@ public class Mover : MonoBehaviour
     [SerializeField] private float _speed;
 
     private Rigidbody _rigidbody;
+    private Transform _transform;
 
     public Vector3 MoveDirection { get; private set; }
 
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody>();
+        _transform = transform;
     }
 
     private void OnEnable()
     {
-        MoveDirection = transform.forward;
+        MoveDirection = _transform.forward;
     }
 
     private void FixedUpdate()
     {
         //transform.Translate(_speed * Time.deltaTime * MoveDirection, Space.World);
-        _rigidbody.Move(transform.position + _speed * Time.deltaTime * MoveDirection, transform.rotation);
+        _rigidbody.Move(_transform.position + _speed * Time.deltaTime * MoveDirection, _transform.rotation);
     }
 
     public void SetDirection(Vector3 direction)

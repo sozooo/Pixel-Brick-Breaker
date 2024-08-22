@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using com.cyborgAssets.inspectorButtonPro;
 using UnityEngine;
@@ -11,7 +12,10 @@ public class FigureSpawner : Spawner<Figure>
 
     private List<Figure> _mainFiguresList;
 
-    public event Action<Figure> FigureSpawned;
+    public event Action FigureDespawned;
+    public event Action FigureFelt;
+
+    public float TimeToDespawn => _timeToDespawn;
 
     [ProPlayButton]
     public override Figure Spawn()
@@ -23,8 +27,6 @@ public class FigureSpawner : Spawner<Figure>
         figure.Despawn += Despawn;
         figure.gameObject.SetActive(true);
 
-        FigureSpawned?.Invoke(figure);
-
         return figure;
     }
 
@@ -35,6 +37,17 @@ public class FigureSpawner : Spawner<Figure>
 
     protected override void Despawn(Figure figure)
     {
-        Destroy(figure, _timeToDespawn);
+        FigureFelt?.Invoke();
+
+        StartCoroutine(TimerBeforeDespawn(figure));
+    }
+
+    private IEnumerator TimerBeforeDespawn(Figure figure)
+    {
+        yield return new WaitForSeconds(_timeToDespawn);
+
+        Destroy(figure.gameObject);
+
+        FigureDespawned?.Invoke();
     }
 }

@@ -7,9 +7,16 @@ public class Exploder : MonoBehaviour
     [SerializeField] private float _strength;
     [SerializeField] private LayerMask _figureLayer;
 
+    private Transform _transform;
+
+    private void Awake()
+    {
+        _transform = transform;
+    }
+
     public void Explode()
     {
-        Vector3 position = transform.position;
+        Vector3 position = _transform.position;
 
         List<Collider> voxels = GetCollidedVoxels(position);
 

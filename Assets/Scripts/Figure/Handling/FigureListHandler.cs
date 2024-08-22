@@ -3,11 +3,8 @@ using System.Collections.Generic;
 using com.cyborgAssets.inspectorButtonPro;
 using UnityEngine;
 
-public class FigureHandler : MonoBehaviour
+public class FigureListHandler : MonoBehaviour
 {
-    [Header("Figure Spawner")]
-    [SerializeField] private FigureSpawner _spawner;
-
     [Header("Figures Levels")]
     [SerializeField] private List<Figure> _figuresLevel1;
     [SerializeField] private List<Figure> _figuresLevel2;
@@ -15,14 +12,14 @@ public class FigureHandler : MonoBehaviour
     [SerializeField] private List<Figure> _figuresLevel4;
 
     [Header("Level Settings")]
-    [SerializeField] private int _startLevel = 0;
+    [SerializeField] private int _startLevel = 1;
 
     private Dictionary<int, List<Figure>> _figuresLevelsPairs;
     private int _currentLevel = 0;
 
     public event Action<int> LevelUped;
 
-    public int StartLevel => _startLevel;
+    public int CurrentLevel => _currentLevel;
 
     private void Awake()
     {
@@ -35,15 +32,14 @@ public class FigureHandler : MonoBehaviour
         };
 
         _currentLevel = _startLevel - 1;
-        LevelUp();
     }
 
     [ProPlayButton]
-    public void LevelUp()
+    public List<Figure> LevelUp()
     {
         _currentLevel++;
-        _spawner.SetFigureList(_figuresLevelsPairs[_currentLevel]);
-
         LevelUped?.Invoke(_currentLevel);
+
+        return _figuresLevelsPairs[_currentLevel];
     }
 }

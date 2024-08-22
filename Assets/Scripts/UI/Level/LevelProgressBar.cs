@@ -1,11 +1,10 @@
 using com.cyborgAssets.inspectorButtonPro;
 using UnityEngine;
 using TMPro;
+using System;
 
 public class LevelProgressBar : ProgressBar
 {
-    [SerializeField] private FigureSpawner _figureSpawner;
-    [SerializeField] private FigureHandler _figureHandler;
     [SerializeField] private float _levelUpMultiplyer = 3;
 
     [Header("Indicators")]
@@ -13,18 +12,13 @@ public class LevelProgressBar : ProgressBar
 
     private Figure _figure;
 
+    public event Action LevelUp;
+
     private new void OnEnable()
     {
-        _maxIndicator.text = (Maximum - Minimum).ToString();
-        Current = 0;
-
-        _figureSpawner.FigureSpawned += SetNewFigure;
         base.OnEnable();
-    }
 
-    private void OnDisable()
-    {
-        _figureSpawner.FigureSpawned -= SetNewFigure;
+        _maxIndicator.text = (Maximum - Minimum).ToString();
     }
 
     [ProPlayButton]
@@ -37,7 +31,7 @@ public class LevelProgressBar : ProgressBar
         if (Current >= Maximum)
         {
             IncreaseMaximum(Maximum * _levelUpMultiplyer);
-            _figureHandler.LevelUp();
+            LevelUp?.Invoke();
         }
     }
 
@@ -49,7 +43,7 @@ public class LevelProgressBar : ProgressBar
 
     }
 
-    private void SetNewFigure(Figure figure)
+    public void SetNewFigure(Figure figure)
     {
         _figure = figure;
 

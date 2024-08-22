@@ -6,14 +6,18 @@ using TMPro;
 public class ProgressBar : MonoBehaviour
 {
     [SerializeField] private Image _filler;
-    [SerializeField] private float _minimum;
-    [SerializeField] private float _maximum;
+    [SerializeField] private float _startMinimum;
+    [SerializeField] private float _startMaximum;
+    [SerializeField] private float _startCurrent;
     [SerializeField] private float _timeToFill = 0.5f;
 
     [SerializeField] private TextMeshProUGUI _currentIndicator;
 
-    [SerializeField] protected float Current = 0;
+    public float CurrentCount => Current;
+    protected float Current = 0;
 
+    private float _minimum;
+    private float _maximum;
     private Coroutine _smoothFill;
 
     public float Maximum => _maximum;
@@ -21,7 +25,14 @@ public class ProgressBar : MonoBehaviour
 
     protected void OnEnable()
     {
-        _currentIndicator.text = Current.ToString();
+        Reset();
+    }
+
+    public void Reset()
+    {
+        _minimum = _startMinimum;
+        _maximum = _startMaximum;
+        Current = _startCurrent;
 
         Fill();
     }
@@ -64,4 +75,6 @@ public class ProgressBar : MonoBehaviour
 
         _smoothFill = null;
     }
+
+    
 }
