@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Figure : MonoBehaviour, ISpawnable<Figure>
 {
+    [SerializeField] private FigureAudio _audio;
+
     private readonly List<Voxel> _voxels = new();
     private float _voxelsLeft = 0;
 
@@ -37,6 +39,17 @@ public class Figure : MonoBehaviour, ISpawnable<Figure>
 
             _voxelsLeft++;
             voxel.Falled += DecreaseVoxelsCount;
+        }
+    }
+
+    public void VoxelsFall()
+    {
+        _audio.Explode();
+
+        foreach (Voxel voxel in _voxels)
+        {
+            if (voxel.isActiveAndEnabled)
+                voxel.Fall();
         }
     }
 
