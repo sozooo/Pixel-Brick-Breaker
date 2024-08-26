@@ -7,6 +7,8 @@ public class TimerProgressBar : ProgressBar
 {
     private float _fixedTime;
 
+    private Coroutine _timer;
+
     public event Action TimePassed;
     public event Action<float> SecondPassed;
 
@@ -16,9 +18,6 @@ public class TimerProgressBar : ProgressBar
     {
         base.OnEnable();
 
-        _fixedTime = Current;
-
-        StartCoroutine(Timer());
     }
 
     [ProPlayButton]
@@ -30,6 +29,21 @@ public class TimerProgressBar : ProgressBar
         Current = Mathf.Clamp(Current, Minimum, Maximum);
 
         Fill();
+    }
+
+    public override void Reset()
+    {
+        if(_timer != null)
+        {
+            StopCoroutine(_timer);
+            _timer = null;
+        }
+
+        _fixedTime = Current;
+
+        base.Reset();
+
+        _timer = StartCoroutine(Timer());
     }
 
     private IEnumerator Timer()
@@ -51,4 +65,6 @@ public class TimerProgressBar : ProgressBar
                 TimePassed?.Invoke();
         }
     }
+
+    
 }

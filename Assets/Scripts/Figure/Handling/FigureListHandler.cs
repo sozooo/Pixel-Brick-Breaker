@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using com.cyborgAssets.inspectorButtonPro;
 using UnityEngine;
 
 public class FigureListHandler : MonoBehaviour
@@ -34,7 +33,6 @@ public class FigureListHandler : MonoBehaviour
         _currentLevel = _startLevel - 1;
     }
 
-    [ProPlayButton]
     public List<Figure> LevelUp()
     {
         _currentLevel++;

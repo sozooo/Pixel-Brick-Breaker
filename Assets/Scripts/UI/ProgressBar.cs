@@ -28,7 +28,7 @@ public class ProgressBar : MonoBehaviour
         Reset();
     }
 
-    public void Reset()
+    public virtual void Reset()
     {
         _minimum = _startMinimum;
         _maximum = _startMaximum;

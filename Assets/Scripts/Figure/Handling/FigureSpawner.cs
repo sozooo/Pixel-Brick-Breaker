@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using com.cyborgAssets.inspectorButtonPro;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -17,7 +16,6 @@ public class FigureSpawner : Spawner<Figure>
 
     public float TimeToDespawn => _timeToDespawn;
 
-    [ProPlayButton]
     public override Figure Spawn()
     {
         Figure figure = Instantiate(

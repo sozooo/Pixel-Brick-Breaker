@@ -16,7 +16,6 @@ public class GameHandler : MonoBehaviour
     [SerializeField] private FigureSpawner _figureSpawner;
     [SerializeField] private FigureListHandler _figureList;
     [SerializeField] private LevelProgressBar _level;
-    [SerializeField] private LevelDisplayer _levelDisplayer;
 
     [Header("Timer Configuration")]
     [SerializeField] private TimerProgressBar _timer;
@@ -53,9 +52,10 @@ public class GameHandler : MonoBehaviour
 
     private void SpawnNewFigure()
     {
+        _cannon.DropBullets();
+        
         _currentFigure = _figureSpawner.Spawn();
 
-        _cannon.DropBullets();
         _rewardCollector.SetNewFigure(_currentFigure);
         _level.SetNewFigure(_currentFigure);
     }
