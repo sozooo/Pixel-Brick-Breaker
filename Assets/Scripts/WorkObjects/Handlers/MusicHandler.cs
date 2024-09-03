@@ -6,13 +6,19 @@ public class MusicHandler : Audio
     [SerializeField] private List<AudioClip> _music;
 
     [Header("Timings")]
-    [SerializeField] private MusicTiming _timing;
+    [SerializeField] private Timing _timing;
 
     private int _currentTrack = -1;
 
     private void OnEnable()
     {
-        _timing.TrackChanged += PlayTrack;
+        _timing.TimingChanged += PlayTrack;
+        AudioManager.MusicLevelsChanged += ChangeVolume;
+    }
+
+    private void OnDisable()
+    {
+        AudioManager.MusicLevelsChanged -= ChangeVolume;
     }
 
     private void PlayTrack(int index)

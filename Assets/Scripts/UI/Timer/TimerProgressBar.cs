@@ -16,8 +16,9 @@ public class TimerProgressBar : ProgressBar
 
     private new void OnEnable()
     {
-        base.OnEnable();
+        _fixedTime = Current;
 
+        base.Reset();
     }
 
     [ProPlayButton]
@@ -65,6 +66,4 @@ public class TimerProgressBar : ProgressBar
                 TimePassed?.Invoke();
         }
     }
-
-    
 }

@@ -1,12 +1,18 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
-using System.Collections;
+using System;
+using Random = UnityEngine.Random;
 
 public class Audio : MonoBehaviour
 {
     [SerializeField] private AudioSource _audioSource;
 
-    private Coroutine _playing;
+    private float _startVolume;
+
+    private void Awake()
+    {
+        _startVolume = _audioSource.volume;
+    }
 
     protected void PlayOneShot(List<AudioClip> audioClips)
     {
@@ -25,30 +31,25 @@ public class Audio : MonoBehaviour
 
     protected void Play(AudioClip clip)
     {
+        _audioSource.loop = false;
+
         _audioSource.clip = clip;
         _audioSource.Play();
     }
 
-    protected void PlayLoop(AudioClip clip)
+    protected void ChangeVolume(float volume)
     {
-        if (_playing != null)
-        {
-            Stop();
-            StopCoroutine(_playing);
-        }
+        if (volume < 0)
+            throw new ArgumentOutOfRangeException();
 
-        _playing = StartCoroutine(Playing(clip));
+        _audioSource.volume = _startVolume * Mathf.Clamp01(volume);
     }
 
-    private IEnumerator Playing(AudioClip clip)
+    protected void PlayLoop(AudioClip clip)
     {
-        WaitForSeconds waitForEndOfTrack = new(clip.length);
+        _audioSource.loop = true;
 
-        while (enabled)
-        {
-            Play(clip);
-
-            yield return waitForEndOfTrack;
-        }
+        _audioSource.clip = clip;
+        _audioSource.Play();
     }
 }

@@ -1,17 +1,17 @@
 ﻿using UnityEngine;
 using System;
 
-public class MusicTiming : MonoBehaviour
+public class Timing : MonoBehaviour
 {
     [SerializeField] private float _firstStepTiming;
     [SerializeField] private float _secondStepTiming;
     [SerializeField] private TimerProgressBar _timer;
 
-    private const int FirstTrack = 0;
-    private const int SecondTrack = 1;
-    private const int ThirdTrack = 2;
+    private const int FirstTiming = 0;
+    private const int SecondTiming = 1;
+    private const int ThirdTiming = 2;
 
-    public event Action<int> TrackChanged;
+    public event Action<int> TimingChanged;
 
     private void OnEnable()
     {
@@ -21,12 +21,12 @@ public class MusicTiming : MonoBehaviour
     private void WatchTiming(float currentTime)
     {
         if (currentTime > _firstStepTiming)
-            TrackChanged?.Invoke(FirstTrack);
+            TimingChanged?.Invoke(FirstTiming);
 
         else if(currentTime < _firstStepTiming && currentTime > _secondStepTiming)
-            TrackChanged?.Invoke(SecondTrack);
+            TimingChanged?.Invoke(SecondTiming);
 
         else if (currentTime < _secondStepTiming)
-            TrackChanged?.Invoke(ThirdTrack);
+            TimingChanged?.Invoke(ThirdTiming);
     }
 }
