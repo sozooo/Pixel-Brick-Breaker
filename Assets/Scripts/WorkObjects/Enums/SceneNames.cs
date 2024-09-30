@@ -1,5 +1,6 @@
 public enum SceneNames
 {
-    MainMenu = 0,
-    GameScene = 1
+    Authorization = 0,
+    MainMenu = 1,
+    GameScene = 2
 }
