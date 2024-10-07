@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -22,6 +23,8 @@ public class GameHandler : MonoBehaviour
     [SerializeField] private float _bonusTime = 10f;
 
     private Figure _currentFigure;
+    
+    public event Action GameOvered;
 
     private void OnEnable()
     {
@@ -84,6 +87,6 @@ public class GameHandler : MonoBehaviour
 
     private void GameOver()
     {
-        Debug.Log("GameOver");
+        GameOvered?.Invoke();
     }
 }
