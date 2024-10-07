@@ -12,6 +12,7 @@ public class Audio : MonoBehaviour
     private void Awake()
     {
         _startVolume = _audioSource.volume;
+        AudioManager.Muted += Mute;
     }
 
     protected void PlayOneShot(List<AudioClip> audioClips)
@@ -43,6 +44,11 @@ public class Audio : MonoBehaviour
             throw new ArgumentOutOfRangeException();
 
         _audioSource.volume = _startVolume * Mathf.Clamp01(volume);
+    }
+
+    protected void Mute(bool mute)
+    {
+        _audioSource.mute = mute;
     }
 
     protected void PlayLoop(AudioClip clip)

@@ -13,7 +13,7 @@ public class BulletAudio : Audio
 
     private void OnDisable()
     {
-        AudioManager.SoundLevelsChanged += ChangeVolume;
+        AudioManager.SoundLevelsChanged -= ChangeVolume;
     }
 
     public void Ricochet()

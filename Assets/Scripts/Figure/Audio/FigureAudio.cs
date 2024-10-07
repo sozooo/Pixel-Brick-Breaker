@@ -12,7 +12,7 @@ public class FigureAudio : Audio
 
     private void OnDisable()
     {
-        AudioManager.SoundLevelsChanged += ChangeVolume;
+        AudioManager.SoundLevelsChanged -= ChangeVolume;
     }
 
     public void Explode()
