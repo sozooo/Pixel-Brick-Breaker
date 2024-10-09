@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ExtraTimePannel : MonoBehaviour
+public class ExtraTimePannel : Pannel
 {
     [SerializeField] private TimerProgressBar _gameOverTimer;
     [SerializeField] private BuyButton _buyExtraTimeButton;
@@ -24,8 +24,6 @@ public class ExtraTimePannel : MonoBehaviour
     {
         _buyExtraTimeButton.Redeemed -= AddTime;
         _watchAdButton.Redeemed -= AddTime;
-        
-        TimerPassed?.Invoke();
     }
 
     private void AddTime()

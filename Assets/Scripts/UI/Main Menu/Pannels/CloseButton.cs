@@ -17,7 +17,7 @@ public class CloseButton : MonoBehaviour
         _button.onClick.AddListener(Close);
     }
 
-    private void Close()
+    protected virtual void Close()
     {
         _parentPannel.gameObject.SetActive(false);
     }

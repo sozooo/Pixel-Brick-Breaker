@@ -13,6 +13,8 @@ public class RewardDisplayer : MonoBehaviour
 
     private TextMeshProUGUI _text;
     private Coroutine _lerping;
+    
+    public float LastValueSetted => LastValue;
 
     protected void Awake()
     {

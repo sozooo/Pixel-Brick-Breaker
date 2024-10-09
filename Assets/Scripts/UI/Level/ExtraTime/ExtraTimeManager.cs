@@ -9,6 +9,7 @@ public class ExtraTimeManager : MonoBehaviour
     [SerializeField] private TimerProgressBar _gameTimer;
     [SerializeField] private ExtraTimePannel _pannel;
     [SerializeField] private GameHandler _gameHandler;
+    [SerializeField] private StatsCollector _statsCollector;
     
     [Header("Settings")]
     [SerializeField] private float _additionalTime;
@@ -39,13 +40,16 @@ public class ExtraTimeManager : MonoBehaviour
         }
     }
 
-    private void EndGame()
+    public void EndGame()
     {
+        _statsCollector.Collect();
+        
         GameOvered?.Invoke();
     }
 
     private void AddTime()
     {
+        _pannel.gameObject.SetActive(false);
         _gameTimer.AddTime(_additionalTime);
         _gameTimer.Reset();
 

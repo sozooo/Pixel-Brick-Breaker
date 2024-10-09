@@ -46,7 +46,8 @@ public static class PlayerStats
         if(newHighscore < 0)
             throw new ArgumentException("Invalid newHighscore");
         
-        s_highscore = newHighscore;
+        if(newHighscore > s_highscore)
+            s_highscore = newHighscore;
     }
 
     public static string Name => s_name;
