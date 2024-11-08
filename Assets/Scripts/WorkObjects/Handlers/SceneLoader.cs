@@ -9,15 +9,14 @@ public class SceneLoader : MonoBehaviour
 
     public void LoadScene(int sceneId)
     {
-        if(_asyncSceneLoad == null)
-            _asyncSceneLoad = StartCoroutine(LoadSceneAsync(sceneId));
+        _asyncSceneLoad ??= StartCoroutine(LoadSceneAsync(sceneId));
     }
 
     private IEnumerator LoadSceneAsync(int sceneId)
     {
         AsyncOperation load = SceneManager.LoadSceneAsync(sceneId);
 
-        load.completed += operation => _sceneLoaded = true;
+        load!.completed += operation => _sceneLoaded = true;
 
         yield return new WaitUntil(() => _sceneLoaded == true);
 

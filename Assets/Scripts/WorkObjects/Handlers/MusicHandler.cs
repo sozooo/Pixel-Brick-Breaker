@@ -23,17 +23,12 @@ public class MusicHandler : Audio
 
     private void PlayTrack(int index)
     {
-        if(_currentTrack == index)
-        {
-            return;
-        }
-        else
-        {
-            _currentTrack = index;
+        if (_currentTrack == index) return;
+        
+        _currentTrack = index;
 
-            AudioClip music = _music[_currentTrack];
+        AudioClip music = _music[_currentTrack];
 
-            PlayLoop(music);
-        }
+        PlayLoop(music);
     }
 }

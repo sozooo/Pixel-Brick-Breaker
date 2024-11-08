@@ -2,13 +2,14 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.Serialization;
 
 public class ProgressBar : MonoBehaviour
 {
     [SerializeField] private Image _filler;
-    [SerializeField] private float _startMinimum;
-    [SerializeField] private float _startMaximum;
-    [SerializeField] private float _startCurrent;
+    [SerializeField] protected float StartMinimum;
+    [SerializeField] protected float StartMaximum;
+    [SerializeField] protected float StartCurrent;
     [SerializeField] private float _timeToFill = 0.5f;
 
     [SerializeField] private TextMeshProUGUI _currentIndicator;
@@ -30,9 +31,9 @@ public class ProgressBar : MonoBehaviour
 
     public virtual void Reset()
     {
-        _minimum = _startMinimum;
-        _maximum = _startMaximum;
-        Current = _startCurrent;
+        _minimum = StartMinimum;
+        _maximum = StartMaximum;
+        Current = StartCurrent;
 
         Fill();
     }
