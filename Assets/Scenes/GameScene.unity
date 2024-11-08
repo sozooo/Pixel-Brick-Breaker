@@ -1137,11 +1137,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _filler: {fileID: 1097340289}
-  _startMinimum: 0
-  _startMaximum: 30
-  _startCurrent: 30
+  StartMinimum: 0
+  StartMaximum: 30
+  StartCurrent: 30
   _timeToFill: 0.3
   _currentIndicator: {fileID: 558376465}
+  _timeModifier: 5
 --- !u!1 &326716198
 GameObject:
   m_ObjectHideFlags: 0
@@ -7189,9 +7190,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _filler: {fileID: 150460300}
-  _startMinimum: 1
-  _startMaximum: 251
-  _startCurrent: 0
+  StartMinimum: 0
+  StartMaximum: 0
+  StartCurrent: 0
   _timeToFill: 0.5
   _currentIndicator: {fileID: 218187755}
   _levelUpMultiplyer: 3
@@ -8933,11 +8934,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _filler: {fileID: 1636416138}
-  _startMinimum: 0
-  _startMaximum: 10
-  _startCurrent: 10
+  StartMinimum: 0
+  StartMaximum: 0
+  StartCurrent: 0
   _timeToFill: 0.3
   _currentIndicator: {fileID: 1439038938}
+  _timeModifier: 5
 --- !u!114 &1687936787
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10396,6 +10398,7 @@ MonoBehaviour:
   _maxBonusReward: 100
   _minBonusTime: 0
   _maxBonusTime: 10
+  _coinMultiplier: 10
 --- !u!114 &2079113955
 MonoBehaviour:
   m_ObjectHideFlags: 0

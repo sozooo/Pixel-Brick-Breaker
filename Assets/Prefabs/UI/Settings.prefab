@@ -1672,6 +1672,7 @@ MonoBehaviour:
   _musicSlider: {fileID: 1902081200910829440}
   _soundSlider: {fileID: 3929815142336001984}
   _muteSwitch: {fileID: 4474735997088474314}
+  _closeButton: {fileID: 8399168513804548543}
 --- !u!1 &7986316600830308413
 GameObject:
   m_ObjectHideFlags: 0

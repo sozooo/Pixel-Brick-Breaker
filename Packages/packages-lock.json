@@ -7,13 +7,6 @@
       "dependencies": {},
       "hash": "558effef721399ade58d7bd3cc7f2c1541ea828d"
     },
-    "com.agava.yandexgames": {
-      "version": "https://github.com/forcepusher/com.agava.yandexgames.git#16.1.1",
-      "depth": 0,
-      "source": "git",
-      "dependencies": {},
-      "hash": "3bdb25b6765d133a66c5032258d772a5ac5d58b8"
-    },
     "com.unity.2d.sprite": {
       "version": "1.0.0",
       "depth": 0,
@@ -87,6 +80,13 @@
       "dependencies": {
         "com.unity.modules.uielements": "1.0.0"
       },
+      "url": "https://packages.unity.com"
+    },
+    "com.unity.nuget.newtonsoft-json": {
+      "version": "3.2.1",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {},
       "url": "https://packages.unity.com"
     },
     "com.unity.performance.profile-analyzer": {
