@@ -2,6 +2,8 @@ using System;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Serialization;
+using WorkObjects.Enums;
+using YG;
 
 public class ExtraTimeManager : MonoBehaviour
 {
@@ -26,6 +28,12 @@ public class ExtraTimeManager : MonoBehaviour
         _gameHandler.GameOvered += Show;
         _pannel.TimeRedeemed += AddTime;
         _pannel.TimerPassed += EndGame;
+
+        YandexGame.RewardVideoEvent += adIndex =>
+        {
+            if(adIndex == (int)RewardAdTypes.AddTime)
+                AddTime();
+        };
     }
 
     private void Show()

@@ -2,21 +2,26 @@ using System;
 using System.Collections;
 using com.cyborgAssets.inspectorButtonPro;
 using UnityEngine;
+using YG;
 
 public class TimerProgressBar : ProgressBar
 {
-    private float _fixedTime;
-
+    [SerializeField] private float _timeModifier = 5;
+    
     private Coroutine _timer;
 
     public event Action TimePassed;
     public event Action<float> SecondPassed;
 
-    public float FixedTime => _fixedTime;
+    public float BonusTime { get; private set; }
 
     private new void OnEnable()
     {
-        _fixedTime = Current;
+        BonusTime = Current;
+
+        float upgradedTime = _timeModifier * YandexGame.savesData.TimerLevel;
+        StartMaximum += upgradedTime;
+        StartCurrent = StartMaximum;
 
         base.Reset();
     }
@@ -24,8 +29,8 @@ public class TimerProgressBar : ProgressBar
     [ProPlayButton]
     public void AddTime(float time)
     {
-        _fixedTime = Current;
-
+        BonusTime = Current;
+        
         Current += time;
         Current = Mathf.Clamp(Current, Minimum, Maximum);
 
@@ -40,7 +45,7 @@ public class TimerProgressBar : ProgressBar
             _timer = null;
         }
 
-        _fixedTime = Current;
+        BonusTime = Current;
 
         base.Reset();
 
@@ -62,7 +67,7 @@ public class TimerProgressBar : ProgressBar
 
             SecondPassed?.Invoke(Current);
 
-            if (Current == Minimum)
+            if (Mathf.Approximately(Current, Minimum))
                 TimePassed?.Invoke();
         }
     }
