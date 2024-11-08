@@ -1,13 +1,30 @@
+using UI.Main_Menu.Pannels;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public abstract class MenuButton : MonoBehaviour, IPointerClickHandler
+namespace UI.Main_Menu.Buttons
 {
-    public void OnPointerClick(PointerEventData eventData)
+    public class MenuButton : MonoBehaviour, IPointerClickHandler
     {
-        if(eventData.button == PointerEventData.InputButton.Left)
-            Iteract();
-    }
+        [SerializeField] private PannelGroup _pannelGroup;
+        [SerializeField] private Pannel _pannel;
 
-    protected abstract void Iteract();
+        private void Awake()
+        {
+            _pannelGroup.Subscribe(_pannel);
+        }
+
+        public void OnPointerClick(PointerEventData eventData)
+        {
+            if(eventData.button == PointerEventData.InputButton.Left)
+                Iteract();
+        }
+
+        private void Iteract()
+        {
+            _pannelGroup.HideAll();
+            
+            _pannel.gameObject.SetActive(true);
+        }
+    }
 }

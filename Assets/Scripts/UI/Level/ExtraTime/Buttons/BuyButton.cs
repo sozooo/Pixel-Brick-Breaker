@@ -1,4 +1,5 @@
 using UnityEngine;
+using YG;
 
 public class BuyButton : ExtraTimeButton
 {
@@ -6,7 +7,7 @@ public class BuyButton : ExtraTimeButton
     
     protected override void Iteract()
     {
-        if (PlayerStats.Coins < _buybackCost) return;
+        if (YandexGame.savesData.Coins < _buybackCost) return;
         
         base.Iteract();
         PlayerStats.Buy(_buybackCost);

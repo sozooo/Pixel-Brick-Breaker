@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using YG;
 
 public class Exploder : MonoBehaviour
 {
@@ -40,7 +41,7 @@ public class Exploder : MonoBehaviour
 
     private List<Collider> GetCollidedVoxels(Vector3 position)
     {
-        Collider[] hits = Physics.OverlapSphere(position, _range, _figureLayer);
+        Collider[] hits = Physics.OverlapSphere(position, _range * YandexGame.savesData.BlastRadiusLevel, _figureLayer);
 
         List<Collider> voxels= new(hits);
 

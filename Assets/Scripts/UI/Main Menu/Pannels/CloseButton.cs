@@ -9,6 +9,8 @@ public class CloseButton : MonoBehaviour
     [SerializeField] private Pannel _parentPannel;
     
     private Button _button;
+    
+    public event Action Closed;
 
     private void Awake()
     {
@@ -19,6 +21,8 @@ public class CloseButton : MonoBehaviour
 
     protected virtual void Close()
     {
+        Closed?.Invoke();
+        
         _parentPannel.gameObject.SetActive(false);
     }
 }
