@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using YG;
 
 public class EndGameHighscoreCounter : MonoBehaviour
 {
@@ -20,7 +21,7 @@ public class EndGameHighscoreCounter : MonoBehaviour
     {
         _counterText.text = _levelProgressBar.CurrentCount.ToString();
         
-        if(Mathf.Approximately(_levelProgressBar.CurrentCount, PlayerStats.Highscore))
+        if(Mathf.Approximately(_levelProgressBar.CurrentCount, YandexGame.savesData.Highscore))
             _newHighscoreText.gameObject.SetActive(true);
     }
 }

@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using YG;
 
 [RequireComponent(typeof(TextMeshProUGUI))]
 public class EndGameTotalCoins : MonoBehaviour
@@ -17,6 +18,6 @@ public class EndGameTotalCoins : MonoBehaviour
 
     private void Display()
     {
-        _text.text = PlayerStats.Coins.ToString();
+        _text.text = YandexGame.savesData.Coins.ToString();
     }
 }
