@@ -4,7 +4,8 @@ using YG;
 
 public class Exploder : MonoBehaviour
 {
-    [SerializeField] private float _range;
+    [SerializeField] private float _baseRange = 0.5f;
+    [SerializeField] private float _rangeMultiplier = 0.2f;
     [SerializeField] private float _strength;
     [SerializeField] private LayerMask _figureLayer;
 
@@ -41,9 +42,9 @@ public class Exploder : MonoBehaviour
 
     private List<Collider> GetCollidedVoxels(Vector3 position)
     {
-        Collider[] hits = Physics.OverlapSphere(position, _range * YandexGame.savesData.BlastRadiusLevel, _figureLayer);
+        Collider[] hits = Physics.OverlapSphere(position, _baseRange + _rangeMultiplier * YandexGame.savesData.BlastRadiusLevel, _figureLayer);
 
-        List<Collider> voxels= new(hits);
+        List<Collider> voxels = new(hits);
 
         return voxels;
     }

@@ -11,8 +11,6 @@ namespace UI.Level.ExtraTime
             RewardIndex = (int)RewardAdTypes.AddTime;
             
             base.Awake();
-            
-            TimerBeforeAdsYG
         }
     }
 }

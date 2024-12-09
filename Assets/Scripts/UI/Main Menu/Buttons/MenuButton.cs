@@ -11,7 +11,8 @@ namespace UI.Main_Menu.Buttons
 
         private void Awake()
         {
-            _pannelGroup.Subscribe(_pannel);
+            if(_pannelGroup)
+                _pannelGroup.Subscribe(_pannel);
         }
 
         public void OnPointerClick(PointerEventData eventData)
@@ -22,7 +23,8 @@ namespace UI.Main_Menu.Buttons
 
         private void Iteract()
         {
-            _pannelGroup.HideAll();
+            if(_pannelGroup)
+                _pannelGroup.HideAll();
             
             _pannel.gameObject.SetActive(true);
         }

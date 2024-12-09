@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using YG;
 
 public class SceneLoader : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class SceneLoader : MonoBehaviour
 
     public void LoadScene(int sceneId)
     {
+        // YandexGame.FullscreenShow();
+        
         _asyncSceneLoad ??= StartCoroutine(LoadSceneAsync(sceneId));
     }
 

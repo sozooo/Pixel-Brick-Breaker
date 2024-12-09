@@ -20,6 +20,7 @@ public class Spawner<T> : MonoBehaviour where T : MonoBehaviour, ISpawnable<T>
     {
         spawnable.Despawn -= Despawn;
 
-        Pool.Add(spawnable);
+        if(Pool)
+            Pool.Add(spawnable);
     }
 }
