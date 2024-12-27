@@ -18,6 +18,7 @@ namespace YG
 
         public int TimerLevel = 0;
         public int BlastRadiusLevel = 0;
+        public bool IsAdRemoved = false;
 
         public int CoinsForAd = 500;
     }
