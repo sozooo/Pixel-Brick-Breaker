@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using YG;
 
 public class PausePannel : Pannel
 {
@@ -13,11 +14,12 @@ public class PausePannel : Pannel
     private new void OnEnable()
     {
         base.OnEnable();
-        Time.timeScale = 0;
+        YandexGame.GameplayStop();
     }
 
     private void OnDisable()
     {
         Time.timeScale = _timeScale;
+        YandexGame.GameplayStart();
     }
 }
