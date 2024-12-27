@@ -269,7 +269,6 @@ GameObject:
   - component: {fileID: 51184942}
   - component: {fileID: 51184941}
   - component: {fileID: 51184940}
-  - component: {fileID: 51184939}
   m_Layer: 5
   m_Name: Buy Button
   m_TagString: Untagged
@@ -297,18 +296,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -63.1}
   m_SizeDelta: {x: 172.8, y: 95.2}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &51184939
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 51184937}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 50618aa4368f4398815f4d1b3813ee08, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &51184940
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -880,6 +867,8 @@ GameObject:
   - component: {fileID: 113109067}
   - component: {fileID: 113109069}
   - component: {fileID: 113109068}
+  - component: {fileID: 113109071}
+  - component: {fileID: 113109070}
   m_Layer: 5
   m_Name: Much More Coins
   m_TagString: Untagged
@@ -946,6 +935,48 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 113109066}
   m_CullTransparentMesh: 1
+--- !u!114 &113109070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 113109066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9acc5ddc9554194b0c47b09a8777620, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _button: {fileID: 975584536}
+--- !u!114 &113109071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 113109066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 676c869f6c04b7848ae04d741545c51d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  showCurrencyCode: 0
+  purchaseImageLoad: {fileID: 0}
+  currencyImageLoad: {fileID: 0}
+  textLegasy:
+    title: {fileID: 0}
+    description: {fileID: 0}
+    priceValue: {fileID: 0}
+  data:
+    id: 3
+    title: 
+    description: 
+    imageURI: 
+    price: 
+    priceValue: 
+    priceCurrencyCode: 
+    currencyImageURL: 
+    consumed: 0
 --- !u!1 &126080706
 GameObject:
   m_ObjectHideFlags: 0
@@ -1186,6 +1217,7 @@ GameObject:
   - component: {fileID: 161533445}
   - component: {fileID: 161533447}
   - component: {fileID: 161533446}
+  - component: {fileID: 161533448}
   m_Layer: 5
   m_Name: Price Icon
   m_TagString: Untagged
@@ -1251,6 +1283,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 161533444}
   m_CullTransparentMesh: 1
+--- !u!114 &161533448
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 161533444}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 530859dd12394acf97bd1d4a3491c52f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  upgradeItem: {fileID: 664818186}
+  _text: {fileID: 1023994781}
 --- !u!1 &164534633
 GameObject:
   m_ObjectHideFlags: 0
@@ -1923,7 +1969,6 @@ GameObject:
   - component: {fileID: 354115461}
   - component: {fileID: 354115463}
   - component: {fileID: 354115462}
-  - component: {fileID: 354115464}
   m_Layer: 5
   m_Name: Price Text
   m_TagString: Untagged
@@ -2047,19 +2092,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 354115460}
   m_CullTransparentMesh: 1
---- !u!114 &354115464
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 354115460}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 530859dd12394acf97bd1d4a3491c52f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  storeItem: {fileID: 1357585924}
 --- !u!1 &361790327
 GameObject:
   m_ObjectHideFlags: 0
@@ -3257,9 +3289,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9b647109a4343499d6cbfe56beeee2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _button: {fileID: 476197693}
   BasePrice: 2500
   PriceMultiplier: 2
-  _button: {fileID: 476197693}
 --- !u!1 &854096366
 GameObject:
   m_ObjectHideFlags: 0
@@ -3487,7 +3519,6 @@ GameObject:
   - component: {fileID: 886139000}
   - component: {fileID: 886138999}
   - component: {fileID: 886138998}
-  - component: {fileID: 886138997}
   m_Layer: 5
   m_Name: Buy Button
   m_TagString: Untagged
@@ -3515,18 +3546,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -63.1}
   m_SizeDelta: {x: 172.8, y: 95.2}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &886138997
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 886138995}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 50618aa4368f4398815f4d1b3813ee08, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &886138998
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3621,7 +3640,6 @@ GameObject:
   - component: {fileID: 915527992}
   - component: {fileID: 915527991}
   - component: {fileID: 915527990}
-  - component: {fileID: 915527989}
   m_Layer: 5
   m_Name: Buy Button
   m_TagString: Untagged
@@ -3649,18 +3667,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -63.1}
   m_SizeDelta: {x: 172.8, y: 95.2}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &915527989
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 915527987}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 50618aa4368f4398815f4d1b3813ee08, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &915527990
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3787,7 +3793,6 @@ GameObject:
   - component: {fileID: 975584538}
   - component: {fileID: 975584537}
   - component: {fileID: 975584536}
-  - component: {fileID: 975584535}
   m_Layer: 5
   m_Name: Buy Button
   m_TagString: Untagged
@@ -3815,18 +3820,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -63.1}
   m_SizeDelta: {x: 172.8, y: 95.2}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &975584535
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 975584533}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 50618aa4368f4398815f4d1b3813ee08, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &975584536
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4188,7 +4181,6 @@ GameObject:
   - component: {fileID: 1023994780}
   - component: {fileID: 1023994782}
   - component: {fileID: 1023994781}
-  - component: {fileID: 1023994783}
   m_Layer: 5
   m_Name: Price Text
   m_TagString: Untagged
@@ -4312,19 +4304,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1023994779}
   m_CullTransparentMesh: 1
---- !u!114 &1023994783
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1023994779}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 530859dd12394acf97bd1d4a3491c52f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  storeItem: {fileID: 664818186}
 --- !u!1 &1026622597
 GameObject:
   m_ObjectHideFlags: 0
@@ -4979,6 +4958,8 @@ GameObject:
   - component: {fileID: 1231372143}
   - component: {fileID: 1231372145}
   - component: {fileID: 1231372144}
+  - component: {fileID: 1231372147}
+  - component: {fileID: 1231372146}
   m_Layer: 5
   m_Name: 2Coins
   m_TagString: Untagged
@@ -5045,6 +5026,48 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1231372142}
   m_CullTransparentMesh: 1
+--- !u!114 &1231372146
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1231372142}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9acc5ddc9554194b0c47b09a8777620, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _button: {fileID: 51184940}
+--- !u!114 &1231372147
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1231372142}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 676c869f6c04b7848ae04d741545c51d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  showCurrencyCode: 0
+  purchaseImageLoad: {fileID: 0}
+  currencyImageLoad: {fileID: 0}
+  textLegasy:
+    title: {fileID: 0}
+    description: {fileID: 0}
+    priceValue: {fileID: 0}
+  data:
+    id: 0
+    title: 
+    description: 
+    imageURI: 
+    price: 
+    priceValue: 
+    priceCurrencyCode: 
+    currencyImageURL: 
+    consumed: 0
 --- !u!1 &1304743828
 GameObject:
   m_ObjectHideFlags: 0
@@ -5252,6 +5275,8 @@ GameObject:
   - component: {fileID: 1334883493}
   - component: {fileID: 1334883495}
   - component: {fileID: 1334883494}
+  - component: {fileID: 1334883497}
+  - component: {fileID: 1334883496}
   m_Layer: 5
   m_Name: More Coins
   m_TagString: Untagged
@@ -5318,6 +5343,48 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1334883492}
   m_CullTransparentMesh: 1
+--- !u!114 &1334883496
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1334883492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9acc5ddc9554194b0c47b09a8777620, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _button: {fileID: 1695268177}
+--- !u!114 &1334883497
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1334883492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 676c869f6c04b7848ae04d741545c51d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  showCurrencyCode: 0
+  purchaseImageLoad: {fileID: 0}
+  currencyImageLoad: {fileID: 0}
+  textLegasy:
+    title: {fileID: 0}
+    description: {fileID: 0}
+    priceValue: {fileID: 0}
+  data:
+    id: 2
+    title: 
+    description: 
+    imageURI: 
+    price: 
+    priceValue: 
+    priceCurrencyCode: 
+    currencyImageURL: 
+    consumed: 0
 --- !u!1 &1357585920
 GameObject:
   m_ObjectHideFlags: 0
@@ -5410,9 +5477,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 685c50d811b64e0ca376e76cd113c070, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _button: {fileID: 1332874746}
   BasePrice: 4500
   PriceMultiplier: 3
-  _button: {fileID: 1332874746}
 --- !u!1 &1490842459
 GameObject:
   m_ObjectHideFlags: 0
@@ -5826,6 +5893,8 @@ GameObject:
   - component: {fileID: 1671315179}
   - component: {fileID: 1671315181}
   - component: {fileID: 1671315180}
+  - component: {fileID: 1671315183}
+  - component: {fileID: 1671315182}
   m_Layer: 5
   m_Name: Remove Ads
   m_TagString: Untagged
@@ -5892,6 +5961,48 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1671315178}
   m_CullTransparentMesh: 1
+--- !u!114 &1671315182
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1671315178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9acc5ddc9554194b0c47b09a8777620, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _button: {fileID: 915527990}
+--- !u!114 &1671315183
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1671315178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 676c869f6c04b7848ae04d741545c51d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  showCurrencyCode: 0
+  purchaseImageLoad: {fileID: 0}
+  currencyImageLoad: {fileID: 0}
+  textLegasy:
+    title: {fileID: 0}
+    description: {fileID: 0}
+    priceValue: {fileID: 0}
+  data:
+    id: 4
+    title: 
+    description: 
+    imageURI: 
+    price: 
+    priceValue: 
+    priceCurrencyCode: 
+    currencyImageURL: 
+    consumed: 0
 --- !u!1 &1678887912
 GameObject:
   m_ObjectHideFlags: 0
@@ -6046,7 +6157,6 @@ GameObject:
   - component: {fileID: 1695268179}
   - component: {fileID: 1695268178}
   - component: {fileID: 1695268177}
-  - component: {fileID: 1695268176}
   m_Layer: 5
   m_Name: Buy Button
   m_TagString: Untagged
@@ -6074,18 +6184,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -63.1}
   m_SizeDelta: {x: 172.8, y: 95.2}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1695268176
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1695268174}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 50618aa4368f4398815f4d1b3813ee08, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1695268177
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7040,7 +7138,7 @@ GameObject:
   - component: {fileID: 1937293967}
   - component: {fileID: 1937293968}
   m_Layer: 5
-  m_Name: Upgrade Row
+  m_Name: Catalog
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7488,6 +7586,8 @@ GameObject:
   - component: {fileID: 2087251148}
   - component: {fileID: 2087251150}
   - component: {fileID: 2087251149}
+  - component: {fileID: 2087251152}
+  - component: {fileID: 2087251151}
   m_Layer: 5
   m_Name: 4Coins
   m_TagString: Untagged
@@ -7554,6 +7654,48 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2087251147}
   m_CullTransparentMesh: 1
+--- !u!114 &2087251151
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2087251147}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9acc5ddc9554194b0c47b09a8777620, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _button: {fileID: 886138998}
+--- !u!114 &2087251152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2087251147}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 676c869f6c04b7848ae04d741545c51d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  showCurrencyCode: 0
+  purchaseImageLoad: {fileID: 0}
+  currencyImageLoad: {fileID: 0}
+  textLegasy:
+    title: {fileID: 0}
+    description: {fileID: 0}
+    priceValue: {fileID: 0}
+  data:
+    id: 1
+    title: 
+    description: 
+    imageURI: 
+    price: 
+    priceValue: 
+    priceCurrencyCode: 
+    currencyImageURL: 
+    consumed: 0
 --- !u!1 &2091229699
 GameObject:
   m_ObjectHideFlags: 0
@@ -7699,6 +7841,7 @@ GameObject:
   - component: {fileID: 2092497123}
   - component: {fileID: 2092497125}
   - component: {fileID: 2092497124}
+  - component: {fileID: 2092497126}
   m_Layer: 5
   m_Name: Price Icon
   m_TagString: Untagged
@@ -7764,6 +7907,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2092497122}
   m_CullTransparentMesh: 1
+--- !u!114 &2092497126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2092497122}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 530859dd12394acf97bd1d4a3491c52f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  upgradeItem: {fileID: 1357585924}
+  _text: {fileID: 354115462}
 --- !u!1 &2128289533
 GameObject:
   m_ObjectHideFlags: 0

@@ -10893,7 +10893,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6850549183987866088}
   - component: {fileID: 6850549183987866092}
-  - component: {fileID: 6850549183987866093}
   - component: {fileID: 6850549183987866094}
   - component: {fileID: 6850549183987866096}
   - component: {fileID: 6850549183987866098}
@@ -10921,22 +10920,6 @@ MonoBehaviour:
   Spawnpoint: {fileID: 5409569}
   _startBulletCount: 10
   _shootColldawn: 1
---- !u!114 &6850549183987866093
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6850549183987866091}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 23c2759e5cd2b4720888d685350cbcfe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _speed: 20
-  _minRatation: -80
-  _maxRotation: 80
-  _aim: {fileID: 326716200}
 --- !u!114 &6850549183987866094
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10950,6 +10933,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _movement: {fileID: 165672014}
+  _rotator:
+    _speed: 20
+    _minRatation: -80
+    _maxRotation: 80
+    _aim: {fileID: 326716200}
 --- !u!114 &6850549183987866096
 MonoBehaviour:
   m_ObjectHideFlags: 0
