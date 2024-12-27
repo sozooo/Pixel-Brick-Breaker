@@ -10,8 +10,9 @@ public class PausePannel : Pannel
         _timeScale = Time.timeScale;
     }
 
-    private void OnEnable()
+    private new void OnEnable()
     {
+        base.OnEnable();
         Time.timeScale = 0;
     }
 

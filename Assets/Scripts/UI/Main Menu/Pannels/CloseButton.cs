@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using YG;
 
 [RequireComponent(typeof(Button))]
 public class CloseButton : MonoBehaviour
@@ -24,5 +25,7 @@ public class CloseButton : MonoBehaviour
         Closed?.Invoke();
         
         _parentPannel.gameObject.SetActive(false);
+        
+        YandexGame.StickyAdActivity(false);
     }
 }
