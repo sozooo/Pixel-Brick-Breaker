@@ -11,23 +11,30 @@ public class ExtraTimePannel : Pannel
     public event Action TimerPassed;
     public event Action TimeRedeemed;
     
-    private void OnEnable()
+    private new void OnEnable()
     {
+        base.OnEnable();
         _gameOverTimer.Reset();
 
         _buyExtraTimeButton.Redeemed += AddTime;
         _watchAdButton.Redeemed += AddTime;
-        _gameOverTimer.TimePassed += () => TimerPassed?.Invoke();
+        _gameOverTimer.TimePassed += PassTimer;
     }
 
     private void OnDisable()
     {
         _buyExtraTimeButton.Redeemed -= AddTime;
         _watchAdButton.Redeemed -= AddTime;
+        _gameOverTimer.TimePassed -= PassTimer;
     }
 
     private void AddTime()
     {
         TimeRedeemed?.Invoke();
+    }
+
+    private void PassTimer()
+    {
+        TimerPassed?.Invoke();
     }
 }

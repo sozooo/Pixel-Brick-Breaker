@@ -19,8 +19,6 @@ public static class AudioManager
         YandexGame.savesData.SoundLevel = Mathf.Clamp01(soundLevel);
         YandexGame.savesData.Muted = muted;
 
-        SaveSettings();
-
         MusicLevelsChanged?.Invoke(YandexGame.savesData.MusicLevel);
         SoundLevelsChanged?.Invoke(YandexGame.savesData.SoundLevel);
         Muted?.Invoke(YandexGame.savesData.Muted);
