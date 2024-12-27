@@ -10938,6 +10938,7 @@ MonoBehaviour:
     _minRatation: -80
     _maxRotation: 80
     _aim: {fileID: 326716200}
+  _aimShower: {fileID: 326716200}
 --- !u!114 &6850549183987866096
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11814,7 +11815,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6850549184209935221}
   m_Layer: 3
-  m_Name: 2
+  m_Name: View
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
