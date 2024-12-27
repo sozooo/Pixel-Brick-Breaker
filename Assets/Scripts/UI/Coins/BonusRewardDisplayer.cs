@@ -1,9 +1,14 @@
-﻿public class BonusRewardDisplayer : RewardDisplayer
+﻿using System;
+
+public class BonusRewardDisplayer : RewardDisplayer
 {
-    private new void Awake()
+    private void OnEnable()
     {
         Collector.BonusCollected += Display;
+    }
 
-        base.Awake();
+    private void OnDisable()
+    {
+        Collector.BonusCollected -= Display;
     }
 }

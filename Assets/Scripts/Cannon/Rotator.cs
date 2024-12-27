@@ -1,6 +1,8 @@
+using System;
 using UnityEngine;
 
-public class Rotator : MonoBehaviour
+[Serializable]
+public class Rotator
 {
     [SerializeField] private float _speed = 20;
     [SerializeField] private float _minRatation = -80;
@@ -13,45 +15,51 @@ public class Rotator : MonoBehaviour
     private Vector3 _rotation;
 
     private Transform _transform;
+    private PlayerInput _input;
 
-    private void Awake()
+    public Rotator(Transform transform, PlayerInput input, AimShower aim)
     {
-        _startEulerAngles = transform.localEulerAngles;
-
         _transform = transform;
+        _input = input;
+        _aim = aim;
+        
+        _startEulerAngles = _transform.localEulerAngles;
+        
+        _input.Mouse.Press.started += context => StartRotation();
+        
     }
 
-    private void Update()
+    public void Update()
     {
-        Rotate();
+        if (_input.Mouse.Press.IsPressed())
+        {
+            Rotate();
+        }
+    }
+
+    private void StartRotation()
+    {
+        Debug.Log("StartRotation");
+        
+        _startMousePosition = Input.mousePosition.x;
+
+        _aim.Show();
     }
 
     private void Rotate()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            _startMousePosition = Input.mousePosition.x;
+        float currentMousePosition = Input.mousePosition.x;
+        float mousePositionDelta = currentMousePosition - _startMousePosition;
+        _startMousePosition = currentMousePosition;
 
-            _aim.Show();
-        }
-
-        if (Input.GetMouseButton(0))
-        {
-            float currentMousePosition = Input.mousePosition.x;
-            float mousePositionDelta = currentMousePosition - _startMousePosition;
-            _startMousePosition = currentMousePosition;
-
-            _rotation = new Vector3(_rotation.x + mousePositionDelta * _speed * Time.deltaTime, 0f, 0f).ClampX(_minRatation, _maxRotation);
-            _transform.localRotation = Quaternion.Euler(_rotation);
-
-        }
-
-        if (Input.GetMouseButtonUp(0))
-            _aim.Hide();
+        _rotation = new Vector3(_rotation.x + mousePositionDelta * _speed * Time.deltaTime, 0f, 0f)
+            .ClampX(_minRatation, _maxRotation);
+        _transform.localRotation = Quaternion.Euler(_rotation);
     }
 
     public void Reset()
     {
         _transform.localEulerAngles = _startEulerAngles;
+        _aim.Hide();
     }
 }

@@ -19,22 +19,15 @@ public class CannonMovement : MonoBehaviour
 
     public void Move(Vector3 direction)
     {
-        if (direction == null)
-            throw new InvalidOperationException($"{nameof(direction)} cannot be null");
-
         float xMovement = direction.x * _speed;
 
         Vector3 destination = (_transform.localPosition + new Vector3(xMovement, 0f, 0f)).ClampY(_minX, _maxX);
 
-        if (_lerpMove == null)
-            _lerpMove = StartCoroutine(LerpMove(destination));
+        _lerpMove ??= StartCoroutine(LerpMove(destination));
     }
 
     private IEnumerator LerpMove(Vector3 destination)
     {
-        if (destination == null)
-            throw new InvalidOperationException($"{nameof(destination)} cannot be null");
-
         float currentTime = 0f;
 
         while (currentTime < _timeToMove)

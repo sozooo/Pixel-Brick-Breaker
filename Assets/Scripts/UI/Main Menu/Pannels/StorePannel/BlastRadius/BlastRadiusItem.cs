@@ -4,7 +4,7 @@ using YG;
 
 namespace UI.Main_Menu.Pannels.StorePannel.BlastRadius
 {
-    public class BlastRadiusItem : StoreItem
+    public class BlastRadiusItem : UpgradeItem
     {
         private void Awake()
         {

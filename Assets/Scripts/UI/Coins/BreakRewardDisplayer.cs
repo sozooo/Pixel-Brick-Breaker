@@ -4,11 +4,14 @@ public class BreakRewardDisplayer : RewardDisplayer
 {
     private float _fixedValue;
 
-    private new void Awake()
+    private void OnEnable()
     {
         Collector.CurrentChanged += Display;
+    }
 
-        base.Awake();
+    private void OnDisable()
+    {
+        Collector.CurrentChanged -= Display;
     }
 
     protected override void Display(float value)

@@ -5,6 +5,11 @@
         Collector.CurrentChanged += Display;
     }
 
+    private void OnDisable()
+    {
+        Collector.CurrentChanged -= Display;
+    }
+
     protected override void Display(float count)
     {
         base.Display(count);

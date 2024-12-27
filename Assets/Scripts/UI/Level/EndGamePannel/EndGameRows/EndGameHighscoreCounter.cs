@@ -1,25 +1,15 @@
 using TMPro;
+using UI.Level.EndGamePannel.EndGameRows;
 using UnityEngine;
 using YG;
 
-public class EndGameHighscoreCounter : MonoBehaviour
+public class EndGameHighscoreCounter : EndGameRow
 {
-    [SerializeField] private ExtraTimeManager _extraTimeManager;
     [SerializeField] private LevelProgressBar _levelProgressBar;
     [SerializeField] private TextMeshProUGUI _newHighscoreText;
-    
-    private TextMeshProUGUI _counterText;
-
-    private void Awake()
+    protected override void Display()
     {
-        _counterText = GetComponent<TextMeshProUGUI>();
-        
-        _extraTimeManager.GameOvered += Display;
-    }
-
-    private void Display()
-    {
-        _counterText.text = _levelProgressBar.CurrentCount.ToString();
+        Text.text = _levelProgressBar.CurrentCount.ToString();
         
         if(Mathf.Approximately(_levelProgressBar.CurrentCount, YandexGame.savesData.Highscore))
             _newHighscoreText.gameObject.SetActive(true);

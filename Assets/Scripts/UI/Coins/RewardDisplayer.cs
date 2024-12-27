@@ -16,7 +16,7 @@ public class RewardDisplayer : MonoBehaviour
     
     public float LastValueSetted => LastValue;
 
-    protected void Awake()
+    private void Awake()
     {
         _text = GetComponent<TextMeshProUGUI>();
     }

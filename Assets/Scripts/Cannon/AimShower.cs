@@ -2,7 +2,6 @@
 
 public class AimShower : MonoBehaviour
 {
-
     [SerializeField] private SpriteRenderer _raySprite;
 
     private void Awake()

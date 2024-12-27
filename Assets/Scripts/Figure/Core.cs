@@ -12,12 +12,6 @@ public class Core : MonoBehaviour
 
     private Coroutine _explosion;
 
-    public void StartExplosion()
-    {
-        if(_explosion == null)
-            _explosion = StartCoroutine(Explode());
-    }
-
     private void OnEnable()
     {
         gameObject.SetActive(true);
@@ -33,15 +27,16 @@ public class Core : MonoBehaviour
 
         _standbyParticle.Play();
     }
+    
+    public void StartExplosion()
+    {
+        if(_explosion == null)
+            _explosion = StartCoroutine(Explode());
+    }
 
     private void OnDisable()
     {
         _figure.VoxelsFall();
-    }
-
-    public void SetFigure(Figure figure)
-    {
-        _figure = figure != null ? figure : throw new InvalidOperationException(nameof(figure));
     }
 
     private IEnumerator Explode()

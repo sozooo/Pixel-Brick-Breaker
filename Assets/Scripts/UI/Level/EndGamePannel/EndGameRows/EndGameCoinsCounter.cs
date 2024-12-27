@@ -1,25 +1,16 @@
 using System;
 using System.Globalization;
 using TMPro;
+using UI.Level.EndGamePannel.EndGameRows;
 using UnityEngine;
 
-[RequireComponent(typeof(TextMeshProUGUI))]
-public class EndGameCoinsCounter : MonoBehaviour
+
+public class EndGameCoinsCounter : EndGameRow
 {
-    [SerializeField] private ExtraTimeManager _extraTimeManager;
     [SerializeField] private CoinDisplayer _coinDisplayer;
     
-    private TextMeshProUGUI _counterText;
-
-    private void Awake()
+    protected override void Display()
     {
-        _counterText = GetComponent<TextMeshProUGUI>();
-        
-        _extraTimeManager.GameOvered += Display;
-    }
-
-    private void Display()
-    {
-        _counterText.text = _coinDisplayer.LastValueSetted.ToString();
+        Text.text = _coinDisplayer.LastValueSetted.ToString();
     }
 }

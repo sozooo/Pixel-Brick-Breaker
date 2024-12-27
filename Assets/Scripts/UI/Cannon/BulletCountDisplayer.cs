@@ -1,6 +1,7 @@
 using TMPro;
 using UnityEngine;
 using System;
+using System.Globalization;
 
 [RequireComponent(typeof(TextMeshProUGUI))]
 public class BulletCountDisplayer : MonoBehaviour
@@ -22,8 +23,13 @@ public class BulletCountDisplayer : MonoBehaviour
         _cannon.BulletCountChanged += SetNumber;
     }
 
+    private void OnDisable()
+    {
+        _cannon.BulletCountChanged -= SetNumber;
+    }
+
     private void SetNumber(float number)
     {
-        _text.text = number.ToString();
+        _text.text = number.ToString(CultureInfo.InvariantCulture);
     }
 }

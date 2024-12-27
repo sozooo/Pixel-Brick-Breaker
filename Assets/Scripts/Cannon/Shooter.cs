@@ -28,27 +28,25 @@ public class Shooter : Spawner<Bullet>
         }
     }
 
-    private void Awake()
+    public void Initialize()
     {
         BulletCount = _startBulletCount;
     }
 
     public void Shoot()
     {
-        if(_cooldawn == null)
-        {
-            if (BulletCount > 0)
-            {
-                Bullet bullet = Spawn();
+        if (_cooldawn != null) return;
+        
+        if (BulletCount <= 0) return;
+        
+        Bullet bullet = Spawn();
 
-                if (_bullets.Contains(bullet) == false)
-                    _bullets.Add(bullet);
+        if (_bullets.Contains(bullet) == false)
+            _bullets.Add(bullet);
 
-                BulletCount--;
+        BulletCount--;
 
-                _cooldawn = StartCoroutine(CoolDawn());
-            }
-        }
+        _cooldawn = StartCoroutine(CoolDawn());
     }
 
     protected override void Despawn(Bullet bullet)

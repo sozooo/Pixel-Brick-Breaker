@@ -1,23 +1,12 @@
 using TMPro;
+using UI.Level.EndGamePannel.EndGameRows;
 using UnityEngine;
 using YG;
 
-[RequireComponent(typeof(TextMeshProUGUI))]
-public class EndGameTotalCoins : MonoBehaviour
+public class EndGameTotalCoins : EndGameRow
 {
-    [SerializeField] private ExtraTimeManager _extraTimeManager;
-    
-    private TextMeshProUGUI _text;
-
-    private void Awake()
+    protected override void Display()
     {
-        _text = GetComponent<TextMeshProUGUI>();
-        
-        _extraTimeManager.GameOvered += Display;
-    }
-
-    private void Display()
-    {
-        _text.text = YandexGame.savesData.Coins.ToString();
+        Text.text = YandexGame.savesData.Coins.ToString();
     }
 }

@@ -14,8 +14,6 @@ public class FigureSpawner : Spawner<Figure>
     public event Action FigureDespawned;
     public event Action FigureFelt;
 
-    public float TimeToDespawn => _timeToDespawn;
-
     public override Figure Spawn()
     {
         Figure figure = Instantiate(
