@@ -39,8 +39,6 @@ public class Rotator
 
     private void StartRotation()
     {
-        Debug.Log("StartRotation");
-        
         _startMousePosition = Input.mousePosition.x;
 
         _aim.Show();

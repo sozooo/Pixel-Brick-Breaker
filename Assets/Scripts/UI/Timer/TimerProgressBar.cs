@@ -68,7 +68,10 @@ public class TimerProgressBar : ProgressBar
             SecondPassed?.Invoke(Current);
 
             if (Mathf.Approximately(Current, Minimum))
+            {
                 TimePassed?.Invoke();
+                Debug.Log("TimerProgressBar invokes TimePassed event");
+            }
         }
     }
 }

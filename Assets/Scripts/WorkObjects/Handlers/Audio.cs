@@ -48,6 +48,7 @@ public class Audio : MonoBehaviour
 
     private void Mute(bool mute)
     {
+        if (_audioSource == null) return;
         _audioSource.mute = mute;
     }
 

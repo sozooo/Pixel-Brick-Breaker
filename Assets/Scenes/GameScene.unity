@@ -1171,7 +1171,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &368635199
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8865,8 +8865,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _filler: {fileID: 1636416138}
   StartMinimum: 0
-  StartMaximum: 0
-  StartCurrent: 0
+  StartMaximum: 10
+  StartCurrent: 10
   _timeToFill: 0.3
   _currentIndicator: {fileID: 1439038938}
   _timeModifier: 5
@@ -9214,7 +9214,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1764490843
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10608,6 +10608,7 @@ GameObject:
   - component: {fileID: 2097387515}
   - component: {fileID: 2097387517}
   - component: {fileID: 2097387516}
+  - component: {fileID: 2097387518}
   m_Layer: 5
   m_Name: Total
   m_TagString: Untagged
@@ -10732,6 +10733,58 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2097387514}
   m_CullTransparentMesh: 1
+--- !u!114 &2097387518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2097387514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f34f36451b093ee4c83ad4aa5459d2ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textMPComponent: {fileID: 2097387516}
+  uniqueFontTMP: {fileID: 0}
+  textLComponent: {fileID: 0}
+  infoYG: {fileID: 11400000, guid: 162644796a8b0d044bce3d6fda0641e3, type: 2}
+  text: 
+  ru: "\u0418\u0442\u043E\u0433\u043E:"
+  en: 'Total:'
+  tr: 'Toplam:'
+  az: 
+  be: 
+  he: 
+  hy: 
+  ka: 
+  et: 
+  fr: 
+  kk: 
+  ky: 
+  lt: 
+  lv: 
+  ro: 
+  tg: 
+  tk: 
+  uk: 
+  uz: 
+  es: 
+  pt: 
+  ar: 
+  id: 
+  ja: 
+  it: 
+  de: 
+  hi: 
+  changeOnlyFont: 0
+  fontNumber: 0
+  uniqueFont: {fileID: 0}
+  additionalText: {fileID: 0}
+  textHeight: 20
+  processTranslateLabel: 
+  componentTextField: 0
+  countLang: 0
 --- !u!1 &2103495240
 GameObject:
   m_ObjectHideFlags: 0

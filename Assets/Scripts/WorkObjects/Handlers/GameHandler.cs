@@ -34,6 +34,14 @@ public class GameHandler : MonoBehaviour
         _countDown.GameStarts += StartLevel;
     }
 
+    private void OnDisable()
+    {
+        _timer.TimePassed -= GameOver;
+        _level.LevelUp -= LevelUp;
+        
+        _countDown.GameStarts -= StartLevel;
+    }
+
     public void StartLevel()
     {
         ResetBars();

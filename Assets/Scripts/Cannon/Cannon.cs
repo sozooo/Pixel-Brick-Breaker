@@ -29,7 +29,7 @@ public class Cannon : MonoBehaviour
     {
         _input.Enable();
 
-        _input.Mouse.Press.canceled += Shoot;
+        _input.Mouse.Press.performed += Shoot;
     }
 
     private void Shoot(InputAction.CallbackContext context)
