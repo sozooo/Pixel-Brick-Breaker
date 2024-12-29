@@ -15,7 +15,7 @@ namespace UI.Main_Menu.Pannels.StorePannel
             _button.onClick.AddListener(Buy);
         }
 
-        private void OnDisable()
+        private void OnDestroy()
         {
             _button.onClick.RemoveListener(Buy);
         }

@@ -9,8 +9,6 @@ public static class PlayerStats
     {
         YandexGame.RewardVideoEvent += adIndex =>
         {
-            Debug.Log(adIndex);
-            
             if (adIndex == (int)RewardAdTypes.AddMoney)
                 Earn(YandexGame.savesData.CoinsForAd);
         };
@@ -51,10 +49,10 @@ public static class PlayerStats
         if(newHighscore < 0)
             throw new ArgumentException("Invalid newHighscore");
 
-        if (newHighscore > YandexGame.savesData.Highscore)
-        {
-            YandexGame.savesData.Highscore = newHighscore;
-            SavePlayerStats();
-        }
+        
+        if (newHighscore <= YandexGame.savesData.Highscore) return;
+        
+        YandexGame.savesData.Highscore = newHighscore;
+        SavePlayerStats();
     }
 }

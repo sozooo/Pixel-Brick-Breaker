@@ -46,7 +46,7 @@ public class Audio : MonoBehaviour
         _audioSource.volume = _startVolume * Mathf.Clamp01(volume);
     }
 
-    protected void Mute(bool mute)
+    private void Mute(bool mute)
     {
         _audioSource.mute = mute;
     }

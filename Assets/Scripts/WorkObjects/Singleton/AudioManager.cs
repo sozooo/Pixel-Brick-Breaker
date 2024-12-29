@@ -7,6 +7,13 @@ public static class AudioManager
     static AudioManager()
     {
         YandexGame.onVisibilityWindowGame += mute => Mute(!mute);
+        YandexGame.onVisibilityWindowGame += open =>
+        {
+            if (open == false)
+            {
+                SaveSettings();
+            }
+        };
     }
     
     public static event Action<float> MusicLevelsChanged;

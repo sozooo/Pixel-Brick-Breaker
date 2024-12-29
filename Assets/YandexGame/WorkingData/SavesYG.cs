@@ -6,7 +6,7 @@ namespace YG
     {
         public int idSave;
         public bool isFirstSession = true;
-        public string language = "ru";
+        public string language = "en";
         public bool promptDone;
         
         public float MusicLevel = 1.0f;
