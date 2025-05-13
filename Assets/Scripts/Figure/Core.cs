@@ -8,7 +8,7 @@ public class Core : MonoBehaviour
     [SerializeField] private ParticleSystem _standbyParticle;
     [SerializeField] private ParticleSystem _explosionParticle;
     [SerializeField] private float _explodeTime = 1.35f;
-    [SerializeField] private CoreAudio _audio;
+    [SerializeField] private Audio _audio;
 
     private Coroutine _explosion;
 
@@ -57,7 +57,7 @@ public class Core : MonoBehaviour
         WaitForSeconds wait = new(time);
 
         particleSystem.Play(withChildren);
-        _audio.PlayMagic();
+        _audio.PlayOneShot();
 
         yield return wait;
 

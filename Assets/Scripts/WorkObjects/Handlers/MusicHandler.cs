@@ -13,22 +13,20 @@ public class MusicHandler : Audio
     private void OnEnable()
     {
         _timing.TimingChanged += PlayTrack;
-        AudioManager.MusicLevelsChanged += ChangeVolume;
     }
 
     private void OnDisable()
     {
-        AudioManager.MusicLevelsChanged -= ChangeVolume;
+        _timing.TimingChanged -= PlayTrack;
     }
 
     private void PlayTrack(int index)
     {
-        if (_currentTrack == index) return;
+        if (_currentTrack == index)
+            return;
         
         _currentTrack = index;
 
-        AudioClip music = _music[_currentTrack];
-
-        PlayLoop(music);
+        PlayLoop(_music[_currentTrack]);
     }
 }

@@ -6,18 +6,11 @@ using Random = UnityEngine.Random;
 public class Audio : MonoBehaviour
 {
     [SerializeField] private AudioSource _audioSource;
+    [SerializeField] private List<AudioClip> _audioClips;
 
-    private float _startVolume;
-
-    private void Awake()
+    public void PlayOneShot()
     {
-        _startVolume = _audioSource.volume;
-        AudioManager.Muted += Mute;
-    }
-
-    protected void PlayOneShot(List<AudioClip> audioClips)
-    {
-        PlayOneShot(audioClips[Random.Range(0, audioClips.Count)]);
+        PlayOneShot(_audioClips[Random.Range(0, _audioClips.Count)]);
     }
 
     protected void PlayOneShot(AudioClip audioClip)
@@ -36,20 +29,6 @@ public class Audio : MonoBehaviour
 
         _audioSource.clip = clip;
         _audioSource.Play();
-    }
-
-    protected void ChangeVolume(float volume)
-    {
-        if (volume < 0)
-            throw new ArgumentOutOfRangeException();
-
-        _audioSource.volume = _startVolume * Mathf.Clamp01(volume);
-    }
-
-    private void Mute(bool mute)
-    {
-        if (_audioSource == null) return;
-        _audioSource.mute = mute;
     }
 
     protected void PlayLoop(AudioClip clip)

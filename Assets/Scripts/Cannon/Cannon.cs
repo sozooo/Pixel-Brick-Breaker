@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.InputSystem;
 
-[RequireComponent(typeof(Shooter), typeof(CannonAudio))]
+[RequireComponent(typeof(Shooter), typeof(Audio))]
 public class Cannon : MonoBehaviour
 {
     [SerializeField] private CannonMovement _movement;
@@ -9,7 +9,7 @@ public class Cannon : MonoBehaviour
     [SerializeField] private AimShower _aimShower;
     
     private Shooter _shooter;
-    private CannonAudio _audio;
+    private Audio _audio;
 
     private Transform _transform;
     private PlayerInput _input;
@@ -17,7 +17,7 @@ public class Cannon : MonoBehaviour
     private void Awake()
     {
         _shooter = GetComponent<Shooter>();
-        _audio = GetComponent<CannonAudio>();
+        _audio = GetComponent<Audio>();
         _input = new PlayerInput();
 
         _transform = transform;
@@ -37,7 +37,7 @@ public class Cannon : MonoBehaviour
         Vector3 direction = _transform.forward;
 
         _shooter.Shoot();
-        _audio.Shoot();
+        _audio.PlayOneShot();
         _rotator.Reset();
 
         _movement.Move(direction);

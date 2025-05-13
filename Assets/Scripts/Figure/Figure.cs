@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Figure : MonoBehaviour, ISpawnable<Figure>
 {
-    [SerializeField] private FigureAudio _audio;
+    [SerializeField] private Audio _audio;
 
     private readonly List<Voxel> _voxels = new();
     private float _voxelsLeft = 0;
@@ -44,7 +44,7 @@ public class Figure : MonoBehaviour, ISpawnable<Figure>
 
     public void VoxelsFall()
     {
-        _audio.Explode();
+        _audio.PlayOneShot();
 
         foreach (Voxel voxel in _voxels)
         {
