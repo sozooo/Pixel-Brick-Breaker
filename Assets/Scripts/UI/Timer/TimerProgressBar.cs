@@ -19,8 +19,8 @@ public class TimerProgressBar : ProgressBar
     {
         BonusTime = Current;
 
-        float upgradedTime = _timeModifier * YandexGame.savesData.TimerLevel;
-        StartMaximum += upgradedTime;
+        // float upgradedTime = _timeModifier * YandexGame.savesData.TimerLevel;
+        // StartMaximum += upgradedTime;
         StartCurrent = StartMaximum;
 
         base.Reset();
@@ -68,10 +68,8 @@ public class TimerProgressBar : ProgressBar
             SecondPassed?.Invoke(Current);
 
             if (Mathf.Approximately(Current, Minimum))
-            {
                 TimePassed?.Invoke();
-                Debug.Log("TimerProgressBar invokes TimePassed event");
-            }
+            
         }
     }
 }

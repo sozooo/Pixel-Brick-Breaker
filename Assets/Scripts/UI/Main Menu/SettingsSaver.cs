@@ -1,36 +1,42 @@
-﻿using UnityEngine;
-using UnityEngine.UI;
+﻿using UI.Main_Menu.Pannels.Settings;
+using UnityEngine;
 using YG;
 
 namespace UI.Main_Menu
 {
     public class SettingsSaver : MonoBehaviour
     {
-        [SerializeField] private Slider _musicSlider;
-        [SerializeField] private Slider _soundSlider;
+        [SerializeField] private SliderSetting _musicSlider;
+        [SerializeField] private SliderSetting _soundSlider;
         [SerializeField] private MuteSwitch _muteSwitch;
         [SerializeField] private CloseButton _closeButton;
 
         private void Awake()
         {
-            _closeButton.Closed += ChangeValues;
-            _muteSwitch.Muted += Mute;
+            _musicSlider.Slider.value = YG2.saves.MusicLevel;
+            _soundSlider.Slider.value = YG2.saves.SoundLevel;
+            
+            // _musicSlider.HandleValueChange(YandexGame.savesData.MusicLevel);
+            // _soundSlider.HandleValueChange(YandexGame.savesData.SoundLevel);
         }
 
-        private void Start()
+        private void OnEnable()
         {
-            _musicSlider.value = YandexGame.savesData.MusicLevel;
-            _soundSlider.value = YandexGame.savesData.SoundLevel;
+            _closeButton.Closed += SaveValues;
         }
 
-        private void ChangeValues()
+        private void OnDisable()
         {
-            AudioManager.ChangeAudioSettings(_musicSlider.value, _soundSlider.value, _muteSwitch.TogglePosition);
+            _closeButton.Closed -= SaveValues;
         }
 
-        private void Mute(bool mute)
+        private void SaveValues()
         {
-            AudioManager.Mute(mute);
+            YG2.saves.MusicLevel = _musicSlider.Slider.value;
+            YG2.saves.SoundLevel = _soundSlider.Slider.value;
+            YG2.saves.Muted = _muteSwitch.TogglePosition;
+            
+            YG2.SaveProgress();
         }
     }
 }

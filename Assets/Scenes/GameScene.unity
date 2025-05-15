@@ -1284,7 +1284,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _gameTimer: {fileID: 267377004}
   _pannel: {fileID: 8871992888552588791}
-  _gameHandler: {fileID: 1663920188}
+  compositionRoot: {fileID: 1663920188}
   _statsCollector: {fileID: 368635205}
   _additionalTime: 15
   _extraTimeTriesCount: 5
@@ -1449,8 +1449,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f34f36451b093ee4c83ad4aa5459d2ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textMPComponent: {fileID: 386955879}
-  uniqueFontTMP: {fileID: 0}
   textLComponent: {fileID: 0}
   infoYG: {fileID: 11400000, guid: 162644796a8b0d044bce3d6fda0641e3, type: 2}
   text: 
@@ -1876,8 +1874,8 @@ GameObject:
   - component: {fileID: 562797316}
   - component: {fileID: 562797317}
   - component: {fileID: 562797318}
-  - component: {fileID: 562797320}
   - component: {fileID: 562797319}
+  - component: {fileID: 562797320}
   m_Layer: 9
   m_Name: Laser Trigger
   m_TagString: Untagged
@@ -1972,7 +1970,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 0.075
   m_Pitch: 1
   Loop: 0
@@ -2066,11 +2064,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 562797314}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bdc5ddc2961c0435d9637ed39be91664, type: 3}
+  m_Script: {fileID: 11500000, guid: 98ae5ce19ae4f4ab883e2b78c5632674, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _audioSource: {fileID: 562797319}
-  _burnClips:
+  _audioClips:
   - {fileID: 8300000, guid: 4f6dc5849ac1c4e97869a0a67e84f25c, type: 3}
   - {fileID: 8300000, guid: 7a3425a4be3824548a882a539d96bbd7, type: 3}
   - {fileID: 8300000, guid: 74add305a869846f9bb1d896720cbd0f, type: 3}
@@ -3613,8 +3611,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f34f36451b093ee4c83ad4aa5459d2ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textMPComponent: {fileID: 961520484}
-  uniqueFontTMP: {fileID: 0}
   textLComponent: {fileID: 0}
   infoYG: {fileID: 11400000, guid: 162644796a8b0d044bce3d6fda0641e3, type: 2}
   text: 
@@ -5725,8 +5721,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f34f36451b093ee4c83ad4aa5459d2ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textMPComponent: {fileID: 1065513887}
-  uniqueFontTMP: {fileID: 0}
   textLComponent: {fileID: 0}
   infoYG: {fileID: 11400000, guid: 162644796a8b0d044bce3d6fda0641e3, type: 2}
   text: 
@@ -6599,8 +6593,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f34f36451b093ee4c83ad4aa5459d2ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textMPComponent: {fileID: 1190257816}
-  uniqueFontTMP: {fileID: 0}
   textLComponent: {fileID: 0}
   infoYG: {fileID: 11400000, guid: 162644796a8b0d044bce3d6fda0641e3, type: 2}
   text: 
@@ -7313,8 +7305,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f34f36451b093ee4c83ad4aa5459d2ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textMPComponent: {fileID: 1233336604}
-  uniqueFontTMP: {fileID: 0}
   textLComponent: {fileID: 0}
   infoYG: {fileID: 11400000, guid: 162644796a8b0d044bce3d6fda0641e3, type: 2}
   text: 
@@ -7649,8 +7639,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f34f36451b093ee4c83ad4aa5459d2ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textMPComponent: {fileID: 1344774046}
-  uniqueFontTMP: {fileID: 0}
   textLComponent: {fileID: 0}
   infoYG: {fileID: 11400000, guid: 162644796a8b0d044bce3d6fda0641e3, type: 2}
   text: 
@@ -8496,7 +8484,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1614387153}
   - component: {fileID: 1614387155}
-  - component: {fileID: 1614387154}
   - component: {fileID: 1614387156}
   m_Layer: 0
   m_Name: MusicHandler
@@ -8520,21 +8507,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1452459042}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1614387154
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1614387152}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b20e1800533284003a99be3c88628338, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _firstStepTiming: 20
-  _secondStepTiming: 10
-  _timer: {fileID: 267377004}
 --- !u!114 &1614387155
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8549,10 +8521,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _audioSource: {fileID: 1614387156}
   _music:
-  - {fileID: 8300000, guid: 17ba4253fc7fd4ea7804dece25fb8f32, type: 3}
-  - {fileID: 8300000, guid: b77acbb374058480dbeae07444542e03, type: 3}
   - {fileID: 8300000, guid: ae40a015c678644b0ac6139e22717c04, type: 3}
-  _timing: {fileID: 1614387154}
+  - {fileID: 8300000, guid: b77acbb374058480dbeae07444542e03, type: 3}
+  - {fileID: 8300000, guid: 17ba4253fc7fd4ea7804dece25fb8f32, type: 3}
+  _timing:
+    _timings:
+    - 10
+    - 20
+    - 60
+    _timer: {fileID: 267377004}
 --- !u!82 &1614387156
 AudioSource:
   m_ObjectHideFlags: 0
@@ -8562,12 +8539,12 @@ AudioSource:
   m_GameObject: {fileID: 1614387152}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 4183076604414183456, guid: 8cf5f754edba54ba697e17108d4ae66e, type: 2}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 0.421
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -8769,7 +8746,7 @@ GameObject:
   - component: {fileID: 1663920187}
   - component: {fileID: 1663920188}
   m_Layer: 0
-  m_Name: GameHandler
+  m_Name: CompositionRoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9587,8 +9564,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f34f36451b093ee4c83ad4aa5459d2ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textMPComponent: {fileID: 1934187211}
-  uniqueFontTMP: {fileID: 0}
   textLComponent: {fileID: 0}
   infoYG: {fileID: 11400000, guid: 162644796a8b0d044bce3d6fda0641e3, type: 2}
   text: 
@@ -9924,8 +9899,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f34f36451b093ee4c83ad4aa5459d2ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textMPComponent: {fileID: 2018598022}
-  uniqueFontTMP: {fileID: 0}
   textLComponent: {fileID: 0}
   infoYG: {fileID: 11400000, guid: 162644796a8b0d044bce3d6fda0641e3, type: 2}
   text: 
@@ -10745,8 +10718,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f34f36451b093ee4c83ad4aa5459d2ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textMPComponent: {fileID: 2097387516}
-  uniqueFontTMP: {fileID: 0}
   textLComponent: {fileID: 0}
   infoYG: {fileID: 11400000, guid: 162644796a8b0d044bce3d6fda0641e3, type: 2}
   text: 
@@ -10932,8 +10903,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f34f36451b093ee4c83ad4aa5459d2ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textMPComponent: {fileID: 2103495242}
-  uniqueFontTMP: {fileID: 0}
   textLComponent: {fileID: 0}
   infoYG: {fileID: 11400000, guid: 162644796a8b0d044bce3d6fda0641e3, type: 2}
   text: 
@@ -11438,8 +11407,8 @@ GameObject:
   - component: {fileID: 6850549183987866092}
   - component: {fileID: 6850549183987866094}
   - component: {fileID: 6850549183987866096}
-  - component: {fileID: 6850549183987866098}
   - component: {fileID: 6850549183987866097}
+  - component: {fileID: 6850549183987866099}
   m_Layer: 3
   m_Name: Cannon
   m_TagString: Untagged
@@ -11591,7 +11560,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &6850549183987866098
+--- !u!114 &6850549183987866099
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -11600,11 +11569,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6850549183987866091}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 20ac633293557449e87eb749425de87e, type: 3}
+  m_Script: {fileID: 11500000, guid: 98ae5ce19ae4f4ab883e2b78c5632674, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _audioSource: {fileID: 6850549183987866097}
-  _shootSound:
+  _audioClips:
   - {fileID: 8300000, guid: 2bd65c1eb53294ef9b8b6bf3417511a4, type: 3}
   - {fileID: 8300000, guid: 83155882bccac4e10b90400ed3fe9fc8, type: 3}
   - {fileID: 8300000, guid: 8a2300f304b1f44bfb974471faa018c4, type: 3}
@@ -13025,8 +12994,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f34f36451b093ee4c83ad4aa5459d2ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textMPComponent: {fileID: 713036782973716163}
-  uniqueFontTMP: {fileID: 0}
   textLComponent: {fileID: 0}
   infoYG: {fileID: 11400000, guid: 162644796a8b0d044bce3d6fda0641e3, type: 2}
   text: 

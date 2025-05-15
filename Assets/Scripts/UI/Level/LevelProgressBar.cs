@@ -47,13 +47,13 @@ public class LevelProgressBar : ProgressBar
     {
         _figure = figure;
 
-        _figure.VoxelFelled += Fill;
-        _figure.Despawn += RemoveFigure;
+        _figure.VoxelFell += Fill;
+        _figure.Despawned += RemoveFigure;
     }
 
     private void RemoveFigure(Figure figure)
     {
-        _figure.VoxelFelled -= Fill;
-        _figure.Despawn -= RemoveFigure;
+        _figure.VoxelFell -= Fill;
+        _figure.Despawned -= RemoveFigure;
     }
 }

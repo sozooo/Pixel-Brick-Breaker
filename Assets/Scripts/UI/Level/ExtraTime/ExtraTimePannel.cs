@@ -1,14 +1,12 @@
 using System;
 using UI.Main_Menu.Pannels.StorePannel;
 using UnityEngine;
-using UnityEngine.Serialization;
-using UnityEngine.UI;
 
 public class ExtraTimePannel : Pannel
 {
     [SerializeField] private TimerProgressBar _gameOverTimer;
     [SerializeField] private BuyButton _buyExtraTimeButton;
-    [SerializeField] private WatchAdButton _watchAdButton;
+    [SerializeField] private ExtraTimeAdButton extraTimeAdButton;
     [SerializeField] private int _activationLimit;
     
     [Header("Prices")]
@@ -35,30 +33,30 @@ public class ExtraTimePannel : Pannel
         _activateNumber++;
         
         if(_activateNumber > _activationLimit) 
-            PassTimer();
+            OnTimerPassed();
 
-        _buyExtraTimeButton.Redeemed += AddTime;
-        _watchAdButton.Redeemed += AddTime;
-        _gameOverTimer.TimePassed += PassTimer;
+        _buyExtraTimeButton.Redeemed += OnRedeemed;
+        extraTimeAdButton.Redeemed += OnRedeemed;
+        _gameOverTimer.TimePassed += OnTimerPassed;
         
         _buybackPrice = _basePrice + _priceAdditional * _activateNumber;
         _price.ConvertPrice(_buybackPrice);
-        _buyExtraTimeButton.SetBuybackCost(_buybackPrice);
+        _buyExtraTimeButton.SetBuybackCost(_buybackPrice * (_activateNumber + 1));
     }
 
     private void OnDisable()
     {
-        _buyExtraTimeButton.Redeemed -= AddTime;
-        _watchAdButton.Redeemed -= AddTime;
-        _gameOverTimer.TimePassed -= PassTimer;
+        _buyExtraTimeButton.Redeemed -= OnRedeemed;
+        extraTimeAdButton.Redeemed -= OnRedeemed;
+        _gameOverTimer.TimePassed -= OnTimerPassed;
     }
 
-    private void AddTime()
+    private void OnRedeemed()
     {
         TimeRedeemed?.Invoke();
     }
 
-    private void PassTimer()
+    private void OnTimerPassed()
     {
         TimerPassed?.Invoke();
     }

@@ -6,7 +6,7 @@ namespace UI.Main_Menu.Pannels.StorePannel
     {
         protected override void ProceedPurchase()
         {
-            YandexGame.savesData.IsAdRemoved = true;
+            // YandexGame.savesData.IsAdRemoved = true;
         }
     }
 }

@@ -1,4 +1,3 @@
-using UnityEngine;
 using YG;
 
 namespace UI.Main_Menu.Pannels.StorePannel.TimerUpgrade
@@ -7,14 +6,14 @@ namespace UI.Main_Menu.Pannels.StorePannel.TimerUpgrade
     {
         private void Awake()
         {
-            CurrentLevel = YandexGame.savesData.TimerLevel;
+            CurrentLevel = YG2.saves.TimerLevel;
         }
 
         protected override void Buy()
         {
             base.Buy();
             
-            YandexGame.savesData.TimerLevel = CurrentLevel;
+            YG2.saves.TimerLevel = CurrentLevel;
         }
     }
 }

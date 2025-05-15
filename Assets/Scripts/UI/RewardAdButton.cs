@@ -1,30 +1,38 @@
 using System;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 using YG;
 
 namespace UI
 {
-    [RequireComponent(typeof(Button))]
-    public class RewardAdButton : MonoBehaviour
+    public abstract class RewardAdButton : MonoBehaviour
     {
-        protected int RewardIndex = -1;
-        
-        private Button _button;
+        [SerializeField] protected string AdIndex;
+        [SerializeField] private Button _button;
 
-        protected void Awake()
+        private void OnEnable()
         {
-            _button = GetComponent<Button>();
-            
             _button.onClick.AddListener(ShowAd);
         }
 
-        private void ShowAd()
+        private void OnDisable()
         {
-            if(RewardIndex == -1)
+            _button.onClick.RemoveListener(ShowAd);
+            
+            YG2.onRewardAdv -= OnRewardedAdv;
+        }
+
+        protected void ShowAd()
+        {
+            if(AdIndex.Any() == false)
                 throw new InvalidOperationException("Reward index not setted to available reward");
             
-            YandexGame.RewVideoShow(RewardIndex);
+            YG2.onRewardAdv += OnRewardedAdv;
+            
+            YG2.RewardedAdvShow(AdIndex);
         }
+
+        protected abstract void OnRewardedAdv(string adIndex);
     }
 }

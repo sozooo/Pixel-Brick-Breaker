@@ -36,10 +36,10 @@ public class RewardCollector : MonoBehaviour
     public void SetNewFigure(Figure figure)
     {
         if (_figure)
-            _figure.Despawn -= TakeReward;
+            _figure.Despawned -= TakeReward;
 
         _figure = figure ? figure : throw new InvalidOperationException();
-        _figure.Despawn += TakeReward;
+        _figure.Despawned += TakeReward;
     }
 
     private int TakeBonusReward()

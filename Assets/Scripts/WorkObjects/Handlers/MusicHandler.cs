@@ -1,23 +1,26 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 
-public class MusicHandler : Audio
+public class MusicHandler : MonoBehaviour
 {
-    [SerializeField] private List<AudioClip> _music;
+    [SerializeField] private AudioSource _audioSource;
 
     [Header("Timings")]
+    [SerializeField] private List<AudioClip> _music;
     [SerializeField] private Timing _timing;
 
-    private int _currentTrack = -1;
+    private int _currentTrack = 0;
 
     private void OnEnable()
     {
         _timing.TimingChanged += PlayTrack;
+        _timing.Initialize();
     }
 
     private void OnDisable()
     {
         _timing.TimingChanged -= PlayTrack;
+        _timing.Disable();
     }
 
     private void PlayTrack(int index)
@@ -27,6 +30,8 @@ public class MusicHandler : Audio
         
         _currentTrack = index;
 
-        PlayLoop(_music[_currentTrack]);
+        _audioSource.Stop();
+        _audioSource.clip = _music[_currentTrack];
+        _audioSource.Play();
     }
 }

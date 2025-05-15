@@ -20,7 +20,7 @@ public class FigureSpawner : Spawner<Figure>
             _mainFiguresList[Random.Range(0, _mainFiguresList.Count)],
             Spawnpoint.position, Spawnpoint.rotation);
 
-        figure.Despawn += Despawn;
+        figure.Despawned += OnDespawned;
         figure.gameObject.SetActive(true);
 
         return figure;
@@ -31,7 +31,7 @@ public class FigureSpawner : Spawner<Figure>
         _mainFiguresList = figuresList;
     }
 
-    protected override void Despawn(Figure figure)
+    protected override void OnDespawned(Figure figure)
     {
         FigureFelt?.Invoke();
 

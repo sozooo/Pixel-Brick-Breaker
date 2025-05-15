@@ -2,10 +2,14 @@
 using System.Collections;
 using UnityEngine;
 
+[RequireComponent(typeof(Animator), typeof(TrailRenderer))]
 public class Voxel : MonoBehaviour
 {
     [SerializeField] private float _timeToDisapear = 3;
     [SerializeField] private float _animationLength = 0.5f;
+    
+    [SerializeField] private Audio _audio;
+    // [SerializeField] private Rigidbody _rigidbody;
 
     private const string DisapearAnimation = "Disapear";
     private const string FallingVoxelLayer = "Falling Voxel";
@@ -16,7 +20,7 @@ public class Voxel : MonoBehaviour
     private Animator _animator;
     private TrailRenderer _trail;
 
-    public event Action<Voxel> Falled;
+    public event Action<Voxel> Fell;
 
     public Vector3 Position => _position;
 
@@ -24,6 +28,13 @@ public class Voxel : MonoBehaviour
     {
         _animator = GetComponent<Animator>();
         _trail = GetComponent<TrailRenderer>();
+        
+        // _rigidbody.isKinematic = true;
+    }
+
+    private void OnDisable()
+    {
+        Fell?.Invoke(this);
     }
 
     public void SetPosition(Vector3 position)
@@ -33,11 +44,11 @@ public class Voxel : MonoBehaviour
 
     public void RemoveRigidbody()
     {
-        _animator.SetBool(DisapearAnimation, false);
-        _trail.enabled = false;
-
-        if (TryGetComponent(out Rigidbody rigidbody))
-            Destroy(rigidbody);
+        // _animator.SetBool(DisapearAnimation, false);
+        // _trail.enabled = false;
+        //
+        // if (TryGetComponent(out Rigidbody rigidbody))
+        //     Destroy(rigidbody);
     }
 
     public void Fall()
@@ -45,13 +56,14 @@ public class Voxel : MonoBehaviour
         if (TryGetComponent(out Rigidbody rigidbody) == false)
             gameObject.AddComponent<Rigidbody>();
 
+        _audio.PlayOneShot();
+        
         _trail.enabled = true;
         gameObject.layer = LayerMask.NameToLayer(FallingVoxelLayer);
 
-        if (_falling == null)
-            _falling = StartCoroutine(Falling());
+        _falling ??= StartCoroutine(Falling());
 
-        Falled?.Invoke(this);
+        Fell?.Invoke(this);
     }
 
     private IEnumerator Falling()

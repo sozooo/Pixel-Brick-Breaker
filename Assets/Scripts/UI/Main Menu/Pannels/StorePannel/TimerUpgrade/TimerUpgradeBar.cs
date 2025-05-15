@@ -1,7 +1,5 @@
-using UI.Main_Menu.Pannels.StorePannel.BlastRadius;
 using UI.Main_Menu.Pannels.StorePannel.TimerUpgrade;
 using UnityEngine;
-using UnityEngine.ProBuilder;
 using YG;
 
 public class TimerUpgradeBar : UpgradeBar
@@ -12,6 +10,6 @@ public class TimerUpgradeBar : UpgradeBar
     {
         _timerUpgradeItem.Upgraded += Fill;
             
-        Fill(YandexGame.savesData.TimerLevel);
+        Fill(YG2.saves.TimerLevel);
     }
 }

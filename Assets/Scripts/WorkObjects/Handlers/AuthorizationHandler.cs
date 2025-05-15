@@ -3,15 +3,18 @@ using YG;
 
 namespace WorkObjects.Handlers
 {
-    [RequireComponent(typeof(SceneLoader))]
     public class AuthorizationHandler : MonoBehaviour
     {
-        private SceneLoader _sceneLoader;
+        [SerializeField] private SceneLoader _sceneLoader;
 
-        private void Awake()
+        private void OnEnable()
         {
-            _sceneLoader = GetComponent<SceneLoader>();
-            YandexGame.GetDataEvent += Authorize;
+            YG2.onGetSDKData += Authorize;
+        }
+        
+        private void OnDisable()
+        {
+            YG2.onGetSDKData -= Authorize;
         }
 
         private void Authorize()

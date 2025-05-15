@@ -1,58 +1,50 @@
 using System;
 using UnityEngine;
-using WorkObjects.Enums;
 using YG;
 
-public static class PlayerStats
-{
-    static PlayerStats()
-    {
-        YandexGame.RewardVideoEvent += adIndex =>
-        {
-            if (adIndex == (int)RewardAdTypes.AddMoney)
-                Earn(YandexGame.savesData.CoinsForAd);
-        };
-    }
-    
+public class PlayerStats : MonoBehaviour
+{ 
     public static event Action CoinsCountChanged;
     
-    public static void SavePlayerStats()
+    private void SavePlayerStats()
     {
-        YandexGame.SaveProgress();
+        YG2.SaveProgress();
     }
-
-    public static void Buy(int cost)
+    
+    public void Buy(int cost)
     {
         if(cost < 0)
             throw new ArgumentException("Invalid cost");
-
-        if (cost > YandexGame.savesData.Coins)
+    
+        if (cost > YG2.saves.Coins)
             throw new ArgumentException("Not enough coins");
         
-        YandexGame.savesData.Coins -= cost;
+        YG2.saves.Coins -= cost;
         CoinsCountChanged?.Invoke();
+        
         SavePlayerStats();
     }
-
-    public static void Earn(int cost)
+    
+    public void Earn(int cost)
     {
         if(cost < 0)
             throw new ArgumentException("Invalid cost");
         
-        YandexGame.savesData.Coins += cost;
+        YG2.saves.Coins += cost;
         CoinsCountChanged?.Invoke();
         SavePlayerStats();
     }
-
-    public static void SetNewHighscore(float newHighscore)
+    
+    public void SetNewHighscore(float newHighscore)
     {
         if(newHighscore < 0)
             throw new ArgumentException("Invalid newHighscore");
-
+    
         
-        if (newHighscore <= YandexGame.savesData.Highscore) return;
+        if (newHighscore <= YG2.saves.Highscore)
+            return;
         
-        YandexGame.savesData.Highscore = newHighscore;
+        YG2.saves.Highscore = newHighscore;
         SavePlayerStats();
     }
 }

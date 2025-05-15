@@ -4,7 +4,7 @@ using YG;
 
 namespace UI.Main_Menu.Pannels.StorePannel
 {
-    [RequireComponent(typeof(PurchaseYG))]
+    // [RequireComponent(typeof(PurchaseYG))]
     public class PurchaseItem : StoreItem
     {
         [SerializeField] private string _purchaseID;
@@ -14,17 +14,17 @@ namespace UI.Main_Menu.Pannels.StorePannel
         
         private void Awake()
         {
-            _purchase = GetComponent<PurchaseYG>();
+            // _purchase = GetComponent<PurchaseYG>();
         }
 
         private void OnEnable()
         {
-            YandexGame.PurchaseSuccessEvent += SuccessPurchased;
+            YG2.onPurchaseSuccess += SuccessPurchased;
         }
 
         protected override void Buy()
         {
-            _purchase.BuyPurchase();
+            // _purchase.BuyPurchase();
         }
 
         private void SuccessPurchased(string id)
@@ -35,7 +35,7 @@ namespace UI.Main_Menu.Pannels.StorePannel
 
         protected virtual void ProceedPurchase()
         {
-            YandexGame.savesData.Coins += _coinsCount;
+            // YandexGame.savesData.Coins += _coinsCount;
         }
     }
 }

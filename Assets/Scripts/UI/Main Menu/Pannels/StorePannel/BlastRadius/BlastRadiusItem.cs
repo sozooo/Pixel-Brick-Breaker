@@ -1,5 +1,3 @@
-using System;
-using UnityEngine;
 using YG;
 
 namespace UI.Main_Menu.Pannels.StorePannel.BlastRadius
@@ -8,14 +6,14 @@ namespace UI.Main_Menu.Pannels.StorePannel.BlastRadius
     {
         private void Awake()
         {
-            CurrentLevel = YandexGame.savesData.BlastRadiusLevel;
+            CurrentLevel = YG2.saves.BlastRadiusLevel;
         }
 
         protected override void Buy()
         {
             base.Buy();
             
-            YandexGame.savesData.BlastRadiusLevel = CurrentLevel;
+            YG2.saves.BlastRadiusLevel = CurrentLevel;
         }
     }
 }

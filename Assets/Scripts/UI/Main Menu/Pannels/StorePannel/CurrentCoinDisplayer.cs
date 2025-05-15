@@ -24,9 +24,9 @@ namespace UI.Main_Menu.Pannels.StorePannel
 
         private void Display()
         {
-            string priceString = YandexGame.savesData.Coins.ToString();
+            string priceString = YG2.saves.Coins.ToString();
             
-            if(YandexGame.savesData.Coins>=1000) priceString = $"{(Convert.ToSingle(YandexGame.savesData.Coins) / 1000):0.#}k";
+            if(YG2.saves.Coins>=1000) priceString = $"{(Convert.ToSingle(YG2.saves.Coins) / 1000):0.#}k";
             
             _text.text = priceString;
         }

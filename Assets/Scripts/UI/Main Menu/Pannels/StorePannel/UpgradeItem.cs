@@ -33,9 +33,9 @@ namespace UI.Main_Menu.Pannels.StorePannel
 
         protected override void Buy()
         {
-            if(YandexGame.savesData.Coins < CurrentPrice) return;
+            // if(YandexGame.savesData.Coins < CurrentPrice) return;
             
-            PlayerStats.Buy(CurrentPrice);
+            // PlayerStats.Buy(CurrentPrice);
             CurrentLevel++;
             
             PriceChanged?.Invoke(CurrentPrice);

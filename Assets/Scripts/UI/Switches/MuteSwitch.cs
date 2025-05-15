@@ -1,18 +1,12 @@
 ﻿using System;
+using YG;
 
 public class MuteSwitch : Switch
 {
-    public Action<bool> Muted;
-
-    protected override void Display()
+    private void Awake()
     {
-        base.Display();
-
-        Mute();
-    }
-
-    private void Mute()
-    {
-        Muted?.Invoke(Position);
+        Position = YG2.saves.Muted;
+        
+        Display();
     }
 }

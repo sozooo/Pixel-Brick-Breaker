@@ -49,9 +49,9 @@ public class Shooter : Spawner<Bullet>
         _cooldawn = StartCoroutine(CoolDawn());
     }
 
-    protected override void Despawn(Bullet bullet)
+    protected override void OnDespawned(Bullet bullet)
     {
-        base.Despawn(bullet);
+        base.OnDespawned(bullet);
 
         _bullets.Remove(bullet);
 
@@ -65,7 +65,7 @@ public class Shooter : Spawner<Bullet>
 
         while(_bullets.Count > 0)
         {
-            Despawn(_bullets[0]);
+            OnDespawned(_bullets[0]);
         }
 
         _bullets.Clear();

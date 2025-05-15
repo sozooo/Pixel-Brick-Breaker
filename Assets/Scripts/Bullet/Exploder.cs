@@ -22,27 +22,28 @@ public class Exploder : MonoBehaviour
 
         List<Collider> voxels = GetCollidedVoxels(position);
 
-        if (voxels.Count > 0)
+        if (voxels.Count <= 0) return;
+        
+        foreach (Collider body in voxels)
         {
-            foreach (Collider body in voxels)
+            if (body.gameObject.TryGetComponent(out Core core))
             {
-                if (body.gameObject.TryGetComponent(out Core core))
-                {
-                    core.StartExplosion();
-                    break;
-                }
-                else if(body.gameObject.TryGetComponent(out Voxel voxel))
-                {
-                    voxel.Fall();
-                }
-
+                core.StartExplosion();
+                break;
             }
+
+            if(body.gameObject.TryGetComponent(out Voxel voxel))
+            {
+                voxel.Fall();
+            }
+
         }
     }
 
     private List<Collider> GetCollidedVoxels(Vector3 position)
     {
-        Collider[] hits = Physics.OverlapSphere(position, _baseRange + _rangeMultiplier * YandexGame.savesData.BlastRadiusLevel, _figureLayer);
+        Collider[] hits = Physics.OverlapSphere(position,
+            _baseRange + _rangeMultiplier * YG2.saves.BlastRadiusLevel, _figureLayer);
 
         List<Collider> voxels = new(hits);
 

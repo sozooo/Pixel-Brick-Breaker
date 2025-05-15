@@ -30,8 +30,7 @@ public class Core : MonoBehaviour
     
     public void StartExplosion()
     {
-        if(_explosion == null)
-            _explosion = StartCoroutine(Explode());
+        _explosion ??= StartCoroutine(Explode());
     }
 
     private void OnDisable()

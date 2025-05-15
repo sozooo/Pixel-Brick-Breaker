@@ -9,7 +9,7 @@ public class Bullet : MonoBehaviour, ISpawnable<Bullet>
     private Ricocheter _ricocheter;
     private Transform _transform;
 
-    public event Action<Bullet> Despawn;
+    public event Action<Bullet> Despawned;
 
     private void Awake()
     {
@@ -25,7 +25,7 @@ public class Bullet : MonoBehaviour, ISpawnable<Bullet>
 
     private void OnDisable()
     {
-        Despawn?.Invoke(this);
+        Despawned?.Invoke(this);
     }
 
     public void Initialize(Vector3 position, Quaternion rotation)

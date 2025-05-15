@@ -18,8 +18,8 @@ GameObject:
   - component: {fileID: -9051022125703405005}
   - component: {fileID: 7495555145574654241}
   - component: {fileID: 3291695231737167332}
-  - component: {fileID: 5257243068658397514}
   - component: {fileID: 8086297367431122097}
+  - component: {fileID: 4639583340185716305}
   m_Layer: 6
   m_Name: Bullet
   m_TagString: Untagged
@@ -150,7 +150,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8d5dabcebe604d7a8278f8d384e58f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _range: 0.5
+  _baseRange: 0.5
+  _rangeMultiplier: 0.2
   _strength: 10
   _figureLayer:
     serializedVersion: 2
@@ -307,26 +308,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae68ab71abdb9457e841dbb68d2a346d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &5257243068658397514
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4542550351932796505}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aec0dea5e237c49e381eaf6ebda49d5b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _audioSource: {fileID: 8086297367431122097}
-  _ricochetSounds:
-  - {fileID: 8300000, guid: f52028ac57b2a49f7bcf1ec0a7e6b52c, type: 3}
-  - {fileID: 8300000, guid: c155828b70c1b4c8bab378079dc99c56, type: 3}
-  - {fileID: 8300000, guid: 82a8eef0a83444da6b372762f5175236, type: 3}
-  _figureShootSounds:
-  - {fileID: 8300000, guid: 3f692f0823b3f45afb000d656f137d55, type: 3}
-  - {fileID: 8300000, guid: c1298d3994d304a15be6a3a759c09fea, type: 3}
 --- !u!82 &8086297367431122097
 AudioSource:
   m_ObjectHideFlags: 0
@@ -423,3 +404,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &4639583340185716305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4542550351932796505}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98ae5ce19ae4f4ab883e2b78c5632674, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioSource: {fileID: 8086297367431122097}
+  _audioClips:
+  - {fileID: 8300000, guid: f52028ac57b2a49f7bcf1ec0a7e6b52c, type: 3}
+  - {fileID: 8300000, guid: c155828b70c1b4c8bab378079dc99c56, type: 3}
+  - {fileID: 8300000, guid: 82a8eef0a83444da6b372762f5175236, type: 3}

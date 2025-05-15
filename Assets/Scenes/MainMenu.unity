@@ -270,6 +270,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f34f36451b093ee4c83ad4aa5459d2ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  textMPComponent: {fileID: 0}
+  uniqueFontTMP: {fileID: 0}
   textLComponent: {fileID: 0}
   infoYG: {fileID: 11400000, guid: 162644796a8b0d044bce3d6fda0641e3, type: 2}
   text: 
@@ -764,6 +766,10 @@ MonoBehaviour:
     title: {fileID: 0}
     description: {fileID: 0}
     priceValue: {fileID: 0}
+  textMP:
+    title: {fileID: 0}
+    description: {fileID: 0}
+    priceValue: {fileID: 0}
   data:
     id: 3
     title: 
@@ -849,6 +855,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 126080706}
   m_CullTransparentMesh: 1
+--- !u!1 &126651203 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6667779368943407242, guid: d92a5a358c9c14c2d893350cecb4838a, type: 3}
+  m_PrefabInstance: {fileID: 350332735152839466}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &126651204 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1902081200910829440, guid: d92a5a358c9c14c2d893350cecb4838a, type: 3}
+  m_PrefabInstance: {fileID: 350332735152839466}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 126651203}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &126651206
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 126651203}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8dd10e10be94e0b9fe7401e475fa442, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _slider: {fileID: 126651204}
+  _audioMixer: {fileID: 24100000, guid: 8cf5f754edba54ba697e17108d4ae66e, type: 2}
+  _mixerParameterName: MusicVolume
 --- !u!1 &137956584
 GameObject:
   m_ObjectHideFlags: 0
@@ -1404,6 +1441,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f34f36451b093ee4c83ad4aa5459d2ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  textMPComponent: {fileID: 0}
+  uniqueFontTMP: {fileID: 0}
   textLComponent: {fileID: 0}
   infoYG: {fileID: 11400000, guid: 162644796a8b0d044bce3d6fda0641e3, type: 2}
   text: 
@@ -1492,6 +1531,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f34f36451b093ee4c83ad4aa5459d2ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  textMPComponent: {fileID: 0}
+  uniqueFontTMP: {fileID: 0}
   textLComponent: {fileID: 0}
   infoYG: {fileID: 11400000, guid: 162644796a8b0d044bce3d6fda0641e3, type: 2}
   text: 
@@ -1774,6 +1815,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f34f36451b093ee4c83ad4aa5459d2ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  textMPComponent: {fileID: 0}
+  uniqueFontTMP: {fileID: 0}
   textLComponent: {fileID: 0}
   infoYG: {fileID: 11400000, guid: 162644796a8b0d044bce3d6fda0641e3, type: 2}
   text: 
@@ -2823,6 +2866,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f34f36451b093ee4c83ad4aa5459d2ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  textMPComponent: {fileID: 0}
+  uniqueFontTMP: {fileID: 0}
   textLComponent: {fileID: 0}
   infoYG: {fileID: 11400000, guid: 162644796a8b0d044bce3d6fda0641e3, type: 2}
   text: 
@@ -3437,6 +3482,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f34f36451b093ee4c83ad4aa5459d2ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  textMPComponent: {fileID: 0}
+  uniqueFontTMP: {fileID: 0}
   textLComponent: {fileID: 0}
   infoYG: {fileID: 11400000, guid: 162644796a8b0d044bce3d6fda0641e3, type: 2}
   text: 
@@ -3475,6 +3522,17 @@ MonoBehaviour:
   processTranslateLabel: 0/3 completed
   componentTextField: 1
   countLang: 0
+--- !u!114 &772627293 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3081912806889870288, guid: d92a5a358c9c14c2d893350cecb4838a, type: 3}
+  m_PrefabInstance: {fileID: 350332735152839466}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &854096366
 GameObject:
   m_ObjectHideFlags: 0
@@ -3773,6 +3831,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f34f36451b093ee4c83ad4aa5459d2ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  textMPComponent: {fileID: 0}
+  uniqueFontTMP: {fileID: 0}
   textLComponent: {fileID: 0}
   infoYG: {fileID: 11400000, guid: 162644796a8b0d044bce3d6fda0641e3, type: 2}
   text: 
@@ -5129,6 +5189,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f34f36451b093ee4c83ad4aa5459d2ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  textMPComponent: {fileID: 0}
+  uniqueFontTMP: {fileID: 0}
   textLComponent: {fileID: 0}
   infoYG: {fileID: 11400000, guid: 162644796a8b0d044bce3d6fda0641e3, type: 2}
   text: 
@@ -5554,6 +5616,37 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _animator: {fileID: 1207137199}
   _loader: {fileID: 1207137200}
+--- !u!1 &1219656001 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7999511104509843492, guid: d92a5a358c9c14c2d893350cecb4838a, type: 3}
+  m_PrefabInstance: {fileID: 350332735152839466}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1219656002 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3929815142336001984, guid: d92a5a358c9c14c2d893350cecb4838a, type: 3}
+  m_PrefabInstance: {fileID: 350332735152839466}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1219656001}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1219656004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1219656001}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8dd10e10be94e0b9fe7401e475fa442, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _slider: {fileID: 1219656002}
+  _audioMixer: {fileID: 24100000, guid: 8cf5f754edba54ba697e17108d4ae66e, type: 2}
+  _mixerParameterName: SoundsVolume
 --- !u!1 &1231372142
 GameObject:
   m_ObjectHideFlags: 0
@@ -5664,6 +5757,10 @@ MonoBehaviour:
   purchaseImageLoad: {fileID: 0}
   currencyImageLoad: {fileID: 0}
   textLegasy:
+    title: {fileID: 0}
+    description: {fileID: 0}
+    priceValue: {fileID: 0}
+  textMP:
     title: {fileID: 0}
     description: {fileID: 0}
     priceValue: {fileID: 0}
@@ -5983,6 +6080,10 @@ MonoBehaviour:
   purchaseImageLoad: {fileID: 0}
   currencyImageLoad: {fileID: 0}
   textLegasy:
+    title: {fileID: 0}
+    description: {fileID: 0}
+    priceValue: {fileID: 0}
+  textMP:
     title: {fileID: 0}
     description: {fileID: 0}
     priceValue: {fileID: 0}
@@ -6591,6 +6692,10 @@ MonoBehaviour:
     title: {fileID: 0}
     description: {fileID: 0}
     priceValue: {fileID: 0}
+  textMP:
+    title: {fileID: 0}
+    description: {fileID: 0}
+    priceValue: {fileID: 0}
   data:
     id: 4
     title: 
@@ -6905,6 +7010,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f34f36451b093ee4c83ad4aa5459d2ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  textMPComponent: {fileID: 0}
+  uniqueFontTMP: {fileID: 0}
   textLComponent: {fileID: 0}
   infoYG: {fileID: 11400000, guid: 162644796a8b0d044bce3d6fda0641e3, type: 2}
   text: 
@@ -7239,6 +7346,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f34f36451b093ee4c83ad4aa5459d2ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  textMPComponent: {fileID: 0}
+  uniqueFontTMP: {fileID: 0}
   textLComponent: {fileID: 0}
   infoYG: {fileID: 11400000, guid: 162644796a8b0d044bce3d6fda0641e3, type: 2}
   text: 
@@ -7424,6 +7533,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f34f36451b093ee4c83ad4aa5459d2ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  textMPComponent: {fileID: 0}
+  uniqueFontTMP: {fileID: 0}
   textLComponent: {fileID: 0}
   infoYG: {fileID: 11400000, guid: 162644796a8b0d044bce3d6fda0641e3, type: 2}
   text: 
@@ -8482,6 +8593,10 @@ MonoBehaviour:
     title: {fileID: 0}
     description: {fileID: 0}
     priceValue: {fileID: 0}
+  textMP:
+    title: {fileID: 0}
+    description: {fileID: 0}
+    priceValue: {fileID: 0}
   data:
     id: 1
     title: 
@@ -8953,6 +9068,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f34f36451b093ee4c83ad4aa5459d2ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  textMPComponent: {fileID: 0}
+  uniqueFontTMP: {fileID: 0}
   textLComponent: {fileID: 0}
   infoYG: {fileID: 11400000, guid: 162644796a8b0d044bce3d6fda0641e3, type: 2}
   text: 
@@ -9160,6 +9277,10 @@ PrefabInstance:
       propertyPath: m_AnchorMin.x
       value: 0.489
       objectReference: {fileID: 0}
+    - target: {fileID: 1902081200910829440, guid: d92a5a358c9c14c2d893350cecb4838a, type: 3}
+      propertyPath: m_MinValue
+      value: 0.0001
+      objectReference: {fileID: 0}
     - target: {fileID: 2610072721221122209, guid: d92a5a358c9c14c2d893350cecb4838a, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0.489
@@ -9188,6 +9309,22 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3826953599252464960, guid: d92a5a358c9c14c2d893350cecb4838a, type: 3}
+      propertyPath: _musicSlider
+      value: 
+      objectReference: {fileID: 126651206}
+    - target: {fileID: 3826953599252464960, guid: d92a5a358c9c14c2d893350cecb4838a, type: 3}
+      propertyPath: _soundSlider
+      value: 
+      objectReference: {fileID: 1219656004}
+    - target: {fileID: 3929815142336001984, guid: d92a5a358c9c14c2d893350cecb4838a, type: 3}
+      propertyPath: m_MinValue
+      value: 0.0001
+      objectReference: {fileID: 0}
+    - target: {fileID: 4474735997088474314, guid: d92a5a358c9c14c2d893350cecb4838a, type: 3}
+      propertyPath: _image
+      value: 
+      objectReference: {fileID: 772627293}
     - target: {fileID: 5852316356283953957, guid: d92a5a358c9c14c2d893350cecb4838a, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0.489
@@ -9279,7 +9416,13 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6667779368943407242, guid: d92a5a358c9c14c2d893350cecb4838a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 126651206}
+    - targetCorrespondingSourceObject: {fileID: 7999511104509843492, guid: d92a5a358c9c14c2d893350cecb4838a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1219656004}
   m_SourcePrefab: {fileID: 100100000, guid: d92a5a358c9c14c2d893350cecb4838a, type: 3}
 --- !u!1001 &1291035134459634600
 PrefabInstance:
@@ -9953,6 +10096,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f34f36451b093ee4c83ad4aa5459d2ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  textMPComponent: {fileID: 0}
+  uniqueFontTMP: {fileID: 0}
   textLComponent: {fileID: 0}
   infoYG: {fileID: 11400000, guid: 162644796a8b0d044bce3d6fda0641e3, type: 2}
   text: 

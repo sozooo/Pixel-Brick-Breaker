@@ -9,16 +9,16 @@ public class Spawner<T> : MonoBehaviour where T : MonoBehaviour, ISpawnable<T>
     {
         T spawnable = Pool.Give();
 
-        spawnable.Despawn += Despawn;
+        spawnable.Despawned += OnDespawned;
         spawnable.Initialize(Spawnpoint.position, Spawnpoint.rotation);
         spawnable.gameObject.SetActive(true);
 
         return spawnable;
     }
 
-    protected virtual void Despawn(T spawnable)
+    protected virtual void OnDespawned(T spawnable)
     {
-        spawnable.Despawn -= Despawn;
+        spawnable.Despawned -= OnDespawned;
 
         if(Pool)
             Pool.Add(spawnable);

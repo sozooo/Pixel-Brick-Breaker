@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
@@ -22,11 +23,20 @@ namespace UI.Switches
         private void OnEnable()
         {
             _dropdown.onValueChanged.AddListener(SwitchLanguage);
+
+            // _dropdown.value = _dropdown.options.IndexOf(_dropdown.options
+            //     .FirstOrDefault(option => string
+            //         .Equals(option.text, YandexGame.savesData.language, StringComparison.CurrentCultureIgnoreCase)));
+        }
+        
+        private void OnDisable()
+        {
+            _dropdown.onValueChanged.RemoveListener(SwitchLanguage);
         }
 
         private void SwitchLanguage(int index)
         {
-            YandexGame.SwitchLanguage(_languageNames[index]);
+            // YandexGame.SwitchLanguage(_languageNames[index]);
         }
     }
 }

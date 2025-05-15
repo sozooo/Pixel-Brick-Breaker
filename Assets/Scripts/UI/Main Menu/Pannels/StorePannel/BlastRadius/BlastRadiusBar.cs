@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using YG;
 
@@ -12,7 +11,7 @@ namespace UI.Main_Menu.Pannels.StorePannel.BlastRadius
         {
             _blastRadiusItem.Upgraded += Fill;
             
-            Fill(YandexGame.savesData.BlastRadiusLevel);
+            Fill(YG2.saves.BlastRadiusLevel);
         }
     }
 }

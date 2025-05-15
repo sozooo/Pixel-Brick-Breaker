@@ -1,16 +1,12 @@
 using System;
-using UnityEditor;
 using UnityEngine;
-using UnityEngine.Serialization;
-using WorkObjects.Enums;
-using YG;
 
 public class ExtraTimeManager : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] private TimerProgressBar _gameTimer;
     [SerializeField] private ExtraTimePannel _pannel;
-    [SerializeField] private GameHandler _gameHandler;
+    [SerializeField] private CompositionRoot compositionRoot;
     [SerializeField] private StatsCollector _statsCollector;
     
     [Header("Settings")]
@@ -25,15 +21,9 @@ public class ExtraTimeManager : MonoBehaviour
     {
         _currentTriesCount = 0;
         
-        _gameHandler.GameOvered += Show;
+        compositionRoot.GameOvered += Show;
         _pannel.TimeRedeemed += AddTime;
         _pannel.TimerPassed += EndGame;
-
-        YandexGame.RewardVideoEvent += adIndex =>
-        {
-            if(adIndex == (int)RewardAdTypes.AddTime)
-                AddTime();
-        };
     }
 
     private void Show()

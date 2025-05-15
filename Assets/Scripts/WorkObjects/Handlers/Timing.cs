@@ -1,32 +1,35 @@
 ﻿using UnityEngine;
 using System;
+using System.Collections.Generic;
 
-public class Timing : MonoBehaviour
+[Serializable]
+public class Timing
 {
-    [SerializeField] private float _firstStepTiming;
-    [SerializeField] private float _secondStepTiming;
+    [SerializeField] private List<float> _timings;
     [SerializeField] private TimerProgressBar _timer;
-
-    private const int FirstTiming = 0;
-    private const int SecondTiming = 1;
-    private const int ThirdTiming = 2;
 
     public event Action<int> TimingChanged;
 
-    private void OnEnable()
+    public void Initialize()
     {
         _timer.SecondPassed += WatchTiming;
     }
 
+    public void Disable()
+    {
+        _timer.SecondPassed -= WatchTiming;
+    }
+
     private void WatchTiming(float currentTime)
     {
-        if (currentTime > _firstStepTiming)
-            TimingChanged?.Invoke(FirstTiming);
-
-        else if(currentTime < _firstStepTiming && currentTime > _secondStepTiming)
-            TimingChanged?.Invoke(SecondTiming);
-
-        else if (currentTime < _secondStepTiming)
-            TimingChanged?.Invoke(ThirdTiming);
+        for (int i = 0; i < _timings.Count; i++)
+        {
+            if (!(currentTime <= _timings[i]))
+                continue;
+            
+            TimingChanged?.Invoke(i);
+                
+            return;
+        }
     }
 }
