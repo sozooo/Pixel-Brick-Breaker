@@ -6,10 +6,15 @@ public class TimerUpgradeBar : UpgradeBar
 {
     [SerializeField] private TimerUpgradeItem _timerUpgradeItem;
 
-    private void Awake()
+    private void OnEnable()
     {
         _timerUpgradeItem.Upgraded += Fill;
             
         Fill(YG2.saves.TimerLevel);
+    }
+
+    private void OnDisable()
+    {
+        _timerUpgradeItem.Upgraded -= Fill;
     }
 }

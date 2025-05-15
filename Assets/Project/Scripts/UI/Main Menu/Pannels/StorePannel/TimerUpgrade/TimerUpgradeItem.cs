@@ -4,7 +4,7 @@ namespace UI.Main_Menu.Pannels.StorePannel.TimerUpgrade
 {
     public class TimerUpgradeItem : UpgradeItem
     {
-        private void Awake()
+        private void OnEnable()
         {
             CurrentLevel = YG2.saves.TimerLevel;
         }

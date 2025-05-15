@@ -11,18 +11,20 @@ public class PlayerStats : MonoBehaviour
         YG2.SaveProgress();
     }
     
-    public void Buy(int cost)
+    public bool TryBuy(int cost)
     {
         if(cost < 0)
             throw new ArgumentException("Invalid cost");
     
         if (cost > YG2.saves.Coins)
-            throw new ArgumentException("Not enough coins");
+            return false;
         
         YG2.saves.Coins -= cost;
         CoinsCountChanged?.Invoke();
         
         SavePlayerStats();
+
+        return true;
     }
     
     public void Earn(int cost)

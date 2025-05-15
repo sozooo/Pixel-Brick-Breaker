@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,7 +8,7 @@ namespace UI.Main_Menu.Pannels.StorePannel
     public class MaxLevelHandler : MonoBehaviour
     {
         [SerializeField] private UpgradeItem _upgradeItem;
-        [SerializeField] private Text _buttonText;
+        [SerializeField] private TextMeshProUGUI _buttonText;
         [SerializeField] private string _maxLevelText;
 
         private Button _button;

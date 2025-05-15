@@ -1,7 +1,6 @@
 using System;
 using UnityEngine;
 using UnityEngine.UI;
-using YG;
 
 public class BuyButton : MonoBehaviour, IExtraTimeButton
 {
@@ -28,10 +27,10 @@ public class BuyButton : MonoBehaviour, IExtraTimeButton
 
     public void Iteract()
     {
-        if (YG2.saves.Coins < _buybackCost) return;
+        if (_playerStats.TryBuy(_buybackCost) == false)
+            return;
         
         AddTime();
-        _playerStats.Buy(_buybackCost);
     }
 
     public void AddTime()

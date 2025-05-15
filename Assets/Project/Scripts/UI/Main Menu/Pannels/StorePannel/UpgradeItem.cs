@@ -1,8 +1,5 @@
 using System;
-using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
-using YG;
 
 namespace UI.Main_Menu.Pannels.StorePannel
 {
@@ -10,9 +7,10 @@ namespace UI.Main_Menu.Pannels.StorePannel
     {
         [SerializeField] protected int BasePrice;
         [SerializeField] protected int PriceMultiplier = 2;
+        [SerializeField] private int _maxLevel = 3;
+        [SerializeField] private PlayerStats _playerStats;
 
         protected int CurrentLevel;
-        private int _maxLevel = 3;
 
         private int CurrentPrice => BasePrice + PriceMultiplier * CurrentLevel;
 
@@ -22,7 +20,7 @@ namespace UI.Main_Menu.Pannels.StorePannel
         
         private bool isLevelMaxed => CurrentLevel >= _maxLevel;
 
-        private void Start()
+        private void OnEnable()
         {
             Upgraded?.Invoke(CurrentLevel);
             PriceChanged?.Invoke(CurrentPrice);
@@ -33,9 +31,9 @@ namespace UI.Main_Menu.Pannels.StorePannel
 
         protected override void Buy()
         {
-            // if(YandexGame.savesData.Coins < CurrentPrice) return;
+            if(_playerStats.TryBuy(CurrentPrice) == false || isLevelMaxed)
+                return;
             
-            // PlayerStats.Buy(CurrentPrice);
             CurrentLevel++;
             
             PriceChanged?.Invoke(CurrentPrice);
@@ -44,7 +42,5 @@ namespace UI.Main_Menu.Pannels.StorePannel
             if(isLevelMaxed)
                 LevelMaxed?.Invoke();
         }
-
-        
     }
 }

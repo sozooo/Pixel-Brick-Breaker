@@ -7,11 +7,16 @@ namespace UI.Main_Menu.Pannels.StorePannel.BlastRadius
     {
         [SerializeField] private BlastRadiusItem _blastRadiusItem;
 
-        private void Awake()
+        private void OnEnable()
         {
             _blastRadiusItem.Upgraded += Fill;
             
             Fill(YG2.saves.BlastRadiusLevel);
+        }
+
+        private void OnDisable()
+        {
+            _blastRadiusItem.Upgraded -= Fill;
         }
     }
 }
