@@ -2,6 +2,7 @@ using com.cyborgAssets.inspectorButtonPro;
 using UnityEngine;
 using TMPro;
 using System;
+using System.Globalization;
 
 public class LevelProgressBar : ProgressBar
 {
@@ -18,7 +19,12 @@ public class LevelProgressBar : ProgressBar
     {
         base.OnEnable();
 
-        _maxIndicator.text = (Maximum - Minimum).ToString();
+        _maxIndicator.text = (Maximum - Minimum).ToString(CultureInfo.InvariantCulture);
+    }
+
+    private void OnDisable()
+    {
+        RemoveFigure(_figure);
     }
 
     [ProPlayButton]
@@ -28,11 +34,11 @@ public class LevelProgressBar : ProgressBar
 
         base.Fill();
 
-        if (Current >= Maximum)
-        {
-            IncreaseMaximum(Maximum * _levelUpMultiplyer);
-            LevelUp?.Invoke();
-        }
+        if (!(Current >= Maximum))
+            return;
+        
+        IncreaseMaximum(Maximum * _levelUpMultiplyer);
+        LevelUp?.Invoke();
     }
 
     protected override void IncreaseMaximum(float increaser)

@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class CompositionRoot : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class CompositionRoot : MonoBehaviour
 
     [Header("Cannon Configuration")]
     [SerializeField] private Cannon _cannon;
+    [SerializeField] private PausePannel _pausePannel;
 
     [Header("Figure Configuration")]
     [SerializeField] private FigureSpawner _figureSpawner;
@@ -25,6 +27,14 @@ public class CompositionRoot : MonoBehaviour
     private Figure _currentFigure;
     
     public event Action GameOvered;
+
+    private void Awake()
+    {
+        var input = new PlayerInput();
+        
+        _cannon.Initialize(input);
+        _pausePannel.Initialize(input);
+    }
 
     private void OnEnable()
     {
@@ -57,8 +67,8 @@ public class CompositionRoot : MonoBehaviour
 
     private void ResetBars()
     {
-        _timer.Reset();
-        _level.Reset();
+        _timer.ResetBar();
+        _level.ResetBar();
     }
 
     private void SpawnNewFigure()

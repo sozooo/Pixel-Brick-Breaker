@@ -10,20 +10,27 @@ public class FigureSpawner : Spawner<Figure>
     [SerializeField] private float _timeToDespawn = 4f;
 
     private List<Figure> _mainFiguresList;
+    private Figure _currentFigure;
 
     public event Action FigureDespawned;
     public event Action FigureFelt;
 
+    private void OnDisable()
+    {
+        if(_currentFigure)
+            _currentFigure.Despawned -= OnDespawned;
+    }
+
     public override Figure Spawn()
     {
-        Figure figure = Instantiate(
+        _currentFigure = Instantiate(
             _mainFiguresList[Random.Range(0, _mainFiguresList.Count)],
             Spawnpoint.position, Spawnpoint.rotation);
 
-        figure.Despawned += OnDespawned;
-        figure.gameObject.SetActive(true);
+        _currentFigure.Despawned += OnDespawned;
+        _currentFigure.gameObject.SetActive(true);
 
-        return figure;
+        return _currentFigure;
     }
 
     public void SetFigureList(List<Figure> figuresList)
@@ -34,6 +41,8 @@ public class FigureSpawner : Spawner<Figure>
     protected override void OnDespawned(Figure figure)
     {
         FigureFelt?.Invoke();
+        
+        _currentFigure.Despawned -= OnDespawned;
 
         StartCoroutine(TimerBeforeDespawn(figure));
     }
@@ -43,6 +52,7 @@ public class FigureSpawner : Spawner<Figure>
         yield return new WaitForSeconds(_timeToDespawn);
 
         Destroy(figure.gameObject);
+        _currentFigure = null;
 
         FigureDespawned?.Invoke();
     }

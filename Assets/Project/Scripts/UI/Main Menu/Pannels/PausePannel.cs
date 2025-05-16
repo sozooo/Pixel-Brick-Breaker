@@ -1,24 +1,27 @@
-using UnityEngine;
 using YG;
 
 public class PausePannel : Pannel
 {
-    private float _timeScale;
+    private PlayerInput _playerInput;
     
-    private void Awake()
-    {
-        _timeScale = Time.timeScale;
-    }
-
     private new void OnEnable()
     {
         base.OnEnable();
-        YG2.PauseGame(true);
+        
+        _playerInput.Disable();
+        
+        YG2.PauseGameNoEditEventSystem(true);
     }
 
     private void OnDisable()
     {
-        Time.timeScale = _timeScale;
-        YG2.PauseGame(false);
+        _playerInput.Enable();
+        
+        YG2.PauseGameNoEditEventSystem(false);
+    }
+
+    public void Initialize(PlayerInput playerInput)
+    {
+        _playerInput = playerInput;
     }
 }

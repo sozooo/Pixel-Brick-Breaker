@@ -1,0 +1,20 @@
+{
+    "intExample": 5,
+    "strExample": "Hello!",
+    "boolExample": [
+        false,
+        false,
+        false,
+        false
+    ],
+    "idSave": 4,
+    "Language": "en",
+    "MusicLevel": 1.0,
+    "SoundLevel": 1.0,
+    "Muted": false,
+    "Coins": 500,
+    "Highscore": 0.0,
+    "TimerLevel": 0,
+    "BlastRadiusLevel": 0,
+    "IsAdRemoved": false
+}

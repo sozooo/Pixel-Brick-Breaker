@@ -7,27 +7,33 @@ public class Cannon : MonoBehaviour
     [SerializeField] private CannonMovement _movement;
     [SerializeField] private Rotator _rotator;
     [SerializeField] private AimShower _aimShower;
-    
-    private Shooter _shooter;
-    private Audio _audio;
+    [SerializeField] private Shooter _shooter;
+    [SerializeField] private Audio _audio;
 
     private Transform _transform;
     private PlayerInput _input;
 
-    private void Awake()
+    private void Update()
     {
-        _shooter = GetComponent<Shooter>();
-        _audio = GetComponent<Audio>();
-        _input = new PlayerInput();
-
-        _transform = transform;
-        _rotator = new Rotator(_transform, _input, _aimShower);
-        _shooter.Initialize();
+        _rotator?.Update();
     }
 
-    private void OnEnable()
+    private void OnDisable()
     {
+        _input.Disable();
+        
+        _input.Mouse.Press.performed -= Shoot;
+    }
+
+    public void Initialize(PlayerInput input)
+    {
+        _input = input;
+        _transform = transform;
+        
         _input.Enable();
+        
+        _rotator.Initialize(_transform, _input, _aimShower);
+        _shooter.Initialize();
 
         _input.Mouse.Press.performed += Shoot;
     }
@@ -41,11 +47,6 @@ public class Cannon : MonoBehaviour
         _rotator.Reset();
 
         _movement.Move(direction);
-    }
-
-    private void Update()
-    {
-        _rotator.Update();
     }
 
     public void DropBullets()

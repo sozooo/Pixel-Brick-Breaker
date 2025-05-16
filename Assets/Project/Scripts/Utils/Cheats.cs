@@ -6,14 +6,16 @@ namespace Utils
 {
     public class Cheats : MonoBehaviour
     {
-        // [ProPlayButton]
-        // public void EarnMoney(int money)
-        // {
-        //     Debug.Log($"Exist money: {YandexGame.savesData.Coins}");
-        //     
-        //     PlayerStats.Earn(money);
-        // }
-        //
+        [SerializeField] private PlayerStats _playerStats;
+        
+        [ProPlayButton]
+        public void EarnMoney(int money)
+        {
+            Debug.Log($"Exist money: {YG2.saves.Coins}");
+            
+            _playerStats.Earn(money);
+        }
+        
         // [ProPlayButton]
         // public void UpgradeTimer()
         // {

@@ -23,7 +23,9 @@ namespace UI
             YG2.onRewardAdv -= OnRewardedAdv;
         }
 
-        protected void ShowAd()
+        protected abstract void OnRewardedAdv(string adIndex);
+        
+        private void ShowAd()
         {
             if(AdIndex.Any() == false)
                 throw new InvalidOperationException("Reward index not setted to available reward");
@@ -32,7 +34,5 @@ namespace UI
             
             YG2.RewardedAdvShow(AdIndex);
         }
-
-        protected abstract void OnRewardedAdv(string adIndex);
     }
 }

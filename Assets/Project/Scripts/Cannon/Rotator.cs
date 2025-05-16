@@ -17,7 +17,7 @@ public class Rotator
     private Transform _transform;
     private PlayerInput _input;
 
-    public Rotator(Transform transform, PlayerInput input, AimShower aim)
+    public void Initialize(Transform transform, PlayerInput input, AimShower aim)
     {
         _transform = transform;
         _input = input;
@@ -31,6 +31,9 @@ public class Rotator
 
     public void Update()
     {
+        if(_input == null)
+            return;
+        
         if (_input.Mouse.Press.IsPressed())
         {
             Rotate();

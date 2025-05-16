@@ -21,15 +21,15 @@ public class ProgressBar : MonoBehaviour
     private float _maximum;
     private Coroutine _smoothFill;
 
-    public float Maximum => _maximum;
-    public float Minimum => _minimum;
+    protected float Maximum => _maximum;
+    protected float Minimum => _minimum;
 
     protected void OnEnable()
     {
-        Reset();
+        ResetBar();
     }
 
-    public virtual void Reset()
+    public virtual void ResetBar()
     {
         _minimum = StartMinimum;
         _maximum = StartMaximum;

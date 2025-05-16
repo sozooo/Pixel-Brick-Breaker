@@ -19,11 +19,11 @@ public class TimerProgressBar : ProgressBar
     {
         BonusTime = Current;
 
-        // float upgradedTime = _timeModifier * YandexGame.savesData.TimerLevel;
-        // StartMaximum += upgradedTime;
+        float upgradedTime = _timeModifier * YG2.saves.TimerLevel;
+        StartMaximum += upgradedTime;
         StartCurrent = StartMaximum;
 
-        base.Reset();
+        base.ResetBar();
     }
 
     [ProPlayButton]
@@ -37,7 +37,7 @@ public class TimerProgressBar : ProgressBar
         Fill();
     }
 
-    public override void Reset()
+    public override void ResetBar()
     {
         if(_timer != null)
         {
@@ -47,7 +47,7 @@ public class TimerProgressBar : ProgressBar
 
         BonusTime = Current;
 
-        base.Reset();
+        base.ResetBar();
 
         _timer = StartCoroutine(Timer());
     }
@@ -69,7 +69,6 @@ public class TimerProgressBar : ProgressBar
 
             if (Mathf.Approximately(Current, Minimum))
                 TimePassed?.Invoke();
-            
         }
     }
 }

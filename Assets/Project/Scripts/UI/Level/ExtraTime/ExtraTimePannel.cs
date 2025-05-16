@@ -28,7 +28,7 @@ public class ExtraTimePannel : Pannel
     private new void OnEnable()
     {
         base.OnEnable();
-        _gameOverTimer.Reset();
+        _gameOverTimer.ResetBar();
         
         _activateNumber++;
         

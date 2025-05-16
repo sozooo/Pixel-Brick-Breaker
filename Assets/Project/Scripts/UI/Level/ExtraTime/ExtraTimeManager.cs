@@ -49,7 +49,7 @@ public class ExtraTimeManager : MonoBehaviour
     {
         _pannel.gameObject.SetActive(false);
         _gameTimer.AddTime(_additionalTime);
-        _gameTimer.Reset();
+        _gameTimer.ResetBar();
 
         _currentTriesCount++;
     }

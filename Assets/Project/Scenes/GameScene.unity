@@ -1302,6 +1302,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _coinDisplayer: {fileID: 2079113955}
   _levelProgressBar: {fileID: 1222803476}
+  _playerStats: {fileID: 0}
 --- !u!1 &386955877
 GameObject:
   m_ObjectHideFlags: 0
@@ -1449,44 +1450,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f34f36451b093ee4c83ad4aa5459d2ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textLComponent: {fileID: 0}
-  infoYG: {fileID: 11400000, guid: 162644796a8b0d044bce3d6fda0641e3, type: 2}
-  text: 
-  ru: "\u041F\u0415\u0420\u0415\u0417\u0410\u041F\u0423\u0421\u041A"
-  en: RESTART
-  tr: "YEN\u0130DEN BA\u015ELATMA"
-  az: 
-  be: 
-  he: 
-  hy: 
-  ka: 
-  et: 
-  fr: 
-  kk: 
-  ky: 
-  lt: 
-  lv: 
-  ro: 
-  tg: 
-  tk: 
-  uk: 
-  uz: 
-  es: 
-  pt: 
-  ar: 
-  id: 
-  ja: 
-  it: 
-  de: 
-  hi: 
-  changeOnlyFont: 0
-  fontNumber: 0
-  uniqueFont: {fileID: 0}
-  additionalText: {fileID: 0}
-  textHeight: 20
-  processTranslateLabel: 
-  componentTextField: 0
-  countLang: 0
 --- !u!1 &534643851
 GameObject:
   m_ObjectHideFlags: 0
@@ -2595,17 +2558,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 8144889580572758123, guid: d92a5a358c9c14c2d893350cecb4838a, type: 3}
   m_PrefabInstance: {fileID: 1540186137}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &641708672 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7926179330248512646, guid: d92a5a358c9c14c2d893350cecb4838a, type: 3}
-  m_PrefabInstance: {fileID: 1540186137}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 641708670}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1573a35ef67440ba7ee5104ce169230, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &641708676
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3611,44 +3563,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f34f36451b093ee4c83ad4aa5459d2ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textLComponent: {fileID: 0}
-  infoYG: {fileID: 11400000, guid: 162644796a8b0d044bce3d6fda0641e3, type: 2}
-  text: 
-  ru: "\u0411\u041E\u041D\u0423\u0421"
-  en: BONUS
-  tr: BONUS
-  az: 
-  be: 
-  he: 
-  hy: 
-  ka: 
-  et: 
-  fr: 
-  kk: 
-  ky: 
-  lt: 
-  lv: 
-  ro: 
-  tg: 
-  tk: 
-  uk: 
-  uz: 
-  es: 
-  pt: 
-  ar: 
-  id: 
-  ja: 
-  it: 
-  de: 
-  hi: 
-  changeOnlyFont: 0
-  fontNumber: 0
-  uniqueFont: {fileID: 0}
-  additionalText: {fileID: 0}
-  textHeight: 20
-  processTranslateLabel: 
-  componentTextField: 0
-  countLang: 0
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -3737,7 +3651,7 @@ Transform:
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.04, z: -106}
+  m_LocalPosition: {x: 0, y: 2.04, z: -115}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5408,7 +5322,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _pannelGroup: {fileID: 0}
-  _pannel: {fileID: 641708672}
+  _pannel: {fileID: 641708676}
 --- !u!43 &1064690956
 Mesh:
   m_ObjectHideFlags: 0
@@ -5721,44 +5635,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f34f36451b093ee4c83ad4aa5459d2ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textLComponent: {fileID: 0}
-  infoYG: {fileID: 11400000, guid: 162644796a8b0d044bce3d6fda0641e3, type: 2}
-  text: 
-  ru: "\u041A\u041E\u041D\u0415\u0426 \u0418\u0413\u0420\u042B"
-  en: ENDGAME
-  tr: OYUNUN SONU
-  az: 
-  be: 
-  he: 
-  hy: 
-  ka: 
-  et: 
-  fr: 
-  kk: 
-  ky: 
-  lt: 
-  lv: 
-  ro: 
-  tg: 
-  tk: 
-  uk: 
-  uz: 
-  es: 
-  pt: 
-  ar: 
-  id: 
-  ja: 
-  it: 
-  de: 
-  hi: 
-  changeOnlyFont: 0
-  fontNumber: 0
-  uniqueFont: {fileID: 0}
-  additionalText: {fileID: 0}
-  textHeight: 20
-  processTranslateLabel: 
-  componentTextField: 0
-  countLang: 0
 --- !u!1 &1097340287
 GameObject:
   m_ObjectHideFlags: 0
@@ -6593,44 +6469,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f34f36451b093ee4c83ad4aa5459d2ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textLComponent: {fileID: 0}
-  infoYG: {fileID: 11400000, guid: 162644796a8b0d044bce3d6fda0641e3, type: 2}
-  text: 
-  ru: "\u041D\u041E\u0412\u042B\u0419 \u0420\u0415\u041A\u041E\u0420\u0414"
-  en: NEW HIGHSCORE
-  tr: "YEN\u0130 REKOR"
-  az: 
-  be: 
-  he: 
-  hy: 
-  ka: 
-  et: 
-  fr: 
-  kk: 
-  ky: 
-  lt: 
-  lv: 
-  ro: 
-  tg: 
-  tk: 
-  uk: 
-  uz: 
-  es: 
-  pt: 
-  ar: 
-  id: 
-  ja: 
-  it: 
-  de: 
-  hi: 
-  changeOnlyFont: 0
-  fontNumber: 0
-  uniqueFont: {fileID: 0}
-  additionalText: {fileID: 0}
-  textHeight: 20
-  processTranslateLabel: 
-  componentTextField: 0
-  countLang: 0
 --- !u!1 &1190345258
 GameObject:
   m_ObjectHideFlags: 0
@@ -7305,44 +7143,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f34f36451b093ee4c83ad4aa5459d2ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textLComponent: {fileID: 0}
-  infoYG: {fileID: 11400000, guid: 162644796a8b0d044bce3d6fda0641e3, type: 2}
-  text: 
-  ru: "\u041D\u0410\u0413\u0420\u0410\u0414\u0410"
-  en: REWARD
-  tr: "\xD6D\xDCL"
-  az: 
-  be: 
-  he: 
-  hy: 
-  ka: 
-  et: 
-  fr: 
-  kk: 
-  ky: 
-  lt: 
-  lv: 
-  ro: 
-  tg: 
-  tk: 
-  uk: 
-  uz: 
-  es: 
-  pt: 
-  ar: 
-  id: 
-  ja: 
-  it: 
-  de: 
-  hi: 
-  changeOnlyFont: 0
-  fontNumber: 0
-  uniqueFont: {fileID: 0}
-  additionalText: {fileID: 0}
-  textHeight: 20
-  processTranslateLabel: 
-  componentTextField: 0
-  countLang: 0
 --- !u!1 &1270707894
 GameObject:
   m_ObjectHideFlags: 0
@@ -7639,44 +7439,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f34f36451b093ee4c83ad4aa5459d2ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textLComponent: {fileID: 0}
-  infoYG: {fileID: 11400000, guid: 162644796a8b0d044bce3d6fda0641e3, type: 2}
-  text: 
-  ru: "\u0420\u0435\u043A\u043B\u0430\u043C\u0430"
-  en: Wathc Ad
-  tr: Reklam
-  az: 
-  be: 
-  he: 
-  hy: 
-  ka: 
-  et: 
-  fr: 
-  kk: 
-  ky: 
-  lt: 
-  lv: 
-  ro: 
-  tg: 
-  tk: 
-  uk: 
-  uz: 
-  es: 
-  pt: 
-  ar: 
-  id: 
-  ja: 
-  it: 
-  de: 
-  hi: 
-  changeOnlyFont: 0
-  fontNumber: 0
-  uniqueFont: {fileID: 0}
-  additionalText: {fileID: 0}
-  textHeight: 20
-  processTranslateLabel: 
-  componentTextField: 0
-  countLang: 0
 --- !u!43 &1351416155
 Mesh:
   m_ObjectHideFlags: 0
@@ -8008,6 +7770,7 @@ Transform:
   - {fileID: 1663920187}
   - {fileID: 1614387153}
   - {fileID: 1922372322}
+  - {fileID: 2046431934}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1488748272
@@ -8238,27 +8001,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1452575494895056743, guid: d92a5a358c9c14c2d893350cecb4838a, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0.489
+      value: 0.48894888
       objectReference: {fileID: 0}
     - target: {fileID: 1452575494895056743, guid: d92a5a358c9c14c2d893350cecb4838a, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1452575494895056743, guid: d92a5a358c9c14c2d893350cecb4838a, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0.489
+      value: 0.48894888
       objectReference: {fileID: 0}
     - target: {fileID: 2610072721221122209, guid: d92a5a358c9c14c2d893350cecb4838a, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0.489
+      value: 0.48894888
       objectReference: {fileID: 0}
     - target: {fileID: 2610072721221122209, guid: d92a5a358c9c14c2d893350cecb4838a, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2610072721221122209, guid: d92a5a358c9c14c2d893350cecb4838a, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0.489
+      value: 0.48894888
+      objectReference: {fileID: 0}
+    - target: {fileID: 2665420774836497074, guid: d92a5a358c9c14c2d893350cecb4838a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3161565559040713913, guid: d92a5a358c9c14c2d893350cecb4838a, type: 3}
       propertyPath: m_Name
@@ -8270,19 +8037,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3719595771323828549, guid: d92a5a358c9c14c2d893350cecb4838a, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0.489
+      value: 0.48894888
       objectReference: {fileID: 0}
     - target: {fileID: 3719595771323828549, guid: d92a5a358c9c14c2d893350cecb4838a, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5852316356283953957, guid: d92a5a358c9c14c2d893350cecb4838a, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0.489
+      value: 0.48894888
       objectReference: {fileID: 0}
     - target: {fileID: 5852316356283953957, guid: d92a5a358c9c14c2d893350cecb4838a, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6844758515130866605, guid: d92a5a358c9c14c2d893350cecb4838a, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -8388,12 +8155,21 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 8343240877014731933, guid: d92a5a358c9c14c2d893350cecb4838a, type: 3}
+      propertyPath: m_Offset.y
+      value: 191.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8399168513804548543, guid: d92a5a358c9c14c2d893350cecb4838a, type: 3}
+      propertyPath: _parentPannel
+      value: 
+      objectReference: {fileID: 641708676}
+    m_RemovedComponents:
+    - {fileID: 7926179330248512646, guid: d92a5a358c9c14c2d893350cecb4838a, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 3161565559040713913, guid: d92a5a358c9c14c2d893350cecb4838a, type: 3}
-      insertIndex: 4
+      insertIndex: 3
       addedObject: {fileID: 641708676}
   m_SourcePrefab: {fileID: 100100000, guid: d92a5a358c9c14c2d893350cecb4838a, type: 3}
 --- !u!1 &1569378002
@@ -8783,6 +8559,7 @@ MonoBehaviour:
   _rewardCollector: {fileID: 2079113954}
   _bonusRewardGroup: {fileID: 1764490844}
   _cannon: {fileID: 6850549183987866094}
+  _pausePannel: {fileID: 641708676}
   _figureSpawner: {fileID: 353522552}
   _figureList: {fileID: 353522553}
   _level: {fileID: 1222803476}
@@ -9092,7 +8869,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fddcbaecfe0a492281124ac1f0e6819c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _buyButton: {fileID: 1737909075}
   _buybackCost: 1000
+  _playerStats: {fileID: 0}
 --- !u!114 &1737909075
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9564,44 +9343,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f34f36451b093ee4c83ad4aa5459d2ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textLComponent: {fileID: 0}
-  infoYG: {fileID: 11400000, guid: 162644796a8b0d044bce3d6fda0641e3, type: 2}
-  text: 
-  ru: "\u0418\u0422\u041E\u0413"
-  en: SUMMARY
-  tr: RAPOR
-  az: 
-  be: 
-  he: 
-  hy: 
-  ka: 
-  et: 
-  fr: 
-  kk: 
-  ky: 
-  lt: 
-  lv: 
-  ro: 
-  tg: 
-  tk: 
-  uk: 
-  uz: 
-  es: 
-  pt: 
-  ar: 
-  id: 
-  ja: 
-  it: 
-  de: 
-  hi: 
-  changeOnlyFont: 0
-  fontNumber: 0
-  uniqueFont: {fileID: 0}
-  additionalText: {fileID: 0}
-  textHeight: 20
-  processTranslateLabel: 
-  componentTextField: 0
-  countLang: 0
 --- !u!1 &2004201603
 GameObject:
   m_ObjectHideFlags: 0
@@ -9899,44 +9640,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f34f36451b093ee4c83ad4aa5459d2ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textLComponent: {fileID: 0}
-  infoYG: {fileID: 11400000, guid: 162644796a8b0d044bce3d6fda0641e3, type: 2}
-  text: 
-  ru: "\u041C\u041E\u041D\u0415\u0422\u042B"
-  en: COINS
-  tr: PARALAR
-  az: 
-  be: 
-  he: 
-  hy: 
-  ka: 
-  et: 
-  fr: 
-  kk: 
-  ky: 
-  lt: 
-  lv: 
-  ro: 
-  tg: 
-  tk: 
-  uk: 
-  uz: 
-  es: 
-  pt: 
-  ar: 
-  id: 
-  ja: 
-  it: 
-  de: 
-  hi: 
-  changeOnlyFont: 0
-  fontNumber: 0
-  uniqueFont: {fileID: 0}
-  additionalText: {fileID: 0}
-  textHeight: 20
-  processTranslateLabel: 
-  componentTextField: 0
-  countLang: 0
 --- !u!1 &2033944152
 GameObject:
   m_ObjectHideFlags: 0
@@ -10162,6 +9865,50 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _cannon: {fileID: 6850549183987866092}
+--- !u!1 &2046431933
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2046431934}
+  - component: {fileID: 2046431935}
+  m_Layer: 0
+  m_Name: PlayerStats
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2046431934
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2046431933}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1452459042}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2046431935
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2046431933}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75df1e98139564fb5967a46dfc3574c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2066701624
 GameObject:
   m_ObjectHideFlags: 0
@@ -10319,6 +10066,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57192a44e98a4e73902f14ccfc30fd61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AdIndex: ExtraTime
+  _button: {fileID: 2067348236}
 --- !u!114 &2067348236
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10718,44 +10467,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f34f36451b093ee4c83ad4aa5459d2ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textLComponent: {fileID: 0}
-  infoYG: {fileID: 11400000, guid: 162644796a8b0d044bce3d6fda0641e3, type: 2}
-  text: 
-  ru: "\u0418\u0442\u043E\u0433\u043E:"
-  en: 'Total:'
-  tr: 'Toplam:'
-  az: 
-  be: 
-  he: 
-  hy: 
-  ka: 
-  et: 
-  fr: 
-  kk: 
-  ky: 
-  lt: 
-  lv: 
-  ro: 
-  tg: 
-  tk: 
-  uk: 
-  uz: 
-  es: 
-  pt: 
-  ar: 
-  id: 
-  ja: 
-  it: 
-  de: 
-  hi: 
-  changeOnlyFont: 0
-  fontNumber: 0
-  uniqueFont: {fileID: 0}
-  additionalText: {fileID: 0}
-  textHeight: 20
-  processTranslateLabel: 
-  componentTextField: 0
-  countLang: 0
 --- !u!1 &2103495240
 GameObject:
   m_ObjectHideFlags: 0
@@ -10903,44 +10614,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f34f36451b093ee4c83ad4aa5459d2ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textLComponent: {fileID: 0}
-  infoYG: {fileID: 11400000, guid: 162644796a8b0d044bce3d6fda0641e3, type: 2}
-  text: 
-  ru: "\u041E\u0427\u041A\u0418"
-  en: SCORE
-  tr: HESAP
-  az: 
-  be: 
-  he: 
-  hy: 
-  ka: 
-  et: 
-  fr: 
-  kk: 
-  ky: 
-  lt: 
-  lv: 
-  ro: 
-  tg: 
-  tk: 
-  uk: 
-  uz: 
-  es: 
-  pt: 
-  ar: 
-  id: 
-  ja: 
-  it: 
-  de: 
-  hi: 
-  changeOnlyFont: 0
-  fontNumber: 0
-  uniqueFont: {fileID: 0}
-  additionalText: {fileID: 0}
-  textHeight: 20
-  processTranslateLabel: 
-  componentTextField: 0
-  countLang: 0
 --- !u!1 &2124224746
 GameObject:
   m_ObjectHideFlags: 0
@@ -11257,7 +10930,6 @@ GameObject:
   - component: {fileID: 2486127036884264644}
   - component: {fileID: 8827345597463307117}
   - component: {fileID: 713036782973716163}
-  - component: {fileID: 8827345597463307118}
   m_Layer: 5
   m_Name: Extra Time Label
   m_TagString: Untagged
@@ -11451,6 +11123,8 @@ MonoBehaviour:
     _maxRotation: 80
     _aim: {fileID: 326716200}
   _aimShower: {fileID: 326716200}
+  _shooter: {fileID: 6850549183987866092}
+  _audio: {fileID: 6850549183987866099}
 --- !u!114 &6850549183987866096
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11473,9 +11147,9 @@ AudioSource:
   m_GameObject: {fileID: 6850549183987866091}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -2691763620643822249, guid: 8cf5f754edba54ba697e17108d4ae66e, type: 2}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -12982,56 +12656,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4133676492350170148}
   m_CullTransparentMesh: 1
---- !u!114 &8827345597463307118
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4133676492350170148}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f34f36451b093ee4c83ad4aa5459d2ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  textLComponent: {fileID: 0}
-  infoYG: {fileID: 11400000, guid: 162644796a8b0d044bce3d6fda0641e3, type: 2}
-  text: 
-  ru: "\u041E\u0432\u0435\u0440\u0442\u0430\u0439\u043C"
-  en: Extra Time
-  tr: Ekstra Zaman
-  az: 
-  be: 
-  he: 
-  hy: 
-  ka: 
-  et: 
-  fr: 
-  kk: 
-  ky: 
-  lt: 
-  lv: 
-  ro: 
-  tg: 
-  tk: 
-  uk: 
-  uz: 
-  es: 
-  pt: 
-  ar: 
-  id: 
-  ja: 
-  it: 
-  de: 
-  hi: 
-  changeOnlyFont: 0
-  fontNumber: 0
-  uniqueFont: {fileID: 0}
-  additionalText: {fileID: 0}
-  textHeight: 20
-  processTranslateLabel: 
-  componentTextField: 0
-  countLang: 0
 --- !u!114 &8871992888552588789
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13076,7 +12700,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _gameOverTimer: {fileID: 1687936786}
   _buyExtraTimeButton: {fileID: 1737909074}
-  _watchAdButton: {fileID: 2067348235}
+  extraTimeAdButton: {fileID: 0}
   _activationLimit: 3
   _price: {fileID: 2004201604}
   _basePrice: 1000
