@@ -1,8 +1,8 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
+using Project.Scripts.WorkObjects.MessageBrokers;
+using UniRx;
 using UnityEngine;
-using UnityEngine.InputSystem;
+using YG;
 
 public class CompositionRoot : MonoBehaviour
 {
@@ -13,7 +13,6 @@ public class CompositionRoot : MonoBehaviour
 
     [Header("Cannon Configuration")]
     [SerializeField] private Cannon _cannon;
-    [SerializeField] private PausePannel _pausePannel;
 
     [Header("Figure Configuration")]
     [SerializeField] private FigureSpawner _figureSpawner;
@@ -24,32 +23,45 @@ public class CompositionRoot : MonoBehaviour
     [SerializeField] private TimerProgressBar _timer;
     [SerializeField] private float _bonusTime = 10f;
 
+    private readonly CompositeDisposable _disposable = new();
+    private PlayerInput _playerInput;
     private Figure _currentFigure;
-    
-    public event Action GameOvered;
 
     private void Awake()
     {
-        var input = new PlayerInput();
+        _playerInput = new PlayerInput();
         
-        _cannon.Initialize(input);
-        _pausePannel.Initialize(input);
+        _cannon.Initialize(_playerInput);
     }
 
     private void OnEnable()
     {
-        _timer.TimePassed += GameOver;
+        _timer.TimePassed += OnTimePassed;
         _level.LevelUp += LevelUp;
 
         _countDown.GameStarts += StartLevel;
+
+        MessageBrokerHolder.Game.Receive<M_GamePaused>().Subscribe(PauseGame).AddTo(_disposable);
     }
 
     private void OnDisable()
     {
-        _timer.TimePassed -= GameOver;
+        _timer.TimePassed -= OnTimePassed;
         _level.LevelUp -= LevelUp;
         
         _countDown.GameStarts -= StartLevel;
+        
+        _disposable.Dispose();
+    }
+
+    private void PauseGame(M_GamePaused message)
+    {
+        if(message.IsPaused)
+            _playerInput.Disable();
+        else
+            _playerInput.Enable();
+        
+        YG2.PauseGameNoEditEventSystem(message.IsPaused);
     }
 
     private void StartLevel()
@@ -62,6 +74,7 @@ public class CompositionRoot : MonoBehaviour
         _figureSpawner.FigureFelt += AddTime;
         _figureSpawner.FigureDespawned += SpawnNewFigure;
         _figureSpawner.FigureDespawned += HideReward;
+        
         SpawnNewFigure();
     }
 
@@ -103,8 +116,8 @@ public class CompositionRoot : MonoBehaviour
         _bonusRewardGroup.gameObject.SetActive(false);
     }
 
-    private void GameOver()
+    private void OnTimePassed()
     {
-        GameOvered?.Invoke();
+        MessageBrokerHolder.Game.Publish(new M_TimePassed());
     }
 }

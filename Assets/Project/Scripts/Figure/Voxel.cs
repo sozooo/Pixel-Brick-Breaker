@@ -32,11 +32,6 @@ public class Voxel : MonoBehaviour
         // _rigidbody.isKinematic = true;
     }
 
-    private void OnDisable()
-    {
-        Fell?.Invoke(this);
-    }
-
     public void SetPosition(Vector3 position)
     {
         _position = position;

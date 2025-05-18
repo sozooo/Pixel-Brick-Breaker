@@ -18,15 +18,20 @@ public class Figure : MonoBehaviour, ISpawnable<Figure>
     {
         foreach(Transform child in transform)
         {
-            if (child.TryGetComponent(out Voxel voxel))
-            {
-                voxel.SetPosition(voxel.transform.localPosition);
-                _voxels.Add(voxel);
-                _voxelsLeft++;
+            if (!child.TryGetComponent(out Voxel voxel))
+                continue;
+            
+            voxel.SetPosition(voxel.transform.localPosition);
+            _voxels.Add(voxel);
+            _voxelsLeft++;
 
-                voxel.Fell += DecreaseVoxelsCount;
-            }
+            voxel.Fell += DecreaseVoxelsCount;
         }
+    }
+
+    private void OnDisable()
+    {
+        Despawned?.Invoke(this);
     }
 
     public void Rebuild()

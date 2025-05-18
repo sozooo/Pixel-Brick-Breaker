@@ -1,4 +1,6 @@
+using Project.Scripts.WorkObjects.MessageBrokers;
 using TMPro;
+using UniRx;
 using UnityEngine;
 
 namespace UI.Level.EndGamePannel.EndGameRows
@@ -8,6 +10,7 @@ namespace UI.Level.EndGamePannel.EndGameRows
     {
         [SerializeField] private ExtraTimeManager _extraTimeManager;
     
+        private readonly CompositeDisposable _disposable = new();
         protected TextMeshProUGUI Text;
 
         private void Awake()
@@ -17,12 +20,12 @@ namespace UI.Level.EndGamePannel.EndGameRows
 
         private void OnEnable()
         {
-            _extraTimeManager.GameOvered += Display;
+            MessageBrokerHolder.Game.Receive<M_GameOvered>().Subscribe(message => Display()).AddTo(_disposable);
         }
 
         private void OnDisable()
         {
-            _extraTimeManager.GameOvered -= Display;
+            _disposable.Dispose();
         }
 
         protected abstract void Display();

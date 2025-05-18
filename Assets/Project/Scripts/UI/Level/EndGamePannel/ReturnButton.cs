@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class ReturnButton : MonoBehaviour
 {
     [SerializeField] private SceneLoader _sceneLoader;
+    [SerializeField] private SceneNames _sceneName;
     
     private Button _button;
 
@@ -17,6 +18,6 @@ public class ReturnButton : MonoBehaviour
 
     private void MainMenuReturn()
     {
-        _sceneLoader.LoadScene((int) SceneNames.MainMenu);
+        _sceneLoader.LoadScene((int) _sceneName);
     }
 }

@@ -35,7 +35,7 @@ public class Cannon : MonoBehaviour
         _rotator.Initialize(_transform, _input, _aimShower);
         _shooter.Initialize();
 
-        _input.Mouse.Press.performed += Shoot;
+        _input.Mouse.Press.canceled += Shoot;
     }
 
     private void Shoot(InputAction.CallbackContext context)

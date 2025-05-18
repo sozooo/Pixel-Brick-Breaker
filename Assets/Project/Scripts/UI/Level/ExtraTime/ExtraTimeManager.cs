@@ -1,36 +1,48 @@
 using System;
+using Project.Scripts.WorkObjects.MessageBrokers;
+using UniRx;
 using UnityEngine;
 
 public class ExtraTimeManager : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] private TimerProgressBar _gameTimer;
-    [SerializeField] private ExtraTimePannel _pannel;
-    [SerializeField] private CompositionRoot compositionRoot;
+    [SerializeField] private ExtraTimePannel _extraTimePannel;
+    [SerializeField] private Pannel _gameOverPanel;
     [SerializeField] private StatsCollector _statsCollector;
     
     [Header("Settings")]
     [SerializeField] private float _additionalTime;
     [SerializeField] private float _extraTimeTriesCount;
 
+    private readonly CompositeDisposable _disposable = new();
     private float _currentTriesCount;
 
     public event Action GameOvered;
 
-    private void Awake()
+    private void OnEnable()
     {
         _currentTriesCount = 0;
         
-        compositionRoot.GameOvered += Show;
-        _pannel.TimeRedeemed += AddTime;
-        _pannel.TimerPassed += EndGame;
+        _extraTimePannel.TimeRedeemed += AddTime;
+        _extraTimePannel.TimerPassed += EndGame;
+
+        MessageBrokerHolder.Game.Receive<M_TimePassed>().Subscribe(message => Show()).AddTo(_disposable);
+    }
+
+    private void OnDisable()
+    {
+        _extraTimePannel.TimeRedeemed -= AddTime;
+        _extraTimePannel.TimerPassed -= EndGame;
+        
+        _disposable.Dispose();
     }
 
     private void Show()
     {
         if (_currentTriesCount < _extraTimeTriesCount)
         {
-            _pannel.gameObject.SetActive(true);
+            _extraTimePannel.gameObject.SetActive(true);
         }
         else
         {
@@ -42,12 +54,14 @@ public class ExtraTimeManager : MonoBehaviour
     {
         _statsCollector.Collect();
         
-        GameOvered?.Invoke();
+        _gameOverPanel.gameObject.SetActive(true);
+        
+        MessageBrokerHolder.Game.Publish(new M_GameOvered());
     }
 
     private void AddTime()
     {
-        _pannel.gameObject.SetActive(false);
+        _extraTimePannel.gameObject.SetActive(false);
         _gameTimer.AddTime(_additionalTime);
         _gameTimer.ResetBar();
 

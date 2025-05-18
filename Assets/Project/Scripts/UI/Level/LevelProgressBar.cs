@@ -46,7 +46,6 @@ public class LevelProgressBar : ProgressBar
         base.IncreaseMaximum(increaser);
 
         _maxIndicator.text = (Maximum - Minimum).ToString();
-
     }
 
     public void SetNewFigure(Figure figure)
@@ -59,6 +58,9 @@ public class LevelProgressBar : ProgressBar
 
     private void RemoveFigure(Figure figure)
     {
+        if (figure)
+            return;
+        
         _figure.VoxelFell -= Fill;
         _figure.Despawned -= RemoveFigure;
     }

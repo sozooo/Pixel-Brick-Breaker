@@ -1,4 +1,4 @@
-using YG;
+using Project.Scripts.WorkObjects.MessageBrokers;
 
 public class PausePannel : Pannel
 {
@@ -8,20 +8,11 @@ public class PausePannel : Pannel
     {
         base.OnEnable();
         
-        _playerInput.Disable();
-        
-        YG2.PauseGameNoEditEventSystem(true);
+        MessageBrokerHolder.Game.Publish(new M_GamePaused(true));
     }
 
     private void OnDisable()
     {
-        _playerInput.Enable();
-        
-        YG2.PauseGameNoEditEventSystem(false);
-    }
-
-    public void Initialize(PlayerInput playerInput)
-    {
-        _playerInput = playerInput;
+        MessageBrokerHolder.Game.Publish(new M_GamePaused(false));
     }
 }
