@@ -1,8 +1,10 @@
 using com.cyborgAssets.inspectorButtonPro;
 using UnityEngine;
 using TMPro;
-using System;
 using System.Globalization;
+using Project.Scripts.WorkObjects.MessageBrokers;
+using Project.Scripts.WorkObjects.MessageBrokers.Figure;
+using UniRx;
 
 public class LevelProgressBar : ProgressBar
 {
@@ -11,20 +13,20 @@ public class LevelProgressBar : ProgressBar
     [Header("Indicators")]
     [SerializeField] private TextMeshProUGUI _maxIndicator;
 
-    private Figure _figure;
-
-    public event Action LevelUp;
-
-    private new void OnEnable()
-    {
-        base.OnEnable();
-
-        _maxIndicator.text = (Maximum - Minimum).ToString(CultureInfo.InvariantCulture);
-    }
+    private readonly CompositeDisposable _disposable = new();
 
     private void OnDisable()
     {
-        RemoveFigure(_figure);
+        _disposable?.Dispose();
+    }
+
+    protected override void ResetBar()
+    {
+        base.ResetBar();
+
+        MessageBrokerHolder.Figure.Receive<M_VoxelFell>().Subscribe(message => Fill()).AddTo(_disposable);
+        
+        CalculateMaxIndicator();
     }
 
     [ProPlayButton]
@@ -38,30 +40,19 @@ public class LevelProgressBar : ProgressBar
             return;
         
         IncreaseMaximum(Maximum * _levelUpMultiplyer);
-        LevelUp?.Invoke();
+        
+        MessageBrokerHolder.Game.Publish(new M_LevelRaised());
     }
 
     protected override void IncreaseMaximum(float increaser)
     {
         base.IncreaseMaximum(increaser);
 
-        _maxIndicator.text = (Maximum - Minimum).ToString();
+        CalculateMaxIndicator();
     }
 
-    public void SetNewFigure(Figure figure)
+    private void CalculateMaxIndicator()
     {
-        _figure = figure;
-
-        _figure.VoxelFell += Fill;
-        _figure.Despawned += RemoveFigure;
-    }
-
-    private void RemoveFigure(Figure figure)
-    {
-        if (figure)
-            return;
-        
-        _figure.VoxelFell -= Fill;
-        _figure.Despawned -= RemoveFigure;
+        _maxIndicator.text = (Maximum - Minimum).ToString(CultureInfo.InvariantCulture);
     }
 }

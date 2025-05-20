@@ -1,4 +1,5 @@
 using System;
+using Project.Scripts.WorkObjects.MessageBrokers;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,7 +9,6 @@ public class BuyButton : MonoBehaviour, IExtraTimeButton
     [SerializeField] private int _buybackCost;
     [SerializeField] private PlayerStats _playerStats;
     
-    public event Action Redeemed;
 
     private void OnEnable()
     {
@@ -25,7 +25,7 @@ public class BuyButton : MonoBehaviour, IExtraTimeButton
         _buybackCost = cost;
     }
 
-    public void Iteract()
+    private void Iteract()
     {
         if (_playerStats.TryBuy(_buybackCost) == false)
             return;
@@ -35,6 +35,6 @@ public class BuyButton : MonoBehaviour, IExtraTimeButton
 
     public void AddTime()
     {
-        Redeemed?.Invoke();
+        MessageBrokerHolder.Game.Publish(new M_TimePurchased());
     }
 }

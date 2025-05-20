@@ -18,8 +18,6 @@ public class ExtraTimeManager : MonoBehaviour
     private readonly CompositeDisposable _disposable = new();
     private float _currentTriesCount;
 
-    public event Action GameOvered;
-
     private void OnEnable()
     {
         _currentTriesCount = 0;
@@ -63,7 +61,8 @@ public class ExtraTimeManager : MonoBehaviour
     {
         _extraTimePannel.gameObject.SetActive(false);
         _gameTimer.AddTime(_additionalTime);
-        _gameTimer.ResetBar();
+        _gameTimer.StartTimer();
+        
 
         _currentTriesCount++;
     }

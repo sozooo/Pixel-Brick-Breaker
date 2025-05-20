@@ -13,45 +13,38 @@ public class TimerProgressBar : ProgressBar
     public event Action TimePassed;
     public event Action<float> SecondPassed;
 
-    public float BonusTime { get; private set; }
-
-    private new void OnEnable()
+    private void OnDisable()
     {
-        BonusTime = Current;
+        if (_timer == null)
+            return;
+        
+        StopCoroutine(_timer);
+        _timer = null;
+    }
 
+    [ProPlayButton]
+    public void AddTime(float time)
+    {
+        Current += time;
+        Current = Mathf.Clamp(Current, Minimum, Maximum);
+
+        Fill();
+    }
+    
+    public void StartTimer()
+    {
+        _timer ??= StartCoroutine(Timer());
+    }
+
+    protected override void ResetBar()
+    {
         float upgradedTime = _timeModifier * YG2.saves.TimerLevel;
         StartMaximum += upgradedTime;
         StartCurrent = StartMaximum;
 
         base.ResetBar();
     }
-
-    [ProPlayButton]
-    public void AddTime(float time)
-    {
-        BonusTime = Current;
-        
-        Current += time;
-        Current = Mathf.Clamp(Current, Minimum, Maximum);
-
-        Fill();
-    }
-
-    public override void ResetBar()
-    {
-        if(_timer != null)
-        {
-            StopCoroutine(_timer);
-            _timer = null;
-        }
-
-        BonusTime = Current;
-
-        base.ResetBar();
-
-        _timer = StartCoroutine(Timer());
-    }
-
+    
     private IEnumerator Timer()
     {
         WaitForSeconds waitSecond = new(1f);

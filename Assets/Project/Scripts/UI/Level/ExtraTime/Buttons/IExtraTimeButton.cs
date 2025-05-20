@@ -4,7 +4,5 @@ using UnityEngine.UI;
 
 public interface IExtraTimeButton
 {
-    public event Action Redeemed;
-
     public void AddTime();
 }

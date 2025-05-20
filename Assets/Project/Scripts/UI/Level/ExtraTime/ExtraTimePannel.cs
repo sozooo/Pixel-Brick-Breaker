@@ -1,12 +1,13 @@
 using System;
+using Project.Scripts.WorkObjects.MessageBrokers;
 using UI.Main_Menu.Pannels.StorePannel;
+using UniRx;
 using UnityEngine;
 
 public class ExtraTimePannel : Pannel
 {
     [SerializeField] private TimerProgressBar _gameOverTimer;
     [SerializeField] private BuyButton _buyExtraTimeButton;
-    [SerializeField] private ExtraTimeAdButton extraTimeAdButton;
     [SerializeField] private int _activationLimit;
     
     [Header("Prices")]
@@ -14,8 +15,10 @@ public class ExtraTimePannel : Pannel
     [SerializeField] private int _basePrice;
     [SerializeField] private int _priceAdditional;
 
+    private readonly CompositeDisposable _disposable = new();
     private int _activateNumber;
     private int _buybackPrice;
+    
     
     public event Action TimerPassed;
     public event Action TimeRedeemed;
@@ -28,15 +31,15 @@ public class ExtraTimePannel : Pannel
     private new void OnEnable()
     {
         base.OnEnable();
-        _gameOverTimer.ResetBar();
+        _gameOverTimer.StartTimer();
         
         _activateNumber++;
         
         if(_activateNumber > _activationLimit) 
             OnTimerPassed();
 
-        _buyExtraTimeButton.Redeemed += OnRedeemed;
-        extraTimeAdButton.Redeemed += OnRedeemed;
+        MessageBrokerHolder.Game.Receive<M_TimePurchased>().Subscribe(message => OnRedeemed()).AddTo(_disposable);
+        
         _gameOverTimer.TimePassed += OnTimerPassed;
         
         _buybackPrice = _basePrice + _priceAdditional * _activateNumber;
@@ -46,8 +49,8 @@ public class ExtraTimePannel : Pannel
 
     private void OnDisable()
     {
-        _buyExtraTimeButton.Redeemed -= OnRedeemed;
-        extraTimeAdButton.Redeemed -= OnRedeemed;
+        _disposable?.Dispose();
+        
         _gameOverTimer.TimePassed -= OnTimerPassed;
     }
 

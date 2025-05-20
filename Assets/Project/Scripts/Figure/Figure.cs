@@ -10,7 +10,6 @@ public class Figure : MonoBehaviour, ISpawnable<Figure>
     private float _voxelsLeft = 0;
 
     public event Action<Figure> Despawned;
-    public event Action VoxelFell;
 
     public IReadOnlyList<Voxel> Voxels => _voxels;
 
@@ -63,7 +62,6 @@ public class Figure : MonoBehaviour, ISpawnable<Figure>
         voxel.Fell -= DecreaseVoxelsCount;
 
         _voxelsLeft--;
-        VoxelFell?.Invoke();
 
         if (_voxelsLeft == 0)
             Despawned?.Invoke(this);

@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Globalization;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -17,22 +18,20 @@ public class ProgressBar : MonoBehaviour
     public float CurrentCount => Current;
     protected float Current = 0;
 
-    private float _minimum;
-    private float _maximum;
     private Coroutine _smoothFill;
 
-    protected float Maximum => _maximum;
-    protected float Minimum => _minimum;
+    protected float Maximum { get; private set; }
+    protected float Minimum { get; private set; }
 
     protected void OnEnable()
     {
         ResetBar();
     }
 
-    public virtual void ResetBar()
+    protected virtual void ResetBar()
     {
-        _minimum = StartMinimum;
-        _maximum = StartMaximum;
+        Minimum = StartMinimum;
+        Maximum = StartMaximum;
         Current = StartCurrent;
 
         Fill();
@@ -40,26 +39,26 @@ public class ProgressBar : MonoBehaviour
 
     protected virtual void Fill()
     {
-        float currentFill = Current - _minimum;
-        _currentIndicator.text = currentFill.ToString();
+        float currentFill = Current - Minimum;
+        _currentIndicator.text = currentFill.ToString(CultureInfo.InvariantCulture);
 
         if (_smoothFill != null)
             StopCoroutine(_smoothFill);
 
-        _smoothFill = StartCoroutine(SmoothFill(currentFill / _maximum));
+        _smoothFill = StartCoroutine(SmoothFill(currentFill / Maximum));
     }
 
     protected virtual void IncreaseMaximum(float increaser)
     {
-        SetNewMinimum(_maximum);
-        _maximum += increaser;
+        SetNewMinimum(Maximum);
+        Maximum += increaser;
 
         Fill();
     }
 
     private void SetNewMinimum(float minimum)
     {
-        _minimum = minimum;
+        Minimum = minimum;
     }
 
     private IEnumerator SmoothFill(float destination)

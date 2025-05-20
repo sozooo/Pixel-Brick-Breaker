@@ -6,12 +6,12 @@ public class BreakRewardDisplayer : RewardDisplayer
 
     private void OnEnable()
     {
-        Collector.CurrentChanged += Display;
+        Collector.CurrentRewardChanged += Display;
     }
 
     private void OnDisable()
     {
-        Collector.CurrentChanged -= Display;
+        Collector.CurrentRewardChanged -= Display;
     }
 
     protected override void Display(float value)

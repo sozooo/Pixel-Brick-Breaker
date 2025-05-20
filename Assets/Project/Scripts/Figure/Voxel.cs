@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Collections;
+using Project.Scripts.WorkObjects.MessageBrokers;
+using Project.Scripts.WorkObjects.MessageBrokers.Figure;
+using UniRx;
 using UnityEngine;
 
 [RequireComponent(typeof(Animator), typeof(TrailRenderer))]
@@ -59,6 +62,8 @@ public class Voxel : MonoBehaviour
         _falling ??= StartCoroutine(Falling());
 
         Fell?.Invoke(this);
+        
+        MessageBrokerHolder.Figure.Publish(new M_VoxelFell());
     }
 
     private IEnumerator Falling()

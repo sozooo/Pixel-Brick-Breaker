@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System;
+using Project.Scripts.WorkObjects.MessageBrokers;
 using TMPro;
 
 [RequireComponent(typeof(TextMeshProUGUI))]
@@ -10,8 +11,6 @@ public class CountDown : MonoBehaviour
     [SerializeField] private float _step = 0.9f;
 
     private TextMeshProUGUI _text;
-
-    public event Action GameStarts;
 
     private void Awake()
     {
@@ -35,6 +34,6 @@ public class CountDown : MonoBehaviour
             yield return wait;
         }
 
-        GameStarts?.Invoke();
+        MessageBrokerHolder.Game.Publish(new M_GameStarted());
     }
 }

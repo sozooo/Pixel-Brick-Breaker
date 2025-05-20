@@ -1,13 +1,13 @@
 using System;
+using Project.Scripts.WorkObjects.MessageBrokers;
 using UI;
 
+[Serializable]
 public class ExtraTimeAdButton : RewardAdButton, IExtraTimeButton
 {
-    public event Action Redeemed;
-
     public void AddTime()
     {
-        Redeemed?.Invoke();
+        MessageBrokerHolder.Game.Publish(new M_TimePurchased());
     }
 
     protected override void OnRewardedAdv(string adIndex)
