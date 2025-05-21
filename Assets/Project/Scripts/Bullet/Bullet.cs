@@ -1,10 +1,11 @@
 using System;
-using System.Collections;
 using UnityEngine;
 
 [RequireComponent(typeof(Exploder), typeof(Ricocheter))]
 public class Bullet : MonoBehaviour, ISpawnable<Bullet>
 {
+    [SerializeField] private Collider _collider;
+    
     private Exploder _exploder;
     private Ricocheter _ricocheter;
     private Transform _transform;
@@ -25,6 +26,8 @@ public class Bullet : MonoBehaviour, ISpawnable<Bullet>
 
     private void OnDisable()
     {
+        _ricocheter.FigureCollided -= Explode;
+        
         Despawned?.Invoke(this);
     }
 
@@ -34,23 +37,8 @@ public class Bullet : MonoBehaviour, ISpawnable<Bullet>
         _transform.rotation = rotation;
     }
 
-    public void Fall()
-    {
-        StartCoroutine(Falling());
-    }
-
     private void Explode()
     {
         _exploder.Explode();
-    }
-
-    private IEnumerator Falling()
-    {
-        while (isActiveAndEnabled)
-        {
-            _transform.Translate(Vector3.down * 5f);
-
-            yield return null;
-        }
     }
 }
