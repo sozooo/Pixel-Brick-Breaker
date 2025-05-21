@@ -1,17 +1,14 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using Object = UnityEngine.Object;
 
-public class ObjectPool<T> : MonoBehaviour where T :  MonoBehaviour, ISpawnable<T>
+[Serializable]
+public class ObjectPool<T> where T :  MonoBehaviour, ISpawnable<T>
 {
     [SerializeField] private T _spawnablePrefab;
 
-    private Queue<T> _spawnables;
-
-    private void Awake()
-    {
-        _spawnables = new Queue<T>();
-    }
+    private Queue<T> _spawnables = new Queue<T>();
 
     public void Add(T spawnable)
     {
@@ -24,13 +21,6 @@ public class ObjectPool<T> : MonoBehaviour where T :  MonoBehaviour, ISpawnable<
 
     public T Give()
     {
-        T spawnable;
-
-        if (_spawnables.Count == 0)
-            spawnable = Instantiate(_spawnablePrefab);
-        else
-            spawnable = _spawnables.Dequeue();
-
-        return spawnable;
+        return _spawnables.Count == 0 ? Object.Instantiate(_spawnablePrefab) : _spawnables.Dequeue();
     }
 }

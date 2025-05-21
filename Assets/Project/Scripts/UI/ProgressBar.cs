@@ -23,9 +23,15 @@ public class ProgressBar : MonoBehaviour
     protected float Maximum { get; private set; }
     protected float Minimum { get; private set; }
 
-    protected void OnEnable()
+    private void OnEnable()
     {
         ResetBar();
+    }
+
+    protected void OnDisable()
+    {
+        if (_smoothFill != null)
+            StopCoroutine(_smoothFill);
     }
 
     protected virtual void ResetBar()

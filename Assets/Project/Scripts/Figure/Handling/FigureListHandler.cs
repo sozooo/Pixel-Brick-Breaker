@@ -1,8 +1,10 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class FigureListHandler : MonoBehaviour
+[Serializable]
+public class FigureListHandler
 {
     [Header("Figures Levels")]
     [SerializeField] private List<FigureList> _figureLists;

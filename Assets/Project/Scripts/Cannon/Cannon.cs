@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.InputSystem;
 
-[RequireComponent(typeof(Shooter), typeof(Audio))]
+[RequireComponent(typeof(Audio))]
 public class Cannon : MonoBehaviour
 {
     [SerializeField] private CannonMovement _movement;
@@ -9,6 +9,7 @@ public class Cannon : MonoBehaviour
     [SerializeField] private AimShower _aimShower;
     [SerializeField] private Shooter _shooter;
     [SerializeField] private Audio _audio;
+    [SerializeField] private BulletCountDisplayer _bulletCountDisplayer;
 
     private Transform _transform;
     private PlayerInput _input;
@@ -21,8 +22,9 @@ public class Cannon : MonoBehaviour
     private void OnDisable()
     {
         _input.Disable();
+        _shooter.Disable();
         
-        _input.Mouse.Press.performed -= Shoot;
+        _input.Mouse.Press.canceled -= Shoot;
     }
 
     public void Initialize(PlayerInput input)
@@ -34,6 +36,7 @@ public class Cannon : MonoBehaviour
         
         _rotator.Initialize(_transform, _input, _aimShower);
         _shooter.Initialize();
+        _bulletCountDisplayer.Initialize(_shooter);
 
         _input.Mouse.Press.canceled += Shoot;
     }

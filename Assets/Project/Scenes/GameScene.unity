@@ -1079,8 +1079,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 353522551}
-  - component: {fileID: 353522552}
-  - component: {fileID: 353522553}
   m_Layer: 0
   m_Name: FigureSpawner
   m_TagString: Untagged
@@ -1104,57 +1102,6 @@ Transform:
   - {fileID: 22050217}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
---- !u!114 &353522552
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 353522549}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0aaa668b608543d78785a99b91a5120, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Pool: {fileID: 0}
-  Spawnpoint: {fileID: 22050217}
-  _timeToDespawn: 4
---- !u!114 &353522553
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 353522549}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 587bdc665df0641468561e7e18aa9ea9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _figureLists:
-  - _level: 1
-    _figures:
-    - {fileID: 1924473261519160698, guid: 7b3cb824d3528435980bca063fd2e260, type: 3}
-    - {fileID: 8126265616183192155, guid: c03646ee405a2478baecbb38b90bc7cc, type: 3}
-    - {fileID: 4805301289019448809, guid: 70cde38ecb61a48d6916755202279bdd, type: 3}
-    - {fileID: 1691009220933941051, guid: 6d6462dfb983647068a5c0cfa9505689, type: 3}
-  - _level: 2
-    _figures:
-    - {fileID: 7726227826709592200, guid: c87bc3aa45e6a43b5ab3f6e708355b5c, type: 3}
-    - {fileID: 6388143768514150121, guid: 562c79b6e64554b979531a4bcef5bbd0, type: 3}
-    - {fileID: 5280694124752370598, guid: 7ae441731d3b748b383d4b615a5beaaf, type: 3}
-  - _level: 3
-    _figures:
-    - {fileID: 9189267473680119831, guid: 25defb0cb0df44ea79e2979e215bf1a5, type: 3}
-    - {fileID: 2066609695589116580, guid: 9cdab0354ddf14f00bc08c20e7cddee1, type: 3}
-    - {fileID: 8497350994102478583, guid: e262877bdf29f4dc98cf55f0deaddcff, type: 3}
-    - {fileID: 9046029339621591646, guid: 820b79ea390494a78bb5fbc0410caa10, type: 3}
-    - {fileID: 6136803478280966702, guid: b3214f0c15d01424aa28ba7b2994b341, type: 3}
-  - _level: 4
-    _figures:
-    - {fileID: 3976901679482959306, guid: ffade08beea114a72864b83cfb2c86a3, type: 3}
-    - {fileID: 6485506888361245467, guid: e66bf9cdac1874a25a945adbd65e8898, type: 3}
-    - {fileID: 1407957331559292146, guid: 7b88b474228b2450c92e495514faebb2, type: 3}
 --- !u!1 &368635198
 GameObject:
   m_ObjectHideFlags: 0
@@ -7268,8 +7215,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _cannon: {fileID: 6850549183987866094}
-  _figureSpawner: {fileID: 353522552}
-  _figureList: {fileID: 353522553}
+  _figureSpawner:
+    Spawnpoint: {fileID: 22050217}
+    _timeToDespawn: 4
+  _figureList:
+    _figureLists:
+    - _level: 1
+      _figures:
+      - {fileID: 1924473261519160698, guid: 7b3cb824d3528435980bca063fd2e260, type: 3}
+      - {fileID: 8126265616183192155, guid: c03646ee405a2478baecbb38b90bc7cc, type: 3}
+      - {fileID: 4805301289019448809, guid: 70cde38ecb61a48d6916755202279bdd, type: 3}
+      - {fileID: 1691009220933941051, guid: 6d6462dfb983647068a5c0cfa9505689, type: 3}
+    - _level: 2
+      _figures:
+      - {fileID: 7726227826709592200, guid: c87bc3aa45e6a43b5ab3f6e708355b5c, type: 3}
+      - {fileID: 6388143768514150121, guid: 562c79b6e64554b979531a4bcef5bbd0, type: 3}
+      - {fileID: 5280694124752370598, guid: 7ae441731d3b748b383d4b615a5beaaf, type: 3}
+    - _level: 3
+      _figures:
+      - {fileID: 9189267473680119831, guid: 25defb0cb0df44ea79e2979e215bf1a5, type: 3}
+      - {fileID: 2066609695589116580, guid: 9cdab0354ddf14f00bc08c20e7cddee1, type: 3}
+      - {fileID: 8497350994102478583, guid: e262877bdf29f4dc98cf55f0deaddcff, type: 3}
+      - {fileID: 9046029339621591646, guid: 820b79ea390494a78bb5fbc0410caa10, type: 3}
+      - {fileID: 6136803478280966702, guid: b3214f0c15d01424aa28ba7b2994b341, type: 3}
+    - _level: 4
+      _figures:
+      - {fileID: 3976901679482959306, guid: ffade08beea114a72864b83cfb2c86a3, type: 3}
+      - {fileID: 6485506888361245467, guid: e66bf9cdac1874a25a945adbd65e8898, type: 3}
+      - {fileID: 1407957331559292146, guid: 7b88b474228b2450c92e495514faebb2, type: 3}
   _timer: {fileID: 267377004}
   _bonusTime: 7
 --- !u!1 &1687936784
@@ -8572,7 +8545,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51e9bcdac04104cc6b811ac0bf68c501, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _cannon: {fileID: 6850549183987866092}
 --- !u!1 &2046431933
 GameObject:
   m_ObjectHideFlags: 0
@@ -9779,9 +9751,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6850549183987866088}
-  - component: {fileID: 6850549183987866092}
   - component: {fileID: 6850549183987866094}
-  - component: {fileID: 6850549183987866096}
   - component: {fileID: 6850549183987866097}
   - component: {fileID: 6850549183987866099}
   m_Layer: 3
@@ -9791,22 +9761,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &6850549183987866092
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6850549183987866091}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f11bb579938c6434baa557ac0fc29c1b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Pool: {fileID: 6850549183987866096}
-  Spawnpoint: {fileID: 5409569}
-  _startBulletCount: 2
-  _shootColldawn: 1
 --- !u!114 &6850549183987866094
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9826,21 +9780,14 @@ MonoBehaviour:
     _maxRotation: 80
     _aim: {fileID: 326716200}
   _aimShower: {fileID: 326716200}
-  _shooter: {fileID: 6850549183987866092}
+  _shooter:
+    Spawnpoint: {fileID: 5409569}
+    _startBulletCount: 2
+    _shootColldawn: 1
+    _pool:
+      _spawnablePrefab: {fileID: 3291695231737167332, guid: 111e0110ccb704175a37dda21c6a6fe4, type: 3}
   _audio: {fileID: 6850549183987866099}
---- !u!114 &6850549183987866096
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6850549183987866091}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 349602d6292584beb88299eeca7bd4cd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _spawnablePrefab: {fileID: 3291695231737167332, guid: 111e0110ccb704175a37dda21c6a6fe4, type: 3}
+  _bulletCountDisplayer: {fileID: 2042846515}
 --- !u!82 &6850549183987866097
 AudioSource:
   m_ObjectHideFlags: 0
@@ -11403,7 +11350,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _gameOverTimer: {fileID: 1687936786}
   _buyExtraTimeButton: {fileID: 1737909074}
-  _extraTimeAdButton: {fileID: 0}
   _activationLimit: 3
   _price: {fileID: 2004201604}
   _basePrice: 1000

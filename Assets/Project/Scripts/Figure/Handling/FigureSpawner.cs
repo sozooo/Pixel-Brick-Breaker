@@ -1,15 +1,19 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
+using System.Threading;
+using Cysharp.Threading.Tasks;
 using Project.Scripts.WorkObjects.MessageBrokers;
-using Project.Scripts.WorkObjects.MessageBrokers.Figure;
 using UnityEngine;
+using Object = UnityEngine.Object;
 using Random = UnityEngine.Random;
 
+[Serializable]
 public class FigureSpawner : Spawner<Figure>
 {
     [Header("Despawn Setting")]
     [SerializeField] private float _timeToDespawn = 4f;
 
+    private readonly CancellationTokenSource _cancellationToken = new();
     private List<Figure> _mainFiguresList;
     private Figure _currentFigure;
 
@@ -21,7 +25,7 @@ public class FigureSpawner : Spawner<Figure>
 
     public override Figure Spawn()
     {
-        _currentFigure = Instantiate(
+        _currentFigure = Object.Instantiate(
             _mainFiguresList[Random.Range(0, _mainFiguresList.Count)],
             Spawnpoint.position, Spawnpoint.rotation);
 
@@ -42,14 +46,14 @@ public class FigureSpawner : Spawner<Figure>
         
         _currentFigure.Despawned -= OnDespawned;
 
-        StartCoroutine(TimerBeforeDespawn(figure));
+        TimerBeforeDespawn(figure).Forget();
     }
 
-    private IEnumerator TimerBeforeDespawn(Figure figure)
+    private async UniTaskVoid TimerBeforeDespawn(Figure figure)
     {
-        yield return new WaitForSeconds(_timeToDespawn);
+        await UniTask.Delay(TimeSpan.FromSeconds(_timeToDespawn), cancellationToken: _cancellationToken.Token);
 
-        Destroy(figure.gameObject);
+        Object.Destroy(figure.gameObject);
         _currentFigure = null;
 
         MessageBrokerHolder.Figure.Publish(new M_FigureDespawned());

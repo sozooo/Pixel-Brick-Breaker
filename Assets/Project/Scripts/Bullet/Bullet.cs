@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 
-[RequireComponent(typeof(Mover), typeof(Exploder), typeof(Ricocheter))]
+[RequireComponent(typeof(Exploder), typeof(Ricocheter))]
 public class Bullet : MonoBehaviour, ISpawnable<Bullet>
 {
     private Exploder _exploder;

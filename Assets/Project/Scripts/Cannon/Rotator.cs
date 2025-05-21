@@ -35,9 +35,7 @@ public class Rotator
             return;
         
         if (_input.Mouse.Press.IsPressed())
-        {
             Rotate();
-        }
     }
 
     private void StartRotation()
@@ -55,6 +53,7 @@ public class Rotator
         
         _rotation = new Vector3(_rotation.x + mousePositionDelta * _speed * Time.deltaTime, 0f, 0f)
             .ClampX(_minRatation, _maxRotation);
+        
         _transform.localRotation = Quaternion.Euler(_rotation);
     }
 

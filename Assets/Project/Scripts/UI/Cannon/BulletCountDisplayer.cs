@@ -1,31 +1,28 @@
 using TMPro;
 using UnityEngine;
-using System;
 using System.Globalization;
 
 [RequireComponent(typeof(TextMeshProUGUI))]
 public class BulletCountDisplayer : MonoBehaviour
 {
-    [SerializeField] private Shooter _cannon;
-
+    private Shooter _shooter;
     private TextMeshProUGUI _text;
 
     private void Awake()
     {
         _text = GetComponent<TextMeshProUGUI>();
     }
-
-    private void OnEnable()
-    {
-        if (_cannon == null)
-            throw new ArgumentNullException();
-
-        _cannon.BulletCountChanged += SetNumber;
-    }
-
+    
     private void OnDisable()
     {
-        _cannon.BulletCountChanged -= SetNumber;
+        _shooter.BulletCountChanged -= SetNumber;
+    }
+    
+    public void Initialize(Shooter shooter)
+    {
+        _shooter = shooter;
+        
+        _shooter.BulletCountChanged += SetNumber;
     }
 
     private void SetNumber(float number)

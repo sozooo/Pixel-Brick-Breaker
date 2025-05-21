@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Mover : MonoBehaviour
 {
@@ -23,15 +22,11 @@ public class Mover : MonoBehaviour
 
     private void FixedUpdate()
     {
-        //transform.Translate(_speed * Time.deltaTime * MoveDirection, Space.World);
         _rigidbody.Move(_transform.position + _speed * Time.deltaTime * MoveDirection, _transform.rotation);
     }
 
     public void SetDirection(Vector3 direction)
     {
-        if (direction == null)
-            throw new InvalidOperationException();
-
         MoveDirection = direction;
     }
 }
