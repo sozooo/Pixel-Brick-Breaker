@@ -22,11 +22,11 @@ public class Mover : MonoBehaviour
 
     private void FixedUpdate()
     {
-        _rigidbody.Move(_transform.position + _speed * Time.deltaTime * MoveDirection, _transform.rotation);
+        _rigidbody.Move(_transform.position + _speed * Time.fixedDeltaTime * MoveDirection, _transform.rotation);
     }
 
-    public void SetDirection(Vector3 direction)
+    public void SetDirection(Vector2 direction)
     {
-        MoveDirection = direction;
+        MoveDirection = direction.normalized;
     }
 }

@@ -19,8 +19,8 @@ public class Ricocheter : MonoBehaviour
     {
         ContactPoint firstContact = collision.contacts[0];
 
-        Vector3 newDirection = Vector3.Reflect(_mover.MoveDirection.normalized, firstContact.normal);
-        _mover.SetDirection(newDirection);
+        Vector2 newDirection = Vector2.Reflect(_mover.MoveDirection.normalized, firstContact.normal);
+        _mover.SetDirection(newDirection.normalized);
 
         if (collision.collider.TryGetComponent(out Voxel voxel) || collision.collider.TryGetComponent(out Core core))
         {

@@ -7,6 +7,7 @@ public class CompositionRoot : MonoBehaviour
 {
     [Header("Cannon Configuration")]
     [SerializeField] private Cannon _cannon;
+    [SerializeField] private LineDrawer _lineDrawer;
 
     [Header("Figure Configuration")]
     [SerializeField] private FigureSpawner _figureSpawner;
@@ -24,6 +25,7 @@ public class CompositionRoot : MonoBehaviour
         _playerInput = new PlayerInput();
         
         _cannon.Initialize(_playerInput);
+        _lineDrawer.Initialize(_playerInput);
     }
 
     private void OnEnable()

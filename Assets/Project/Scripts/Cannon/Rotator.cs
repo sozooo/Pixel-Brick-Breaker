@@ -26,7 +26,6 @@ public class Rotator
         _startEulerAngles = _transform.localEulerAngles;
         
         _input.Mouse.Press.started += context => StartRotation();
-        
     }
 
     public void Update()
