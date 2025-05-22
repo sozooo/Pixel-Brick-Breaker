@@ -1224,7 +1224,7 @@ MonoBehaviour:
   _gameOverPanel: {fileID: 1154208713}
   _statsCollector: {fileID: 368635205}
   _additionalTime: 15
-  _extraTimeTriesCount: 5
+  _extraTimeTriesCount: 3
 --- !u!114 &368635205
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11499,7 +11499,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _gameOverTimer: {fileID: 1687936786}
   _buyExtraTimeButton: {fileID: 1737909074}
-  _activationLimit: 3
   _price: {fileID: 2004201604}
   _basePrice: 1000
   _priceAdditional: 500

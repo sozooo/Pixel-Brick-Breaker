@@ -11,6 +11,10 @@ public class FigureListHandler
 
     private int _currentLevel = 0;
 
-    public FigureList LevelUp() => 
-        _figureLists.FirstOrDefault(list => list.Level == ++_currentLevel);
+    public FigureList LevelUp()
+    {
+        _currentLevel++;
+        
+        return _figureLists.FirstOrDefault(list => list.Level == _currentLevel);
+    }
 }

@@ -4,8 +4,6 @@ using UnityEngine;
 [RequireComponent(typeof(Exploder), typeof(Ricocheter))]
 public class Bullet : MonoBehaviour, ISpawnable<Bullet>
 {
-    [SerializeField] private Collider _collider;
-    
     private Exploder _exploder;
     private Ricocheter _ricocheter;
     private Transform _transform;

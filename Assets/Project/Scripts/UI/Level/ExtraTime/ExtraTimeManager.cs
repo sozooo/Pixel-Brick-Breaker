@@ -1,4 +1,3 @@
-using System;
 using Project.Scripts.WorkObjects.MessageBrokers;
 using UniRx;
 using UnityEngine;
@@ -13,10 +12,10 @@ public class ExtraTimeManager : MonoBehaviour
     
     [Header("Settings")]
     [SerializeField] private float _additionalTime;
-    [SerializeField] private float _extraTimeTriesCount;
+    [SerializeField] private int _extraTimeTriesCount;
 
-    private readonly CompositeDisposable _disposable = new();
-    private float _currentTriesCount;
+    private CompositeDisposable _disposable;
+    private int _currentTriesCount;
 
     private void OnEnable()
     {
@@ -24,6 +23,8 @@ public class ExtraTimeManager : MonoBehaviour
         
         _extraTimePannel.TimeRedeemed += AddTime;
         _extraTimePannel.TimerPassed += EndGame;
+
+        _disposable = new CompositeDisposable();
 
         MessageBrokerHolder.Game.Receive<M_TimePassed>().Subscribe(message => Show()).AddTo(_disposable);
     }
@@ -41,6 +42,7 @@ public class ExtraTimeManager : MonoBehaviour
         if (_currentTriesCount < _extraTimeTriesCount)
         {
             _extraTimePannel.gameObject.SetActive(true);
+            _extraTimePannel.CalculateBuybackPrice(_currentTriesCount);
         }
         else
         {
@@ -62,7 +64,6 @@ public class ExtraTimeManager : MonoBehaviour
         _extraTimePannel.gameObject.SetActive(false);
         _gameTimer.AddTime(_additionalTime);
         _gameTimer.StartTimer();
-        
 
         _currentTriesCount++;
     }

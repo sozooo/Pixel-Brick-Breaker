@@ -63,5 +63,7 @@ public class TimerProgressBar : ProgressBar
             if (Mathf.Approximately(Current, Minimum))
                 TimePassed?.Invoke();
         }
+
+        _timer = null;
     }
 }

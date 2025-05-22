@@ -20,6 +20,7 @@ GameObject:
   - component: {fileID: 3291695231737167332}
   - component: {fileID: 8086297367431122097}
   - component: {fileID: 4639583340185716305}
+  - component: {fileID: 1055124306428253180}
   m_Layer: 6
   m_Name: Bullet
   m_TagString: Untagged
@@ -138,6 +139,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 961d169af21b6484d9ccca48957788d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _figureHitAudio: {fileID: 1055124306428253180}
+  _ricochetAudio: {fileID: 4639583340185716305}
 --- !u!114 &2289055075421413570
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -421,3 +424,19 @@ MonoBehaviour:
   - {fileID: 8300000, guid: f52028ac57b2a49f7bcf1ec0a7e6b52c, type: 3}
   - {fileID: 8300000, guid: c155828b70c1b4c8bab378079dc99c56, type: 3}
   - {fileID: 8300000, guid: 82a8eef0a83444da6b372762f5175236, type: 3}
+--- !u!114 &1055124306428253180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4542550351932796505}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98ae5ce19ae4f4ab883e2b78c5632674, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioSource: {fileID: 8086297367431122097}
+  _audioClips:
+  - {fileID: 8300000, guid: 3f692f0823b3f45afb000d656f137d55, type: 3}
+  - {fileID: 8300000, guid: c1298d3994d304a15be6a3a759c09fea, type: 3}

@@ -75,7 +75,7 @@ public class CompositionRoot : MonoBehaviour
     private void LevelUp()
     {
         FigureList figure = _figureList.LevelUp();
-
+        
         if (figure == null)
             return;
 

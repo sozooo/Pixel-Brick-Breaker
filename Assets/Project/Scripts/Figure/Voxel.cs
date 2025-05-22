@@ -10,13 +10,11 @@ public class Voxel : MonoBehaviour
 {
     [SerializeField] private float _timeToDisapear = 3;
     [SerializeField] private float _animationLength = 0.5f;
+    [SerializeField] private LayerMask _layer;
     
-    [SerializeField] private Audio _audio;
     // [SerializeField] private Rigidbody _rigidbody;
-
-    private const string DisapearAnimation = "Disapear";
-    private const string FallingVoxelLayer = "Falling Voxel";
-
+    
+    private readonly int Disapear = Animator.StringToHash("Disapear");
     private Vector3 _position;
 
     private Coroutine _falling;
@@ -53,11 +51,10 @@ public class Voxel : MonoBehaviour
     {
         if (TryGetComponent(out Rigidbody rigidbody) == false)
             gameObject.AddComponent<Rigidbody>();
-
-        _audio.PlayOneShot();
         
         _trail.enabled = true;
-        gameObject.layer = LayerMask.NameToLayer(FallingVoxelLayer);
+        
+        gameObject.layer = Mathf.RoundToInt(Mathf.Log(_layer.value, 2));;
 
         _falling ??= StartCoroutine(Falling());
 
@@ -73,7 +70,7 @@ public class Voxel : MonoBehaviour
 
         yield return wait;
 
-        _animator.SetBool(DisapearAnimation, true);
+        _animator.SetBool(Disapear, true);
 
         yield return waitForAnimationEnd;
 
