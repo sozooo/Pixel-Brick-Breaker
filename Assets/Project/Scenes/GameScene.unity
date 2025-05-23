@@ -883,9 +883,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _filler: {fileID: 1097340289}
-  StartMinimum: 0
-  StartMaximum: 30
-  StartCurrent: 30
+  _startMinimum: 0
+  _startMaximum: 30
   _timeToFill: 0.3
   _currentIndicator: {fileID: 558376465}
   _timeModifier: 5
@@ -6578,9 +6577,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _filler: {fileID: 150460300}
-  StartMinimum: 0
-  StartMaximum: 250
-  StartCurrent: 0
+  _startMinimum: 0
+  _startMaximum: 250
   _timeToFill: 0.5
   _currentIndicator: {fileID: 218187755}
   _levelUpMultiplyer: 3
@@ -7992,6 +7990,7 @@ MonoBehaviour:
       - {fileID: 3976901679482959306, guid: ffade08beea114a72864b83cfb2c86a3, type: 3}
       - {fileID: 6485506888361245467, guid: e66bf9cdac1874a25a945adbd65e8898, type: 3}
       - {fileID: 1407957331559292146, guid: 7b88b474228b2450c92e495514faebb2, type: 3}
+  _levelProgressBar: {fileID: 1222803476}
   _timer: {fileID: 267377004}
   _bonusTime: 7
 --- !u!1 &1687936784
@@ -8047,9 +8046,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _filler: {fileID: 1636416138}
-  StartMinimum: 0
-  StartMaximum: 10
-  StartCurrent: 10
+  _startMinimum: 0
+  _startMaximum: 10
   _timeToFill: 0.3
   _currentIndicator: {fileID: 1439038938}
   _timeModifier: 5

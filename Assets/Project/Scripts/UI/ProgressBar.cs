@@ -3,14 +3,12 @@ using System.Globalization;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using UnityEngine.Serialization;
 
 public class ProgressBar : MonoBehaviour
 {
     [SerializeField] private Image _filler;
-    [SerializeField] protected float StartMinimum;
-    [SerializeField] protected float StartMaximum;
-    [SerializeField] protected float StartCurrent;
+    [SerializeField] private float _startMinimum;
+    [SerializeField] private float _startMaximum;
     [SerializeField] private float _timeToFill = 0.5f;
 
     [SerializeField] private TextMeshProUGUI _currentIndicator;
@@ -20,25 +18,26 @@ public class ProgressBar : MonoBehaviour
 
     private Coroutine _smoothFill;
 
-    protected float Maximum { get; private set; }
-    protected float Minimum { get; private set; }
-
-    private void OnEnable()
-    {
-        ResetBar();
-    }
+    protected float Maximum { get; set; }
+    protected float Minimum { get;  set; }
 
     protected void OnDisable()
     {
-        if (_smoothFill != null)
-            StopCoroutine(_smoothFill);
+        Disable();
     }
 
-    protected virtual void ResetBar()
+    protected virtual void Disable()
     {
-        Minimum = StartMinimum;
-        Maximum = StartMaximum;
-        Current = StartCurrent;
+        if (_smoothFill != null)
+            StopCoroutine(_smoothFill);
+
+        _smoothFill = null;
+    }
+
+    public virtual void ResetBar()
+    {
+        Minimum = _startMinimum;
+        Maximum = _startMaximum;
 
         Fill();
     }
@@ -54,26 +53,13 @@ public class ProgressBar : MonoBehaviour
         _smoothFill = StartCoroutine(SmoothFill(currentFill / Maximum));
     }
 
-    protected virtual void IncreaseMaximum(float increaser)
-    {
-        SetNewMinimum(Maximum);
-        Maximum += increaser;
-
-        Fill();
-    }
-
-    private void SetNewMinimum(float minimum)
-    {
-        Minimum = minimum;
-    }
-
     private IEnumerator SmoothFill(float destination)
     {
         float currentTime = 0;
 
         while (currentTime < _timeToFill)
         {
-            currentTime += Time.deltaTime;
+            currentTime += Time.unscaledDeltaTime;
             _filler.fillAmount = Mathf.Lerp(_filler.fillAmount, destination, currentTime / _timeToFill);
 
             yield return null;
@@ -81,6 +67,4 @@ public class ProgressBar : MonoBehaviour
 
         _smoothFill = null;
     }
-
-    
 }

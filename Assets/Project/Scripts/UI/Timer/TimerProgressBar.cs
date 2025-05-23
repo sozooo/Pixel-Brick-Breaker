@@ -13,15 +13,6 @@ public class TimerProgressBar : ProgressBar
     public event Action TimePassed;
     public event Action<float> SecondPassed;
 
-    private void OnDisable()
-    {
-        if (_timer == null)
-            return;
-        
-        StopCoroutine(_timer);
-        _timer = null;
-    }
-
     [ProPlayButton]
     public void AddTime(float time)
     {
@@ -33,21 +24,39 @@ public class TimerProgressBar : ProgressBar
     
     public void StartTimer()
     {
-        _timer ??= StartCoroutine(Timer());
+        Disable();
+        
+        _timer = StartCoroutine(Timer());
     }
 
-    protected override void ResetBar()
+    protected override void Disable()
     {
-        float upgradedTime = _timeModifier * YG2.saves.TimerLevel;
-        StartMaximum += upgradedTime;
-        StartCurrent = StartMaximum;
+        base.Disable();
+        
+        if (_timer != null)
+            StopCoroutine(_timer);
+        
+        _timer = null;
+    }
 
+    public override void ResetBar()
+    {
         base.ResetBar();
+        
+        float upgradedTime = _timeModifier * YG2.saves.TimerLevel;
+        Maximum += upgradedTime;
+        Current = Maximum;
+        
+        Debug.Log($"{gameObject.name} reseted");
+        
+        Fill();
     }
     
     private IEnumerator Timer()
     {
-        WaitForSeconds waitSecond = new(1f);
+        WaitForSecondsRealtime waitSecond = new(1f);
+        
+        Debug.Log($"{gameObject.name} Timer Started. Current time: {Current}, Max time: {Maximum}, Min time: {Minimum}");
 
         while (Current > Minimum)
         {

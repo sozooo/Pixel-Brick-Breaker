@@ -32,6 +32,7 @@ public class ExtraTimePannel : Pannel
     {
         base.Display();
         
+        _gameOverTimer.ResetBar();
         _gameOverTimer.StartTimer();
         
         _disposable = new CompositeDisposable();

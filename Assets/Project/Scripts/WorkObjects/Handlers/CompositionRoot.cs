@@ -13,7 +13,8 @@ public class CompositionRoot : MonoBehaviour
     [SerializeField] private FigureSpawner _figureSpawner;
     [SerializeField] private FigureListHandler _figureList;
 
-    [Header("Timer Configuration")]
+    [Header("Level Configuration")]
+    [SerializeField] private LevelProgressBar _levelProgressBar;
     [SerializeField] private TimerProgressBar _timer;
     [SerializeField] private float _bonusTime = 10f;
 
@@ -37,6 +38,9 @@ public class CompositionRoot : MonoBehaviour
 
         MessageBrokerHolder.Figure.Receive<M_FigureFell>().Subscribe(message => AddTime()).AddTo(_disposable);
         MessageBrokerHolder.Figure.Receive<M_FigureDespawned>().Subscribe(message => SpawnNewFigure()).AddTo(_disposable);
+        
+        _levelProgressBar.ResetBar();
+        _timer.ResetBar();
         
         _timer.TimePassed += OnTimePassed;
     }

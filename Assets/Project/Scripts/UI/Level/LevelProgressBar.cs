@@ -15,18 +15,24 @@ public class LevelProgressBar : ProgressBar
 
     private readonly CompositeDisposable _disposable = new();
 
-    private void OnDisable()
+    protected override void Disable()
     {
+        base.Disable();
+        
         _disposable?.Dispose();
     }
 
-    protected override void ResetBar()
+    public override void ResetBar()
     {
         base.ResetBar();
+
+        Current = Minimum;
 
         MessageBrokerHolder.Figure.Receive<M_VoxelFell>().Subscribe(message => Fill()).AddTo(_disposable);
         
         CalculateMaxIndicator();
+        
+        Fill();
     }
 
     [ProPlayButton]
@@ -36,7 +42,7 @@ public class LevelProgressBar : ProgressBar
 
         base.Fill();
 
-        if (!(Current >= Maximum))
+        if (Current < Maximum)
             return;
         
         IncreaseMaximum(Maximum * _levelUpMultiplyer);
@@ -44,11 +50,19 @@ public class LevelProgressBar : ProgressBar
         MessageBrokerHolder.Game.Publish(new M_LevelRaised());
     }
 
-    protected override void IncreaseMaximum(float increaser)
+    private void IncreaseMaximum(float increaser)
     {
-        base.IncreaseMaximum(increaser);
+        SetNewMinimum(Maximum);
+        Maximum += increaser;
+
+        Fill();
 
         CalculateMaxIndicator();
+    }
+    
+    private void SetNewMinimum(float minimum)
+    {
+        Minimum = minimum;
     }
 
     private void CalculateMaxIndicator()
