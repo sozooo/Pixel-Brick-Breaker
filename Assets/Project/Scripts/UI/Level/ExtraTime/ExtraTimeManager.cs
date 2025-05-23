@@ -22,7 +22,6 @@ public class ExtraTimeManager : MonoBehaviour
         _currentTriesCount = 0;
         
         _extraTimePannel.TimeRedeemed += AddTime;
-        _extraTimePannel.TimerPassed += EndGame;
 
         _disposable = new CompositeDisposable();
 
@@ -32,7 +31,6 @@ public class ExtraTimeManager : MonoBehaviour
     private void OnDisable()
     {
         _extraTimePannel.TimeRedeemed -= AddTime;
-        _extraTimePannel.TimerPassed -= EndGame;
         
         _disposable.Dispose();
     }

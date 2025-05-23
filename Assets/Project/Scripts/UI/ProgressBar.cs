@@ -59,7 +59,7 @@ public class ProgressBar : MonoBehaviour
 
         while (currentTime < _timeToFill)
         {
-            currentTime += Time.unscaledDeltaTime;
+            currentTime += Time.deltaTime;
             _filler.fillAmount = Mathf.Lerp(_filler.fillAmount, destination, currentTime / _timeToFill);
 
             yield return null;

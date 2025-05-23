@@ -47,16 +47,12 @@ public class TimerProgressBar : ProgressBar
         Maximum += upgradedTime;
         Current = Maximum;
         
-        Debug.Log($"{gameObject.name} reseted");
-        
         Fill();
     }
     
     private IEnumerator Timer()
     {
-        WaitForSecondsRealtime waitSecond = new(1f);
-        
-        Debug.Log($"{gameObject.name} Timer Started. Current time: {Current}, Max time: {Maximum}, Min time: {Minimum}");
+        WaitForSeconds waitSecond = new(1f);
 
         while (Current > Minimum)
         {

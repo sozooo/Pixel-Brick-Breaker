@@ -6,7 +6,6 @@ using UnityEngine;
 
 public class ExtraTimePannel : Pannel
 {
-    [SerializeField] private TimerProgressBar _gameOverTimer;
     [SerializeField] private BuyButton _buyExtraTimeButton;
     
     [Header("Prices")]
@@ -17,29 +16,20 @@ public class ExtraTimePannel : Pannel
     private CompositeDisposable _disposable;
     private int _buybackPrice;
     
-    
-    public event Action TimerPassed;
     public event Action TimeRedeemed;
 
     private void OnDisable()
     {
         _disposable?.Dispose();
-        
-        _gameOverTimer.TimePassed -= OnTimerPassed;
     }
 
     protected override void Display()
     {
         base.Display();
         
-        _gameOverTimer.ResetBar();
-        _gameOverTimer.StartTimer();
-        
         _disposable = new CompositeDisposable();
 
         MessageBrokerHolder.Game.Receive<M_TimePurchased>().Subscribe(message => OnRedeemed()).AddTo(_disposable);
-        
-        _gameOverTimer.TimePassed += OnTimerPassed;
     }
 
     public void CalculateBuybackPrice(int activateNumber)
@@ -52,10 +42,5 @@ public class ExtraTimePannel : Pannel
     private void OnRedeemed()
     {
         TimeRedeemed?.Invoke();
-    }
-
-    private void OnTimerPassed()
-    {
-        TimerPassed?.Invoke();
     }
 }
