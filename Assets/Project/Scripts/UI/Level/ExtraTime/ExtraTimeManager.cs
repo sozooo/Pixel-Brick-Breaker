@@ -14,7 +14,7 @@ public class ExtraTimeManager : MonoBehaviour
     [SerializeField] private float _additionalTime;
     [SerializeField] private int _extraTimeTriesCount;
 
-    private CompositeDisposable _disposable;
+    private readonly CompositeDisposable _disposable = new();
     private int _currentTriesCount;
 
     private void OnEnable()
@@ -23,8 +23,6 @@ public class ExtraTimeManager : MonoBehaviour
         
         _extraTimePannel.TimeRedeemed += AddTime;
 
-        _disposable = new CompositeDisposable();
-
         MessageBrokerHolder.Game.Receive<M_TimePassed>().Subscribe(message => Show()).AddTo(_disposable);
     }
 
@@ -32,7 +30,7 @@ public class ExtraTimeManager : MonoBehaviour
     {
         _extraTimePannel.TimeRedeemed -= AddTime;
         
-        _disposable.Dispose();
+        _disposable.Clear();
     }
 
     private void Show()

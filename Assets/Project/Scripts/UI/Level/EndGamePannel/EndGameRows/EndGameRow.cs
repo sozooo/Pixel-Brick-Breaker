@@ -25,7 +25,7 @@ namespace UI.Level.EndGamePannel.EndGameRows
 
         private void OnDisable()
         {
-            _disposable.Dispose();
+            _disposable.Clear();
         }
 
         protected abstract void Display();

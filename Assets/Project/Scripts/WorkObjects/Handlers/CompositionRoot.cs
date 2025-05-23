@@ -47,7 +47,7 @@ public class CompositionRoot : MonoBehaviour
 
     private void OnDisable()
     {
-        _disposable?.Dispose();
+        _disposable.Clear();
         
         _timer.TimePassed -= OnTimePassed;
     }

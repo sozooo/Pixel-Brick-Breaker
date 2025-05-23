@@ -19,7 +19,7 @@ public class LevelProgressBar : ProgressBar
     {
         base.Disable();
         
-        _disposable?.Dispose();
+        _disposable.Clear();
     }
 
     public override void ResetBar()

@@ -13,21 +13,19 @@ public class ExtraTimePannel : Pannel
     [SerializeField] private int _basePrice;
     [SerializeField] private int _priceAdditional;
 
-    private CompositeDisposable _disposable;
+    private readonly CompositeDisposable _disposable = new();
     private int _buybackPrice;
     
     public event Action TimeRedeemed;
 
     private void OnDisable()
     {
-        _disposable?.Dispose();
+        _disposable.Clear();
     }
 
     protected override void Display()
     {
         base.Display();
-        
-        _disposable = new CompositeDisposable();
 
         MessageBrokerHolder.Game.Receive<M_TimePurchased>().Subscribe(message => OnRedeemed()).AddTo(_disposable);
     }

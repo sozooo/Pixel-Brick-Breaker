@@ -18,6 +18,11 @@ public class RewardCollector : MonoBehaviour
         MessageBrokerHolder.Figure.Receive<M_FigureFell>().Subscribe(message => TakeReward(message.Figure)).AddTo(_disposable);
     }
 
+    private void OnDisable()
+    {
+        _disposable.Clear();
+    }
+
     private void TakeReward(Figure figure)
     {
         int maxReward = figure.Voxels.Count;
