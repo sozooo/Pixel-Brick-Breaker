@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using com.cyborgAssets.inspectorButtonPro;
 using Project.Scripts.WorkObjects.MessageBrokers;
 using Project.Scripts.WorkObjects.MessageBrokers.Figure;
 using UniRx;
@@ -12,10 +13,7 @@ public class Voxel : MonoBehaviour
     [SerializeField] private float _animationLength = 0.5f;
     [SerializeField] private LayerMask _layer;
     
-    // [SerializeField] private Rigidbody _rigidbody;
-    
     private readonly int Disapear = Animator.StringToHash("Disapear");
-    private Vector3 _position;
 
     private Coroutine _falling;
     private Animator _animator;
@@ -23,30 +21,18 @@ public class Voxel : MonoBehaviour
 
     public event Action<Voxel> Fell;
 
-    public Vector3 Position => _position;
-
     private void Awake()
     {
         _animator = GetComponent<Animator>();
         _trail = GetComponent<TrailRenderer>();
-        
-        // _rigidbody.isKinematic = true;
     }
 
-    public void SetPosition(Vector3 position)
+    private void OnDisable()
     {
-        _position = position;
+        InvokeFell();
     }
 
-    public void RemoveRigidbody()
-    {
-        // _animator.SetBool(DisapearAnimation, false);
-        // _trail.enabled = false;
-        //
-        // if (TryGetComponent(out Rigidbody rigidbody))
-        //     Destroy(rigidbody);
-    }
-
+    [ProPlayButton]
     public void Fall()
     {
         if (TryGetComponent(out Rigidbody rigidbody) == false)
@@ -58,9 +44,7 @@ public class Voxel : MonoBehaviour
 
         _falling ??= StartCoroutine(Falling());
 
-        Fell?.Invoke(this);
-        
-        MessageBrokerHolder.Figure.Publish(new M_VoxelFell());
+        InvokeFell();
     }
 
     private IEnumerator Falling()
@@ -77,5 +61,12 @@ public class Voxel : MonoBehaviour
         gameObject.SetActive(false);
 
         _falling = null;
+    }
+
+    private void InvokeFell()
+    {
+        Fell?.Invoke(this);
+        
+        MessageBrokerHolder.Figure.Publish(new M_VoxelFell());
     }
 }

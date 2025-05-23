@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Figure : MonoBehaviour, ISpawnable<Figure>
@@ -7,11 +8,10 @@ public class Figure : MonoBehaviour, ISpawnable<Figure>
     [SerializeField] private Audio _audio;
 
     private readonly List<Voxel> _voxels = new();
-    private float _voxelsLeft = 0;
 
     public event Action<Figure> Despawned;
 
-    public IReadOnlyList<Voxel> Voxels => _voxels;
+    public int ClearReward {get; private set;}
 
     private void Awake()
     {
@@ -20,40 +20,27 @@ public class Figure : MonoBehaviour, ISpawnable<Figure>
             if (!child.TryGetComponent(out Voxel voxel))
                 continue;
             
-            voxel.SetPosition(voxel.transform.localPosition);
             _voxels.Add(voxel);
-            _voxelsLeft++;
 
             voxel.Fell += DecreaseVoxelsCount;
         }
+
+        ClearReward = _voxels.Count;
     }
 
     private void OnDisable()
     {
-        Despawned?.Invoke(this);
-    }
-
-    public void Rebuild()
-    {
-        foreach (Voxel voxel in _voxels)
-        {
-            voxel.RemoveRigidbody();
-            voxel.transform.localPosition = voxel.Position;
-            voxel.gameObject.SetActive(true);
-
-            _voxelsLeft++;
-            voxel.Fell += DecreaseVoxelsCount;
-        }
+        foreach (var voxel in _voxels.ToList())
+            DecreaseVoxelsCount(voxel);
     }
 
     public void VoxelsFall()
     {
         _audio.PlayOneShot();
 
-        foreach (Voxel voxel in _voxels)
+        foreach (var voxel in _voxels.Where(voxel => voxel.isActiveAndEnabled))
         {
-            if (voxel.isActiveAndEnabled)
-                voxel.Fall();
+            voxel.Fall();
         }
     }
 
@@ -61,9 +48,9 @@ public class Figure : MonoBehaviour, ISpawnable<Figure>
     {
         voxel.Fell -= DecreaseVoxelsCount;
 
-        _voxelsLeft--;
+        _voxels.Remove(voxel);
 
-        if (_voxelsLeft == 0)
+        if (_voxels.Count == 0)
             Despawned?.Invoke(this);
     }
 

@@ -25,7 +25,7 @@ public class RewardCollector : MonoBehaviour
 
     private void TakeReward(Figure figure)
     {
-        int maxReward = figure.Voxels.Count;
+        int maxReward = figure.ClearReward;
         int minReward = maxReward - _minRewardDifference;
 
         int reward = Random.Range(minReward, maxReward + 1);
