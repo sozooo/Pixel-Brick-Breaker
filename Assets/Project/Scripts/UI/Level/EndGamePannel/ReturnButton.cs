@@ -18,6 +18,6 @@ public class ReturnButton : MonoBehaviour
 
     private void MainMenuReturn()
     {
-        _sceneLoader.LoadScene((int) _sceneName);
+        _sceneLoader.LoadScene((int) _sceneName).Forget();
     }
 }

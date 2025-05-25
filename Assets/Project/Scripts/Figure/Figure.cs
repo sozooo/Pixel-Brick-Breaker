@@ -38,7 +38,7 @@ public class Figure : MonoBehaviour, ISpawnable<Figure>
     {
         _audio.PlayOneShot();
 
-        foreach (var voxel in _voxels.Where(voxel => voxel.isActiveAndEnabled))
+        foreach (var voxel in _voxels.ToList().Where(voxel => voxel.isActiveAndEnabled))
         {
             voxel.Fall();
         }

@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using UnityEngine;
 
@@ -15,15 +14,6 @@ public class Core : MonoBehaviour
     private void OnEnable()
     {
         gameObject.SetActive(true);
-
-        if (_standbyParticle == null)
-            throw new ArgumentNullException(nameof(_standbyParticle));
-
-        if(_explosionParticle == null)
-            throw new ArgumentNullException(nameof(_explosionParticle));
-
-        if (_figure == null)
-            throw new ArgumentNullException(nameof(_figure));
 
         _standbyParticle.Play();
     }
@@ -50,16 +40,11 @@ public class Core : MonoBehaviour
 
     private IEnumerator PlayOneShotParticle(ParticleSystem particleSystem)
     {
-        bool withChildren = true;
+        WaitForSeconds wait = new(_explodeTime);
 
-        float time = _explodeTime;
-        WaitForSeconds wait = new(time);
-
-        particleSystem.Play(withChildren);
+        particleSystem.Play();
         _audio.PlayOneShot();
 
         yield return wait;
-
-        //particleSystem.Stop(withChildren, ParticleSystemStopBehavior.StopEmittingAndClear);
     }
 }

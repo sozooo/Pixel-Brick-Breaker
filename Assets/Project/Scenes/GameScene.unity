@@ -1375,10 +1375,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _gameTimer: {fileID: 267377004}
-  _extraTimePannel: {fileID: 8871992888552588791}
+  _extraTimePannel: {fileID: 8871992888552588792}
   _gameOverPanel: {fileID: 1154208713}
   _statsCollector: {fileID: 368635205}
-  _additionalTime: 15
   _extraTimeTriesCount: 3
 --- !u!114 &368635205
 MonoBehaviour:
@@ -5621,7 +5620,6 @@ GameObject:
   - component: {fileID: 1344774045}
   - component: {fileID: 1344774047}
   - component: {fileID: 1344774046}
-  - component: {fileID: 1344774048}
   m_Layer: 5
   m_Name: Label
   m_TagString: Untagged
@@ -5745,18 +5743,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1344774044}
   m_CullTransparentMesh: 1
---- !u!114 &1344774048
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1344774044}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f34f36451b093ee4c83ad4aa5459d2ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1452459041
 GameObject:
   m_ObjectHideFlags: 0
@@ -6742,8 +6728,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _buyButton: {fileID: 1737909075}
-  _buybackCost: 1000
   _playerStats: {fileID: 0}
+  _basePrice: 2000
+  _priceAdditional: 1000
+  _price: {fileID: 2004201604}
+  <AdditionalTime>k__BackingField: 15
 --- !u!114 &1737909075
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8292,6 +8281,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AdIndex: ExtraTime
   _button: {fileID: 2067348236}
+  <AdditionalTime>k__BackingField: 15
 --- !u!114 &2067348236
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8989,7 +8979,6 @@ GameObject:
   - component: {fileID: 62284308164465538}
   - component: {fileID: 8871992888552588789}
   - component: {fileID: 5842990686547698296}
-  - component: {fileID: 8871992888552588791}
   - component: {fileID: 8871992888552588792}
   m_Layer: 5
   m_Name: Extra Time
@@ -9784,22 +9773,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &8871992888552588791
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 666391380110019164}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ca4e644946747f9b844c5988e147bd0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _buyExtraTimeButton: {fileID: 1737909074}
-  _price: {fileID: 2004201604}
-  _basePrice: 1000
-  _priceAdditional: 500
 --- !u!114 &8871992888552588792
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9843,7 +9816,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b47a80fa20a450a916c4135c37ff672, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _parentPannel: {fileID: 8871992888552588791}
+  _parentPannel: {fileID: 0}
   _extraTimeManager: {fileID: 368635204}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

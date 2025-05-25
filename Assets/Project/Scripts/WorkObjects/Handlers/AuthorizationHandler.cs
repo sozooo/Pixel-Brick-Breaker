@@ -19,7 +19,7 @@ namespace WorkObjects.Handlers
 
         private void Authorize()
         {
-            _sceneLoader.LoadScene((int)SceneNames.MainMenu);
+            _sceneLoader.LoadScene((int)SceneNames.MainMenu).Forget();
         }
     }
 }

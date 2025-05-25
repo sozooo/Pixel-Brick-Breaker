@@ -24,14 +24,17 @@ public class TimerProgressBar : ProgressBar
         Current = Mathf.Clamp(Current, Minimum, Maximum);
 
         Fill();
+        StartTimer();
     }
     
     public void StartTimer()
     {
-        Disable();
-
+        if (_timer != null)
+            return;
+        
         MessageBrokerHolder.Figure.Receive<M_FigureFell>().Subscribe(message => PauseTimer(true)).AddTo(_disposable);
         MessageBrokerHolder.Figure.Receive<M_FigureDespawned>().Subscribe(message => PauseTimer(false)).AddTo(_disposable);
+        MessageBrokerHolder.Game.Receive<M_TimeRedeemed>().Subscribe(message => AddTime(message.Time)).AddTo(_disposable);
         
         _timer = StartCoroutine(Timer());
     }
@@ -49,6 +52,8 @@ public class TimerProgressBar : ProgressBar
 
     public override void ResetBar()
     {
+        Disable();
+        
         base.ResetBar();
         
         float upgradedTime = _timeModifier * YG2.saves.TimerLevel;
@@ -70,9 +75,9 @@ public class TimerProgressBar : ProgressBar
 
         while (Current > Minimum)
         {
-            yield return waitPause;
-            
             yield return waitSecond;
+            
+            yield return waitPause;
 
             Current--;
             Current = Mathf.Clamp(Current, Minimum, Maximum);

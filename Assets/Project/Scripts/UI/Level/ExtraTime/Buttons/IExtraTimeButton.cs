@@ -1,8 +1,6 @@
-using System;
-using UnityEngine;
-using UnityEngine.UI;
-
 public interface IExtraTimeButton
 {
+    public float AdditionalTime { get; }
+
     public void AddTime();
 }

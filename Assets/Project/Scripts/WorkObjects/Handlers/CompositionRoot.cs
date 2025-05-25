@@ -90,7 +90,7 @@ public class CompositionRoot : MonoBehaviour
 
     private void AddTime()
     {
-        _timer.AddTime(_bonusTime);
+        MessageBrokerHolder.Game.Publish(new M_TimeRedeemed(_bonusTime));
     }
 
     private void OnTimePassed()
