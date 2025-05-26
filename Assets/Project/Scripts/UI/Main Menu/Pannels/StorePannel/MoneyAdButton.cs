@@ -1,6 +1,4 @@
 using UnityEngine;
-using WorkObjects.Enums;
-using YG;
 
 namespace UI.Main_Menu.Pannels.StorePannel
 {
@@ -11,7 +9,7 @@ namespace UI.Main_Menu.Pannels.StorePannel
         
         protected override void OnRewardedAdv(string adIndex)
         {
-            if (adIndex == AdIndex)
+            if (adIndex == AdIndex.ToString())
                 _playerStats.Earn(_coinsForAd);
         }
     }

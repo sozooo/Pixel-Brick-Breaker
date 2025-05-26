@@ -1,14 +1,14 @@
 using System;
-using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
+using WorkObjects.Enums;
 using YG;
 
 namespace UI
 {
     public abstract class RewardAdButton : MonoBehaviour
     {
-        [SerializeField] protected string AdIndex;
+        [SerializeField] protected RewardAdTypes AdIndex;
         [SerializeField] private Button _button;
 
         private void OnEnable()
@@ -27,12 +27,9 @@ namespace UI
         
         private void ShowAd()
         {
-            if(AdIndex.Any() == false)
-                throw new InvalidOperationException("Reward index not setted to available reward");
-            
             YG2.onRewardAdv += OnRewardedAdv;
             
-            YG2.RewardedAdvShow(AdIndex);
+            YG2.RewardedAdvShow(AdIndex.ToString());
         }
     }
 }

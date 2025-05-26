@@ -15,7 +15,7 @@ public class ExtraTimeAdButton : RewardAdButton, IExtraTimeButton
 
     protected override void OnRewardedAdv(string adIndex)
     {
-        if(adIndex == AdIndex)
+        if(adIndex == AdIndex.ToString())
             AddTime();
     }
 }

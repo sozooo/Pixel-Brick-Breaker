@@ -2999,7 +2999,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 176.25, y: -115.2}
+  m_AnchoredPosition: {x: 176.25, y: -115.20001}
   m_SizeDelta: {x: 352.5, y: 210.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &664818184
@@ -6883,7 +6883,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 5.89}
+  m_AnchoredPosition: {x: 0, y: 5.8899994}
   m_SizeDelta: {x: 0, y: -11.78}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1737837523
@@ -7047,7 +7047,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50618aa4368f4398815f4d1b3813ee08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AdIndex: MoneyAd
+  AdIndex: 1
   _button: {fileID: 1825574054}
   _playerStats: {fileID: 1989127341}
   _coinsForAd: 500
