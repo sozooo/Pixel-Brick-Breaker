@@ -26,13 +26,13 @@ public class Exploder : MonoBehaviour
         
         foreach (Collider body in voxels)
         {
-            if (body.gameObject.TryGetComponent(out Core core))
+            if (body.TryGetComponent(out Core core))
             {
                 core.StartExplosion();
                 break;
             }
 
-            if(body.gameObject.TryGetComponent(out Voxel voxel))
+            if(body.TryGetComponent(out Voxel voxel))
             {
                 voxel.Fall();
             }

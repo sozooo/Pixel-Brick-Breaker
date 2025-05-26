@@ -17,7 +17,7 @@ public class Figure : MonoBehaviour, ISpawnable<Figure>
     {
         foreach(Transform child in transform)
         {
-            if (!child.TryGetComponent(out Voxel voxel))
+            if (child.TryGetComponent(out Voxel voxel) == false)
                 continue;
             
             _voxels.Add(voxel);

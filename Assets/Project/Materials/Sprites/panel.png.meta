@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c37e04727dd812a4dad840b807f3b36e
+guid: baefc0c88c27a4c75b1ef0b1f37cf974
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -69,12 +69,12 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 512
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
-    crunchedCompression: 0
+    crunchedCompression: 1
     allowsAlphaSplitting: 0
     overridden: 0
     ignorePlatformSupport: 0
@@ -126,13 +126,13 @@ TextureImporter:
       name: panel_0
       rect:
         serializedVersion: 2
-        x: 34
-        y: 109
-        width: 385
-        height: 739
+        x: 0
+        y: 0
+        width: 512
+        height: 1024
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 48, z: 0, w: 129}
+      border: {x: 0, y: 77, z: 0, w: 179}
       outline: []
       physicsShape: []
       tessellationDetail: 0

@@ -17,11 +17,10 @@ public class Rotator
     private Transform _transform;
     private PlayerInput _input;
 
-    public void Initialize(Transform transform, PlayerInput input, AimShower aim)
+    public void Initialize(Transform transform, PlayerInput input)
     {
         _transform = transform;
         _input = input;
-        _aim = aim;
         
         _startEulerAngles = _transform.localEulerAngles;
         

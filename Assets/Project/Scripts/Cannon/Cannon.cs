@@ -6,7 +6,6 @@ public class Cannon : MonoBehaviour
 {
     [SerializeField] private CannonMovement _movement;
     [SerializeField] private Rotator _rotator;
-    [SerializeField] private AimShower _aimShower;
     [SerializeField] private Shooter _shooter;
     [SerializeField] private Audio _audio;
     [SerializeField] private BulletCountDisplayer _bulletCountDisplayer;
@@ -34,7 +33,7 @@ public class Cannon : MonoBehaviour
         
         _input.Enable();
         
-        _rotator.Initialize(_transform, _input, _aimShower);
+        _rotator.Initialize(_transform, _input);
         _shooter.Initialize();
         _bulletCountDisplayer.Initialize(_shooter);
 
