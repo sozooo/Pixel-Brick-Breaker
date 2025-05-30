@@ -4,38 +4,30 @@ using System.Threading;
 using Cysharp.Threading.Tasks;
 using Project.Scripts.WorkObjects.MessageBrokers;
 using UnityEngine;
-using Object = UnityEngine.Object;
-using Random = UnityEngine.Random;
 
 [Serializable]
 public class FigureSpawner : Spawner<Figure>
 {
     [Header("Despawn Setting")]
     [SerializeField] private float _timeToDespawn = 4f;
+    [SerializeField] private Transform _spawnPoint;
 
     private readonly CancellationTokenSource _cancellationToken = new();
-    private List<Figure> _mainFiguresList;
-    private Figure _currentFigure;
-
-    private void OnDisable()
-    {
-        if(_currentFigure)
-            _currentFigure.Despawned -= OnDespawned;
-    }
-
+    private List<FigureConfig> _mainFiguresList;
+    
     public override Figure Spawn()
     {
-        _currentFigure = Object.Instantiate(
-            _mainFiguresList[Random.Range(0, _mainFiguresList.Count)],
-            Spawnpoint.position, Spawnpoint.rotation);
+        Figure figure = Pool.Give();
+        
+        figure.Despawned += OnDespawned;
+        figure.Initialize(_spawnPoint.position, _spawnPoint.rotation);
+        figure.gameObject.SetActive(true);
+        figure.ApplyConfig(_mainFiguresList.GetRandom());
 
-        _currentFigure.Despawned += OnDespawned;
-        _currentFigure.gameObject.SetActive(true);
-
-        return _currentFigure;
+        return figure;
     }
 
-    public void SetFigureList(List<Figure> figuresList)
+    public void SetFigureList(List<FigureConfig> figuresList)
     {
         _mainFiguresList = figuresList;
     }
@@ -44,7 +36,7 @@ public class FigureSpawner : Spawner<Figure>
     {
         MessageBrokerHolder.Figure.Publish(new M_FigureFell(figure));
         
-        _currentFigure.Despawned -= OnDespawned;
+        figure.Despawned -= OnDespawned;
 
         TimerBeforeDespawn(figure).Forget();
     }
@@ -53,8 +45,7 @@ public class FigureSpawner : Spawner<Figure>
     {
         await UniTask.Delay(TimeSpan.FromSeconds(_timeToDespawn), cancellationToken: _cancellationToken.Token);
 
-        Object.Destroy(figure.gameObject);
-        _currentFigure = null;
+        Pool.Add(figure);
 
         MessageBrokerHolder.Figure.Publish(new M_FigureDespawned());
     }

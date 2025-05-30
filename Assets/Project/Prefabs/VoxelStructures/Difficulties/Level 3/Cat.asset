@@ -1,0 +1,363 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b72bde194f554951a46e143989afabc5, type: 3}
+  m_Name: Cat
+  m_EditorClassIdentifier: 
+  Voxels:
+  - <Position>k__BackingField: {x: 2, y: 8}
+    <Color>k__BackingField: {r: 0.26666668, g: 0.25882354, b: 0.28627452, a: 1}
+  - <Position>k__BackingField: {x: 3, y: 8}
+    <Color>k__BackingField: {r: 0.41960785, g: 0.39215687, b: 0.5019608, a: 1}
+  - <Position>k__BackingField: {x: 4, y: 8}
+    <Color>k__BackingField: {r: 0.6666667, g: 0.627451, b: 0.8352941, a: 1}
+  - <Position>k__BackingField: {x: 5, y: 8}
+    <Color>k__BackingField: {r: 0.6666667, g: 0.627451, b: 0.8352941, a: 1}
+  - <Position>k__BackingField: {x: 6, y: 8}
+    <Color>k__BackingField: {r: 0.6666667, g: 0.627451, b: 0.8352941, a: 1}
+  - <Position>k__BackingField: {x: 7, y: 8}
+    <Color>k__BackingField: {r: 0.6666667, g: 0.627451, b: 0.8352941, a: 1}
+  - <Position>k__BackingField: {x: 1, y: 9}
+    <Color>k__BackingField: {r: 0.26666668, g: 0.25882354, b: 0.28627452, a: 1}
+  - <Position>k__BackingField: {x: 2, y: 9}
+    <Color>k__BackingField: {r: 0.8627451, g: 0.5058824, b: 0.70980394, a: 1}
+  - <Position>k__BackingField: {x: 3, y: 9}
+    <Color>k__BackingField: {r: 0.95686275, g: 0.6392157, b: 0.8235294, a: 1}
+  - <Position>k__BackingField: {x: 4, y: 9}
+    <Color>k__BackingField: {r: 0.41960785, g: 0.39215687, b: 0.5019608, a: 1}
+  - <Position>k__BackingField: {x: 5, y: 9}
+    <Color>k__BackingField: {r: 0.6666667, g: 0.627451, b: 0.8352941, a: 1}
+  - <Position>k__BackingField: {x: 6, y: 9}
+    <Color>k__BackingField: {r: 0.41960785, g: 0.39215687, b: 0.5019608, a: 1}
+  - <Position>k__BackingField: {x: 7, y: 9}
+    <Color>k__BackingField: {r: 0.41960785, g: 0.39215687, b: 0.5019608, a: 1}
+  - <Position>k__BackingField: {x: 1, y: 10}
+    <Color>k__BackingField: {r: 0.26666668, g: 0.25882354, b: 0.28627452, a: 1}
+  - <Position>k__BackingField: {x: 2, y: 10}
+    <Color>k__BackingField: {r: 0.8627451, g: 0.5058824, b: 0.70980394, a: 1}
+  - <Position>k__BackingField: {x: 3, y: 10}
+    <Color>k__BackingField: {r: 0.95686275, g: 0.6392157, b: 0.8235294, a: 1}
+  - <Position>k__BackingField: {x: 4, y: 10}
+    <Color>k__BackingField: {r: 0.6666667, g: 0.627451, b: 0.8352941, a: 1}
+  - <Position>k__BackingField: {x: 5, y: 10}
+    <Color>k__BackingField: {r: 0.41960785, g: 0.39215687, b: 0.5019608, a: 1}
+  - <Position>k__BackingField: {x: 6, y: 10}
+    <Color>k__BackingField: {r: 0.26666668, g: 0.25882354, b: 0.28627452, a: 1}
+  - <Position>k__BackingField: {x: 7, y: 10}
+    <Color>k__BackingField: {r: 0.26666668, g: 0.25882354, b: 0.28627452, a: 1}
+  - <Position>k__BackingField: {x: 1, y: 11}
+    <Color>k__BackingField: {r: 0.26666668, g: 0.25882354, b: 0.28627452, a: 1}
+  - <Position>k__BackingField: {x: 2, y: 11}
+    <Color>k__BackingField: {r: 0.95686275, g: 0.6392157, b: 0.8235294, a: 1}
+  - <Position>k__BackingField: {x: 3, y: 11}
+    <Color>k__BackingField: {r: 0.6666667, g: 0.627451, b: 0.8352941, a: 1}
+  - <Position>k__BackingField: {x: 4, y: 11}
+    <Color>k__BackingField: {r: 0.41960785, g: 0.39215687, b: 0.5019608, a: 1}
+  - <Position>k__BackingField: {x: 5, y: 11}
+    <Color>k__BackingField: {r: 0.26666668, g: 0.25882354, b: 0.28627452, a: 1}
+  - <Position>k__BackingField: {x: 2, y: 12}
+    <Color>k__BackingField: {r: 0.26666668, g: 0.25882354, b: 0.28627452, a: 1}
+  - <Position>k__BackingField: {x: 3, y: 12}
+    <Color>k__BackingField: {r: 0.41960785, g: 0.39215687, b: 0.5019608, a: 1}
+  - <Position>k__BackingField: {x: 4, y: 12}
+    <Color>k__BackingField: {r: 0.26666668, g: 0.25882354, b: 0.28627452, a: 1}
+  - <Position>k__BackingField: {x: 2, y: 13}
+    <Color>k__BackingField: {r: 0.26666668, g: 0.25882354, b: 0.28627452, a: 1}
+  - <Position>k__BackingField: {x: 3, y: 13}
+    <Color>k__BackingField: {r: 0.26666668, g: 0.25882354, b: 0.28627452, a: 1}
+  - <Position>k__BackingField: {x: 8, y: 8}
+    <Color>k__BackingField: {r: 0.6666667, g: 0.627451, b: 0.8352941, a: 1}
+  - <Position>k__BackingField: {x: 9, y: 8}
+    <Color>k__BackingField: {r: 0.6666667, g: 0.627451, b: 0.8352941, a: 1}
+  - <Position>k__BackingField: {x: 10, y: 8}
+    <Color>k__BackingField: {r: 0.6666667, g: 0.627451, b: 0.8352941, a: 1}
+  - <Position>k__BackingField: {x: 11, y: 8}
+    <Color>k__BackingField: {r: 0.6666667, g: 0.627451, b: 0.8352941, a: 1}
+  - <Position>k__BackingField: {x: 12, y: 8}
+    <Color>k__BackingField: {r: 0.6666667, g: 0.627451, b: 0.8352941, a: 1}
+  - <Position>k__BackingField: {x: 13, y: 8}
+    <Color>k__BackingField: {r: 0.41960785, g: 0.39215687, b: 0.5019608, a: 1}
+  - <Position>k__BackingField: {x: 14, y: 8}
+    <Color>k__BackingField: {r: 0.26666668, g: 0.25882354, b: 0.28627452, a: 1}
+  - <Position>k__BackingField: {x: 8, y: 9}
+    <Color>k__BackingField: {r: 0.41960785, g: 0.39215687, b: 0.5019608, a: 1}
+  - <Position>k__BackingField: {x: 9, y: 9}
+    <Color>k__BackingField: {r: 0.41960785, g: 0.39215687, b: 0.5019608, a: 1}
+  - <Position>k__BackingField: {x: 10, y: 9}
+    <Color>k__BackingField: {r: 0.41960785, g: 0.39215687, b: 0.5019608, a: 1}
+  - <Position>k__BackingField: {x: 11, y: 9}
+    <Color>k__BackingField: {r: 0.6666667, g: 0.627451, b: 0.8352941, a: 1}
+  - <Position>k__BackingField: {x: 12, y: 9}
+    <Color>k__BackingField: {r: 0.41960785, g: 0.39215687, b: 0.5019608, a: 1}
+  - <Position>k__BackingField: {x: 13, y: 9}
+    <Color>k__BackingField: {r: 0.95686275, g: 0.6392157, b: 0.8235294, a: 1}
+  - <Position>k__BackingField: {x: 14, y: 9}
+    <Color>k__BackingField: {r: 0.8627451, g: 0.5058824, b: 0.70980394, a: 1}
+  - <Position>k__BackingField: {x: 15, y: 9}
+    <Color>k__BackingField: {r: 0.26666668, g: 0.25882354, b: 0.28627452, a: 1}
+  - <Position>k__BackingField: {x: 8, y: 10}
+    <Color>k__BackingField: {r: 0.26666668, g: 0.25882354, b: 0.28627452, a: 1}
+  - <Position>k__BackingField: {x: 9, y: 10}
+    <Color>k__BackingField: {r: 0.26666668, g: 0.25882354, b: 0.28627452, a: 1}
+  - <Position>k__BackingField: {x: 10, y: 10}
+    <Color>k__BackingField: {r: 0.26666668, g: 0.25882354, b: 0.28627452, a: 1}
+  - <Position>k__BackingField: {x: 11, y: 10}
+    <Color>k__BackingField: {r: 0.41960785, g: 0.39215687, b: 0.5019608, a: 1}
+  - <Position>k__BackingField: {x: 12, y: 10}
+    <Color>k__BackingField: {r: 0.6666667, g: 0.627451, b: 0.8352941, a: 1}
+  - <Position>k__BackingField: {x: 13, y: 10}
+    <Color>k__BackingField: {r: 0.95686275, g: 0.6392157, b: 0.8235294, a: 1}
+  - <Position>k__BackingField: {x: 14, y: 10}
+    <Color>k__BackingField: {r: 0.8627451, g: 0.5058824, b: 0.70980394, a: 1}
+  - <Position>k__BackingField: {x: 15, y: 10}
+    <Color>k__BackingField: {r: 0.26666668, g: 0.25882354, b: 0.28627452, a: 1}
+  - <Position>k__BackingField: {x: 11, y: 11}
+    <Color>k__BackingField: {r: 0.26666668, g: 0.25882354, b: 0.28627452, a: 1}
+  - <Position>k__BackingField: {x: 12, y: 11}
+    <Color>k__BackingField: {r: 0.41960785, g: 0.39215687, b: 0.5019608, a: 1}
+  - <Position>k__BackingField: {x: 13, y: 11}
+    <Color>k__BackingField: {r: 0.6666667, g: 0.627451, b: 0.8352941, a: 1}
+  - <Position>k__BackingField: {x: 14, y: 11}
+    <Color>k__BackingField: {r: 0.95686275, g: 0.6392157, b: 0.8235294, a: 1}
+  - <Position>k__BackingField: {x: 15, y: 11}
+    <Color>k__BackingField: {r: 0.26666668, g: 0.25882354, b: 0.28627452, a: 1}
+  - <Position>k__BackingField: {x: 12, y: 12}
+    <Color>k__BackingField: {r: 0.26666668, g: 0.25882354, b: 0.28627452, a: 1}
+  - <Position>k__BackingField: {x: 13, y: 12}
+    <Color>k__BackingField: {r: 0.41960785, g: 0.39215687, b: 0.5019608, a: 1}
+  - <Position>k__BackingField: {x: 14, y: 12}
+    <Color>k__BackingField: {r: 0.26666668, g: 0.25882354, b: 0.28627452, a: 1}
+  - <Position>k__BackingField: {x: 13, y: 13}
+    <Color>k__BackingField: {r: 0.26666668, g: 0.25882354, b: 0.28627452, a: 1}
+  - <Position>k__BackingField: {x: 14, y: 13}
+    <Color>k__BackingField: {r: 0.26666668, g: 0.25882354, b: 0.28627452, a: 1}
+  - <Position>k__BackingField: {x: 4, y: 0}
+    <Color>k__BackingField: {r: 0.26666668, g: 0.25882354, b: 0.28627452, a: 1}
+  - <Position>k__BackingField: {x: 5, y: 0}
+    <Color>k__BackingField: {r: 0.26666668, g: 0.25882354, b: 0.28627452, a: 1}
+  - <Position>k__BackingField: {x: 6, y: 0}
+    <Color>k__BackingField: {r: 0.26666668, g: 0.25882354, b: 0.28627452, a: 1}
+  - <Position>k__BackingField: {x: 7, y: 0}
+    <Color>k__BackingField: {r: 0.26666668, g: 0.25882354, b: 0.28627452, a: 1}
+  - <Position>k__BackingField: {x: 3, y: 1}
+    <Color>k__BackingField: {r: 0.26666668, g: 0.25882354, b: 0.28627452, a: 1}
+  - <Position>k__BackingField: {x: 4, y: 1}
+    <Color>k__BackingField: {r: 0.41960785, g: 0.39215687, b: 0.5019608, a: 1}
+  - <Position>k__BackingField: {x: 5, y: 1}
+    <Color>k__BackingField: {r: 0.41960785, g: 0.39215687, b: 0.5019608, a: 1}
+  - <Position>k__BackingField: {x: 6, y: 1}
+    <Color>k__BackingField: {r: 0.41960785, g: 0.39215687, b: 0.5019608, a: 1}
+  - <Position>k__BackingField: {x: 7, y: 1}
+    <Color>k__BackingField: {r: 0.41960785, g: 0.39215687, b: 0.5019608, a: 1}
+  - <Position>k__BackingField: {x: 2, y: 2}
+    <Color>k__BackingField: {r: 0.26666668, g: 0.25882354, b: 0.28627452, a: 1}
+  - <Position>k__BackingField: {x: 3, y: 2}
+    <Color>k__BackingField: {r: 0.41960785, g: 0.39215687, b: 0.5019608, a: 1}
+  - <Position>k__BackingField: {x: 4, y: 2}
+    <Color>k__BackingField: {r: 0.6666667, g: 0.627451, b: 0.8352941, a: 1}
+  - <Position>k__BackingField: {x: 5, y: 2}
+    <Color>k__BackingField: {r: 0.6666667, g: 0.627451, b: 0.8352941, a: 1}
+  - <Position>k__BackingField: {x: 6, y: 2}
+    <Color>k__BackingField: {r: 0.6666667, g: 0.627451, b: 0.8352941, a: 1}
+  - <Position>k__BackingField: {x: 7, y: 2}
+    <Color>k__BackingField: {r: 0.6666667, g: 0.627451, b: 0.8352941, a: 1}
+  - <Position>k__BackingField: {x: 0, y: 3}
+    <Color>k__BackingField: {r: 0.26666668, g: 0.25882354, b: 0.28627452, a: 1}
+  - <Position>k__BackingField: {x: 1, y: 3}
+    <Color>k__BackingField: {r: 0.26666668, g: 0.25882354, b: 0.28627452, a: 1}
+  - <Position>k__BackingField: {x: 2, y: 3}
+    <Color>k__BackingField: {r: 0.41960785, g: 0.39215687, b: 0.5019608, a: 1}
+  - <Position>k__BackingField: {x: 3, y: 3}
+    <Color>k__BackingField: {r: 0.6666667, g: 0.627451, b: 0.8352941, a: 1}
+  - <Position>k__BackingField: {x: 4, y: 3}
+    <Color>k__BackingField: {r: 0.6666667, g: 0.627451, b: 0.8352941, a: 1}
+  - <Position>k__BackingField: {x: 5, y: 3}
+    <Color>k__BackingField: {r: 0.6666667, g: 0.627451, b: 0.8352941, a: 1}
+  - <Position>k__BackingField: {x: 6, y: 3}
+    <Color>k__BackingField: {r: 0.6666667, g: 0.627451, b: 0.8352941, a: 1}
+  - <Position>k__BackingField: {x: 7, y: 3}
+    <Color>k__BackingField: {r: 0.6666667, g: 0.627451, b: 0.8352941, a: 1}
+  - <Position>k__BackingField: {x: 1, y: 4}
+    <Color>k__BackingField: {r: 0.26666668, g: 0.25882354, b: 0.28627452, a: 1}
+  - <Position>k__BackingField: {x: 2, y: 4}
+    <Color>k__BackingField: {r: 0.41960785, g: 0.39215687, b: 0.5019608, a: 1}
+  - <Position>k__BackingField: {x: 3, y: 4}
+    <Color>k__BackingField: {r: 0.6666667, g: 0.627451, b: 0.8352941, a: 1}
+  - <Position>k__BackingField: {x: 4, y: 4}
+    <Color>k__BackingField: {r: 0.95686275, g: 0.6392157, b: 0.8235294, a: 1}
+  - <Position>k__BackingField: {x: 5, y: 4}
+    <Color>k__BackingField: {r: 0.95686275, g: 0.6392157, b: 0.8235294, a: 1}
+  - <Position>k__BackingField: {x: 6, y: 4}
+    <Color>k__BackingField: {r: 0.6666667, g: 0.627451, b: 0.8352941, a: 1}
+  - <Position>k__BackingField: {x: 7, y: 4}
+    <Color>k__BackingField: {r: 0.26666668, g: 0.25882354, b: 0.28627452, a: 1}
+  - <Position>k__BackingField: {x: 0, y: 5}
+    <Color>k__BackingField: {r: 0.26666668, g: 0.25882354, b: 0.28627452, a: 1}
+  - <Position>k__BackingField: {x: 1, y: 5}
+    <Color>k__BackingField: {r: 0.26666668, g: 0.25882354, b: 0.28627452, a: 1}
+  - <Position>k__BackingField: {x: 2, y: 5}
+    <Color>k__BackingField: {r: 0.41960785, g: 0.39215687, b: 0.5019608, a: 1}
+  - <Position>k__BackingField: {x: 3, y: 5}
+    <Color>k__BackingField: {r: 0.6666667, g: 0.627451, b: 0.8352941, a: 1}
+  - <Position>k__BackingField: {x: 4, y: 5}
+    <Color>k__BackingField: {r: 0.26666668, g: 0.25882354, b: 0.28627452, a: 1}
+  - <Position>k__BackingField: {x: 5, y: 5}
+    <Color>k__BackingField: {r: 0.26666668, g: 0.25882354, b: 0.28627452, a: 1}
+  - <Position>k__BackingField: {x: 6, y: 5}
+    <Color>k__BackingField: {r: 0.6666667, g: 0.627451, b: 0.8352941, a: 1}
+  - <Position>k__BackingField: {x: 7, y: 5}
+    <Color>k__BackingField: {r: 0.6666667, g: 0.627451, b: 0.8352941, a: 1}
+  - <Position>k__BackingField: {x: 1, y: 6}
+    <Color>k__BackingField: {r: 0.26666668, g: 0.25882354, b: 0.28627452, a: 1}
+  - <Position>k__BackingField: {x: 2, y: 6}
+    <Color>k__BackingField: {r: 0.41960785, g: 0.39215687, b: 0.5019608, a: 1}
+  - <Position>k__BackingField: {x: 3, y: 6}
+    <Color>k__BackingField: {r: 0.6666667, g: 0.627451, b: 0.8352941, a: 1}
+  - <Position>k__BackingField: {x: 4, y: 6}
+    <Color>k__BackingField: {r: 0.26666668, g: 0.25882354, b: 0.28627452, a: 1}
+  - <Position>k__BackingField: {x: 5, y: 6}
+    <Color>k__BackingField: {r: 0.91764706, g: 0.90588236, b: 0.9529412, a: 1}
+  - <Position>k__BackingField: {x: 6, y: 6}
+    <Color>k__BackingField: {r: 0.6666667, g: 0.627451, b: 0.8352941, a: 1}
+  - <Position>k__BackingField: {x: 7, y: 6}
+    <Color>k__BackingField: {r: 0.6666667, g: 0.627451, b: 0.8352941, a: 1}
+  - <Position>k__BackingField: {x: 2, y: 7}
+    <Color>k__BackingField: {r: 0.26666668, g: 0.25882354, b: 0.28627452, a: 1}
+  - <Position>k__BackingField: {x: 3, y: 7}
+    <Color>k__BackingField: {r: 0.41960785, g: 0.39215687, b: 0.5019608, a: 1}
+  - <Position>k__BackingField: {x: 4, y: 7}
+    <Color>k__BackingField: {r: 0.6666667, g: 0.627451, b: 0.8352941, a: 1}
+  - <Position>k__BackingField: {x: 5, y: 7}
+    <Color>k__BackingField: {r: 0.7647059, g: 0.7294118, b: 0.9137255, a: 1}
+  - <Position>k__BackingField: {x: 6, y: 7}
+    <Color>k__BackingField: {r: 0.7647059, g: 0.7294118, b: 0.9137255, a: 1}
+  - <Position>k__BackingField: {x: 7, y: 7}
+    <Color>k__BackingField: {r: 0.6666667, g: 0.627451, b: 0.8352941, a: 1}
+  - <Position>k__BackingField: {x: 8, y: 0}
+    <Color>k__BackingField: {r: 0.26666668, g: 0.25882354, b: 0.28627452, a: 1}
+  - <Position>k__BackingField: {x: 9, y: 0}
+    <Color>k__BackingField: {r: 0.26666668, g: 0.25882354, b: 0.28627452, a: 1}
+  - <Position>k__BackingField: {x: 10, y: 0}
+    <Color>k__BackingField: {r: 0.26666668, g: 0.25882354, b: 0.28627452, a: 1}
+  - <Position>k__BackingField: {x: 11, y: 0}
+    <Color>k__BackingField: {r: 0.26666668, g: 0.25882354, b: 0.28627452, a: 1}
+  - <Position>k__BackingField: {x: 12, y: 0}
+    <Color>k__BackingField: {r: 0.26666668, g: 0.25882354, b: 0.28627452, a: 1}
+  - <Position>k__BackingField: {x: 8, y: 1}
+    <Color>k__BackingField: {r: 0.41960785, g: 0.39215687, b: 0.5019608, a: 1}
+  - <Position>k__BackingField: {x: 9, y: 1}
+    <Color>k__BackingField: {r: 0.41960785, g: 0.39215687, b: 0.5019608, a: 1}
+  - <Position>k__BackingField: {x: 10, y: 1}
+    <Color>k__BackingField: {r: 0.41960785, g: 0.39215687, b: 0.5019608, a: 1}
+  - <Position>k__BackingField: {x: 11, y: 1}
+    <Color>k__BackingField: {r: 0.41960785, g: 0.39215687, b: 0.5019608, a: 1}
+  - <Position>k__BackingField: {x: 12, y: 1}
+    <Color>k__BackingField: {r: 0.41960785, g: 0.39215687, b: 0.5019608, a: 1}
+  - <Position>k__BackingField: {x: 13, y: 1}
+    <Color>k__BackingField: {r: 0.26666668, g: 0.25882354, b: 0.28627452, a: 1}
+  - <Position>k__BackingField: {x: 8, y: 2}
+    <Color>k__BackingField: {r: 0.6666667, g: 0.627451, b: 0.8352941, a: 1}
+  - <Position>k__BackingField: {x: 9, y: 2}
+    <Color>k__BackingField: {r: 0.6666667, g: 0.627451, b: 0.8352941, a: 1}
+  - <Position>k__BackingField: {x: 10, y: 2}
+    <Color>k__BackingField: {r: 0.6666667, g: 0.627451, b: 0.8352941, a: 1}
+  - <Position>k__BackingField: {x: 11, y: 2}
+    <Color>k__BackingField: {r: 0.6666667, g: 0.627451, b: 0.8352941, a: 1}
+  - <Position>k__BackingField: {x: 12, y: 2}
+    <Color>k__BackingField: {r: 0.6666667, g: 0.627451, b: 0.8352941, a: 1}
+  - <Position>k__BackingField: {x: 13, y: 2}
+    <Color>k__BackingField: {r: 0.41960785, g: 0.39215687, b: 0.5019608, a: 1}
+  - <Position>k__BackingField: {x: 14, y: 2}
+    <Color>k__BackingField: {r: 0.26666668, g: 0.25882354, b: 0.28627452, a: 1}
+  - <Position>k__BackingField: {x: 8, y: 3}
+    <Color>k__BackingField: {r: 0.6666667, g: 0.627451, b: 0.8352941, a: 1}
+  - <Position>k__BackingField: {x: 9, y: 3}
+    <Color>k__BackingField: {r: 0.6666667, g: 0.627451, b: 0.8352941, a: 1}
+  - <Position>k__BackingField: {x: 10, y: 3}
+    <Color>k__BackingField: {r: 0.6666667, g: 0.627451, b: 0.8352941, a: 1}
+  - <Position>k__BackingField: {x: 11, y: 3}
+    <Color>k__BackingField: {r: 0.6666667, g: 0.627451, b: 0.8352941, a: 1}
+  - <Position>k__BackingField: {x: 12, y: 3}
+    <Color>k__BackingField: {r: 0.6666667, g: 0.627451, b: 0.8352941, a: 1}
+  - <Position>k__BackingField: {x: 13, y: 3}
+    <Color>k__BackingField: {r: 0.6666667, g: 0.627451, b: 0.8352941, a: 1}
+  - <Position>k__BackingField: {x: 14, y: 3}
+    <Color>k__BackingField: {r: 0.41960785, g: 0.39215687, b: 0.5019608, a: 1}
+  - <Position>k__BackingField: {x: 15, y: 3}
+    <Color>k__BackingField: {r: 0.26666668, g: 0.25882354, b: 0.28627452, a: 1}
+  - <Position>k__BackingField: {x: 16, y: 3}
+    <Color>k__BackingField: {r: 0.26666668, g: 0.25882354, b: 0.28627452, a: 1}
+  - <Position>k__BackingField: {x: 8, y: 4}
+    <Color>k__BackingField: {r: 0.6666667, g: 0.627451, b: 0.8352941, a: 1}
+  - <Position>k__BackingField: {x: 9, y: 4}
+    <Color>k__BackingField: {r: 0.26666668, g: 0.25882354, b: 0.28627452, a: 1}
+  - <Position>k__BackingField: {x: 10, y: 4}
+    <Color>k__BackingField: {r: 0.6666667, g: 0.627451, b: 0.8352941, a: 1}
+  - <Position>k__BackingField: {x: 11, y: 4}
+    <Color>k__BackingField: {r: 0.95686275, g: 0.6392157, b: 0.8235294, a: 1}
+  - <Position>k__BackingField: {x: 12, y: 4}
+    <Color>k__BackingField: {r: 0.95686275, g: 0.6392157, b: 0.8235294, a: 1}
+  - <Position>k__BackingField: {x: 13, y: 4}
+    <Color>k__BackingField: {r: 0.6666667, g: 0.627451, b: 0.8352941, a: 1}
+  - <Position>k__BackingField: {x: 14, y: 4}
+    <Color>k__BackingField: {r: 0.41960785, g: 0.39215687, b: 0.5019608, a: 1}
+  - <Position>k__BackingField: {x: 15, y: 4}
+    <Color>k__BackingField: {r: 0.26666668, g: 0.25882354, b: 0.28627452, a: 1}
+  - <Position>k__BackingField: {x: 8, y: 5}
+    <Color>k__BackingField: {r: 0.26666668, g: 0.25882354, b: 0.28627452, a: 1}
+  - <Position>k__BackingField: {x: 9, y: 5}
+    <Color>k__BackingField: {r: 0.6666667, g: 0.627451, b: 0.8352941, a: 1}
+  - <Position>k__BackingField: {x: 10, y: 5}
+    <Color>k__BackingField: {r: 0.6666667, g: 0.627451, b: 0.8352941, a: 1}
+  - <Position>k__BackingField: {x: 11, y: 5}
+    <Color>k__BackingField: {r: 0.26666668, g: 0.25882354, b: 0.28627452, a: 1}
+  - <Position>k__BackingField: {x: 12, y: 5}
+    <Color>k__BackingField: {r: 0.26666668, g: 0.25882354, b: 0.28627452, a: 1}
+  - <Position>k__BackingField: {x: 13, y: 5}
+    <Color>k__BackingField: {r: 0.6666667, g: 0.627451, b: 0.8352941, a: 1}
+  - <Position>k__BackingField: {x: 14, y: 5}
+    <Color>k__BackingField: {r: 0.41960785, g: 0.39215687, b: 0.5019608, a: 1}
+  - <Position>k__BackingField: {x: 15, y: 5}
+    <Color>k__BackingField: {r: 0.26666668, g: 0.25882354, b: 0.28627452, a: 1}
+  - <Position>k__BackingField: {x: 16, y: 5}
+    <Color>k__BackingField: {r: 0.26666668, g: 0.25882354, b: 0.28627452, a: 1}
+  - <Position>k__BackingField: {x: 8, y: 6}
+    <Color>k__BackingField: {r: 0.6666667, g: 0.627451, b: 0.8352941, a: 1}
+  - <Position>k__BackingField: {x: 9, y: 6}
+    <Color>k__BackingField: {r: 0.6666667, g: 0.627451, b: 0.8352941, a: 1}
+  - <Position>k__BackingField: {x: 10, y: 6}
+    <Color>k__BackingField: {r: 0.6666667, g: 0.627451, b: 0.8352941, a: 1}
+  - <Position>k__BackingField: {x: 11, y: 6}
+    <Color>k__BackingField: {r: 0.26666668, g: 0.25882354, b: 0.28627452, a: 1}
+  - <Position>k__BackingField: {x: 12, y: 6}
+    <Color>k__BackingField: {r: 0.91764706, g: 0.90588236, b: 0.9529412, a: 1}
+  - <Position>k__BackingField: {x: 13, y: 6}
+    <Color>k__BackingField: {r: 0.6666667, g: 0.627451, b: 0.8352941, a: 1}
+  - <Position>k__BackingField: {x: 14, y: 6}
+    <Color>k__BackingField: {r: 0.41960785, g: 0.39215687, b: 0.5019608, a: 1}
+  - <Position>k__BackingField: {x: 15, y: 6}
+    <Color>k__BackingField: {r: 0.26666668, g: 0.25882354, b: 0.28627452, a: 1}
+  - <Position>k__BackingField: {x: 8, y: 7}
+    <Color>k__BackingField: {r: 0.6666667, g: 0.627451, b: 0.8352941, a: 1}
+  - <Position>k__BackingField: {x: 9, y: 7}
+    <Color>k__BackingField: {r: 0.6666667, g: 0.627451, b: 0.8352941, a: 1}
+  - <Position>k__BackingField: {x: 10, y: 7}
+    <Color>k__BackingField: {r: 0.7647059, g: 0.7294118, b: 0.9137255, a: 1}
+  - <Position>k__BackingField: {x: 11, y: 7}
+    <Color>k__BackingField: {r: 0.7647059, g: 0.7294118, b: 0.9137255, a: 1}
+  - <Position>k__BackingField: {x: 12, y: 7}
+    <Color>k__BackingField: {r: 0.6666667, g: 0.627451, b: 0.8352941, a: 1}
+  - <Position>k__BackingField: {x: 13, y: 7}
+    <Color>k__BackingField: {r: 0.41960785, g: 0.39215687, b: 0.5019608, a: 1}
+  - <Position>k__BackingField: {x: 14, y: 7}
+    <Color>k__BackingField: {r: 0.26666668, g: 0.25882354, b: 0.28627452, a: 1}
+  width: 17
+  height: 14

@@ -1,18 +1,16 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
-using System.Threading.Tasks;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 
 [Serializable]
 public class Shooter : Spawner<Bullet>
 {
+    [SerializeField] private Transform _spawnpoint;
     [SerializeField] private float _startBulletCount;
     [SerializeField] private float _shootColldawn;
-    [SerializeField] private ObjectPool<Bullet> _pool;
 
     private readonly List<Bullet> _bullets = new();
     private readonly CancellationTokenSource _cancellationToken = new(); 
@@ -54,14 +52,20 @@ public class Shooter : Spawner<Bullet>
 
     public override Bullet Spawn()
     {
-        return PlaceObject(_pool.Give());
+        Bullet bullet = Pool.Give();
+        
+        bullet.Despawned += OnDespawned;
+        bullet.Initialize(_spawnpoint.position, _spawnpoint.rotation);
+        bullet.gameObject.SetActive(true);
+
+        return bullet;
     }
 
     protected override void OnDespawned(Bullet bullet)
     {
         base.OnDespawned(bullet);
         
-        _pool.Add(bullet);
+        Pool.Add(bullet);
 
         _bullets.Remove(bullet);
 

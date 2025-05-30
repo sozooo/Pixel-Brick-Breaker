@@ -1,19 +1,12 @@
+using System;
 using UnityEngine;
 
+[Serializable]
 public abstract class Spawner<T> where T : MonoBehaviour, ISpawnable<T>
 {
-    [SerializeField] protected Transform Spawnpoint;
+    [SerializeField] protected ObjectPool<T> Pool;
 
     public abstract T Spawn();
-
-    protected T PlaceObject(T spawnable)
-    {
-        spawnable.Despawned += OnDespawned;
-        spawnable.Initialize(Spawnpoint.position, Spawnpoint.rotation);
-        spawnable.gameObject.SetActive(true);
-
-        return spawnable;
-    }
 
     protected virtual void OnDespawned(T spawnable)
     {

@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+﻿using System;
 using UnityEngine;
 using YG;
 
@@ -8,45 +8,28 @@ public class Exploder : MonoBehaviour
     [SerializeField] private float _rangeMultiplier = 0.2f;
     [SerializeField] private float _strength;
     [SerializeField] private LayerMask _figureLayer;
+    
+    [SerializeField] private Ricocheter _ricocheter;
 
-    private Transform _transform;
-
-    private void Awake()
+    private void OnEnable()
     {
-        _transform = transform;
+        _ricocheter.FigureCollided += ExplodeFigure;
+        _ricocheter.CoreCollided += ExplodeCore;
     }
 
-    public void Explode()
+    private void OnDisable()
     {
-        Vector3 position = _transform.position;
-
-        List<Collider> voxels = GetCollidedVoxels(position);
-
-        if (voxels.Count <= 0) return;
-        
-        foreach (Collider body in voxels)
-        {
-            if (body.TryGetComponent(out Core core))
-            {
-                core.StartExplosion();
-                break;
-            }
-
-            if(body.TryGetComponent(out Voxel voxel))
-            {
-                voxel.Fall();
-            }
-
-        }
+        _ricocheter.FigureCollided -= ExplodeFigure;
+        _ricocheter.CoreCollided -= ExplodeCore;
     }
 
-    private List<Collider> GetCollidedVoxels(Vector3 position)
+    private void ExplodeFigure(ContactPoint contact, Figure figure)
     {
-        Collider[] hits = Physics.OverlapSphere(position,
-            _baseRange + _rangeMultiplier * YG2.saves.BlastRadiusLevel, _figureLayer);
+        figure.ApplyDamage(contact.point, _baseRange + _rangeMultiplier * YG2.saves.BlastRadiusLevel);
+    }
 
-        List<Collider> voxels = new(hits);
-
-        return voxels;
+    private void ExplodeCore(Core core)
+    {
+        core.StartExplosion();
     }
 }

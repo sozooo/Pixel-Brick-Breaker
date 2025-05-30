@@ -153,12 +153,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8d5dabcebe604d7a8278f8d384e58f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _baseRange: 0.5
+  _baseRange: 2
   _rangeMultiplier: 0.2
   _strength: 10
   _figureLayer:
     serializedVersion: 2
     m_Bits: 384
+  _ricocheter: {fileID: 658148143233177153}
 --- !u!54 &-9051022125703405005
 Rigidbody:
   m_ObjectHideFlags: 0

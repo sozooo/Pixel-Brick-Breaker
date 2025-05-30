@@ -6,8 +6,8 @@ using UnityEngine;
 public class FigureList
 {
     [SerializeField] private int _level;
-    [SerializeField] private List<Figure> _figures;
+    [SerializeField] private List<FigureConfig> _figures;
     
     public int Level => _level;
-    public List<Figure> Figures => _figures;
+    public List<FigureConfig> Figures => _figures;
 }

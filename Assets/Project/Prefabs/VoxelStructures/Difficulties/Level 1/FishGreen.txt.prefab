@@ -59695,6 +59695,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _audio: {fileID: 3261629313670401304}
+  _config: {fileID: 11400000, guid: 1ca1807b587b3453681a6569035ac6d5, type: 2}
 --- !u!114 &3261629313670401304
 MonoBehaviour:
   m_ObjectHideFlags: 0

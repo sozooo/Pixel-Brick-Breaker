@@ -178,13 +178,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 22050216}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.4, y: -0.59, z: 0}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0.4, y: -0.29, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 353522551}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!1 &150460298
 GameObject:
   m_ObjectHideFlags: 0
@@ -3193,7 +3193,7 @@ Transform:
   m_GameObject: {fileID: 705507993}
   serializedVersion: 2
   m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
-  m_LocalPosition: {x: 0, y: 3, z: 0}
+  m_LocalPosition: {x: 18.299393, y: 11.456836, z: -0.29068422}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3971,6 +3971,53 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!1 &1002357984
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1002357985}
+  - component: {fileID: 1002357986}
+  m_Layer: 0
+  m_Name: FallingVoxelsHandler
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1002357985
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1002357984}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1452459042}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1002357986
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1002357984}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c3fde9a1ec84fff93623e42105d27cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _fallingVoxelSpawner:
+    Pool:
+      _spawnablePrefab: {fileID: 539841116852711358, guid: 5cbdf0c2330ef4adb860bf4cafd9a9e2, type: 3}
 --- !u!1 &1027934792
 GameObject:
   m_ObjectHideFlags: 0
@@ -5581,6 +5628,7 @@ Transform:
   - {fileID: 1614387153}
   - {fileID: 1922372322}
   - {fileID: 2046431934}
+  - {fileID: 1002357985}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1488748272
@@ -6294,33 +6342,36 @@ MonoBehaviour:
   _cannon: {fileID: 6850549183987866094}
   _lineDrawer: {fileID: 1720219803}
   _figureSpawner:
-    Spawnpoint: {fileID: 22050217}
+    Pool:
+      _spawnablePrefab: {fileID: 4805301289019448809, guid: 7f3b9d1700aa14db88e1bcbdcc7db732, type: 3}
     _timeToDespawn: 4
+    _spawnPoint: {fileID: 22050217}
   _figureList:
     _figureLists:
     - _level: 1
       _figures:
-      - {fileID: 1924473261519160698, guid: 7b3cb824d3528435980bca063fd2e260, type: 3}
-      - {fileID: 8126265616183192155, guid: c03646ee405a2478baecbb38b90bc7cc, type: 3}
-      - {fileID: 4805301289019448809, guid: 70cde38ecb61a48d6916755202279bdd, type: 3}
-      - {fileID: 1691009220933941051, guid: 6d6462dfb983647068a5c0cfa9505689, type: 3}
+      - {fileID: 11400000, guid: 1ca1807b587b3453681a6569035ac6d5, type: 2}
+      - {fileID: 11400000, guid: 5330c9692e2224d0681159d901ed28e8, type: 2}
+      - {fileID: 11400000, guid: 3513f57142a0e4f00813bf3d367578f2, type: 2}
+      - {fileID: 11400000, guid: 28584d86e1ceb4c719568e23c35e5b7f, type: 2}
     - _level: 2
       _figures:
-      - {fileID: 7726227826709592200, guid: c87bc3aa45e6a43b5ab3f6e708355b5c, type: 3}
-      - {fileID: 6388143768514150121, guid: 562c79b6e64554b979531a4bcef5bbd0, type: 3}
-      - {fileID: 5280694124752370598, guid: 7ae441731d3b748b383d4b615a5beaaf, type: 3}
+      - {fileID: 11400000, guid: 8fd87d972f70d47a497b50d6073ae69a, type: 2}
+      - {fileID: 11400000, guid: 458b16ba7c48242d196f74b4e7b34eb4, type: 2}
+      - {fileID: 11400000, guid: 23006e1cc580145e29e5990f2612540a, type: 2}
     - _level: 3
       _figures:
-      - {fileID: 9189267473680119831, guid: 25defb0cb0df44ea79e2979e215bf1a5, type: 3}
-      - {fileID: 2066609695589116580, guid: 9cdab0354ddf14f00bc08c20e7cddee1, type: 3}
-      - {fileID: 8497350994102478583, guid: e262877bdf29f4dc98cf55f0deaddcff, type: 3}
-      - {fileID: 9046029339621591646, guid: 820b79ea390494a78bb5fbc0410caa10, type: 3}
-      - {fileID: 6136803478280966702, guid: b3214f0c15d01424aa28ba7b2994b341, type: 3}
+      - {fileID: 11400000, guid: f16183d3b23bb42a6afbeeb4d786ccc0, type: 2}
+      - {fileID: 11400000, guid: d4da925dbe1634ed8b7d4a7c142d0c6c, type: 2}
+      - {fileID: 11400000, guid: 22f4fa5f52cbb435285c80661775bb93, type: 2}
+      - {fileID: 11400000, guid: f8f55a6d734874711a294c36533ce409, type: 2}
+      - {fileID: 11400000, guid: 39238ec06e3a94c8380f5aeb4af7aafc, type: 2}
     - _level: 4
       _figures:
-      - {fileID: 3976901679482959306, guid: ffade08beea114a72864b83cfb2c86a3, type: 3}
-      - {fileID: 6485506888361245467, guid: e66bf9cdac1874a25a945adbd65e8898, type: 3}
-      - {fileID: 1407957331559292146, guid: 7b88b474228b2450c92e495514faebb2, type: 3}
+      - {fileID: 11400000, guid: 52b22f37097f04eb8ab20505358ff3f9, type: 2}
+      - {fileID: 11400000, guid: 6ba2d404c79a142f9a45817df06398d4, type: 2}
+      - {fileID: 11400000, guid: a7daa4843dd354d548c127462d7de2c7, type: 2}
+      - {fileID: 11400000, guid: 3e2e13315ee6f4808bc24ec92c08436f, type: 2}
   _levelProgressBar: {fileID: 1222803476}
   _timer: {fileID: 267377004}
   _bonusTime: 7
@@ -9220,11 +9271,11 @@ MonoBehaviour:
     _maxRotation: 80
     _aim: {fileID: 326716200}
   _shooter:
-    Spawnpoint: {fileID: 5409569}
+    Pool:
+      _spawnablePrefab: {fileID: 3291695231737167332, guid: 111e0110ccb704175a37dda21c6a6fe4, type: 3}
+    _spawnpoint: {fileID: 5409569}
     _startBulletCount: 2
     _shootColldawn: 1
-    _pool:
-      _spawnablePrefab: {fileID: 3291695231737167332, guid: 111e0110ccb704175a37dda21c6a6fe4, type: 3}
   _audio: {fileID: 6850549183987866099}
   _bulletCountDisplayer: {fileID: 2042846515}
 --- !u!82 &6850549183987866097
