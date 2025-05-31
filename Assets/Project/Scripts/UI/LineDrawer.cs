@@ -1,4 +1,5 @@
 using UnityEngine;
+using Zenject;
 
 public class LineDrawer : MonoBehaviour
 {
@@ -7,6 +8,7 @@ public class LineDrawer : MonoBehaviour
 
     private PlayerInput _input;
     
+    [Inject]
     public void Initialize(PlayerInput input)
     {
         _input = input;

@@ -2,6 +2,7 @@ using Project.Scripts.WorkObjects.MessageBrokers;
 using UniRx;
 using UnityEngine;
 using YG;
+using Zenject;
 
 public class CompositionRoot : MonoBehaviour
 {
@@ -18,14 +19,11 @@ public class CompositionRoot : MonoBehaviour
     [SerializeField] private float _bonusTime = 10f;
 
     private readonly CompositeDisposable _disposable = new();
-    private PlayerInput _playerInput;
+    
+    [Inject] private PlayerInput _playerInput;
 
     private void Awake()
     {
-        _playerInput = new PlayerInput();
-        
-        _cannon.Initialize(_playerInput);
-        _lineDrawer.Initialize(_playerInput);
         _figureSpawner.Initialize();
     }
 

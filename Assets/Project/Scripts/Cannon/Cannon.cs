@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.InputSystem;
+using Zenject;
 
 [RequireComponent(typeof(Audio))]
 public class Cannon : MonoBehaviour
@@ -26,6 +27,7 @@ public class Cannon : MonoBehaviour
         _input.Mouse.Press.canceled -= Shoot;
     }
 
+    [Inject]
     public void Initialize(PlayerInput input)
     {
         _input = input;
