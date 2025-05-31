@@ -9,11 +9,6 @@ public class Audio : MonoBehaviour
 
     public void PlayOneShot()
     {
-        PlayOneShot(_audioClips[Random.Range(0, _audioClips.Count)]);
-    }
-
-    private void PlayOneShot(AudioClip audioClip)
-    {
-        _audioSource.PlayOneShot(audioClip);
+        _audioSource.PlayOneShot(_audioClips[Random.Range(0, _audioClips.Count)]);
     }
 }

@@ -8,8 +8,8 @@ public class Ricocheter : MonoBehaviour
     [SerializeField] private Audio _ricochetAudio;
     
     private Mover _mover;
-    public event Action<ContactPoint, Figure> FigureCollided;
-    public event Action<Core> CoreCollided;
+    
+    public event Action<ContactPoint, IDamageable> FigureCollided;
 
     private void Awake()
     {
@@ -23,14 +23,7 @@ public class Ricocheter : MonoBehaviour
         Vector2 newDirection = Vector2.Reflect(_mover.MoveDirection.normalized, firstContact.normal);
         _mover.SetDirection(newDirection.normalized);
 
-        if (collision.collider.TryGetComponent(out Core core))
-        {
-            CoreCollided?.Invoke(core);
-            
-            return;
-        }
-
-        if (collision.transform.TryGetComponent(out Figure figure))
+        if (collision.collider.TryGetComponent(out IDamageable figure))
         {
             FigureCollided?.Invoke(firstContact, figure);
             

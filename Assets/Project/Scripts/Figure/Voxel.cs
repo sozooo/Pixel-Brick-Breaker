@@ -1,14 +1,17 @@
 using System;
 using UnityEngine;
 
-[Serializable]
-public class Voxel
+namespace Project.Scripts.Figure
 {
-    public Voxel(Vector2Int pos, Color col) {
-        Position = pos;
-        Color = col;
-    }
+    [Serializable]
+    public class Voxel
+    {
+        public Voxel(Vector2Int pos, Color col) {
+            Position = pos;
+            Color = col;
+        }
     
-    [field: SerializeField] public Vector2Int Position { get; private set; }
-    [field: SerializeField] public Color Color { get; private set; }
+        [field: SerializeField] public Vector2Int Position { get; private set; }
+        [field: SerializeField] public Color Color { get; private set; }
+    }
 }

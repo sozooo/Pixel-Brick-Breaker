@@ -23,5 +23,12 @@ namespace Project.Scripts.Figure.Handling
             voxel.Initialize(message.Position, message.Rotation);
             voxel.ApplyColor(message.Color);
         }
+
+        protected override void OnDespawned(FallingVoxel spawnable)
+        {
+            base.OnDespawned(spawnable);
+            
+            Pool.Add(spawnable);
+        }
     }
 }

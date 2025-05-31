@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Project.Scripts.Figure;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "FigureConfig", menuName = "Figures/New Figure Config", order = 51)]

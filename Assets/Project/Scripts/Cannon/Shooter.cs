@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using Cysharp.Threading.Tasks;
+using Project.Scripts.WorkObjects.MessageBrokers;
+using Project.Scripts.WorkObjects.MessageBrokers.Figure;
+using UniRx;
 using UnityEngine;
 
 [Serializable]
@@ -13,7 +16,7 @@ public class Shooter : Spawner<Bullet>
     [SerializeField] private float _shootColldawn;
 
     private readonly List<Bullet> _bullets = new();
-    private readonly CancellationTokenSource _cancellationToken = new(); 
+    private CancellationTokenSource _cancellationToken; 
     private float _bulletCount;
     private UniTask _cooldawn;
 
@@ -21,6 +24,11 @@ public class Shooter : Spawner<Bullet>
 
     public void Initialize()
     {
+        _cancellationToken?.Cancel();
+        _cancellationToken = new CancellationTokenSource();
+        
+        MessageBrokerHolder.Figure.Receive<M_FigureSpawned>().Subscribe(message => DropBullets()).AddTo(_cancellationToken.Token);
+        
         _bulletCount = _startBulletCount;
         
         BulletCountChanged?.Invoke(_bulletCount);
@@ -29,7 +37,6 @@ public class Shooter : Spawner<Bullet>
     public void Disable()
     {
         _cancellationToken.Cancel();
-        _cancellationToken.Dispose();
     }
 
     public void Shoot()

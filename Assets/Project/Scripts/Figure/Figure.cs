@@ -3,7 +3,7 @@ using Project.Scripts.Figure;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class Figure : MonoBehaviour, ISpawnable<Figure>
+public class Figure : MonoBehaviour, ISpawnable<Figure>, IDamageable
 {
     [SerializeField] private Core _core;
     [SerializeField] private Audio _audio;

@@ -17,7 +17,7 @@ namespace Project.Scripts.Figure
         private int _currentVoxelCount;
         private Voxel[,] _voxels;
     
-        [SerializeField]private FigureConfig _config;
+        private FigureConfig _config;
         private Transform _transform;
         
         public event Action OnVoxelCountPassed;
@@ -98,8 +98,6 @@ namespace Project.Scripts.Figure
             
             RebuildMesh();
         }
-
-        
         
         #region Rebuild Mesh
         

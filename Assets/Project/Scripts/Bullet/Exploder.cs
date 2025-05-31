@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using YG;
 
 public class Exploder : MonoBehaviour
@@ -14,22 +13,15 @@ public class Exploder : MonoBehaviour
     private void OnEnable()
     {
         _ricocheter.FigureCollided += ExplodeFigure;
-        _ricocheter.CoreCollided += ExplodeCore;
     }
 
     private void OnDisable()
     {
         _ricocheter.FigureCollided -= ExplodeFigure;
-        _ricocheter.CoreCollided -= ExplodeCore;
     }
 
-    private void ExplodeFigure(ContactPoint contact, Figure figure)
+    private void ExplodeFigure(ContactPoint contact, IDamageable figure)
     {
         figure.ApplyDamage(contact.point, _baseRange + _rangeMultiplier * YG2.saves.BlastRadiusLevel);
-    }
-
-    private void ExplodeCore(Core core)
-    {
-        core.StartExplosion();
     }
 }

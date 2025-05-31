@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 
-public class Core : MonoBehaviour
+public class Core : MonoBehaviour, IDamageable
 {
     [SerializeField] private ParticleSystem _standbyParticle;
     [SerializeField] private ParticleSystem _explosionParticle;
@@ -18,9 +18,10 @@ public class Core : MonoBehaviour
         _standbyParticle.Play();
     }
     
-    public void StartExplosion()
+    public void ApplyDamage(Vector2 point, float radius)
     {
-        _explosion ??= StartCoroutine(Explode());
+        if(Vector2.Distance(point, transform.position) <= radius)
+            _explosion ??= StartCoroutine(Explode());
     }
 
     private IEnumerator Explode()

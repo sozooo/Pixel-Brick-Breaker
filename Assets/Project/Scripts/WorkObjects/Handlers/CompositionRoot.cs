@@ -11,7 +11,6 @@ public class CompositionRoot : MonoBehaviour
 
     [Header("Figure Configuration")]
     [SerializeField] private FigureSpawner _figureSpawner;
-    [SerializeField] private FigureListHandler _figureList;
 
     [Header("Level Configuration")]
     [SerializeField] private LevelProgressBar _levelProgressBar;
@@ -27,17 +26,15 @@ public class CompositionRoot : MonoBehaviour
         
         _cannon.Initialize(_playerInput);
         _lineDrawer.Initialize(_playerInput);
+        _figureSpawner.Initialize();
     }
 
     private void OnEnable()
     {
-        MessageBrokerHolder.Game.Receive<M_LevelRaised>().Subscribe(message => LevelUp()).AddTo(_disposable);
-
-        MessageBrokerHolder.Game.Receive<M_GameStarted>().Subscribe(message => StartLevel()).AddTo(_disposable);
+        MessageBrokerHolder.Game.Receive<M_GameStarted>().Subscribe(message => StartTimer()).AddTo(_disposable);
         MessageBrokerHolder.Game.Receive<M_GamePaused>().Subscribe(PauseGame).AddTo(_disposable);
 
         MessageBrokerHolder.Figure.Receive<M_FigureFell>().Subscribe(message => AddTime()).AddTo(_disposable);
-        MessageBrokerHolder.Figure.Receive<M_FigureDespawned>().Subscribe(message => SpawnNewFigure()).AddTo(_disposable);
         
         _levelProgressBar.ResetBar();
         _timer.ResetBar();
@@ -62,30 +59,9 @@ public class CompositionRoot : MonoBehaviour
         YG2.PauseGameNoEditEventSystem(message.IsPaused);
     }
 
-    private void StartLevel()
+    private void StartTimer()
     {
         _timer.StartTimer();
-        
-        LevelUp();
-        
-        SpawnNewFigure();
-    }
-
-    private void SpawnNewFigure()
-    {
-        _cannon.DropBullets();
-
-        _figureSpawner.Spawn();
-    }
-
-    private void LevelUp()
-    {
-        FigureList figure = _figureList.LevelUp();
-        
-        if (figure == null)
-            return;
-
-        _figureSpawner.SetFigureList(figure.Figures);
     }
 
     private void AddTime()

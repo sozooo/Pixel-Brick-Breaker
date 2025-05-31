@@ -6344,34 +6344,34 @@ MonoBehaviour:
   _figureSpawner:
     Pool:
       _spawnablePrefab: {fileID: 4805301289019448809, guid: 7f3b9d1700aa14db88e1bcbdcc7db732, type: 3}
+    _figureListHandler:
+      _figureLists:
+      - _level: 1
+        _figures:
+        - {fileID: 11400000, guid: 1ca1807b587b3453681a6569035ac6d5, type: 2}
+        - {fileID: 11400000, guid: 5330c9692e2224d0681159d901ed28e8, type: 2}
+        - {fileID: 11400000, guid: 3513f57142a0e4f00813bf3d367578f2, type: 2}
+        - {fileID: 11400000, guid: 28584d86e1ceb4c719568e23c35e5b7f, type: 2}
+      - _level: 2
+        _figures:
+        - {fileID: 11400000, guid: 8fd87d972f70d47a497b50d6073ae69a, type: 2}
+        - {fileID: 11400000, guid: 458b16ba7c48242d196f74b4e7b34eb4, type: 2}
+        - {fileID: 11400000, guid: 23006e1cc580145e29e5990f2612540a, type: 2}
+      - _level: 3
+        _figures:
+        - {fileID: 11400000, guid: f16183d3b23bb42a6afbeeb4d786ccc0, type: 2}
+        - {fileID: 11400000, guid: d4da925dbe1634ed8b7d4a7c142d0c6c, type: 2}
+        - {fileID: 11400000, guid: 22f4fa5f52cbb435285c80661775bb93, type: 2}
+        - {fileID: 11400000, guid: f8f55a6d734874711a294c36533ce409, type: 2}
+        - {fileID: 11400000, guid: 39238ec06e3a94c8380f5aeb4af7aafc, type: 2}
+      - _level: 4
+        _figures:
+        - {fileID: 11400000, guid: 52b22f37097f04eb8ab20505358ff3f9, type: 2}
+        - {fileID: 11400000, guid: 6ba2d404c79a142f9a45817df06398d4, type: 2}
+        - {fileID: 11400000, guid: a7daa4843dd354d548c127462d7de2c7, type: 2}
+        - {fileID: 11400000, guid: 3e2e13315ee6f4808bc24ec92c08436f, type: 2}
     _timeToDespawn: 4
     _spawnPoint: {fileID: 22050217}
-  _figureList:
-    _figureLists:
-    - _level: 1
-      _figures:
-      - {fileID: 11400000, guid: 1ca1807b587b3453681a6569035ac6d5, type: 2}
-      - {fileID: 11400000, guid: 5330c9692e2224d0681159d901ed28e8, type: 2}
-      - {fileID: 11400000, guid: 3513f57142a0e4f00813bf3d367578f2, type: 2}
-      - {fileID: 11400000, guid: 28584d86e1ceb4c719568e23c35e5b7f, type: 2}
-    - _level: 2
-      _figures:
-      - {fileID: 11400000, guid: 8fd87d972f70d47a497b50d6073ae69a, type: 2}
-      - {fileID: 11400000, guid: 458b16ba7c48242d196f74b4e7b34eb4, type: 2}
-      - {fileID: 11400000, guid: 23006e1cc580145e29e5990f2612540a, type: 2}
-    - _level: 3
-      _figures:
-      - {fileID: 11400000, guid: f16183d3b23bb42a6afbeeb4d786ccc0, type: 2}
-      - {fileID: 11400000, guid: d4da925dbe1634ed8b7d4a7c142d0c6c, type: 2}
-      - {fileID: 11400000, guid: 22f4fa5f52cbb435285c80661775bb93, type: 2}
-      - {fileID: 11400000, guid: f8f55a6d734874711a294c36533ce409, type: 2}
-      - {fileID: 11400000, guid: 39238ec06e3a94c8380f5aeb4af7aafc, type: 2}
-    - _level: 4
-      _figures:
-      - {fileID: 11400000, guid: 52b22f37097f04eb8ab20505358ff3f9, type: 2}
-      - {fileID: 11400000, guid: 6ba2d404c79a142f9a45817df06398d4, type: 2}
-      - {fileID: 11400000, guid: a7daa4843dd354d548c127462d7de2c7, type: 2}
-      - {fileID: 11400000, guid: 3e2e13315ee6f4808bc24ec92c08436f, type: 2}
   _levelProgressBar: {fileID: 1222803476}
   _timer: {fileID: 267377004}
   _bonusTime: 7

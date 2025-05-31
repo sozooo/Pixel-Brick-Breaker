@@ -50,9 +50,4 @@ public class Cannon : MonoBehaviour
 
         _movement.Move(direction);
     }
-
-    public void DropBullets()
-    {
-        _shooter.DropBullets();
-    }
 }

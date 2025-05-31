@@ -11,6 +11,5 @@ public abstract class Spawner<T> where T : MonoBehaviour, ISpawnable<T>
     protected virtual void OnDespawned(T spawnable)
     {
         spawnable.Despawned -= OnDespawned;
-        Pool.Add(spawnable);
     }
 }
