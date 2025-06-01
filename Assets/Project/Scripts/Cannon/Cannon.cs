@@ -35,7 +35,7 @@ public class Cannon : MonoBehaviour
         
         _input.Enable();
         
-        _rotator.Initialize(_transform, _input);
+        _rotator.Initialize(_transform, input);
         _shooter.Initialize();
         _bulletCountDisplayer.Initialize(_shooter);
 

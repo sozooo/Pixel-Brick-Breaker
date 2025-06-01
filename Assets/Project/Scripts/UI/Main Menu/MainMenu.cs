@@ -5,11 +5,11 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private Animator _animator;
     [SerializeField] private SceneLoader _loader;
 
-    private const string LoadTrigger = "Loading";
+    private readonly int Loading = Animator.StringToHash("Loading");
 
     public void LoadScene()
     {
-        _animator.SetTrigger(LoadTrigger);
-        _loader.LoadScene((int)SceneNames.GameScene);
+        _animator.SetTrigger(Loading);
+        _loader.LoadScene((int)SceneNames.GameScene).Forget();
     }
 }

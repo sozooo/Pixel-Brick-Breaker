@@ -20,6 +20,11 @@ public class FallingVoxel : MonoBehaviour, ISpawnable<FallingVoxel>
         _transform = transform;
         _defaultScale = _transform.localScale;
     }
+
+    private void OnDisable()
+    {
+        Despawned?.Invoke(this);
+    }
     
     public void Initialize(Vector3 position, Quaternion rotation)
     {
