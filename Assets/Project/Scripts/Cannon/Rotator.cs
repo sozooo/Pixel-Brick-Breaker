@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using Zenject;
 
 [Serializable]
@@ -24,7 +25,7 @@ public class Rotator
         _input = input;
         
         _startEulerAngles = _transform.localEulerAngles;
-        _input.Mouse.Press.started += context => StartRotation();
+        _input.Mouse.Press.started += OnPressStarted;
     }
 
     public void Update()
@@ -35,6 +36,13 @@ public class Rotator
         if (_input.Mouse.Press.IsPressed())
             Rotate();
     }
+
+    public void Disable()
+    {
+        _input.Mouse.Press.started -= OnPressStarted;
+    }
+    
+    private void OnPressStarted(InputAction.CallbackContext context) => StartRotation();
 
     private void StartRotation()
     {

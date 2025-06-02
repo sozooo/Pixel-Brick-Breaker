@@ -1,4 +1,6 @@
+using System;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using Zenject;
 
 public class LineDrawer : MonoBehaviour
@@ -7,15 +9,6 @@ public class LineDrawer : MonoBehaviour
     [SerializeField] private float _zOffset;
 
     private PlayerInput _input;
-    
-    [Inject]
-    public void Initialize(PlayerInput input)
-    {
-        _input = input;
-        
-        _input.Mouse.Press.started += context => StartPosition();
-        _input.Mouse.Press.canceled += context => Hide();
-    }
 
     private void Update()
     {
@@ -24,6 +17,25 @@ public class LineDrawer : MonoBehaviour
             _lineRenderer.SetPosition(_lineRenderer.positionCount - 1, CalculateWorldPoint());
         }
     }
+
+    private void OnDisable()
+    {
+        _input.Mouse.Press.started -= OnPressStarted;
+        _input.Mouse.Press.canceled -= OnPressCanceled;
+    }
+
+    [Inject]
+    private void Initialize(PlayerInput input)
+    {
+        _input = input;
+        
+        _input.Mouse.Press.started += OnPressStarted;
+        _input.Mouse.Press.canceled += OnPressCanceled;
+    }
+    
+    private void OnPressStarted(InputAction.CallbackContext context) => StartPosition();
+    
+    private void OnPressCanceled(InputAction.CallbackContext context) => Hide();
 
     private void StartPosition()
     {

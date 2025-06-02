@@ -54,7 +54,7 @@ public class Shooter : Spawner<Bullet>
         _bulletCount--;
         
         BulletCountChanged?.Invoke(_bulletCount);
-        _cooldawn = CoolDawn();
+        _cooldawn = CoolDawn(_cancellationToken.Token);
     }
 
     public override Bullet Spawn()
@@ -94,8 +94,8 @@ public class Shooter : Spawner<Bullet>
         _bullets.Clear();
     }
 
-    private async UniTask CoolDawn()
+    private async UniTask CoolDawn(CancellationToken token)
     {
-        await UniTask.Delay(TimeSpan.FromSeconds(_shootColldawn), cancellationToken: _cancellationToken.Token);
+        await UniTask.Delay(TimeSpan.FromSeconds(_shootColldawn), cancellationToken: token);
     }
 }

@@ -1,3 +1,4 @@
+using System.Threading;
 using UnityEngine;
 using WorkObjects.Handlers;
 using Zenject;
@@ -12,20 +13,25 @@ public class CompositionRoot : MonoBehaviour
     [SerializeField] private float _bonusTime = 7f;
 
     [Inject] private TimerHandler _timerHandler;
+    private CancellationTokenSource _cancellationToken;
     
     private void Awake()
     {
-        _figureSpawner.Initialize();
+        _cancellationToken?.Cancel();
+        _cancellationToken = new CancellationTokenSource();
+        
+        _figureSpawner.Initialize(_cancellationToken.Token);
     }
 
     private void OnEnable()
     {
         _levelProgressBar.ResetBar();
-        _timerHandler.Initialize(_bonusTime);
+        _timerHandler.Initialize(_bonusTime, _cancellationToken.Token);
     }
 
     private void OnDisable()
     {
         _timerHandler.Disable();
+        _cancellationToken.Cancel();
     }
 }

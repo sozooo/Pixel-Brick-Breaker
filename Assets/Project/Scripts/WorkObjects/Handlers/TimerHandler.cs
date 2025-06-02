@@ -1,7 +1,8 @@
 using System;
+using System.Threading;
+using Cysharp.Threading.Tasks;
 using Project.Scripts.WorkObjects.MessageBrokers;
 using UniRx;
-using UnityEngine;
 
 namespace WorkObjects.Handlers
 {
@@ -11,18 +12,17 @@ namespace WorkObjects.Handlers
         private TimerProgressBar _timer;
         
         private float _bonusTime;
-        
-        private readonly CompositeDisposable _disposable = new();
 
         public TimerHandler(TimerProgressBar timer)
         {
             _timer = timer;
         }
 
-        public void Initialize(float bonusTime)
+        public void Initialize(float bonusTime, CancellationToken token)
         {
-            MessageBrokerHolder.Game.Receive<M_GameStarted>().Subscribe(message => StartTimer()).AddTo(_disposable);
-            MessageBrokerHolder.Figure.Receive<M_FigureFell>().Subscribe(message => AddTime()).AddTo(_disposable);
+            
+            MessageBrokerHolder.Game.Receive<M_GameStarted>().Subscribe(message => StartTimer()).AddTo(token);
+            MessageBrokerHolder.Figure.Receive<M_FigureFell>().Subscribe(message => AddTime()).AddTo(token);
             
             _bonusTime = bonusTime;
             
@@ -32,8 +32,6 @@ namespace WorkObjects.Handlers
 
         public void Disable()
         {
-            _disposable.Clear();
-        
             _timer.TimePassed -= OnTimePassed;
         }
         

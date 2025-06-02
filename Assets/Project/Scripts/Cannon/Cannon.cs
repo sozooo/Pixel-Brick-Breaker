@@ -23,12 +23,13 @@ public class Cannon : MonoBehaviour
     {
         _input.Disable();
         _shooter.Disable();
+        _rotator.Disable();
         
         _input.Mouse.Press.canceled -= Shoot;
     }
 
     [Inject]
-    public void Initialize(PlayerInput input)
+    private void Initialize(PlayerInput input)
     {
         _input = input;
         _transform = transform;

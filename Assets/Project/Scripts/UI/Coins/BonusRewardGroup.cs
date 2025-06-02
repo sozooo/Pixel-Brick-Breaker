@@ -19,7 +19,7 @@ namespace UI.Coins
 
         private void OnDisable()
         {
-            _disposable?.Dispose();
+            _disposable?.Clear();
         }
 
         private void ShowReward()

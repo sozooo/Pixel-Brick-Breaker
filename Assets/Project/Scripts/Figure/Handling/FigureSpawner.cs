@@ -16,16 +16,15 @@ public class FigureSpawner : Spawner<Figure>
     [SerializeField] private float _timeToDespawn = 4f;
     [SerializeField] private Transform _spawnPoint;
 
-    private CancellationTokenSource _cancellationToken;
+    private CancellationToken _cancellationToken;
     private List<FigureConfig> _mainFiguresList;
 
-    public void Initialize()
+    public void Initialize(CancellationToken token)
     {
-        _cancellationToken?.Cancel();
-        _cancellationToken = new CancellationTokenSource();
+        _cancellationToken = token;
         
-        MessageBrokerHolder.Game.Receive<M_LevelRaised>().Subscribe(message => OnLevelRaised()).AddTo(_cancellationToken.Token);
-        MessageBrokerHolder.Game.Receive<M_GameStarted>().Subscribe(message => Spawn()).AddTo(_cancellationToken.Token);
+        MessageBrokerHolder.Game.Receive<M_LevelRaised>().Subscribe(message => OnLevelRaised()).AddTo(_cancellationToken);
+        MessageBrokerHolder.Game.Receive<M_GameStarted>().Subscribe(message => Spawn()).AddTo(_cancellationToken);
         
         OnLevelRaised();
     }
@@ -35,6 +34,9 @@ public class FigureSpawner : Spawner<Figure>
         Figure figure = Pool.Give();
         
         figure.Despawned += OnDespawned;
+        
+        Debug.Log(_spawnPoint == null);
+        
         figure.Initialize(_spawnPoint.position, _spawnPoint.rotation);
         figure.gameObject.SetActive(true);
         figure.ApplyConfig(_mainFiguresList.GetRandom());
@@ -50,7 +52,7 @@ public class FigureSpawner : Spawner<Figure>
         
         base.OnDespawned(figure);
 
-        TimerBeforeDespawn(figure).Forget();
+        TimerBeforeDespawn(figure, _cancellationToken).Forget();
     }
     
     private void OnLevelRaised()
@@ -63,10 +65,13 @@ public class FigureSpawner : Spawner<Figure>
         _mainFiguresList = figureList.Figures;
     }
 
-    private async UniTaskVoid TimerBeforeDespawn(Figure figure)
+    private async UniTaskVoid TimerBeforeDespawn(Figure figure, CancellationToken token)
     {
-        await UniTask.Delay(TimeSpan.FromSeconds(_timeToDespawn), cancellationToken: _cancellationToken.Token);
+        await UniTask.Delay(TimeSpan.FromSeconds(_timeToDespawn), cancellationToken: _cancellationToken);
 
+        if (token.IsCancellationRequested)
+            return;
+        
         Pool.Add(figure);
 
         MessageBrokerHolder.Figure.Publish(new M_FigureDespawned());
