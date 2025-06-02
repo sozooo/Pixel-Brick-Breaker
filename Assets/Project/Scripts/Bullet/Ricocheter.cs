@@ -23,9 +23,9 @@ public class Ricocheter : MonoBehaviour
         Vector2 newDirection = Vector2.Reflect(_mover.MoveDirection.normalized, firstContact.normal);
         _mover.SetDirection(newDirection.normalized);
 
-        if (collision.collider.TryGetComponent(out IDamageable figure))
+        if (collision.collider.TryGetComponent(out IDamageable damageable))
         {
-            FigureCollided?.Invoke(firstContact, figure);
+            FigureCollided?.Invoke(firstContact, damageable);
             
             _figureHitAudio.PlayOneShot();
 
