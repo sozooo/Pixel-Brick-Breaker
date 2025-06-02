@@ -45,12 +45,10 @@ public class Cannon : MonoBehaviour
 
     private void Shoot(InputAction.CallbackContext context)
     {
-        Vector3 direction = _transform.forward;
-
         _shooter.Shoot();
         _audio.PlayOneShot();
         _rotator.Reset();
 
-        _movement.Move(direction);
+        _movement.Move();
     }
 }

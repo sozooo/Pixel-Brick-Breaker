@@ -35,8 +35,6 @@ public class FigureSpawner : Spawner<Figure>
         
         figure.Despawned += OnDespawned;
         
-        Debug.Log(_spawnPoint == null);
-        
         figure.Initialize(_spawnPoint.position, _spawnPoint.rotation);
         figure.gameObject.SetActive(true);
         figure.ApplyConfig(_mainFiguresList.GetRandom());

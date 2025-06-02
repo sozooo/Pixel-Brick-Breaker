@@ -14,13 +14,12 @@ namespace Project.Scripts.Figure
         [SerializeField] private MeshFilter _meshFilter;
 
         private readonly HashSet<Vector2Int> _removedVoxels = new HashSet<Vector2Int>();
-        private int _currentVoxelCount;
         private Voxel[,] _voxels;
     
         private FigureConfig _config;
         private Transform _transform;
         
-        public event Action OnVoxelCountPassed;
+        public event Action OnVoxelFell;
         
         public void Initialize(FigureConfig config, Transform transform)
         {
@@ -28,7 +27,6 @@ namespace Project.Scripts.Figure
             _transform = transform;
             
             _removedVoxels.Clear();
-            _currentVoxelCount = _config.Voxels.Count;
             
             _voxels = new Voxel[_config.width, _config.height];
             
@@ -228,13 +226,11 @@ namespace Project.Scripts.Figure
         private void DetatchVoxel(Vector2Int position)
         {
             _removedVoxels.Add(position);
-            _currentVoxelCount--;
                         
             MessageBrokerHolder.Figure.Publish(new M_VoxelFell(_transform.TransformPoint((Vector3Int)position), 
                 _transform.rotation, _config.Voxels.First(voxel => voxel.Position == position).Color));
             
-            if(_currentVoxelCount == 0)
-                OnVoxelCountPassed?.Invoke();
+            OnVoxelFell?.Invoke();
         }
     }
 }

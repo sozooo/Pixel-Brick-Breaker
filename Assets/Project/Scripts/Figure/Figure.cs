@@ -7,11 +7,14 @@ public class Figure : MonoBehaviour, ISpawnable<Figure>, IDamageable
 {
     [SerializeField] private Core _core;
     [SerializeField] private Audio _audio;
+    [SerializeField, Range(0f, 0.4f)] private float _criticalFillPercentage = 0.3f;
     
     [SerializeField] private FigureMeshBuilder _meshBuilder;
     [SerializeField] private FigureColliderBuilder _colliderBuilder;
     
     private Transform _transform;
+    private int _currentVoxelCount;
+    private int _criticalVoxelCount;
     
     public event Action<Figure> Despawned;
 
@@ -27,6 +30,7 @@ public class Figure : MonoBehaviour, ISpawnable<Figure>, IDamageable
         Despawned?.Invoke(this);
         
         _core.OnExplode -= VoxelsFall;
+        _meshBuilder.OnVoxelFell -= OnVoxelFell;
     }
 
     public void Initialize(Vector3 position, Quaternion rotation)
@@ -37,11 +41,13 @@ public class Figure : MonoBehaviour, ISpawnable<Figure>, IDamageable
     public void ApplyConfig(FigureConfig config)
     {
         ClearReward = config.Voxels.Count;
+        _currentVoxelCount = config.Voxels.Count;
+        _criticalVoxelCount = Mathf.RoundToInt(_currentVoxelCount * _criticalFillPercentage);
         
         _meshBuilder.Initialize(config, _transform);
         _colliderBuilder.Initialize(config, _meshBuilder);
         
-        _meshBuilder.OnVoxelCountPassed += OnVoxelCountPassed;
+        _meshBuilder.OnVoxelFell += OnVoxelFell;
         
         _meshBuilder.RebuildMesh();
         _colliderBuilder.RebuildColliders();
@@ -62,6 +68,11 @@ public class Figure : MonoBehaviour, ISpawnable<Figure>, IDamageable
     private void VoxelsFall()
     {
         _core.OnExplode -= VoxelsFall;
+        _meshBuilder.OnVoxelFell -= OnVoxelFell;
+        
+        _core.gameObject.SetActive(false);
+        
+        Despawned?.Invoke(this);
         
         _audio.PlayOneShot();
         
@@ -69,8 +80,11 @@ public class Figure : MonoBehaviour, ISpawnable<Figure>, IDamageable
         _colliderBuilder.DisableColliders();
     }
 
-    private void OnVoxelCountPassed()
+    private void OnVoxelFell()
     {
-        Despawned?.Invoke(this);
+        _currentVoxelCount--;
+        
+        if(_currentVoxelCount <= _criticalVoxelCount)
+            VoxelsFall();
     }
 }

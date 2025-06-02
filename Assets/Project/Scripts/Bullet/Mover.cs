@@ -23,7 +23,7 @@ public class Mover : MonoBehaviour
 
     private void FixedUpdate()
     {
-        _rigidbody.Move(_transform.position + _speed * Time.fixedDeltaTime * MoveDirection, _transform.rotation);
+        _rigidbody.MovePosition(_transform.position + _speed * Time.fixedDeltaTime * MoveDirection);
     }
 
     public void SetDirection(Vector2 direction)

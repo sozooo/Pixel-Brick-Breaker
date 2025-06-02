@@ -1,13 +1,14 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class CannonMovement : MonoBehaviour
 {
     [SerializeField] private float _speed;
     [SerializeField] private float _timeToMove = 1f;
-    [SerializeField] private float _minX;
-    [SerializeField] private float _maxX;
+    [SerializeField] private Vector2 _randomDirectionRange;
+    [SerializeField] private Vector2 _xRange;
 
     private Coroutine _lerpMove;
     private Transform _transform;
@@ -17,11 +18,19 @@ public class CannonMovement : MonoBehaviour
         _transform = transform;
     }
 
-    public void Move(Vector3 direction)
+    private void OnDisable()
     {
-        float xMovement = direction.x * _speed;
+        if(_lerpMove != null)
+            StopCoroutine(_lerpMove);
+        
+        _lerpMove = null;
+    }
 
-        Vector3 destination = (_transform.localPosition + new Vector3(xMovement, 0f, 0f)).ClampY(_minX, _maxX);
+    public void Move()
+    {
+        float xMovement = Random.Range(_randomDirectionRange.x, _randomDirectionRange.y) * _speed;
+
+        Vector3 destination = (_transform.localPosition + new Vector3(xMovement, 0f, 0f)).ClampX(_xRange.x, _xRange.y);
 
         _lerpMove ??= StartCoroutine(LerpMove(destination));
     }

@@ -79,9 +79,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _core: {fileID: 1791170151455479347}
   _audio: {fileID: 3732519369173429000}
+  _criticalFillPercentage: 0.4
   _meshBuilder:
     _meshFilter: {fileID: 5153690624018530643}
-    _config: {fileID: 0}
   _colliderBuilder:
     _colliderHolder: {fileID: 566011706445710900}
 --- !u!114 &3732519369173429000

@@ -29,7 +29,6 @@ public class Core : MonoBehaviour, IDamageable
         yield return PlayOneShotParticle(_explosionParticle);
 
         OnExplode?.Invoke();
-        gameObject.SetActive(false);
 
         _explosion = null;
     }
