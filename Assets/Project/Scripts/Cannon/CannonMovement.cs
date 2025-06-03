@@ -27,7 +27,7 @@ public class CannonMovement : MonoBehaviour
 
     public void Move()
     {
-        float xMovement = Random.Range(_randomDirectionRange.x, _randomDirectionRange.y) * _speed;
+        float xMovement = Random.Range(_randomDirectionRange.x, _randomDirectionRange.y + 1) * _speed;
 
         Vector3 destination = (_transform.localPosition + new Vector3(xMovement, 0f, 0f)).ClampX(_xRange.x, _xRange.y);
 

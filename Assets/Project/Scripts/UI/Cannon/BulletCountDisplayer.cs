@@ -5,13 +5,9 @@ using System.Globalization;
 [RequireComponent(typeof(TextMeshProUGUI))]
 public class BulletCountDisplayer : MonoBehaviour
 {
+    [SerializeField] private TextMeshProUGUI _text;
+    
     private Shooter _shooter;
-    private TextMeshProUGUI _text;
-
-    private void Awake()
-    {
-        _text = GetComponent<TextMeshProUGUI>();
-    }
     
     private void OnDisable()
     {

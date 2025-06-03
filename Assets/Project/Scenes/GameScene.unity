@@ -309,8 +309,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _speed: 1
   _timeToMove: 1
-  _randomDirectionRange: {x: -1, y: 1}
-  _xRange: {x: -1.5, y: 1.5}
+  _randomDirectionRange: {x: -0.5, y: 0.5}
+  _xRange: {x: -1, y: 1}
 --- !u!1 &218187752
 GameObject:
   m_ObjectHideFlags: 0
@@ -7860,7 +7860,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -7919,7 +7919,7 @@ MonoBehaviour:
   m_enableKerning: 1
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
-  m_isRichText: 1
+  m_isRichText: 0
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -7957,6 +7957,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51e9bcdac04104cc6b811ac0bf68c501, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _text: {fileID: 2042846513}
 --- !u!1 &2046431933
 GameObject:
   m_ObjectHideFlags: 0

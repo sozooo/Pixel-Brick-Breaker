@@ -1,5 +1,6 @@
 using System;
-using System.Collections;
+using System.Threading;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 
 public class Core : MonoBehaviour, IDamageable
@@ -9,7 +10,8 @@ public class Core : MonoBehaviour, IDamageable
     [SerializeField] private float _explodeTime = 1.35f;
     [SerializeField] private Audio _audio;
 
-    private Coroutine _explosion;
+    private UniTask _explosion;
+    private CancellationTokenSource _cancellationTokenSource;
     
     public event Action OnExplode;
 
@@ -17,29 +19,28 @@ public class Core : MonoBehaviour, IDamageable
     {
         _standbyParticle.Play();
     }
+
+    public void Initialize(CancellationTokenSource tokenSource)
+    {
+        _cancellationTokenSource = tokenSource;
+    }
     
     public void ApplyDamage(Vector2 point, float radius)
     {
-        if(Vector2.Distance(point, transform.position) <= radius)
-            _explosion ??= StartCoroutine(Explode());
+        if(Vector2.Distance(point, transform.position) <= radius && _explosion.Status != UniTaskStatus.Pending)
+            _explosion = Explode(_cancellationTokenSource.Token);
     }
 
-    private IEnumerator Explode()
+    private async UniTask Explode(CancellationToken token)
     {
-        yield return PlayOneShotParticle(_explosionParticle);
-
-        OnExplode?.Invoke();
-
-        _explosion = null;
-    }
-
-    private IEnumerator PlayOneShotParticle(ParticleSystem particleSystem)
-    {
-        WaitForSeconds wait = new(_explodeTime);
-
-        particleSystem.Play();
+        if (token.IsCancellationRequested)
+            return;
+        
+        _explosionParticle.Play();
         _audio.PlayOneShot();
 
-        yield return wait;
+        await UniTask.WaitForSeconds(_explodeTime, cancellationToken: token);
+
+        OnExplode?.Invoke();
     }
 }
