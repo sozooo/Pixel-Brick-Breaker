@@ -57,7 +57,7 @@ public class Figure : MonoBehaviour, ISpawnable<Figure>, IDamageable
         _meshBuilder.RebuildMesh();
         _colliderBuilder.RebuildColliders();
         
-        _core.Initialize(_cancellationTokenSource);
+        _core.Initialize(_cancellationTokenSource.Token);
         _core.transform.localPosition = (Vector3Int)config.Voxels[Random.Range(0, config.Voxels.Count)].Position;
         _core.OnExplode += VoxelsFall;
         _core.gameObject.SetActive(true);

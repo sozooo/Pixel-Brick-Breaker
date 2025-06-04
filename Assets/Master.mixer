@@ -50,11 +50,11 @@ AudioMixerController:
   m_UpdateMode: 0
   m_ExposedParameters:
   - guid: 177fdbc0d6b494685bb3fd0a7cf1da23
-    name: MasterVolume
+    name: Master
   - guid: 625fd77914a234cf3b6897aaf530497d
-    name: MusicVolume
+    name: Music
   - guid: c5ede3617516c45559791f47b046925e
-    name: SoundsVolume
+    name: Sounds
   m_AudioMixerGroupViews:
   - guids:
     - 0d3bd42aa839f4e39abe1d8fdfdf9167

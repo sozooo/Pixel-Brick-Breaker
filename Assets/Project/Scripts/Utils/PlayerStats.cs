@@ -4,7 +4,7 @@ using YG;
 
 public class PlayerStats : MonoBehaviour
 { 
-    public static event Action CoinsCountChanged;
+    public event Action CoinsCountChanged;
     
     private void SavePlayerStats()
     {

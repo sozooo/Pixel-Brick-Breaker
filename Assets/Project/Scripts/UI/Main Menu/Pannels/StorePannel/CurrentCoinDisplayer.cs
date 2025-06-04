@@ -8,13 +8,15 @@ namespace UI.Main_Menu.Pannels.StorePannel
     [RequireComponent(typeof(TextMeshProUGUI))]
     public class CurrentCoinDisplayer : MonoBehaviour
     {
+        [SerializeField] private PlayerStats _playerStats;
+            
         private TextMeshProUGUI _text;
         
         private void Awake()
         {
             _text = GetComponent<TextMeshProUGUI>();
             
-            PlayerStats.CoinsCountChanged += Display;
+            _playerStats.CoinsCountChanged += Display;
         }
 
         private void OnEnable()

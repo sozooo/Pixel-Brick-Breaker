@@ -20,13 +20,9 @@ namespace UI.Main_Menu.Pannels.StorePannel
         
         private bool isLevelMaxed => CurrentLevel >= _maxLevel;
 
-        private void OnEnable()
+        private void Start()
         {
-            Upgraded?.Invoke(CurrentLevel);
-            PriceChanged?.Invoke(CurrentPrice);
-            
-            if(isLevelMaxed)
-                LevelMaxed?.Invoke();
+            InvokeBuying();
         }
 
         protected override void Buy()
@@ -36,6 +32,11 @@ namespace UI.Main_Menu.Pannels.StorePannel
             
             CurrentLevel++;
             
+            InvokeBuying();
+        }
+
+        private void InvokeBuying()
+        {
             PriceChanged?.Invoke(CurrentPrice);
             Upgraded?.Invoke(CurrentLevel);
             

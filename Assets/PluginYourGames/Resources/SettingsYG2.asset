@@ -20,6 +20,274 @@ MonoBehaviour:
     uniqueID: 000
     playerPhoto: demo image
     payingStatus: 0
+  Leaderboards:
+    enable: 1
+    saveScoreAnonymousPlayers: 1
+    listLBSim:
+    - technoName: test
+      entries: '1. Max: 10
+
+        2. Masha: 15
+
+        3. anonymous: 23
+
+        4.
+        Player 4: 30
+
+        5. Player current: 40
+
+        6. Player 6: 50
+
+        7.
+        Player 7: 60
+
+        8. Player 8: 70
+
+        9. Player 9: 80
+
+        10.
+        Player 10: 90'
+      isDefault: 0
+      isInvertSortOrder: 0
+      decimalOffset: 0
+      type: numeric
+      players:
+      - rank: 1
+        name: Max
+        score: 100
+        photo: demo image
+        uniqueID: 123
+        extraData: 
+      - rank: 2
+        name: Masha
+        score: 90
+        photo: demo image
+        uniqueID: 321
+        extraData: 
+      - rank: 3
+        name: anonymous
+        score: 80
+        photo: anonymous
+        uniqueID: 456
+        extraData: 
+      - rank: 4
+        name: Player 4
+        score: 70
+        photo: demo image
+        uniqueID: 321
+        extraData: 
+      - rank: 5
+        name: Player current
+        score: 60
+        photo: demo image
+        uniqueID: 000
+        extraData: 
+      - rank: 6
+        name: Player 6
+        score: 50
+        photo: demo image
+        uniqueID: 326
+        extraData: 
+      - rank: 7
+        name: Player 7
+        score: 40
+        photo: demo image
+        uniqueID: 327
+        extraData: 
+      - rank: 8
+        name: Player 8
+        score: 30
+        photo: demo image
+        uniqueID: 328
+        extraData: 
+      - rank: 9
+        name: Player 9
+        score: 20
+        photo: demo image
+        uniqueID: 329
+        extraData: 
+      - rank: 10
+        name: Player 10
+        score: 10
+        photo: demo image
+        uniqueID: 330
+        extraData: 
+      - rank: 11
+        name: Player 11
+        score: 9
+        photo: demo image
+        uniqueID: 331
+        extraData: 
+      - rank: 12
+        name: Player 12
+        score: 8
+        photo: demo image
+        uniqueID: 332
+        extraData: 
+      - rank: 13
+        name: Player 13
+        score: 7
+        photo: demo image
+        uniqueID: 333
+        extraData: 
+      - rank: 14
+        name: Player 14
+        score: 6
+        photo: demo image
+        uniqueID: 334
+        extraData: 
+      - rank: 15
+        name: "\u0421\u0435\u0440\u0433\u0435\u0439"
+        score: 5
+        photo: demo image
+        uniqueID: 335
+        extraData: 
+      - rank: 16
+        name: "\u041C\u0435\u0442\u0430\u043B\u043B\u0443\u0440\u0433\u0438\u0447\u0435\u0441\u043A\u0438\u0439
+          \u0437\u0430\u0432\u043E\u0437"
+        score: 4
+        photo: demo image
+        uniqueID: 336
+        extraData: 
+      - rank: 17
+        name: Player 16
+        score: 3
+        photo: demo image
+        uniqueID: 337
+        extraData: 
+      - rank: 18
+        name: "\u0418\u0433\u0440\u043E\u043A 17"
+        score: 2
+        photo: demo image
+        uniqueID: 338
+        extraData: 
+      - rank: 19
+        name: "\u0418\u0433\u0440\u043E\u043A 18"
+        score: 1
+        photo: demo image
+        uniqueID: 339
+        extraData: 
+      - rank: 20
+        name: "\u0418\u0433\u0440\u043E\u043A \u041F\u0435\u0442\u044F \u0441 \u043F\u044F\u0442\u043E\u0439
+          \u043F\u0430\u0440\u0430\u0434\u043D\u043E\u0439"
+        score: 1
+        photo: demo image
+        uniqueID: 340
+        extraData: 
+      - rank: 21
+        name: Player 20
+        score: 1
+        photo: demo image
+        uniqueID: 341
+        extraData: 
+      - rank: 22
+        name: "\u0422\u044B \u043F\u043E\u043A\u0430\u0437\u044B\u0432\u0430\u0442\u044C\u0441\u044F
+          \u043D\u0435 \u0434\u043E\u043B\u0436\u0435\u043D"
+        score: 1
+        photo: demo image
+        uniqueID: 342
+        extraData: 
+      currentPlayer:
+        rank: 5
+        score: 60
+        extraData: 
+    - technoName: test1
+      entries: '1. Max: 10
+
+        2. Masha: 15
+
+        3. anonymous: 23
+
+        4.
+        Player 4: 30
+
+        5. Player current: 40
+
+        6. Player 6: 50
+
+        7.
+        Player 7: 60
+
+        8. Player 8: 70
+
+        9. Player 9: 80
+
+        10.
+        Player 10: 90'
+      isDefault: 0
+      isInvertSortOrder: 0
+      decimalOffset: 0
+      type: numeric
+      players:
+      - rank: 1
+        name: Max
+        score: 100
+        photo: demo image
+        uniqueID: 123
+        extraData: 
+      currentPlayer:
+        rank: 5
+        score: 60
+        extraData: 
+    - technoName: time
+      entries: '1. Max: 7123
+
+        2. Maria: 15321
+
+        3. anonymous: 62000
+
+        4.
+        Player 4: 122000
+
+        5. Player current: 127000
+
+        6. Player 6:
+        340000'
+      isDefault: 0
+      isInvertSortOrder: 1
+      decimalOffset: 0
+      type: numeric
+      players:
+      - rank: 1
+        name: Max
+        score: 7123
+        photo: demo image
+        uniqueID: 789
+        extraData: 
+      - rank: 2
+        name: Maria
+        score: 15321
+        photo: demo image
+        uniqueID: 987
+        extraData: 
+      - rank: 3
+        name: anonymous
+        score: 62000
+        photo: anonymous
+        uniqueID: 891
+        extraData: 
+      - rank: 4
+        name: Player 4
+        score: 122000
+        photo: demo image
+        uniqueID: 321
+        extraData: 
+      - rank: 5
+        name: Player current
+        score: 127000
+        photo: demo image
+        uniqueID: 000
+        extraData: 
+      - rank: 6
+        name: Player 6
+        score: 340000
+        photo: demo image
+        uniqueID: 321
+        extraData: 
+      currentPlayer:
+        rank: 5
+        score: 127000
+        extraData: 
   Payments:
     durationPayPanel: 1
     testBuyFail: 0

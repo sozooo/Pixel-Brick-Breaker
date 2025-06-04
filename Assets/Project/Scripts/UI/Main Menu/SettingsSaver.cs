@@ -1,23 +1,23 @@
 ﻿using UI.Main_Menu.Pannels.Settings;
 using UnityEngine;
 using YG;
+using YG.Insides;
 
 namespace UI.Main_Menu
 {
     public class SettingsSaver : MonoBehaviour
     {
-        [SerializeField] private SliderSetting _musicSlider;
-        [SerializeField] private SliderSetting _soundSlider;
+        [SerializeField] private VolumeChanger _musicSlider;
+        [SerializeField] private VolumeChanger _soundSlider;
         [SerializeField] private MuteSwitch _muteSwitch;
         [SerializeField] private CloseButton _closeButton;
 
-        private void Awake()
+        private void Start()
         {
-            _musicSlider.Slider.value = YG2.saves.MusicLevel;
-            _soundSlider.Slider.value = YG2.saves.SoundLevel;
+            YGInsides.LoadProgress();
             
-            // _musicSlider.HandleValueChange(YandexGame.savesData.MusicLevel);
-            // _soundSlider.HandleValueChange(YandexGame.savesData.SoundLevel);
+            _musicSlider.Initialize(YG2.saves.MusicLevel);
+            _soundSlider.Initialize(YG2.saves.SoundLevel);
         }
 
         private void OnEnable()

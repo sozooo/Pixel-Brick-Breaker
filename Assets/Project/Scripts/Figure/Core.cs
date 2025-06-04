@@ -11,7 +11,7 @@ public class Core : MonoBehaviour, IDamageable
     [SerializeField] private Audio _audio;
 
     private UniTask _explosion;
-    private CancellationTokenSource _cancellationTokenSource;
+    private CancellationToken _cancellationToken;
     
     public event Action OnExplode;
 
@@ -20,15 +20,15 @@ public class Core : MonoBehaviour, IDamageable
         _standbyParticle.Play();
     }
 
-    public void Initialize(CancellationTokenSource tokenSource)
+    public void Initialize(CancellationToken token)
     {
-        _cancellationTokenSource = tokenSource;
+        _cancellationToken = token;
     }
     
     public void ApplyDamage(Vector2 point, float radius)
     {
         if(Vector2.Distance(point, transform.position) <= radius && _explosion.Status != UniTaskStatus.Pending)
-            _explosion = Explode(_cancellationTokenSource.Token);
+            _explosion = Explode(_cancellationToken);
     }
 
     private async UniTask Explode(CancellationToken token)
