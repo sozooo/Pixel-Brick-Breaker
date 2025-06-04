@@ -2,13 +2,14 @@ using System;
 using TMPro;
 using UnityEngine;
 using YG;
+using Zenject;
 
 namespace UI.Main_Menu.Pannels.StorePannel
 {
     [RequireComponent(typeof(TextMeshProUGUI))]
     public class CurrentCoinDisplayer : MonoBehaviour
     {
-        [SerializeField] private PlayerStats _playerStats;
+        [Inject] private PlayerStats _playerStats;
             
         private TextMeshProUGUI _text;
         

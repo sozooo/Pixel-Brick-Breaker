@@ -1,12 +1,13 @@
 using com.cyborgAssets.inspectorButtonPro;
 using UnityEngine;
 using YG;
+using Zenject;
 
 namespace Utils
 {
     public class Cheats : MonoBehaviour
     {
-        [SerializeField] private PlayerStats _playerStats;
+        [Inject] private PlayerStats _playerStats;
         
         [ProPlayButton]
         public void EarnMoney(int money)

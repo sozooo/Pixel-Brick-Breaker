@@ -1,14 +1,35 @@
 using System;
+using System.Collections.Generic;
+using UI.Main_Menu.Pannels.StorePannel;
 using UnityEngine;
 using YG;
+using Zenject;
 
 public class PlayerStats : MonoBehaviour
 { 
-    public event Action CoinsCountChanged;
+    private Dictionary<string, float> _purchaseItems;
+    private string _removeAdId;
     
-    private void SavePlayerStats()
+    public event Action CoinsCountChanged;
+
+    [Inject]
+    public void InitializePurchases([InjectOptional] List<PurchaseItem> purchases, [InjectOptional] RemoveAdItem removeAd)
     {
-        YG2.SaveProgress();
+        if (purchases == null || removeAd == null)
+            return;
+        
+        _purchaseItems = new Dictionary<string, float>();
+
+        foreach (PurchaseItem item in purchases)
+        {
+            _purchaseItems.Add(item.Purchase.id, item.CoinsCount);
+        }
+
+        _removeAdId = removeAd.Purchase.id;
+        
+        YG2.onPurchaseSuccess += ProceedPurchase;
+
+        YG2.ConsumePurchases();
     }
     
     public bool TryBuy(int cost)
@@ -48,5 +69,34 @@ public class PlayerStats : MonoBehaviour
         
         YG2.saves.Highscore = newHighscore;
         SavePlayerStats();
+    }
+
+    private void ProceedPurchase(string id)
+    {
+        if (id == _removeAdId)
+        {
+            RemoveAd();
+
+            return;
+        }
+
+        if (_purchaseItems.TryGetValue(id, out float cost) == false)
+            return;
+        
+        Earn(Mathf.RoundToInt(cost));
+        
+        YG2.ConsumePurchases();
+    }
+
+    private void RemoveAd()
+    {
+        YG2.saves.IsAdRemoved = true;
+        
+        SavePlayerStats();
+    }
+    
+    private void SavePlayerStats()
+    {
+        YG2.SaveProgress();
     }
 }

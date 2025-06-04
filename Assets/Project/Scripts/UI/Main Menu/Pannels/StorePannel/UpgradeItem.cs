@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using Zenject;
 
 namespace UI.Main_Menu.Pannels.StorePannel
 {
@@ -8,8 +9,8 @@ namespace UI.Main_Menu.Pannels.StorePannel
         [SerializeField] protected int BasePrice;
         [SerializeField] protected int PriceMultiplier = 2;
         [SerializeField] private int _maxLevel = 3;
-        [SerializeField] private PlayerStats _playerStats;
 
+        [Inject] private PlayerStats _playerStats;
         protected int CurrentLevel;
 
         private int CurrentPrice => BasePrice + PriceMultiplier * CurrentLevel;
