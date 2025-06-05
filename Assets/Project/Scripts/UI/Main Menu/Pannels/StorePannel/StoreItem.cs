@@ -1,8 +1,5 @@
-using System;
 using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
-using YG;
 
 namespace UI.Main_Menu.Pannels.StorePannel
 {

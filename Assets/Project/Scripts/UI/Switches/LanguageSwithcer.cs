@@ -23,8 +23,6 @@ namespace UI.Switches
         private void OnEnable()
         {
             _dropdown.onValueChanged.AddListener(SwitchLanguage);
-            
-            Debug.Log($"{YG2.saves.Language} Language swith clicked");
 
             _dropdown.value = _dropdown.options.IndexOf(_dropdown.options
                 .FirstOrDefault(option => string
