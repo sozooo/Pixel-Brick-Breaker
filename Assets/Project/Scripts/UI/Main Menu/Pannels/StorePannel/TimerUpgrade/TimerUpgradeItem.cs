@@ -4,16 +4,18 @@ namespace UI.Main_Menu.Pannels.StorePannel.TimerUpgrade
 {
     public class TimerUpgradeItem : UpgradeItem
     {
-        private void OnEnable()
+        private void Awake()
         {
             CurrentLevel = YG2.saves.TimerLevel;
         }
 
-        protected override void Buy()
+        protected override void InvokeBuying()
         {
-            base.Buy();
+            base.InvokeBuying();
             
             YG2.saves.TimerLevel = CurrentLevel;
+            
+            YG2.SaveProgress();
         }
     }
 }

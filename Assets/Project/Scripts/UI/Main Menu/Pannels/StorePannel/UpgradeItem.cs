@@ -12,13 +12,12 @@ namespace UI.Main_Menu.Pannels.StorePannel
 
         [Inject] private PlayerStats _playerStats;
         protected int CurrentLevel;
-
-        private int CurrentPrice => BasePrice + PriceMultiplier * CurrentLevel;
-
+        
         public event Action<int> Upgraded;
         public event Action<int> PriceChanged;
         public event Action LevelMaxed;
         
+        private int CurrentPrice => BasePrice + BasePrice * PriceMultiplier * CurrentLevel;
         private bool isLevelMaxed => CurrentLevel >= _maxLevel;
 
         private void Start()
@@ -36,7 +35,7 @@ namespace UI.Main_Menu.Pannels.StorePannel
             InvokeBuying();
         }
 
-        private void InvokeBuying()
+        protected virtual void InvokeBuying()
         {
             PriceChanged?.Invoke(CurrentPrice);
             Upgraded?.Invoke(CurrentLevel);
