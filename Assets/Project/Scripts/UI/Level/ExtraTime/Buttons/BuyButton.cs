@@ -2,11 +2,12 @@ using Project.Scripts.WorkObjects.MessageBrokers;
 using UI.Main_Menu.Pannels.StorePannel;
 using UnityEngine;
 using UnityEngine.UI;
+using Zenject;
 
 public class BuyButton : MonoBehaviour, IExtraTimeButton
 {
     [SerializeField] private Button _buyButton;
-    [SerializeField] private PlayerStats _playerStats;
+    [Inject] private PlayerStats _playerStats;
     [SerializeField] private int _basePrice = 2000;
     [SerializeField] private int _priceAdditional = 1000;
     [SerializeField] private Price _price;

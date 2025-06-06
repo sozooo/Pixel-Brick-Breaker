@@ -13,9 +13,7 @@ public class EndGameHighscoreCounter : EndGameRow
     {
         Text.text = _levelProgressBar.CurrentCount.ToString(CultureInfo.InvariantCulture);
 
-        if (_levelProgressBar.CurrentCount < YG2.saves.Highscore)
+        if (_levelProgressBar.CurrentCount >= YG2.saves.Highscore)
             _newHighscoreText.gameObject.SetActive(true);
-        
-        YG2.saves.Highscore = _levelProgressBar.CurrentCount;
     }
 }

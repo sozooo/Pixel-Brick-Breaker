@@ -1,11 +1,12 @@
 using UnityEngine;
+using Zenject;
 
 public class StatsCollector : MonoBehaviour
 {
     [SerializeField] private CoinDisplayer _coinDisplayer;
     [SerializeField] private LevelProgressBar _levelProgressBar;
     
-    [SerializeField] private PlayerStats _playerStats;
+    [Inject] private PlayerStats _playerStats;
 
     public void Collect()
     {

@@ -7,13 +7,13 @@
         false,
         false
     ],
-    "idSave": 123,
+    "idSave": 128,
     "Language": "ru",
     "MusicLevel": 1.0,
     "SoundLevel": 1.0,
     "Muted": false,
-    "Coins": 3092,
-    "Highscore": 633.0,
+    "Coins": 3842,
+    "Highscore": 754.0,
     "TimerLevel": 0,
     "BlastRadiusLevel": 3,
     "IsAdRemoved": false
