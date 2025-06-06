@@ -9,7 +9,7 @@ namespace UI.Main_Menu.Pannels.StorePannel
     {
         [SerializeField] private UpgradeItem _upgradeItem;
         [SerializeField] private TextMeshProUGUI _buttonText;
-        [SerializeField] private string _maxLevelText;
+        [SerializeField] private TextMeshProUGUI _maxLevelText;
 
         private Button _button;
 
@@ -30,7 +30,9 @@ namespace UI.Main_Menu.Pannels.StorePannel
 
         private void Handle()
         {
-            _buttonText.text = _maxLevelText;
+            _buttonText.gameObject.SetActive(false);
+            _maxLevelText.gameObject.SetActive(false);
+            
             _button.interactable = false;
         }
     }

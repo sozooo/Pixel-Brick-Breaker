@@ -12,9 +12,16 @@ public class PlayerStats : MonoBehaviour
     
     public event Action CoinsCountChanged;
 
-    [Inject]
-    public void InitializePurchases([InjectOptional] List<PurchaseItem> purchases, [InjectOptional] RemoveAdItem removeAd)
+    private void OnDisable()
     {
+        YG2.onPurchaseSuccess -= ProceedPurchase;
+    }
+
+    [Inject]
+    private void InitializePurchases([InjectOptional] List<PurchaseItem> purchases, [InjectOptional] RemoveAdItem removeAd)
+    {
+        YG2.StickyAdActivity(false);
+        
         if (purchases == null || removeAd == null)
             return;
         

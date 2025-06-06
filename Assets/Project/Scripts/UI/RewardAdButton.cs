@@ -13,22 +13,22 @@ namespace UI
 
         private void OnEnable()
         {
+            YG2.onRewardAdv += OnRewardedAdv;
+            
             _button.onClick.AddListener(ShowAd);
         }
 
         private void OnDisable()
         {
-            _button.onClick.RemoveListener(ShowAd);
-            
             YG2.onRewardAdv -= OnRewardedAdv;
+            
+            _button.onClick.RemoveListener(ShowAd);
         }
 
         protected abstract void OnRewardedAdv(string adIndex);
         
         private void ShowAd()
         {
-            YG2.onRewardAdv += OnRewardedAdv;
-            
             YG2.RewardedAdvShow(AdIndex.ToString());
         }
     }

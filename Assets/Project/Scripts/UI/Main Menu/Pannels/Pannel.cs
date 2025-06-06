@@ -10,6 +10,7 @@ public class Pannel : MonoBehaviour
 
     protected virtual void Display()
     {
-        YG2.StickyAdActivity(true);
+        if(YG2.saves.IsAdRemoved == false)
+            YG2.StickyAdActivity(true);
     }
 }
