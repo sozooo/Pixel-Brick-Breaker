@@ -18,12 +18,12 @@ public class CountDown : MonoBehaviour
     private float _currentFontSize;
     private Tween _fontSizeTween;
     
-    private void OnEnable()
+    public void StartCountDown()
     {
-        StartCoroutine(StartCountDown());
+        StartCoroutine(CountingDown());
     }
     
-    private IEnumerator StartCountDown()
+    private IEnumerator CountingDown()
     {
         WaitForSecondsRealtime wait = new(_step);
     

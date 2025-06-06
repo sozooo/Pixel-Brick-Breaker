@@ -7,6 +7,7 @@ public class ExtraTimeManager : MonoBehaviour
     [Header("References")]
     [SerializeField] private TimerProgressBar _gameTimer;
     [SerializeField] private Pannel _extraTimePannel;
+    [SerializeField] private CloseButton _extraTimeCloseButton;
     [SerializeField] private Pannel _gameOverPanel;
     [SerializeField] private StatsCollector _statsCollector;
     
@@ -25,15 +26,21 @@ public class ExtraTimeManager : MonoBehaviour
     {
         MessageBrokerHolder.Game.Receive<M_TimePassed>().Subscribe(message => Show()).AddTo(_disposable);
         MessageBrokerHolder.Game.Receive<M_TimeRedeemed>().Subscribe(message => OnTimeRedeemed()).AddTo(_disposable);
+
+        _extraTimeCloseButton.Closed += EndGame;
     }
 
     private void OnDisable()
     {
         _disposable.Clear();
+        
+        _extraTimeCloseButton.Closed -= EndGame;
     }
 
     public void EndGame()
     {
+        _extraTimeCloseButton.Closed -= EndGame;
+        
         _statsCollector.Collect();
         
         _gameOverPanel.gameObject.SetActive(true);

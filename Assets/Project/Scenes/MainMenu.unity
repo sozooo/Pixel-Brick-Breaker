@@ -8023,10 +8023,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: MAXED!
+  m_text: "T\xDCM!"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 561128421284ca64ebcb9736f195dd8f, type: 2}
-  m_sharedMaterial: {fileID: 8049156744498075538, guid: 561128421284ca64ebcb9736f195dd8f, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c85b584c8120c4dac9689fc3a2210884, type: 2}
+  m_sharedMaterial: {fileID: 156185336240713789, guid: c85b584c8120c4dac9689fc3a2210884, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

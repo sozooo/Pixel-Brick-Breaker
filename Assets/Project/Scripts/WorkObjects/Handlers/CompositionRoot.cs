@@ -1,14 +1,20 @@
 using System.Threading;
 using UnityEngine;
 using WorkObjects.Handlers;
+using YG;
 using Zenject;
 
 public class CompositionRoot : MonoBehaviour
 {
+    [Header("Beginers Guide")] 
+    [SerializeField] private Pannel _guidePanel;
+    [SerializeField] private CloseButton _guideCloseButton;
+
     [Header("Figure Configuration")]
     [SerializeField] private FigureSpawner _figureSpawner;
 
     [Header("Level Configuration")]
+    [SerializeField] private CountDown _countDown;
     [SerializeField] private LevelProgressBar _levelProgressBar;
     [SerializeField] private float _bonusTime = 7f;
 
@@ -27,11 +33,30 @@ public class CompositionRoot : MonoBehaviour
     {
         _levelProgressBar.ResetBar();
         _timerHandler.Initialize(_bonusTime, _cancellationToken.Token);
+
+        if (YG2.isFirstGameSession)
+        {
+            _guidePanel.gameObject.SetActive(true);
+            _guideCloseButton.Closed += StartCountDown;
+            
+            return;
+        }
+        
+        StartCountDown();
     }
 
     private void OnDisable()
     {
         _timerHandler.Disable();
         _cancellationToken.Cancel();
+        
+        _guideCloseButton.Closed -= StartCountDown;
+    }
+
+    private void StartCountDown()
+    {
+        _guideCloseButton.Closed -= StartCountDown;
+        
+        _countDown.StartCountDown();
     }
 }

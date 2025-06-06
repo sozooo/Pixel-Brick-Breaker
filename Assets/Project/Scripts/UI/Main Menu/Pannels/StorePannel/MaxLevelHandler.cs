@@ -31,7 +31,7 @@ namespace UI.Main_Menu.Pannels.StorePannel
         private void Handle()
         {
             _buttonText.gameObject.SetActive(false);
-            _maxLevelText.gameObject.SetActive(false);
+            _maxLevelText.gameObject.SetActive(true);
             
             _button.interactable = false;
         }
