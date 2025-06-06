@@ -7,6 +7,8 @@ using Zenject;
 
 public class PlayerStats : MonoBehaviour
 { 
+    [SerializeField] private string _leaderboardName;
+    
     private Dictionary<string, float> _purchaseItems;
     private string _removeAdId;
     
@@ -69,12 +71,13 @@ public class PlayerStats : MonoBehaviour
     {
         if(newHighscore < 0)
             throw new ArgumentException("Invalid newHighscore");
-    
         
         if (newHighscore <= YG2.saves.Highscore)
             return;
         
         YG2.saves.Highscore = newHighscore;
+        YG2.SetLeaderboard(_leaderboardName, Mathf.RoundToInt(newHighscore));
+        
         SavePlayerStats();
     }
 

@@ -12,8 +12,10 @@ public class EndGameHighscoreCounter : EndGameRow
     protected override void Display()
     {
         Text.text = _levelProgressBar.CurrentCount.ToString(CultureInfo.InvariantCulture);
-        
-        if(Mathf.Approximately(_levelProgressBar.CurrentCount, YG2.saves.Highscore))
+
+        if (_levelProgressBar.CurrentCount < YG2.saves.Highscore)
             _newHighscoreText.gameObject.SetActive(true);
+        
+        YG2.saves.Highscore = _levelProgressBar.CurrentCount;
     }
 }
