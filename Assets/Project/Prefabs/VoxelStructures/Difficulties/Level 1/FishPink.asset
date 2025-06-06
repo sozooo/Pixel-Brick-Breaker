@@ -233,3 +233,4 @@ MonoBehaviour:
     <Color>k__BackingField: {r: 0.6666667, g: 0.101960786, b: 0.7137255, a: 1}
   width: 15
   height: 15
+  scale: {x: 0.25, y: 0.25, z: 0.25}

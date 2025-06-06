@@ -228,7 +228,7 @@ namespace Project.Scripts.Figure
             _removedVoxels.Add(position);
                         
             MessageBrokerHolder.Figure.Publish(new M_VoxelFell(_transform.TransformPoint((Vector3Int)position), 
-                _transform.rotation, _config.Voxels.First(voxel => voxel.Position == position).Color));
+                _transform.rotation, _transform.localScale, _config.Voxels.First(voxel => voxel.Position == position).Color));
             
             OnVoxelFell?.Invoke();
         }

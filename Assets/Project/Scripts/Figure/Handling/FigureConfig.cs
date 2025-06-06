@@ -8,4 +8,5 @@ public class FigureConfig : ScriptableObject
     [SerializeField] public List<Voxel> Voxels;
     [SerializeField, Range(0, 24)] public int width = 16;
     [SerializeField, Range(0, 24)] public int height = 16;
+    [SerializeField] public Vector3 scale;
 }

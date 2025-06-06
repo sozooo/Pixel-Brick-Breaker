@@ -22,6 +22,7 @@ namespace Project.Scripts.Figure.Handling
             
             voxel.Initialize(message.Position, message.Rotation);
             voxel.ApplyColor(message.Color);
+            voxel.ApplySacle(message.Scale);
         }
 
         protected override void OnDespawned(FallingVoxel spawnable)

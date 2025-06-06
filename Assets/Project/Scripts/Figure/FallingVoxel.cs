@@ -12,7 +12,6 @@ public class FallingVoxel : MonoBehaviour, ISpawnable<FallingVoxel>
     
     private Coroutine _falling;
     private Transform _transform;
-    private Vector3 _defaultScale;
     
     private readonly int _colorProperty = Shader.PropertyToID("_Color");
     private  MaterialPropertyBlock _block;
@@ -22,7 +21,6 @@ public class FallingVoxel : MonoBehaviour, ISpawnable<FallingVoxel>
     private void Awake()
     {
         _transform = transform;
-        _defaultScale = _transform.localScale;
     }
 
     private void OnDisable()
@@ -33,7 +31,6 @@ public class FallingVoxel : MonoBehaviour, ISpawnable<FallingVoxel>
     public void Initialize(Vector3 position, Quaternion rotation)
     {
         _transform.SetPositionAndRotation(position, rotation);
-        _transform.localScale = _defaultScale;
         
         _rigidbody.velocity = Vector3.zero;
 
@@ -47,6 +44,11 @@ public class FallingVoxel : MonoBehaviour, ISpawnable<FallingVoxel>
     {
         _block.SetColor(_colorProperty, color);
         _meshRenderer.SetPropertyBlock(_block);
+    }
+
+    public void ApplySacle(Vector3 scale)
+    {
+        _transform.localScale = scale;
     }
 
     private void Fall()
