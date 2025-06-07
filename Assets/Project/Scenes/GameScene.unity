@@ -744,8 +744,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 600
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: a5505738da79e43c6acedcb51d753178, type: 2}
-  m_sharedMaterial: {fileID: -6997016095482621668, guid: a5505738da79e43c6acedcb51d753178, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 323c346f6dd474326a7d1080f8cb0061, type: 2}
+  m_sharedMaterial: {fileID: -2279248333365380524, guid: 323c346f6dd474326a7d1080f8cb0061, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -769,8 +769,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 417.7
-  m_fontSizeBase: 417.7
+  m_fontSize: 336
+  m_fontSizeBase: 336
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -912,8 +912,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 1000000
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 561128421284ca64ebcb9736f195dd8f, type: 2}
-  m_sharedMaterial: {fileID: 8049156744498075538, guid: 561128421284ca64ebcb9736f195dd8f, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 0838b95cbadda574b8cfdea0f66838c8, type: 2}
+  m_sharedMaterial: {fileID: -2875316475813810269, guid: 0838b95cbadda574b8cfdea0f66838c8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -943,7 +943,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -976,7 +976,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &262603335
@@ -1922,7 +1922,7 @@ MonoBehaviour:
       hi: []
     fontsTMP:
       defaultFont:
-      - {fileID: 11400000, guid: 6d50b12c800ec4151ad88211d6b5de39, type: 2}
+      - {fileID: 11400000, guid: c85b584c8120c4dac9689fc3a2210884, type: 2}
       ru: []
       en: []
       tr: []
@@ -9222,7 +9222,7 @@ MonoBehaviour:
   m_text: START
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ed64582146d1a49adbc0463f46827b65, type: 2}
-  m_sharedMaterial: {fileID: 156185336240713789, guid: c85b584c8120c4dac9689fc3a2210884, type: 2}
+  m_sharedMaterial: {fileID: 4644614463459987610, guid: ed64582146d1a49adbc0463f46827b65, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -9372,7 +9372,7 @@ MonoBehaviour:
       hi: []
     fontsTMP:
       defaultFont:
-      - {fileID: 11400000, guid: 6d50b12c800ec4151ad88211d6b5de39, type: 2}
+      - {fileID: 11400000, guid: c85b584c8120c4dac9689fc3a2210884, type: 2}
       ru: []
       en: []
       tr: []
@@ -10274,7 +10274,7 @@ MonoBehaviour:
       hi: []
     fontsTMP:
       defaultFont:
-      - {fileID: 11400000, guid: 6d50b12c800ec4151ad88211d6b5de39, type: 2}
+      - {fileID: 11400000, guid: c85b584c8120c4dac9689fc3a2210884, type: 2}
       ru: []
       en: []
       tr: []
@@ -10899,7 +10899,7 @@ MonoBehaviour:
       hi: []
     fontsTMP:
       defaultFont:
-      - {fileID: 11400000, guid: 6d50b12c800ec4151ad88211d6b5de39, type: 2}
+      - {fileID: 11400000, guid: c85b584c8120c4dac9689fc3a2210884, type: 2}
       ru: []
       en: []
       tr: []
@@ -11612,7 +11612,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1233336603
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11631,7 +11631,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1196.6, y: 50}
+  m_SizeDelta: {x: 1284.7, y: 290}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1233336604
 MonoBehaviour:
@@ -11655,8 +11655,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Reward
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 323c346f6dd474326a7d1080f8cb0061, type: 2}
-  m_sharedMaterial: {fileID: -2279248333365380524, guid: 323c346f6dd474326a7d1080f8cb0061, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: ed64582146d1a49adbc0463f46827b65, type: 2}
+  m_sharedMaterial: {fileID: 4644614463459987610, guid: ed64582146d1a49adbc0463f46827b65, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -11680,12 +11680,12 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 162.6
-  m_fontSizeBase: 162.6
+  m_fontSize: 237.3
+  m_fontSizeBase: 237.3
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
-  m_fontSizeMax: 72
+  m_fontSizeMax: 238
   m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
@@ -12244,7 +12244,7 @@ MonoBehaviour:
       hi: []
     fontsTMP:
       defaultFont:
-      - {fileID: 11400000, guid: 6d50b12c800ec4151ad88211d6b5de39, type: 2}
+      - {fileID: 11400000, guid: c85b584c8120c4dac9689fc3a2210884, type: 2}
       ru: []
       en: []
       tr: []
@@ -12564,8 +12564,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\xC7IKMAK"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: c85b584c8120c4dac9689fc3a2210884, type: 2}
-  m_sharedMaterial: {fileID: 156185336240713789, guid: c85b584c8120c4dac9689fc3a2210884, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: ed64582146d1a49adbc0463f46827b65, type: 2}
+  m_sharedMaterial: {fileID: 4644614463459987610, guid: ed64582146d1a49adbc0463f46827b65, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -12906,6 +12906,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -76.2
       objectReference: {fileID: 0}
+    - target: {fileID: 358738485263813438, guid: d92a5a358c9c14c2d893350cecb4838a, type: 3}
+      propertyPath: info.fontsTMP.defaultFont.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: c85b584c8120c4dac9689fc3a2210884, type: 2}
     - target: {fileID: 1364201165999838648, guid: d92a5a358c9c14c2d893350cecb4838a, type: 3}
       propertyPath: m_Color.a
       value: 0
@@ -13912,8 +13916,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 1000
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 561128421284ca64ebcb9736f195dd8f, type: 2}
-  m_sharedMaterial: {fileID: 8049156744498075538, guid: 561128421284ca64ebcb9736f195dd8f, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 0838b95cbadda574b8cfdea0f66838c8, type: 2}
+  m_sharedMaterial: {fileID: -2875316475813810269, guid: 0838b95cbadda574b8cfdea0f66838c8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -13943,7 +13947,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -14506,7 +14510,7 @@ MonoBehaviour:
       hi: []
     fontsTMP:
       defaultFont:
-      - {fileID: 11400000, guid: 6d50b12c800ec4151ad88211d6b5de39, type: 2}
+      - {fileID: 11400000, guid: c85b584c8120c4dac9689fc3a2210884, type: 2}
       ru: []
       en: []
       tr: []
@@ -15061,7 +15065,7 @@ MonoBehaviour:
       hi: []
     fontsTMP:
       defaultFont:
-      - {fileID: 11400000, guid: 6d50b12c800ec4151ad88211d6b5de39, type: 2}
+      - {fileID: 11400000, guid: c85b584c8120c4dac9689fc3a2210884, type: 2}
       ru: []
       en: []
       tr: []
@@ -15846,7 +15850,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2085156615
 RectTransform:
   m_ObjectHideFlags: 0
@@ -16142,7 +16146,7 @@ MonoBehaviour:
       hi: []
     fontsTMP:
       defaultFont:
-      - {fileID: 11400000, guid: 6d50b12c800ec4151ad88211d6b5de39, type: 2}
+      - {fileID: 11400000, guid: c85b584c8120c4dac9689fc3a2210884, type: 2}
       ru: []
       en: []
       tr: []
@@ -16445,7 +16449,7 @@ MonoBehaviour:
       hi: []
     fontsTMP:
       defaultFont:
-      - {fileID: 11400000, guid: 6d50b12c800ec4151ad88211d6b5de39, type: 2}
+      - {fileID: 11400000, guid: c85b584c8120c4dac9689fc3a2210884, type: 2}
       ru: []
       en: []
       tr: []
@@ -17432,7 +17436,7 @@ MonoBehaviour:
       hi: []
     fontsTMP:
       defaultFont:
-      - {fileID: 11400000, guid: 6d50b12c800ec4151ad88211d6b5de39, type: 2}
+      - {fileID: 11400000, guid: c85b584c8120c4dac9689fc3a2210884, type: 2}
       ru: []
       en: []
       tr: []
