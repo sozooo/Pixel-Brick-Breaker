@@ -9972,7 +9972,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _fallingVoxelSpawner:
     Pool:
-      _spawnablePrefab: {fileID: 539841116852711358, guid: 5cbdf0c2330ef4adb860bf4cafd9a9e2, type: 3}
+      _fabric:
+        _spawnablePrefab: {fileID: 539841116852711358, guid: 5cbdf0c2330ef4adb860bf4cafd9a9e2, type: 3}
 --- !u!1 &1027934792
 GameObject:
   m_ObjectHideFlags: 0
@@ -13479,7 +13480,8 @@ MonoBehaviour:
   _guideCloseButton: {fileID: 1236556123}
   _figureSpawner:
     Pool:
-      _spawnablePrefab: {fileID: 4805301289019448809, guid: 7f3b9d1700aa14db88e1bcbdcc7db732, type: 3}
+      _fabric:
+        _spawnablePrefab: {fileID: 4805301289019448809, guid: 7f3b9d1700aa14db88e1bcbdcc7db732, type: 3}
     _figureListHandler:
       _figureLists:
       - _level: 1
@@ -17034,7 +17036,8 @@ MonoBehaviour:
     _aim: {fileID: 326716200}
   _shooter:
     Pool:
-      _spawnablePrefab: {fileID: 3291695231737167332, guid: 111e0110ccb704175a37dda21c6a6fe4, type: 3}
+      _fabric:
+        _spawnablePrefab: {fileID: 3291695231737167332, guid: 111e0110ccb704175a37dda21c6a6fe4, type: 3}
     _spawnpoint: {fileID: 5409569}
     _startBulletCount: 2
     _shootColldawn: 0.5

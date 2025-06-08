@@ -56,7 +56,7 @@ public class Figure : MonoBehaviour, ISpawnable<Figure>, IDamageable
         
         _meshBuilder.OnVoxelFell += OnVoxelFell;
         
-        _meshBuilder.RebuildMesh();
+        _meshBuilder.Rebuild();
         _colliderBuilder.RebuildColliders();
         
         _core.Initialize(_cancellationTokenSource.Token);

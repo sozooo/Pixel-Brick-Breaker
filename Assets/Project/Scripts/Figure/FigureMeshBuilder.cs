@@ -9,7 +9,7 @@ using WorkObjects.Enums;
 namespace Project.Scripts.Figure
 {
     [Serializable]
-    public class FigureMeshBuilder
+    public class FigureMeshBuilder : IVoxelChecker
     {
         [SerializeField] private MeshFilter _meshFilter;
 
@@ -68,7 +68,7 @@ namespace Project.Scripts.Figure
                 }
             }
 
-            RebuildMesh();
+            Rebuild();
         }
         
         public bool VoxelExists(int x, int y) 
@@ -94,12 +94,12 @@ namespace Project.Scripts.Figure
                 }
             }
             
-            RebuildMesh();
+            Rebuild();
         }
         
         #region Rebuild Mesh
         
-        public void RebuildMesh() 
+        public void Rebuild() 
         {
             List<Vector3> vertices = new List<Vector3>();
             List<int> triangles = new List<int>();
