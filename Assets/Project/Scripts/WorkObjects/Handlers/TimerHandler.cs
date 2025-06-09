@@ -21,8 +21,15 @@ namespace WorkObjects.Handlers
         public void Initialize(float bonusTime, CancellationToken token)
         {
             
-            MessageBrokerHolder.Game.Receive<M_GameStarted>().Subscribe(message => StartTimer()).AddTo(token);
-            MessageBrokerHolder.Figure.Receive<M_FigureFell>().Subscribe(message => AddTime()).AddTo(token);
+            MessageBrokerHolder.Game
+                .Receive<M_GameStarted>()
+                .Subscribe(_ => StartTimer())
+                .AddTo(token);
+            
+            MessageBrokerHolder.Figure
+                .Receive<M_FigureFell>()
+                .Subscribe(_ => AddTime())
+                .AddTo(token);
             
             _bonusTime = bonusTime;
             
@@ -42,12 +49,14 @@ namespace WorkObjects.Handlers
 
         private void AddTime()
         {
-            MessageBrokerHolder.Game.Publish(new M_TimeRedeemed(_bonusTime));
+            MessageBrokerHolder.Game
+                .Publish(new M_TimeRedeemed(_bonusTime));
         }
 
         private void OnTimePassed()
         {
-            MessageBrokerHolder.Game.Publish(new M_TimePassed());
+            MessageBrokerHolder.Game
+                .Publish(new M_TimePassed());
         }
     }
 }

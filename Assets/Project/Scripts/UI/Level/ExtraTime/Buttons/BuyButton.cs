@@ -14,7 +14,6 @@ public class BuyButton : MonoBehaviour, IExtraTimeButton
     
     private int _buybackPrice;
 
-    [field: SerializeField] public float AdditionalTime { get; private set; } = 15f;
 
     private void Awake()
     {
@@ -46,6 +45,7 @@ public class BuyButton : MonoBehaviour, IExtraTimeButton
 
     public void AddTime()
     {
-        MessageBrokerHolder.Game.Publish(new M_TimeRedeemed(AdditionalTime));
+        MessageBrokerHolder.Game
+            .Publish(new M_TimePurchased());
     }
 }

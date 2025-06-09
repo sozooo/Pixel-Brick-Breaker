@@ -4,13 +4,15 @@ public class PausePannel : Pannel
 {
     private void OnDisable()
     {
-        MessageBrokerHolder.Game.Publish(new M_GamePaused(false));
+        MessageBrokerHolder.Game
+            .Publish(new M_GamePaused(false));
     }
 
     protected override void Display()
     {
         base.Display();
         
-        MessageBrokerHolder.Game.Publish(new M_GamePaused(true));
+        MessageBrokerHolder.Game
+            .Publish(new M_GamePaused(true));
     }
 }

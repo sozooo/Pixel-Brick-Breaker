@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using Project.Scripts.WorkObjects;
 using UnityEngine;
-using Object = UnityEngine.Object;
 
 [Serializable]
 public class ObjectPool<T> where T :  MonoBehaviour, ISpawnable<T>

@@ -6,11 +6,10 @@ using UnityEngine;
 [Serializable]
 public class ExtraTimeAdButton : RewardAdButton, IExtraTimeButton
 {
-    [field: SerializeField] public float AdditionalTime { get; private set; } = 15f;
-    
     public void AddTime()
     {
-        MessageBrokerHolder.Game.Publish(new M_TimeRedeemed(AdditionalTime));
+        MessageBrokerHolder.Game
+            .Publish(new M_TimePurchased());
     }
 
     protected override void OnRewardedAdv(string adIndex)

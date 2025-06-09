@@ -13,7 +13,10 @@ namespace Project.Scripts.Figure.Handling
         
         private void OnEnable()
         {
-            MessageBrokerHolder.Figure.Receive<M_VoxelFell>().Subscribe(OnVoxelFell).AddTo(_disposable);
+            MessageBrokerHolder.Figure
+                .Receive<M_VoxelFell>()
+                .Subscribe(OnVoxelFell)
+                .AddTo(_disposable);
         }
 
         private void OnDisable()

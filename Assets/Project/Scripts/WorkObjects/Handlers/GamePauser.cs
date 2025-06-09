@@ -12,7 +12,9 @@ namespace WorkObjects.Handlers
         {
             _input = playerInput;
             
-            MessageBrokerHolder.Game.Receive<M_GamePaused>().Subscribe(PauseGame);
+            MessageBrokerHolder.Game
+                .Receive<M_GamePaused>()
+                .Subscribe(PauseGame);
         }
         
         private void PauseGame(M_GamePaused message)

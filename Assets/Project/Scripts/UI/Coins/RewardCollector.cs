@@ -15,7 +15,10 @@ public class RewardCollector : MonoBehaviour
 
     private void OnEnable()
     {
-        MessageBrokerHolder.Figure.Receive<M_FigureFell>().Subscribe(message => TakeReward(message.Figure)).AddTo(_disposable);
+        MessageBrokerHolder.Figure
+            .Receive<M_FigureFell>()
+            .Subscribe(message => TakeReward(message.Figure))
+            .AddTo(_disposable);
     }
 
     private void OnDisable()

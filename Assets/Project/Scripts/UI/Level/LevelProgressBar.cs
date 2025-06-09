@@ -28,7 +28,10 @@ public class LevelProgressBar : ProgressBar
 
         Current = Minimum;
 
-        MessageBrokerHolder.Figure.Receive<M_VoxelFell>().Subscribe(message => Fill()).AddTo(_disposable);
+        MessageBrokerHolder.Figure
+            .Receive<M_VoxelFell>()
+            .Subscribe(_ => Fill())
+            .AddTo(_disposable);
         
         CalculateMaxIndicator();
         
@@ -47,7 +50,8 @@ public class LevelProgressBar : ProgressBar
         
         IncreaseMaximum(Maximum * _levelUpMultiplyer);
         
-        MessageBrokerHolder.Game.Publish(new M_LevelRaised());
+        MessageBrokerHolder.Game
+            .Publish(new M_LevelRaised());
     }
 
     private void IncreaseMaximum(float increaser)

@@ -27,7 +27,10 @@ public class Shooter : Spawner<Bullet>
         _cancellationToken?.Cancel();
         _cancellationToken = new CancellationTokenSource();
         
-        MessageBrokerHolder.Figure.Receive<M_FigureSpawned>().Subscribe(message => DropBullets()).AddTo(_cancellationToken.Token);
+        MessageBrokerHolder.Figure
+            .Receive<M_FigureSpawned>()
+            .Subscribe(_ => DropBullets())
+            .AddTo(_cancellationToken.Token);
         
         _bulletCount = _startBulletCount;
         

@@ -13,6 +13,7 @@ public class ExtraTimeManager : MonoBehaviour
     
     [Header("Settings")]
     [SerializeField] private int _extraTimeTriesCount;
+    [SerializeField] public float _additionalTime = 15f;
 
     private readonly CompositeDisposable _disposable = new();
     private int _currentTriesCount;
@@ -24,8 +25,15 @@ public class ExtraTimeManager : MonoBehaviour
 
     private void OnEnable()
     {
-        MessageBrokerHolder.Game.Receive<M_TimePassed>().Subscribe(message => Show()).AddTo(_disposable);
-        MessageBrokerHolder.Game.Receive<M_TimeRedeemed>().Subscribe(message => OnTimeRedeemed()).AddTo(_disposable);
+        MessageBrokerHolder.Game
+            .Receive<M_TimePassed>()
+            .Subscribe(_ => Show())
+            .AddTo(_disposable);
+        
+        MessageBrokerHolder.Game
+            .Receive<M_TimePurchased>()
+            .Subscribe(_ => OnTimeRedeemed())
+            .AddTo(_disposable);
 
         _extraTimeCloseButton.Closed += EndGame;
     }
@@ -45,7 +53,8 @@ public class ExtraTimeManager : MonoBehaviour
         
         _gameOverPanel.gameObject.SetActive(true);
         
-        MessageBrokerHolder.Game.Publish(new M_GameOvered());
+        MessageBrokerHolder.Game
+            .Publish(new M_GameOvered());
     }
 
     private void Show()
@@ -61,5 +70,8 @@ public class ExtraTimeManager : MonoBehaviour
         _extraTimePannel.gameObject.SetActive(false);
 
         _currentTriesCount++;
+        
+        MessageBrokerHolder.Game
+            .Publish(new M_TimeRedeemed(_additionalTime));
     }
 }

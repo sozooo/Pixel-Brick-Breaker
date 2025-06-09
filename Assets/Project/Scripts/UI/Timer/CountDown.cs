@@ -41,7 +41,8 @@ public class CountDown : MonoBehaviour
     
         ChangeFontSize(0);
     
-        MessageBrokerHolder.Game.Publish(new M_GameStarted());
+        MessageBrokerHolder.Game
+            .Publish(new M_GameStarted());
     }
     
     private void ChangeFontSize(float targetFontSize)

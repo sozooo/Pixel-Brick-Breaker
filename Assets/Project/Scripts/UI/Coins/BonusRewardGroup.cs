@@ -12,9 +12,15 @@ namespace UI.Coins
 
         private void OnEnable()
         {
-            MessageBrokerHolder.Figure.Receive<M_FigureFell>().Subscribe(message => ShowReward()).AddTo(_disposable);
+            MessageBrokerHolder.Figure
+                .Receive<M_FigureFell>()
+                .Subscribe(_ => ShowReward())
+                .AddTo(_disposable);
             
-            MessageBrokerHolder.Figure.Receive<M_FigureDespawned>().Subscribe(message => HideReward()).AddTo(_disposable);
+            MessageBrokerHolder.Figure
+                .Receive<M_FigureDespawned>()
+                .Subscribe(_ => HideReward())
+                .AddTo(_disposable);
         }
 
         private void OnDisable()

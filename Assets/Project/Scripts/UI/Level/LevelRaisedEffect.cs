@@ -13,7 +13,9 @@ namespace UI.Level
         
         private void OnEnable()
         {
-            MessageBrokerHolder.Game.Receive<M_LevelRaised>().Subscribe(message => HandleLevelRaised())
+            MessageBrokerHolder.Game
+                .Receive<M_LevelRaised>()
+                .Subscribe(message => HandleLevelRaised())
                 .AddTo(_disposable);
         }
 

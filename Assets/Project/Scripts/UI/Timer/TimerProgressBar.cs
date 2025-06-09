@@ -18,7 +18,7 @@ public class TimerProgressBar : ProgressBar
     public event Action<float> SecondPassed;
 
     [ProPlayButton]
-    public void AddTime(float time)
+    private void AddTime(float time)
     {
         Current += time;
         Current = Mathf.Clamp(Current, Minimum, Maximum);
@@ -32,9 +32,20 @@ public class TimerProgressBar : ProgressBar
         if (_timer != null)
             return;
         
-        MessageBrokerHolder.Figure.Receive<M_FigureFell>().Subscribe(message => PauseTimer(true)).AddTo(_disposable);
-        MessageBrokerHolder.Figure.Receive<M_FigureDespawned>().Subscribe(message => PauseTimer(false)).AddTo(_disposable);
-        MessageBrokerHolder.Game.Receive<M_TimeRedeemed>().Subscribe(message => AddTime(message.Time)).AddTo(_disposable);
+        MessageBrokerHolder.Figure
+            .Receive<M_FigureFell>()
+            .Subscribe(_ => PauseTimer(true))
+            .AddTo(_disposable);
+        
+        MessageBrokerHolder.Figure
+            .Receive<M_FigureDespawned>()
+            .Subscribe(_ => PauseTimer(false))
+            .AddTo(_disposable);
+        
+        MessageBrokerHolder.Game
+            .Receive<M_TimeRedeemed>()
+            .Subscribe(message => AddTime(message.Time))
+            .AddTo(_disposable);
         
         _timer = StartCoroutine(Timer());
     }

@@ -1697,6 +1697,7 @@ MonoBehaviour:
   _gameOverPanel: {fileID: 1154208713}
   _statsCollector: {fileID: 368635205}
   _extraTimeTriesCount: 3
+  _additionalTime: 15
 --- !u!114 &368635205
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13725,7 +13726,6 @@ MonoBehaviour:
   _basePrice: 2000
   _priceAdditional: 1000
   _price: {fileID: 2004201604}
-  <AdditionalTime>k__BackingField: 15
 --- !u!114 &1737909075
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15588,7 +15588,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AdIndex: 0
   _button: {fileID: 2067348236}
-  <AdditionalTime>k__BackingField: 15
 --- !u!114 &2067348236
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15852,7 +15851,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2085156615
 RectTransform:
   m_ObjectHideFlags: 0
@@ -16605,7 +16604,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &713036782973716163
 MonoBehaviour:
   m_ObjectHideFlags: 0

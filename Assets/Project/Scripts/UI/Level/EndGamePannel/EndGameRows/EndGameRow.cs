@@ -20,7 +20,10 @@ namespace UI.Level.EndGamePannel.EndGameRows
 
         private void OnEnable()
         {
-            MessageBrokerHolder.Game.Receive<M_GameOvered>().Subscribe(message => Display()).AddTo(_disposable);
+            MessageBrokerHolder.Game
+                .Receive<M_GameOvered>()
+                .Subscribe(_ => Display())
+                .AddTo(_disposable);
         }
 
         private void OnDisable()

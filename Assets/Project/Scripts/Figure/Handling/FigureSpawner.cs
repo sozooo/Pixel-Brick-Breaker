@@ -23,8 +23,15 @@ public class FigureSpawner : Spawner<Figure>
     {
         _cancellationToken = token;
         
-        MessageBrokerHolder.Game.Receive<M_LevelRaised>().Subscribe(message => OnLevelRaised()).AddTo(_cancellationToken);
-        MessageBrokerHolder.Game.Receive<M_GameStarted>().Subscribe(message => Spawn()).AddTo(_cancellationToken);
+        MessageBrokerHolder.Game
+            .Receive<M_LevelRaised>()
+            .Subscribe(_ => OnLevelRaised())
+            .AddTo(_cancellationToken);
+        
+        MessageBrokerHolder.Game
+            .Receive<M_GameStarted>()
+            .Subscribe(_ => Spawn())
+            .AddTo(_cancellationToken);
         
         OnLevelRaised();
     }
@@ -39,14 +46,16 @@ public class FigureSpawner : Spawner<Figure>
         figure.gameObject.SetActive(true);
         figure.ApplyConfig(_mainFiguresList.GetRandom());
         
-        MessageBrokerHolder.Figure.Publish(new M_FigureSpawned());
+        MessageBrokerHolder.Figure
+            .Publish(new M_FigureSpawned());
 
         return figure;
     }
     
     protected override void OnDespawned(Figure figure)
     {
-        MessageBrokerHolder.Figure.Publish(new M_FigureFell(figure));
+        MessageBrokerHolder.Figure
+            .Publish(new M_FigureFell(figure));
         
         base.OnDespawned(figure);
 
@@ -72,7 +81,8 @@ public class FigureSpawner : Spawner<Figure>
         
         Pool.Add(figure);
 
-        MessageBrokerHolder.Figure.Publish(new M_FigureDespawned());
+        MessageBrokerHolder.Figure
+            .Publish(new M_FigureDespawned());
 
         Spawn();
     }
