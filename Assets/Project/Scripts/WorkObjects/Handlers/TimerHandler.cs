@@ -20,7 +20,6 @@ namespace WorkObjects.Handlers
 
         public void Initialize(float bonusTime, CancellationToken token)
         {
-            
             MessageBrokerHolder.Game
                 .Receive<M_GameStarted>()
                 .Subscribe(_ => StartTimer())

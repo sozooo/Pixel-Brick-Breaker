@@ -19,8 +19,6 @@ public class TimerProgressBar : ProgressBar
 
     public override void ResetBar()
     {
-        Disable();
-        
         base.ResetBar();
         
         float upgradedTime = _timeModifier * YG2.saves.TimerLevel;
@@ -32,8 +30,7 @@ public class TimerProgressBar : ProgressBar
     
     public void StartTimer()
     {
-        if (_timer != null)
-            return;
+        Disable();
         
         MessageBrokerHolder.Figure
             .Receive<M_FigureFell>()
@@ -54,7 +51,7 @@ public class TimerProgressBar : ProgressBar
     }
     
     protected override void Disable()
-    {
+    { 
         base.Disable();
         
         if (_timer != null)
@@ -69,8 +66,8 @@ public class TimerProgressBar : ProgressBar
         Current += time;
         Current = Mathf.Clamp(Current, Minimum, Maximum);
 
-        Fill();
         StartTimer();
+        Fill();
     }
     
     private void PauseTimer(bool isPaused)

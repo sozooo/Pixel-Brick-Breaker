@@ -45,12 +45,14 @@ public class ProgressBar : MonoBehaviour
     protected virtual void Fill()
     {
         float currentFill = Current - Minimum;
+        float _currentMximum = Maximum - Minimum;
+        
         _currentIndicator.text = currentFill.ToString(CultureInfo.InvariantCulture);
 
         if (_smoothFill != null)
             StopCoroutine(_smoothFill);
 
-        _smoothFill = StartCoroutine(SmoothFill(currentFill / Maximum));
+        _smoothFill = StartCoroutine(SmoothFill(currentFill / _currentMximum));
     }
 
     private IEnumerator SmoothFill(float destination)
