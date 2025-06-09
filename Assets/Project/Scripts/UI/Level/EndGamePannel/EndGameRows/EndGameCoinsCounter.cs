@@ -1,9 +1,6 @@
-using System;
 using System.Globalization;
-using TMPro;
 using UI.Level.EndGamePannel.EndGameRows;
 using UnityEngine;
-
 
 public class EndGameCoinsCounter : EndGameRow
 {
@@ -11,6 +8,6 @@ public class EndGameCoinsCounter : EndGameRow
     
     protected override void Display()
     {
-        Text.text = _coinDisplayer.LastValueSetted.ToString();
+        Text.text = _coinDisplayer.LastValueSetted.ToString(CultureInfo.InvariantCulture);
     }
 }

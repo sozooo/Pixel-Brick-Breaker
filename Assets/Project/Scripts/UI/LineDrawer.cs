@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Zenject;
@@ -53,6 +52,6 @@ public class LineDrawer : MonoBehaviour
         Vector3 mousePos = Input.mousePosition;
         mousePos.z = _zOffset;
         
-        return Camera.main.ScreenToWorldPoint(mousePos);
+        return Camera.main!.ScreenToWorldPoint(mousePos);
     }
 }

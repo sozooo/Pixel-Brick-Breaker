@@ -1,37 +1,30 @@
-using System;
-using TMPro;
 using UnityEngine;
 using YG;
 using Zenject;
 
 namespace UI.Main_Menu.Pannels.StorePannel
 {
-    [RequireComponent(typeof(TextMeshProUGUI))]
     public class CurrentCoinDisplayer : MonoBehaviour
     {
-        [Inject] private PlayerStats _playerStats;
-            
-        private TextMeshProUGUI _text;
+        [SerializeField]private Price _coins;
         
-        private void Awake()
-        {
-            _text = GetComponent<TextMeshProUGUI>();
-            
-            _playerStats.CoinsCountChanged += Display;
-        }
+        [Inject] private PlayerStats _playerStats;
 
         private void OnEnable()
         {
+            _playerStats.CoinsCountChanged += Display;
+            
             Display();
+        }
+
+        private void OnDisable()
+        {
+            _playerStats.CoinsCountChanged -= Display;
         }
 
         private void Display()
         {
-            string priceString = YG2.saves.Coins.ToString();
-            
-            if(YG2.saves.Coins>=1000) priceString = $"{(Convert.ToSingle(YG2.saves.Coins) / 1000):0.#}k";
-            
-            _text.text = priceString;
+            _coins.Convert(YG2.saves.Coins);
         }
     }
 }

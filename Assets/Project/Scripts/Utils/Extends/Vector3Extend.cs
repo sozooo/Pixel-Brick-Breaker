@@ -15,16 +15,6 @@ public static class Vector3Extend
         return value;
     }
 
-    public static Vector3 ClampY(this Vector3 value, float min, float max)
-    {
-        if (value.y < min || value.y > max)
-        {
-            value.y = Mathf.Clamp(value.y, min, max);
-        }
-
-        return value;
-    }
-
     public static Vector3 ClampX(this Vector3 value, float min, float max)
     {
         if (value.x < min || value.x > max)

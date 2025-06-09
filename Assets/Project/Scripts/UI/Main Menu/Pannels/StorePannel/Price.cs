@@ -1,4 +1,3 @@
-using System;
 using TMPro;
 using UnityEngine;
 
@@ -8,11 +7,11 @@ namespace UI.Main_Menu.Pannels.StorePannel
     {
         [SerializeField] protected TextMeshProUGUI Text;
 
-        public void ConvertPrice(int price)
+        public void Convert(int price)
         {
             string priceString = price.ToString();
             
-            if(price >= 1000) priceString = $"{(Convert.ToSingle(price) / 1000):0.#}k";
+            if(price >= 1000) priceString = $"{(System.Convert.ToSingle(price) / 1000):0.#}k";
             
             Display(priceString);
         }

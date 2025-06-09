@@ -1,4 +1,3 @@
-using com.cyborgAssets.inspectorButtonPro;
 using UnityEngine;
 using TMPro;
 using System.Globalization;
@@ -38,7 +37,6 @@ public class LevelProgressBar : ProgressBar
         Fill();
     }
 
-    [ProPlayButton]
     protected override void Fill()
     {
         Current++;

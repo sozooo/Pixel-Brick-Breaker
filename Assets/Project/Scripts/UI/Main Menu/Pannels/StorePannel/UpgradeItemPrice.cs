@@ -8,13 +8,13 @@ namespace UI.Main_Menu.Pannels.StorePannel
 
         private void OnEnable()
         {
-            upgradeItem.PriceChanged += ConvertPrice;
+            upgradeItem.PriceChanged += Convert;
             upgradeItem.LevelMaxed += MaxLevel;
         }
 
         private void OnDisable()
         {
-            upgradeItem.PriceChanged -= ConvertPrice;
+            upgradeItem.PriceChanged -= Convert;
             upgradeItem.LevelMaxed -= MaxLevel;
         }
         

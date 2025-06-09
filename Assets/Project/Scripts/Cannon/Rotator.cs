@@ -1,7 +1,6 @@
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using Zenject;
 
 [Serializable]
 public class Rotator

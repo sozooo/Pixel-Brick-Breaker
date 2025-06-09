@@ -14,7 +14,6 @@ public class BuyButton : MonoBehaviour, IExtraTimeButton
     
     private int _buybackPrice;
 
-
     private void Awake()
     {
         _buybackPrice =_basePrice;
@@ -24,7 +23,7 @@ public class BuyButton : MonoBehaviour, IExtraTimeButton
     {
         _buyButton.onClick.AddListener(Iteract);
         
-        _price.ConvertPrice(_buybackPrice);
+        _price.Convert(_buybackPrice);
     }
 
     private void OnDisable()

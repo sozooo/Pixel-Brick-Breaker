@@ -1,7 +1,6 @@
 using System;
 using Project.Scripts.WorkObjects.MessageBrokers;
 using UI;
-using UnityEngine;
 
 [Serializable]
 public class ExtraTimeAdButton : RewardAdButton, IExtraTimeButton
