@@ -26,7 +26,7 @@ namespace UI.Switches
 
             _dropdown.value = _dropdown.options.IndexOf(_dropdown.options
                 .FirstOrDefault(option => string
-                    .Equals(option.text, YG2.saves.Language, StringComparison.CurrentCultureIgnoreCase)));
+                    .Equals(option.text, YG2.lang, StringComparison.CurrentCultureIgnoreCase)));
         }
         
         private void OnDisable()
@@ -37,8 +37,6 @@ namespace UI.Switches
         private void SwitchLanguage(int index)
         {
             YG2.SwitchLanguage(_languageNames[index]);
-            
-            YG2.saves.Language = _languageNames[index];
         }
     }
 }

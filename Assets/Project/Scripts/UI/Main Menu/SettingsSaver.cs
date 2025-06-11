@@ -19,8 +19,6 @@ namespace UI.Main_Menu
             _musicSlider.Initialize(YG2.saves.MusicLevel);
             _soundSlider.Initialize(YG2.saves.SoundLevel);
             _muteSwitch.Initialize(YG2.saves.Muted);
-            
-            YG2.SwitchLanguage(YG2.saves.Language);
         }
 
         private void OnEnable()
