@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
 using WorkObjects.Handlers;
@@ -13,12 +14,15 @@ public class CompositionRoot : MonoBehaviour
     [Header("Figure Configuration")]
     [SerializeField] private FigureSpawner _figureSpawner;
 
-    [Header("Level Configuration")]
+    [Header("Level Configuration")] 
+    [SerializeField] private List<PausePannel> _pausePannels;
     [SerializeField] private CountDown _countDown;
     [SerializeField] private LevelProgressBar _levelProgressBar;
     [SerializeField] private float _bonusTime = 7f;
 
     [Inject] private TimerHandler _timerHandler;
+    [Inject] private GamePauser _gamePauser;
+    
     private CancellationTokenSource _cancellationToken;
     
     private void Awake()
@@ -33,6 +37,7 @@ public class CompositionRoot : MonoBehaviour
     {
         _levelProgressBar.ResetBar();
         _timerHandler.Initialize(_bonusTime, _cancellationToken.Token);
+        _gamePauser.Initialize(_pausePannels, _cancellationToken.Token);
 
         if (YG2.isFirstGameSession)
         {
