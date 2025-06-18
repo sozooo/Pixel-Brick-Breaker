@@ -45,7 +45,7 @@ public class Figure : MonoBehaviour, ISpawnable<Figure>, IDamageable
         _cancellationTokenSource?.Cancel();
         _cancellationTokenSource = new CancellationTokenSource();
         
-        _transform.localScale = config.scale;
+        _transform.localScale = config.Scale;
         
         ClearReward = config.Voxels.Count;
         _currentVoxelCount = config.Voxels.Count;

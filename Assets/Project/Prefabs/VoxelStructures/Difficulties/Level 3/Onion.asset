@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b72bde194f554951a46e143989afabc5, type: 3}
   m_Name: Onion
   m_EditorClassIdentifier: 
-  Voxels:
+  <Voxels>k__BackingField:
   - <Position>k__BackingField: {x: 6, y: 4}
     <Color>k__BackingField: {r: 0.85882354, g: 0.59607846, b: 0.84705883, a: 1}
   - <Position>k__BackingField: {x: 7, y: 4}
@@ -379,6 +379,6 @@ MonoBehaviour:
     <Color>k__BackingField: {r: 0.85882354, g: 0.59607846, b: 0.84705883, a: 1}
   - <Position>k__BackingField: {x: 5, y: 13}
     <Color>k__BackingField: {r: 0.45490196, g: 0.0627451, b: 0.54901963, a: 1}
-  width: 15
-  height: 16
-  scale: {x: 0.25, y: 0.25, z: 0.25}
+  <Width>k__BackingField: 15
+  <Height>k__BackingField: 16
+  <Scale>k__BackingField: {x: 0.25, y: 0.25, z: 0.25}

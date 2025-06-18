@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b72bde194f554951a46e143989afabc5, type: 3}
   m_Name: Nemo
   m_EditorClassIdentifier: 
-  Voxels:
+  <Voxels>k__BackingField:
   - <Position>k__BackingField: {x: 1, y: 3}
     <Color>k__BackingField: {r: 0.5254902, g: 0.13725491, b: 0.07058824, a: 1}
   - <Position>k__BackingField: {x: 2, y: 3}
@@ -213,6 +213,6 @@ MonoBehaviour:
     <Color>k__BackingField: {r: 0.5254902, g: 0.13725491, b: 0.07058824, a: 1}
   - <Position>k__BackingField: {x: 7, y: 2}
     <Color>k__BackingField: {r: 0.5254902, g: 0.13725491, b: 0.07058824, a: 1}
-  width: 15
-  height: 12
-  scale: {x: 0.25, y: 0.25, z: 0.25}
+  <Width>k__BackingField: 15
+  <Height>k__BackingField: 12
+  <Scale>k__BackingField: {x: 0.25, y: 0.25, z: 0.25}

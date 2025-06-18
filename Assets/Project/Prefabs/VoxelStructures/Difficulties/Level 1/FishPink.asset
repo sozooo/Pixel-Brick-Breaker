@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b72bde194f554951a46e143989afabc5, type: 3}
   m_Name: FishPink
   m_EditorClassIdentifier: 
-  Voxels:
+  <Voxels>k__BackingField:
   - <Position>k__BackingField: {x: 0, y: 4}
     <Color>k__BackingField: {r: 0.6666667, g: 0.101960786, b: 0.7137255, a: 1}
   - <Position>k__BackingField: {x: 1, y: 4}
@@ -231,6 +231,6 @@ MonoBehaviour:
     <Color>k__BackingField: {r: 0.93333334, g: 0.5411765, b: 0.7019608, a: 1}
   - <Position>k__BackingField: {x: 8, y: 3}
     <Color>k__BackingField: {r: 0.6666667, g: 0.101960786, b: 0.7137255, a: 1}
-  width: 15
-  height: 15
-  scale: {x: 0.25, y: 0.25, z: 0.25}
+  <Width>k__BackingField: 15
+  <Height>k__BackingField: 15
+  <Scale>k__BackingField: {x: 0.25, y: 0.25, z: 0.25}

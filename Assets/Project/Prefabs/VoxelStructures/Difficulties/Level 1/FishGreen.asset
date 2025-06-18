@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b72bde194f554951a46e143989afabc5, type: 3}
   m_Name: FishGreen
   m_EditorClassIdentifier: 
-  Voxels:
+  <Voxels>k__BackingField:
   - <Position>k__BackingField: {x: 1, y: 5}
     <Color>k__BackingField: {r: 0.10980392, g: 0.3372549, b: 0.19215687, a: 1}
   - <Position>k__BackingField: {x: 2, y: 5}
@@ -217,6 +217,6 @@ MonoBehaviour:
     <Color>k__BackingField: {r: 0.45490196, g: 0.972549, b: 0.6313726, a: 1}
   - <Position>k__BackingField: {x: 11, y: 4}
     <Color>k__BackingField: {r: 0.10980392, g: 0.3372549, b: 0.19215687, a: 1}
-  width: 15
-  height: 14
-  scale: {x: 0.25, y: 0.25, z: 0.25}
+  <Width>k__BackingField: 15
+  <Height>k__BackingField: 14
+  <Scale>k__BackingField: {x: 0.25, y: 0.25, z: 0.25}

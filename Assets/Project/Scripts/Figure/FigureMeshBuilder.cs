@@ -28,11 +28,11 @@ namespace Project.Scripts.Figure
             
             _removedVoxels.Clear();
             
-            _voxels = new Voxel[_config.width, _config.height];
+            _voxels = new Voxel[_config.Width, _config.Height];
             
-            for (int x = 0; x < _config.width; x++) 
+            for (int x = 0; x < _config.Width; x++) 
             {
-                for (int y = 0; y < _config.height; y++)
+                for (int y = 0; y < _config.Height; y++)
                 {
                     Voxel voxel = _config.Voxels.FirstOrDefault(voxel => voxel.Position == new Vector2Int(x, y));
 
@@ -50,9 +50,9 @@ namespace Project.Scripts.Figure
         
         public void ApplyDamage(Vector2 contactPosition, float radius) 
         {
-            for (int x = 0; x < _config.width; x++) 
+            for (int x = 0; x < _config.Width; x++) 
             {
-                for (int y = 0; y < _config.height; y++) 
+                for (int y = 0; y < _config.Height; y++) 
                 {
                     Vector2Int position = new Vector2Int(x, y);
                     
@@ -73,7 +73,7 @@ namespace Project.Scripts.Figure
         
         public bool VoxelExists(int x, int y) 
         {
-            if (x < 0 || x >= _config.width || y < 0 || y >= _config.height) 
+            if (x < 0 || x >= _config.Width || y < 0 || y >= _config.Height) 
                 return false;
             
             return _removedVoxels.Contains(new Vector2Int(x, y)) == false;
@@ -81,9 +81,9 @@ namespace Project.Scripts.Figure
 
         public void VoxelsFall()
         {
-            for (int x = 0; x < _config.width; x++) 
+            for (int x = 0; x < _config.Width; x++) 
             {
-                for (int y = 0; y < _config.height; y++) 
+                for (int y = 0; y < _config.Height; y++) 
                 {
                     Vector2Int position = new Vector2Int(x, y);
                     
@@ -107,9 +107,9 @@ namespace Project.Scripts.Figure
 
             int quadIndex = 0;
 
-            for (int x = 0; x < _config.width; x++) 
+            for (int x = 0; x < _config.Width; x++) 
             {
-                for (int y = 0; y < _config.height; y++) 
+                for (int y = 0; y < _config.Height; y++) 
                 {
                     Vector2Int pos = new Vector2Int(x, y);
                     

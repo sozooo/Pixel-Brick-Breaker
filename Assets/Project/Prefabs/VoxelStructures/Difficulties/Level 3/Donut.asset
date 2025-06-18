@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b72bde194f554951a46e143989afabc5, type: 3}
   m_Name: Donut
   m_EditorClassIdentifier: 
-  Voxels:
+  <Voxels>k__BackingField:
   - <Position>k__BackingField: {x: 0, y: 6}
     <Color>k__BackingField: {r: 0.24313726, g: 0.06666667, b: 0.06666667, a: 1}
   - <Position>k__BackingField: {x: 1, y: 6}
@@ -369,6 +369,6 @@ MonoBehaviour:
     <Color>k__BackingField: {r: 0.6431373, g: 0.3137255, b: 0.08235294, a: 1}
   - <Position>k__BackingField: {x: 14, y: 5}
     <Color>k__BackingField: {r: 0.6431373, g: 0.3137255, b: 0.08235294, a: 1}
-  width: 16
-  height: 15
-  scale: {x: 0.25, y: 0.25, z: 0.25}
+  <Width>k__BackingField: 16
+  <Height>k__BackingField: 15
+  <Scale>k__BackingField: {x: 0.25, y: 0.25, z: 0.25}

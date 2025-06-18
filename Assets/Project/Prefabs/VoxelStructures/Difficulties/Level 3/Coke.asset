@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b72bde194f554951a46e143989afabc5, type: 3}
   m_Name: Coke
   m_EditorClassIdentifier: 
-  Voxels:
+  <Voxels>k__BackingField:
   - <Position>k__BackingField: {x: 0, y: 5}
     <Color>k__BackingField: {r: 0.39607844, g: 0.03529412, b: 0.03529412, a: 1}
   - <Position>k__BackingField: {x: 1, y: 5}
@@ -353,6 +353,6 @@ MonoBehaviour:
     <Color>k__BackingField: {r: 0.6156863, g: 0.14509805, b: 0.08235294, a: 1}
   - <Position>k__BackingField: {x: 11, y: 4}
     <Color>k__BackingField: {r: 0.39607844, g: 0.03529412, b: 0.03529412, a: 1}
-  width: 12
-  height: 16
-  scale: {x: 0.25, y: 0.25, z: 0.25}
+  <Width>k__BackingField: 12
+  <Height>k__BackingField: 16
+  <Scale>k__BackingField: {x: 0.25, y: 0.25, z: 0.25}

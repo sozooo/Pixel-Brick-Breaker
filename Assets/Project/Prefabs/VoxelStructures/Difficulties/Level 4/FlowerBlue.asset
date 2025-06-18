@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b72bde194f554951a46e143989afabc5, type: 3}
   m_Name: FlowerBlue
   m_EditorClassIdentifier: 
-  Voxels:
+  <Voxels>k__BackingField:
   - <Position>k__BackingField: {x: 1, y: 10}
     <Color>k__BackingField: {r: 0.11372549, g: 0.3137255, b: 0.9647059, a: 1}
   - <Position>k__BackingField: {x: 2, y: 10}
@@ -441,6 +441,6 @@ MonoBehaviour:
     <Color>k__BackingField: {r: 0.95686275, g: 0.9411765, b: 0.039215688, a: 1}
   - <Position>k__BackingField: {x: 11, y: 16}
     <Color>k__BackingField: {r: 0.95686275, g: 0.9411765, b: 0.039215688, a: 1}
-  width: 20
-  height: 17
-  scale: {x: 0.2, y: 0.2, z: 0.2}
+  <Width>k__BackingField: 20
+  <Height>k__BackingField: 17
+  <Scale>k__BackingField: {x: 0.2, y: 0.2, z: 0.2}

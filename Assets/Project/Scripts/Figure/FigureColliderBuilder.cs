@@ -43,11 +43,11 @@ namespace Project.Scripts.Figure
         
         private void BuildColliders()
         {
-            var used = new bool[_config.width, _config.height];
+            var used = new bool[_config.Width, _config.Height];
 
-            for (int y = 0; y < _config.height; y++)
+            for (int y = 0; y < _config.Height; y++)
             {
-                for (int x = 0; x < _config.width; x++)
+                for (int x = 0; x < _config.Width; x++)
                 {
                     if (used[x, y] || _voxelChecker.VoxelExists(x, y) == false) 
                         continue;
@@ -55,12 +55,12 @@ namespace Project.Scripts.Figure
                     int width = 1;
                     int height = 1;
 
-                    while (x + width < _config.width && _voxelChecker.VoxelExists(x + width, y) && used[x + width, y] == false)
+                    while (x + width < _config.Width && _voxelChecker.VoxelExists(x + width, y) && used[x + width, y] == false)
                         width++;
 
                     bool canGrow = true;
                     
-                    while (canGrow && y + height < _config.height)
+                    while (canGrow && y + height < _config.Height)
                     {
                         for (int dx = 0; dx < width; dx++)
                         {

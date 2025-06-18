@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b72bde194f554951a46e143989afabc5, type: 3}
   m_Name: Kiwi
   m_EditorClassIdentifier: 
-  Voxels:
+  <Voxels>k__BackingField:
   - <Position>k__BackingField: {x: 5, y: 0}
     <Color>k__BackingField: {r: 0.3647059, g: 0.23137255, b: 0.09803922, a: 1}
   - <Position>k__BackingField: {x: 6, y: 0}
@@ -423,6 +423,6 @@ MonoBehaviour:
     <Color>k__BackingField: {r: 0.9372549, g: 0.68235296, b: 0.41960785, a: 1}
   - <Position>k__BackingField: {x: 16, y: 7}
     <Color>k__BackingField: {r: 0.6392157, g: 0.4, b: 0.16470589, a: 1}
-  width: 17
-  height: 15
-  scale: {x: 0.2, y: 0.2, z: 0.2}
+  <Width>k__BackingField: 17
+  <Height>k__BackingField: 15
+  <Scale>k__BackingField: {x: 0.2, y: 0.2, z: 0.2}
