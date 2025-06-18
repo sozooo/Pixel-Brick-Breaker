@@ -25,7 +25,7 @@ public class CountDown : MonoBehaviour
     
     private IEnumerator CountingDown()
     {
-        WaitForSecondsRealtime wait = new(_step);
+        WaitForSeconds wait = new(_step);
     
         for (int i = _seconds; i >= _countDownMinimum; i--)
         {

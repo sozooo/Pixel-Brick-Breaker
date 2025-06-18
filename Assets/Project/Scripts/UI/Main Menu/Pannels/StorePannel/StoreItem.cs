@@ -5,19 +5,23 @@ namespace UI.Main_Menu.Pannels.StorePannel
 {
     public abstract class StoreItem : MonoBehaviour
     {
-        [SerializeField] private Button _button;
+        [SerializeField] protected Button Button;
 
         private void OnEnable()
         {
-            _button.onClick.AddListener(Buy);
+            Subscribe();
         }
 
         private void OnDestroy()
         {
-            
-            _button?.onClick.RemoveListener(Buy);
+            Button?.onClick.RemoveListener(Buy);
         }
 
         protected abstract void Buy();
+
+        protected virtual void Subscribe()
+        {
+            Button.onClick.AddListener(Buy);
+        }
     }
 }

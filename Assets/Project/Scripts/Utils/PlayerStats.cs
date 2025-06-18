@@ -9,8 +9,8 @@ public class PlayerStats : MonoBehaviour
 { 
     [SerializeField] private string _leaderboardName;
     
-    private Dictionary<string, float> _purchaseItems;
-    private string _removeAdId;
+    private Dictionary<string, int> _purchaseItems;
+    private RemoveAdItem _removeAdItem;
     
     public event Action CoinsCountChanged;
 
@@ -27,14 +27,17 @@ public class PlayerStats : MonoBehaviour
         if (purchases == null || removeAd == null)
             return;
         
-        _purchaseItems = new Dictionary<string, float>();
+        _purchaseItems = new Dictionary<string, int>();
 
         foreach (PurchaseItem item in purchases)
         {
             _purchaseItems.Add(item.Purchase.id, item.CoinsCount);
         }
 
-        _removeAdId = removeAd.Purchase.id;
+        _removeAdItem = removeAd;
+
+        if (YG2.saves.IsAdRemoved)
+            _removeAdItem.BuyButton.interactable = false;
         
         YG2.onPurchaseSuccess += ProceedPurchase;
 
@@ -83,17 +86,13 @@ public class PlayerStats : MonoBehaviour
 
     private void ProceedPurchase(string id)
     {
-        if (id == _removeAdId)
-        {
+        if (id == _removeAdItem.Purchase.id)
             RemoveAd();
 
-            return;
-        }
-
-        if (_purchaseItems.TryGetValue(id, out float cost) == false)
+        if (_purchaseItems.TryGetValue(id, out int cost) == false)
             return;
         
-        Earn(Mathf.RoundToInt(cost));
+        Earn(cost);
         
         YG2.ConsumePurchases();
     }
@@ -101,6 +100,10 @@ public class PlayerStats : MonoBehaviour
     private void RemoveAd()
     {
         YG2.saves.IsAdRemoved = true;
+        
+        YG2.StickyAdActivity(false);
+        
+        _removeAdItem.BuyButton.interactable = false;
         
         SavePlayerStats();
     }

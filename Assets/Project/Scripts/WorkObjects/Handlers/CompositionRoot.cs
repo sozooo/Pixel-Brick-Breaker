@@ -25,19 +25,15 @@ public class CompositionRoot : MonoBehaviour
     
     private CancellationTokenSource _cancellationToken;
     
-    private void Awake()
+    private void OnEnable()
     {
         _cancellationToken?.Cancel();
         _cancellationToken = new CancellationTokenSource();
         
-        _figureSpawner.Initialize(_cancellationToken.Token);
-    }
-
-    private void OnEnable()
-    {
         _levelProgressBar.ResetBar();
         _timerHandler.Initialize(_bonusTime, _cancellationToken.Token);
         _gamePauser.Initialize(_pausePannels, _cancellationToken.Token);
+        _figureSpawner.Initialize(_cancellationToken.Token);
 
         if (YG2.isFirstGameSession)
         {
