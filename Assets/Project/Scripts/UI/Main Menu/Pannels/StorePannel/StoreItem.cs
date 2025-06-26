@@ -9,19 +9,14 @@ namespace UI.Main_Menu.Pannels.StorePannel
 
         private void OnEnable()
         {
-            Subscribe();
+            Button.onClick.AddListener(Buy);
         }
 
-        private void OnDestroy()
+        private void OnDisable()
         {
             Button?.onClick.RemoveListener(Buy);
         }
 
         protected abstract void Buy();
-
-        protected virtual void Subscribe()
-        {
-            Button.onClick.AddListener(Buy);
-        }
     }
 }

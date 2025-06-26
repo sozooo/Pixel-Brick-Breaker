@@ -5,7 +5,6 @@ using Cysharp.Threading.Tasks;
 using Project.Scripts.WorkObjects.MessageBrokers;
 using UniRx;
 using UnityEngine;
-using YG;
 
 namespace WorkObjects.Handlers
 {
@@ -37,13 +36,18 @@ namespace WorkObjects.Handlers
                 return;
 
             _isPaused = message.IsPaused;
-            
-            if(_isPaused)
+
+            if (_isPaused)
+            {
                 _input.Disable();
+                Time.timeScale = 0;
+            }
             else
+            {
                 _input.Enable();
-        
-            YG2.PauseGameNoEditEventSystem(_isPaused);
+                
+                Time.timeScale = 1;
+            }
         }
     }
 }

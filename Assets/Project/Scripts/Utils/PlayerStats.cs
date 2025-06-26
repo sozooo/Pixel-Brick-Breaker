@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UI.Main_Menu.Pannels.StorePannel;
+using Unity.VisualScripting;
 using UnityEngine;
 using YG;
 using Zenject;
@@ -8,33 +10,29 @@ using Zenject;
 public class PlayerStats : MonoBehaviour
 { 
     [SerializeField] private string _leaderboardName;
+    [Inject] private List<PurchaseItem> _purchases;
+    [Inject] private RemoveAdItem _removeAd;
     
     private Dictionary<string, int> _purchaseItems;
     private RemoveAdItem _removeAdItem;
     
     public event Action CoinsCountChanged;
 
-    private void OnDisable()
-    {
-        YG2.onPurchaseSuccess -= ProceedPurchase;
-    }
-
-    [Inject]
-    private void InitializePurchases([InjectOptional] List<PurchaseItem> purchases, [InjectOptional] RemoveAdItem removeAd)
+    private void OnEnable()
     {
         YG2.StickyAdActivity(false);
         
-        if (purchases == null || removeAd == null)
+        if (_purchases.Any() == false || _removeAd == null)
             return;
         
         _purchaseItems = new Dictionary<string, int>();
 
-        foreach (PurchaseItem item in purchases)
+        foreach (PurchaseItem item in _purchases)
         {
             _purchaseItems.Add(item.Purchase.id, item.CoinsCount);
         }
 
-        _removeAdItem = removeAd;
+        _removeAdItem = _removeAd;
 
         if (YG2.saves.IsAdRemoved)
             _removeAdItem.BuyButton.interactable = false;
@@ -42,6 +40,11 @@ public class PlayerStats : MonoBehaviour
         YG2.onPurchaseSuccess += ProceedPurchase;
 
         YG2.ConsumePurchases();
+    }
+    
+    private void OnDisable()
+    {
+        YG2.onPurchaseSuccess -= ProceedPurchase;
     }
     
     public bool TryBuy(int cost)
