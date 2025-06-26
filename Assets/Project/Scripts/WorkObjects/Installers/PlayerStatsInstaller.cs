@@ -7,7 +7,6 @@ namespace Project.Scripts.WorkObjects
 {
     public class PlayerStatsInstaller : MonoInstaller
     {
-        [SerializeField] private PlayerStats playerStats;
         [SerializeField] private List<PurchaseItem> _purchases;
         [SerializeField] private RemoveAdItem _removeAd;
         
@@ -16,7 +15,7 @@ namespace Project.Scripts.WorkObjects
             Container.Bind<List<PurchaseItem>>().FromInstance(_purchases).AsSingle();
             Container.Bind<RemoveAdItem>().FromInstance(_removeAd).AsSingle();
 
-            Container.Bind<PlayerStats>().FromInstance(playerStats).AsSingle();
+            Container.BindInterfacesAndSelfTo<PlayerStats>().FromNew().AsSingle();
         }
     }
 }

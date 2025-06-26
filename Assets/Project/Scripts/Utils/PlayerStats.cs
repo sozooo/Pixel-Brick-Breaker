@@ -2,14 +2,15 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UI.Main_Menu.Pannels.StorePannel;
-using Unity.VisualScripting;
 using UnityEngine;
 using YG;
 using Zenject;
+using IInitializable = Zenject.IInitializable;
 
-public class PlayerStats : MonoBehaviour
+public class PlayerStats : IInitializable, IDisposable
 { 
-    [SerializeField] private string _leaderboardName;
+    private const string LeaderboardName = "leaderboard";
+    
     [Inject] private List<PurchaseItem> _purchases;
     [Inject] private RemoveAdItem _removeAd;
     
@@ -17,8 +18,8 @@ public class PlayerStats : MonoBehaviour
     private RemoveAdItem _removeAdItem;
     
     public event Action CoinsCountChanged;
-
-    private void OnEnable()
+    
+    public void Initialize()
     {
         YG2.StickyAdActivity(false);
         
@@ -41,8 +42,8 @@ public class PlayerStats : MonoBehaviour
 
         YG2.ConsumePurchases();
     }
-    
-    private void OnDisable()
+
+    public void Dispose()
     {
         YG2.onPurchaseSuccess -= ProceedPurchase;
     }
@@ -82,7 +83,7 @@ public class PlayerStats : MonoBehaviour
             return;
         
         YG2.saves.Highscore = newHighscore;
-        YG2.SetLeaderboard(_leaderboardName, Mathf.RoundToInt(newHighscore));
+        YG2.SetLeaderboard(LeaderboardName, Mathf.RoundToInt(newHighscore));
         
         SavePlayerStats();
     }
