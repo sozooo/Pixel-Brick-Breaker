@@ -9993,7 +9993,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: START
+  m_text: OYNAMAK
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ed64582146d1a49adbc0463f46827b65, type: 2}
   m_sharedMaterial: {fileID: 4644614463459987610, guid: ed64582146d1a49adbc0463f46827b65, type: 2}
@@ -10059,7 +10059,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 1
+  m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &946662962
@@ -10146,7 +10146,7 @@ MonoBehaviour:
       hi: []
     fontsTMP:
       defaultFont:
-      - {fileID: 11400000, guid: c85b584c8120c4dac9689fc3a2210884, type: 2}
+      - {fileID: 11400000, guid: 6d50b12c800ec4151ad88211d6b5de39, type: 2}
       ru: []
       en: []
       tr: []
@@ -10205,7 +10205,7 @@ MonoBehaviour:
   text: 
   ru: "\u041D\u0410\u0427\u0410\u0422\u042C"
   en: START
-  tr: START
+  tr: OYNAMAK
   az: 
   be: 
   he: 
