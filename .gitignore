@@ -73,3 +73,15 @@ crashlytics-build.properties
 
 # macOS
 .DS_Store
+
+# Visual Studio / Rider / JetBrains
+.idea/
+*.userosscache
+*.sln.docstates
+
+# VS Code
+.vscode/
+
+# Rider-specific
+*.DotSettings
+*.sln.iml

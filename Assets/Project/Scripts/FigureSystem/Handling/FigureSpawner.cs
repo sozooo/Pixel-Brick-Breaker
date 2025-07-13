@@ -40,29 +40,24 @@ namespace Project.Scripts.FigureSystem.Handling
         
             OnLevelRaised();
         }
-    
-        public override Figure Spawn()
+
+        protected override void OnSpawned(Figure figure)
         {
-            Figure figure = Pool.Give();
-        
-            figure.Despawned += OnDespawned;
-        
             figure.Initialize(_spawnPoint.position, _spawnPoint.rotation);
-            figure.gameObject.SetActive(true);
             figure.ApplyConfig(_mainFiguresList.GetRandom());
+            
+            figure.gameObject.SetActive(true);
         
             MessageBrokerHolder.Figure
                 .Publish(default(M_FigureSpawned));
-
-            return figure;
         }
-    
+
         protected override void OnDespawned(Figure figure)
         {
+            base.OnDespawned(figure);
+            
             MessageBrokerHolder.Figure
                 .Publish(new M_FigureFell(figure));
-        
-            base.OnDespawned(figure);
 
             TimerBeforeDespawn(figure, _cancellationToken).Forget();
         }

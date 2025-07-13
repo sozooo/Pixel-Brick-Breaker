@@ -2,10 +2,11 @@ namespace Project.Scripts.WorkObjects.Enums
 {
     public enum Directions
     {
-        Left = 0,
-        Right = 1,
-        Up = 2,
-        Down = 3,
-        Front = 4,
+        Front = 0,
+        Back = 1,
+        Left = 2,
+        Right = 3,
+        Up = 4,
+        Down = 5,
     }
 }

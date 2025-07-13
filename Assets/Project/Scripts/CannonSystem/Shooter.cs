@@ -23,7 +23,7 @@ namespace Project.Scripts.CannonSystem
 
         private CancellationTokenSource _cancellationToken; 
         private float _bulletCount;
-        private UniTask _cooldawn;
+        private UniTask _cooldown;
 
         public event Action<float> BulletCountChanged;
 
@@ -49,7 +49,7 @@ namespace Project.Scripts.CannonSystem
 
         public void Shoot()
         {
-            if (_cooldawn.Status == UniTaskStatus.Pending)
+            if (_cooldown.Status == UniTaskStatus.Pending)
                 return;
         
             if (_bulletCount <= 0) return;
@@ -62,18 +62,7 @@ namespace Project.Scripts.CannonSystem
             _bulletCount--;
         
             BulletCountChanged?.Invoke(_bulletCount);
-            _cooldawn = CoolDawn(_cancellationToken.Token);
-        }
-
-        public override Bullet Spawn()
-        {
-            Bullet bullet = Pool.Give();
-        
-            bullet.Despawned += OnDespawned;
-            bullet.Initialize(_spawnpoint.position, _spawnpoint.rotation);
-            bullet.gameObject.SetActive(true);
-
-            return bullet;
+            _cooldown = Cooldown(_cancellationToken.Token);
         }
     
         public void DropBullets()
@@ -89,10 +78,16 @@ namespace Project.Scripts.CannonSystem
             _bullets.Clear();
         }
 
+        protected override void OnSpawned(Bullet bullet)
+        {
+            bullet.Initialize(_spawnpoint.position, _spawnpoint.rotation);
+            bullet.gameObject.SetActive(true);
+        }
+
         protected override void OnDespawned(Bullet bullet)
         {
             base.OnDespawned(bullet);
-        
+            
             Pool.Add(bullet);
 
             _bullets.Remove(bullet);
@@ -102,7 +97,7 @@ namespace Project.Scripts.CannonSystem
             BulletCountChanged?.Invoke(_bulletCount);
         }
 
-        private async UniTask CoolDawn(CancellationToken token)
+        private async UniTask Cooldown(CancellationToken token)
         {
             await UniTask.Delay(TimeSpan.FromSeconds(_shootColldawn), cancellationToken: token);
         }

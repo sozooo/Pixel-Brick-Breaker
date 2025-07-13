@@ -10,11 +10,32 @@ namespace Project.Scripts.WorkObjects
     {
         [SerializeField] protected ObjectPool<T> Pool;
 
-        public abstract T Spawn();
-
-        protected virtual void OnDespawned(T spawnable)
+        public T Spawn()
         {
-            spawnable.Despawned -= OnDespawned;
+            T spawnable = Pool.Give();
+            
+            if (spawnable == null)
+                throw new InvalidOperationException("No spawnable available in the pool");
+
+            spawnable.Despawned += Despawn;
+
+            OnSpawned(spawnable);
+            
+            return spawnable;
         }
+
+        public void Despawn(T spawnable)
+        {
+            if (spawnable == null)
+                throw new ArgumentNullException(nameof(spawnable), "Spawnable cannot be null");
+
+            spawnable.Despawned -= Despawn;
+            
+            OnDespawned(spawnable);
+        }
+        
+        protected virtual void OnSpawned(T spawnable) { }
+        
+        protected virtual void OnDespawned(T spawnable) { }
     }
 }
