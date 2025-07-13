@@ -12,7 +12,7 @@ namespace Project.Scripts.FigureSystem
     [Serializable]
     public class FigureMeshBuilder : IVoxelChecker
     {
-        private readonly HashSet<Vector2Int> _removedVoxels = new HashSet<Vector2Int>();
+        private readonly HashSet<Vector2Int> _removedVoxels = new ();
         
         [SerializeField] private MeshFilter _meshFilter;
 
@@ -220,6 +220,7 @@ namespace Project.Scripts.FigureSystem
                     break;
 
                 case Directions.Front:
+                case Directions.Back:
                 default:
                     vertices.AddRange(new[] { baseBottomLeft, baseBottomRight, baseTopLeft, baseTopRight });
                     break;

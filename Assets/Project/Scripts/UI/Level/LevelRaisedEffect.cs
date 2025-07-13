@@ -17,7 +17,7 @@ namespace Project.Scripts.UI.Level
         {
             MessageBrokerHolder.Game
                 .Receive<M_LevelRaised>()
-                .Subscribe(message => HandleLevelRaised())
+                .Subscribe(_ => HandleLevelRaised())
                 .AddTo(_disposable);
         }
 

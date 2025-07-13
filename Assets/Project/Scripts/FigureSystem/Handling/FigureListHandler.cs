@@ -11,7 +11,7 @@ namespace Project.Scripts.FigureSystem.Handling
         [Header("Figures Levels")]
         [SerializeField] private List<FigureList> _figureLists;
 
-        private int _currentLevel = 0;
+        private int _currentLevel;
 
         public FigureList LevelUp()
         {

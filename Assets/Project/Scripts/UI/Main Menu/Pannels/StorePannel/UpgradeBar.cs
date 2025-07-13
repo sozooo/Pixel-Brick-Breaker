@@ -5,8 +5,8 @@ namespace Project.Scripts.UI.Main_Menu.Pannels.StorePannel
 {
     public class UpgradeBar : MonoBehaviour
     {
-        private readonly float _fillPerLevel = 0.33f;
-    
+        private const float FillPerLevel = 0.33f;
+
         [SerializeField] private UpgradeItem _upgradeItem;
         [SerializeField] private Image _fill;
 
@@ -22,7 +22,7 @@ namespace Project.Scripts.UI.Main_Menu.Pannels.StorePannel
 
         private void Fill(int level)
         {
-            _fill.fillAmount = _fillPerLevel * level;
+            _fill.fillAmount = FillPerLevel * level;
         }
     }
 }

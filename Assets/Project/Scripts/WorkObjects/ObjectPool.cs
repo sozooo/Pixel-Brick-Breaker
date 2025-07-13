@@ -11,7 +11,7 @@ namespace Project.Scripts.WorkObjects
     {
         [SerializeField] private ObjectFabric<T> _fabric;
 
-        private Queue<T> _spawnables = new Queue<T>();
+        private Queue<T> _spawnables = new ();
 
         public void Add(T spawnable)
         {
