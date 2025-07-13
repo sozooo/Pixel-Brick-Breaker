@@ -1,21 +1,22 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Project.Scripts.FigureSystem.Handling;
+using Project.Scripts.WorkObjects.Enums;
 using Project.Scripts.WorkObjects.MessageBrokers;
 using Project.Scripts.WorkObjects.MessageBrokers.Figure;
 using UnityEngine;
-using WorkObjects.Enums;
 
-namespace Project.Scripts.Figure
+namespace Project.Scripts.FigureSystem
 {
     [Serializable]
     public class FigureMeshBuilder : IVoxelChecker
     {
+        private readonly HashSet<Vector2Int> _removedVoxels = new HashSet<Vector2Int>();
+        
         [SerializeField] private MeshFilter _meshFilter;
 
-        private readonly HashSet<Vector2Int> _removedVoxels = new HashSet<Vector2Int>();
         private Voxel[,] _voxels;
-    
         private FigureConfig _config;
         private Transform _transform;
         
@@ -139,7 +140,7 @@ namespace Project.Scripts.Figure
             {
                 vertices = vertices.ToArray(),
                 triangles = triangles.ToArray(),
-                colors = colors.ToArray()
+                colors = colors.ToArray(),
             };
             
             mesh.RecalculateNormals();
@@ -164,8 +165,16 @@ namespace Project.Scripts.Figure
                 colors.Add(color);
         }
         
-        private void AddSideQuad(int x, int y, Directions direction, Color color,
-            List<Vector3> vertices, List<int> triangles, List<Color> colors, ref int quadIndex)
+        private void AddSideQuad(
+            int x, 
+            int y, 
+            Directions direction, 
+            Color color,
+            List<Vector3> vertices, 
+            List<int> triangles, 
+            List<Color> colors, 
+            ref int quadIndex
+            )
         {
             Vector3 depthOffset = Vector3.forward;
 
@@ -228,9 +237,12 @@ namespace Project.Scripts.Figure
             _removedVoxels.Add(position);
                         
             MessageBrokerHolder.Figure
-                .Publish(new M_VoxelFell(_transform.TransformPoint((Vector3Int)position), 
-                    _transform.rotation, _transform.localScale, _config.Voxels
-                    .First(voxel => voxel.Position == position).Color));
+                .Publish(new M_VoxelFell(
+                    _transform.TransformPoint((Vector3Int)position), 
+                    _transform.rotation, 
+                    _transform.localScale, 
+                    _config.Voxels.First(voxel => voxel.Position == position).Color
+                    ));
             
             OnVoxelFell?.Invoke();
         }

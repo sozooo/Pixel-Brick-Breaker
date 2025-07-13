@@ -1,14 +1,15 @@
 using Project.Scripts.WorkObjects.MessageBrokers;
+using Project.Scripts.WorkObjects.MessageBrokers.Figure;
 using UniRx;
 using UnityEngine;
 
-namespace UI.Coins
+namespace Project.Scripts.UI.Coins
 {
     public class BonusRewardGroup : MonoBehaviour
     {
-        [SerializeField] private CanvasRenderer _bonus;
+        private readonly CompositeDisposable _disposable = new ();
         
-        private readonly CompositeDisposable _disposable = new();
+        [SerializeField] private CanvasRenderer _bonus;
 
         private void OnEnable()
         {

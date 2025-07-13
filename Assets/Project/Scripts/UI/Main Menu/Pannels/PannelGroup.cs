@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace UI.Main_Menu.Pannels
+namespace Project.Scripts.UI.Main_Menu.Pannels
 {
     public class PannelGroup : MonoBehaviour
     {
@@ -12,8 +12,8 @@ namespace UI.Main_Menu.Pannels
 
         public void Subscribe(Pannel pannel)
         {
-            if(!pannel)
-                throw new ArgumentNullException("pannel");
+            if(pannel == false)
+                throw new ArgumentNullException(pannel.name);
 
             _pannels ??= new List<Pannel>();
             

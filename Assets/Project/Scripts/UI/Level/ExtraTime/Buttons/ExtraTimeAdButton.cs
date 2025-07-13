@@ -1,19 +1,22 @@
 using System;
 using Project.Scripts.WorkObjects.MessageBrokers;
-using UI;
+using Project.Scripts.WorkObjects.MessageBrokers.Game;
 
-[Serializable]
-public class ExtraTimeAdButton : RewardAdButton, IExtraTimeButton
+namespace Project.Scripts.UI.Level.ExtraTime.Buttons
 {
-    public void AddTime()
+    [Serializable]
+    public class ExtraTimeAdButton : RewardAdButton, IExtraTimeButton
     {
-        MessageBrokerHolder.Game
-            .Publish(new M_TimePurchased());
-    }
+        public void AddTime()
+        {
+            MessageBrokerHolder.Game
+                .Publish(default(M_TimePurchased));
+        }
 
-    protected override void OnRewardedAdv(string adIndex)
-    {
-        if(adIndex == AdIndex.ToString())
-            AddTime();
+        protected override void OnRewardedAdv(string adIndex)
+        {
+            if (adIndex == AdIndex.ToString())
+                AddTime();
+        }
     }
 }

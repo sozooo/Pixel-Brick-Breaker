@@ -1,4 +1,6 @@
-namespace Project.Scripts.WorkObjects.MessageBrokers
+namespace Project.Scripts.WorkObjects.MessageBrokers.Game
 {
-    public struct M_GameStarted { }
+    public struct M_GameStarted
+    {
+    }
 }

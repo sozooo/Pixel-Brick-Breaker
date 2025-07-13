@@ -1,13 +1,16 @@
 using System.Globalization;
-using UI.Level.EndGamePannel.EndGameRows;
+using Project.Scripts.UI.Coins;
 using UnityEngine;
 
-public class EndGameCoinsCounter : EndGameRow
+namespace Project.Scripts.UI.Level.EndGamePannel.EndGameRows
 {
-    [SerializeField] private CoinDisplayer _coinDisplayer;
-    
-    protected override void Display()
+    public class EndGameCoinsCounter : EndGameRow
     {
-        Text.text = _coinDisplayer.LastValueSetted.ToString(CultureInfo.InvariantCulture);
+        [SerializeField] private CoinDisplayer _coinDisplayer;
+    
+        protected override void Display()
+        {
+            Text.text = _coinDisplayer.LastValueSetted.ToString(CultureInfo.InvariantCulture);
+        }
     }
 }

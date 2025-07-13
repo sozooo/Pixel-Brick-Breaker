@@ -1,26 +1,28 @@
-using UI.Main_Menu.Pannels.StorePannel;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UpgradeBar : MonoBehaviour
+namespace Project.Scripts.UI.Main_Menu.Pannels.StorePannel
 {
-    [SerializeField] private UpgradeItem _upgradeItem;
-    [SerializeField] private Image _fill;
-
-    private readonly float _fillPerLevel = 0.33f;
-
-    private void OnEnable()
+    public class UpgradeBar : MonoBehaviour
     {
-        _upgradeItem.Upgraded += Fill;
-    }
+        private readonly float _fillPerLevel = 0.33f;
     
-    private void OnDisable()
-    {
-        _upgradeItem.Upgraded -= Fill;
-    }
+        [SerializeField] private UpgradeItem _upgradeItem;
+        [SerializeField] private Image _fill;
 
-    private void Fill(int level)
-    {
-        _fill.fillAmount = _fillPerLevel * level;
+        private void OnEnable()
+        {
+            _upgradeItem.Upgraded += Fill;
+        }
+    
+        private void OnDisable()
+        {
+            _upgradeItem.Upgraded -= Fill;
+        }
+
+        private void Fill(int level)
+        {
+            _fill.fillAmount = _fillPerLevel * level;
+        }
     }
 }

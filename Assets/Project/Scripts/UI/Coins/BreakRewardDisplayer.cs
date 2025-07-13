@@ -1,27 +1,30 @@
 using System;
 
-public class BreakRewardDisplayer : RewardDisplayer
+namespace Project.Scripts.UI.Coins
 {
-    private float _fixedValue;
-
-    private void OnEnable()
+    public class BreakRewardDisplayer : RewardDisplayer
     {
-        Collector.CurrentRewardChanged += Display;
-    }
+        private float _fixedValue;
 
-    private void OnDisable()
-    {
-        Collector.CurrentRewardChanged -= Display;
-    }
+        private void OnEnable()
+        {
+            Collector.CurrentRewardChanged += Display;
+        }
 
-    protected override void Display(float value)
-    {
-        if (value < 0)
-            throw new ArgumentOutOfRangeException();
+        private void OnDisable()
+        {
+            Collector.CurrentRewardChanged -= Display;
+        }
 
-        float result = value - _fixedValue;
-        _fixedValue = value;
+        protected override void Display(float value)
+        {
+            if (value < 0)
+                throw new ArgumentOutOfRangeException();
 
-        base.Display(result);
+            float result = value - _fixedValue;
+            _fixedValue = value;
+
+            base.Display(result);
+        }
     }
 }

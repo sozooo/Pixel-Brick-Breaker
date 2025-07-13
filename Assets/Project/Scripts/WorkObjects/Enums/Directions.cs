@@ -1,4 +1,4 @@
-namespace WorkObjects.Enums
+namespace Project.Scripts.WorkObjects.Enums
 {
     public enum Directions
     {
@@ -6,6 +6,6 @@ namespace WorkObjects.Enums
         Right = 1,
         Up = 2,
         Down = 3,
-        Front = 4
+        Front = 4,
     }
 }

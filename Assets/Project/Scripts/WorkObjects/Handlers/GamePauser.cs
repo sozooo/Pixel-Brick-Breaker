@@ -2,11 +2,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using Cysharp.Threading.Tasks;
+using Project.Scripts.UI.Main_Menu.Pannels;
 using Project.Scripts.WorkObjects.MessageBrokers;
+using Project.Scripts.WorkObjects.MessageBrokers.Game;
 using UniRx;
 using UnityEngine;
 
-namespace WorkObjects.Handlers
+namespace Project.Scripts.WorkObjects.Handlers
 {
     public class GamePauser
     {

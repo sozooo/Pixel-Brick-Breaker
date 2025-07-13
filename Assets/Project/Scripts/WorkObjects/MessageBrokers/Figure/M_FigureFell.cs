@@ -1,9 +1,12 @@
-public struct M_FigureFell
+namespace Project.Scripts.WorkObjects.MessageBrokers.Figure
 {
-    public M_FigureFell(Figure figure)
+    public struct M_FigureFell
     {
-        Figure = figure;
-    }
+        public M_FigureFell(FigureSystem.Figure figure)
+        {
+            Figure = figure;
+        }
     
-    public Figure Figure { get; private set; }
+        public FigureSystem.Figure Figure { get; private set; }
+    }
 }

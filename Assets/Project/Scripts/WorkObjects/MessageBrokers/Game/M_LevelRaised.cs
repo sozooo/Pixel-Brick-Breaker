@@ -1,1 +1,6 @@
-public struct M_LevelRaised { }
+namespace Project.Scripts.WorkObjects.MessageBrokers.Game
+{
+    public struct M_LevelRaised
+    {
+    }
+}

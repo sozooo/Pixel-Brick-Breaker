@@ -1,12 +1,13 @@
 using System;
 using UnityEngine;
 
-namespace Project.Scripts.Figure
+namespace Project.Scripts.FigureSystem
 {
     [Serializable]
     public class Voxel
     {
-        public Voxel(Vector2Int pos, Color col) {
+        public Voxel(Vector2Int pos, Color col) 
+        {
             Position = pos;
             Color = col;
         }

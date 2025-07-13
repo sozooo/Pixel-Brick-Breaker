@@ -3,13 +3,16 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using YG;
 
-public class SceneLoader : MonoBehaviour
+namespace Project.Scripts.WorkObjects.Handlers
 {
-    public async UniTaskVoid LoadScene(int sceneId)
+    public class SceneLoader : MonoBehaviour
     {
-        if(YG2.saves.IsAdRemoved == false)
-            YG2.InterstitialAdvShow();
+        public async UniTaskVoid LoadScene(int sceneId)
+        {
+            if (YG2.saves.IsAdRemoved == false)
+                YG2.InterstitialAdvShow();
         
-        await SceneManager.LoadSceneAsync(sceneId);
+            await SceneManager.LoadSceneAsync(sceneId);
+        }
     }
 }

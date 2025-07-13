@@ -1,7 +1,7 @@
-using WorkObjects.Handlers;
+using Project.Scripts.WorkObjects.Handlers;
 using Zenject;
 
-namespace Project.Scripts.WorkObjects
+namespace Project.Scripts.WorkObjects.Installers
 {
     public class PlayerInputInstaller : MonoInstaller
     {

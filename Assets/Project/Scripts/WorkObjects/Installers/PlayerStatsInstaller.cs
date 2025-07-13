@@ -1,9 +1,11 @@
 using System.Collections.Generic;
-using UI.Main_Menu.Pannels.StorePannel;
+using System.Linq;
+using Project.Scripts.UI.Main_Menu.Pannels.StorePannel;
+using Project.Scripts.Utils;
 using UnityEngine;
 using Zenject;
 
-namespace Project.Scripts.WorkObjects
+namespace Project.Scripts.WorkObjects.Installers
 {
     public class PlayerStatsInstaller : MonoInstaller
     {

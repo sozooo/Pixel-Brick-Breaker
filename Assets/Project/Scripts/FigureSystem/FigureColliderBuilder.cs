@@ -1,19 +1,20 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Project.Scripts.FigureSystem.Handling;
 using UnityEngine;
 
-namespace Project.Scripts.Figure
+namespace Project.Scripts.FigureSystem
 {
     [Serializable]
     public class FigureColliderBuilder
     {
+        private readonly List<BoxCollider> _colliders = new ();
+        
         [SerializeField] private GameObject _colliderHolder;
         
         private FigureConfig _config;
         private IVoxelChecker _voxelChecker;
-
-        private readonly List<BoxCollider> _colliders = new();
         
         public void Initialize(FigureConfig config, IVoxelChecker meshBuilder)
         {
@@ -70,7 +71,9 @@ namespace Project.Scripts.Figure
                             canGrow = false;
                             break;
                         }
-                        if (canGrow) height++;
+                        
+                        if (canGrow) 
+                            height++;
                     }
 
                     for (int deltaY = 0; deltaY < height; deltaY++)
@@ -81,7 +84,7 @@ namespace Project.Scripts.Figure
                         }
                     }
                     
-                    if(TryGetCollider(out BoxCollider boxCollider) == false)
+                    if (TryGetCollider(out BoxCollider boxCollider) == false)
                         boxCollider = _colliderHolder.AddComponent<BoxCollider>();
 
                     boxCollider.enabled = true;

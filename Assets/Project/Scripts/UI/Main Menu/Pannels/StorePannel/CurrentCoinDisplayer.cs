@@ -1,8 +1,9 @@
+using Project.Scripts.Utils;
 using UnityEngine;
 using YG;
 using Zenject;
 
-namespace UI.Main_Menu.Pannels.StorePannel
+namespace Project.Scripts.UI.Main_Menu.Pannels.StorePannel
 {
     public class CurrentCoinDisplayer : MonoBehaviour
     {

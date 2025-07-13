@@ -1,4 +1,6 @@
 namespace Project.Scripts.WorkObjects.MessageBrokers.Figure
 {
-    public struct M_FigureSpawned { }
+    public struct M_FigureSpawned
+    {
+    }
 }

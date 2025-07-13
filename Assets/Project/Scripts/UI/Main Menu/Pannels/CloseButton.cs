@@ -3,29 +3,32 @@ using UnityEngine;
 using UnityEngine.UI;
 using YG;
 
-[RequireComponent(typeof(Button))]
-public class CloseButton : MonoBehaviour
+namespace Project.Scripts.UI.Main_Menu.Pannels
 {
-    [SerializeField] private Pannel _parentPannel;
-    
-    private Button _button;
-    
-    public event Action Closed;
-
-    private void Awake()
+    [RequireComponent(typeof(Button))]
+    public class CloseButton : MonoBehaviour
     {
-        _button = GetComponent<Button>();
-        
-        _button.onClick.AddListener(Close);
-    }
+        [SerializeField] private Pannel _parentPannel;
+    
+        private Button _button;
+    
+        public event Action Closed;
 
-    protected virtual void Close()
-    {
-        Closed?.Invoke();
+        private void Awake()
+        {
+            _button = GetComponent<Button>();
         
-        _parentPannel.gameObject.SetActive(false);
+            _button.onClick.AddListener(Close);
+        }
+
+        protected virtual void Close()
+        {
+            Closed?.Invoke();
         
-        if(YG2.saves.IsAdRemoved == false)
-            YG2.StickyAdActivity(false);
+            _parentPannel.gameObject.SetActive(false);
+        
+            if (YG2.saves.IsAdRemoved == false)
+                YG2.StickyAdActivity(false);
+        }
     }
 }

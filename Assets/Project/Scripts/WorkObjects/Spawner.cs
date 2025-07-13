@@ -1,15 +1,20 @@
 using System;
+using Project.Scripts.Utils.Interfaces;
 using UnityEngine;
 
-[Serializable]
-public abstract class Spawner<T> where T : MonoBehaviour, ISpawnable<T>
+namespace Project.Scripts.WorkObjects
 {
-    [SerializeField] protected ObjectPool<T> Pool;
-
-    public abstract T Spawn();
-
-    protected virtual void OnDespawned(T spawnable)
+    [Serializable]
+    public abstract class Spawner<T> 
+        where T : MonoBehaviour, ISpawnable<T>
     {
-        spawnable.Despawned -= OnDespawned;
+        [SerializeField] protected ObjectPool<T> Pool;
+
+        public abstract T Spawn();
+
+        protected virtual void OnDespawned(T spawnable)
+        {
+            spawnable.Despawned -= OnDespawned;
+        }
     }
 }

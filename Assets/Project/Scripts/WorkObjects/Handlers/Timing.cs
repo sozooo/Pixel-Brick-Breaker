@@ -1,35 +1,39 @@
-﻿using UnityEngine;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using Project.Scripts.UI.Timer;
+using UnityEngine;
 
-[Serializable]
-public class Timing
+namespace Project.Scripts.WorkObjects.Handlers
 {
-    [SerializeField] private List<float> _timings;
-    [SerializeField] private TimerProgressBar _timer;
-
-    public event Action<int> TimingChanged;
-
-    public void Initialize()
+    [Serializable]
+    public class Timing
     {
-        _timer.SecondPassed += WatchTiming;
-    }
+        [SerializeField] private List<float> _timings;
+        [SerializeField] private TimerProgressBar _timer;
 
-    public void Disable()
-    {
-        _timer.SecondPassed -= WatchTiming;
-    }
+        public event Action<int> TimingChanged;
 
-    private void WatchTiming(float currentTime)
-    {
-        for (int i = 0; i < _timings.Count; i++)
+        public void Initialize()
         {
-            if (!(currentTime <= _timings[i]))
-                continue;
+            _timer.SecondPassed += WatchTiming;
+        }
+
+        public void Disable()
+        {
+            _timer.SecondPassed -= WatchTiming;
+        }
+
+        private void WatchTiming(float currentTime)
+        {
+            for (int i = 0; i < _timings.Count; i++)
+            {
+                if (!(currentTime <= _timings[i]))
+                    continue;
             
-            TimingChanged?.Invoke(i);
+                TimingChanged?.Invoke(i);
                 
-            return;
+                return;
+            }
         }
     }
 }

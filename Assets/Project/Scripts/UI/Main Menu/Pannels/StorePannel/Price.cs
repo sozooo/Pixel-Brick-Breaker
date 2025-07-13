@@ -1,7 +1,7 @@
 using TMPro;
 using UnityEngine;
 
-namespace UI.Main_Menu.Pannels.StorePannel
+namespace Project.Scripts.UI.Main_Menu.Pannels.StorePannel
 {
     public class Price : MonoBehaviour
     {
@@ -11,7 +11,8 @@ namespace UI.Main_Menu.Pannels.StorePannel
         {
             string priceString = price.ToString();
             
-            if(price >= 1000) priceString = $"{(System.Convert.ToSingle(price) / 1000):0.#}k";
+            if (price >= 1000) 
+                priceString = $"{System.Convert.ToSingle(price) / 1000:0.#}k";
             
             Display(priceString);
         }

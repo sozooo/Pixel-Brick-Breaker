@@ -1,11 +1,13 @@
 using System;
+using Project.Scripts.Utils.Interfaces;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
 namespace Project.Scripts.WorkObjects
 {
     [Serializable]
-    public class ObjectFabric<T> where T :  MonoBehaviour, ISpawnable<T>
+    public class ObjectFabric<T>
+        where T : MonoBehaviour, ISpawnable<T>
     {
         [SerializeField] private T _spawnablePrefab;
 

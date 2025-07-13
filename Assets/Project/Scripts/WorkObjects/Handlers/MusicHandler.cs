@@ -1,37 +1,40 @@
-﻿using UnityEngine;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
-public class MusicHandler : MonoBehaviour
+namespace Project.Scripts.WorkObjects.Handlers
 {
-    [SerializeField] private AudioSource _audioSource;
-
-    [Header("Timings")]
-    [SerializeField] private List<AudioClip> _music;
-    [SerializeField] private Timing _timing;
-
-    private int _currentTrack = 0;
-
-    private void OnEnable()
+    public class MusicHandler : MonoBehaviour
     {
-        _timing.TimingChanged += PlayTrack;
-        _timing.Initialize();
-    }
+        [SerializeField] private AudioSource _audioSource;
 
-    private void OnDisable()
-    {
-        _timing.TimingChanged -= PlayTrack;
-        _timing.Disable();
-    }
+        [Header("Timings")]
+        [SerializeField] private List<AudioClip> _music;
+        [SerializeField] private Timing _timing;
 
-    private void PlayTrack(int index)
-    {
-        if (_currentTrack == index)
-            return;
+        private int _currentTrack;
+
+        private void OnEnable()
+        {
+            _timing.TimingChanged += PlayTrack;
+            _timing.Initialize();
+        }
+
+        private void OnDisable()
+        {
+            _timing.TimingChanged -= PlayTrack;
+            _timing.Disable();
+        }
+
+        private void PlayTrack(int index)
+        {
+            if (_currentTrack == index)
+                return;
         
-        _currentTrack = index;
+            _currentTrack = index;
 
-        _audioSource.Stop();
-        _audioSource.clip = _music[_currentTrack];
-        _audioSource.Play();
+            _audioSource.Stop();
+            _audioSource.clip = _music[_currentTrack];
+            _audioSource.Play();
+        }
     }
 }

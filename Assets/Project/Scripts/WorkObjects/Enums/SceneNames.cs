@@ -1,6 +1,9 @@
-public enum SceneNames
+namespace Project.Scripts.WorkObjects.Enums
 {
-    Authorization = 0,
-    MainMenu = 1,
-    GameScene = 2
+    public enum SceneNames
+    {
+        Authorization = 0,
+        MainMenu = 1,
+        GameScene = 2,
+    }
 }

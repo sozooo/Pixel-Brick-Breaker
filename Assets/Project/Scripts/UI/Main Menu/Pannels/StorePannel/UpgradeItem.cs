@@ -1,8 +1,9 @@
 using System;
+using Project.Scripts.Utils;
 using UnityEngine;
 using Zenject;
 
-namespace UI.Main_Menu.Pannels.StorePannel
+namespace Project.Scripts.UI.Main_Menu.Pannels.StorePannel
 {
     public class UpgradeItem : StoreItem
     {
@@ -18,7 +19,7 @@ namespace UI.Main_Menu.Pannels.StorePannel
         public event Action LevelMaxed;
         
         private int CurrentPrice => BasePrice + BasePrice * PriceMultiplier * CurrentLevel;
-        private bool isLevelMaxed => CurrentLevel >= _maxLevel;
+        private bool IsLevelMaxed => CurrentLevel >= _maxLevel;
 
         private void Start()
         {
@@ -27,7 +28,7 @@ namespace UI.Main_Menu.Pannels.StorePannel
 
         protected override void Buy()
         {
-            if(_playerStats.TryBuy(CurrentPrice) == false || isLevelMaxed)
+            if (_playerStats.TryBuy(CurrentPrice) == false || IsLevelMaxed)
                 return;
             
             CurrentLevel++;
@@ -40,7 +41,7 @@ namespace UI.Main_Menu.Pannels.StorePannel
             PriceChanged?.Invoke(CurrentPrice);
             Upgraded?.Invoke(CurrentLevel);
             
-            if(isLevelMaxed)
+            if (IsLevelMaxed)
                 LevelMaxed?.Invoke();
         }
     }

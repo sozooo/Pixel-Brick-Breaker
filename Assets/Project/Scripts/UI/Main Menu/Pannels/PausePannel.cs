@@ -1,18 +1,22 @@
 using Project.Scripts.WorkObjects.MessageBrokers;
+using Project.Scripts.WorkObjects.MessageBrokers.Game;
 
-public class PausePannel : Pannel
+namespace Project.Scripts.UI.Main_Menu.Pannels
 {
-    private void OnDisable()
+    public class PausePannel : Pannel
     {
-        MessageBrokerHolder.Game
-            .Publish(new M_GamePaused(false));
-    }
+        private void OnDisable()
+        {
+            MessageBrokerHolder.Game
+                .Publish(new M_GamePaused(false));
+        }
 
-    protected override void Display()
-    {
-        base.Display();
+        protected override void Display()
+        {
+            base.Display();
         
-        MessageBrokerHolder.Game
-            .Publish(new M_GamePaused(true));
+            MessageBrokerHolder.Game
+                .Publish(new M_GamePaused(true));
+        }
     }
 }

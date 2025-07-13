@@ -1,6 +1,6 @@
 using YG;
 
-namespace UI.Main_Menu.Pannels.StorePannel.TimerUpgrade
+namespace Project.Scripts.UI.Main_Menu.Pannels.StorePannel.TimerUpgrade
 {
     public class TimerUpgradeItem : UpgradeItem
     {

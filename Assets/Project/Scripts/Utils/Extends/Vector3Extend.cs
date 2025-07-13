@@ -1,27 +1,17 @@
 using UnityEngine;
 
-public static class Vector3Extend
+namespace Project.Scripts.Utils.Extends
 {
-    public static Vector3 Clamp(this Vector3 value, Vector3 min, Vector3 max)
+    public static class Vector3Extend
     {
-        if (value.x < min.x || value.y < min.y || value.z < min.z ||
-            value.x > max.x || value.y > max.y || value.z > max.z)
+        public static Vector3 ClampX(this Vector3 value, float min, float max)
         {
-            value.x = Mathf.Clamp(value.x, min.x, max.x);
-            value.y = Mathf.Clamp(value.y, min.y, max.y);
-            value.z = Mathf.Clamp(value.z, min.z, max.z);
+            if (value.x < min || value.x > max)
+            {
+                value.x = Mathf.Clamp(value.x, min, max);
+            }
+
+            return value;
         }
-
-        return value;
-    }
-
-    public static Vector3 ClampX(this Vector3 value, float min, float max)
-    {
-        if (value.x < min || value.x > max)
-        {
-            value.x = Mathf.Clamp(value.x, min, max);
-        }
-
-        return value;
     }
 }

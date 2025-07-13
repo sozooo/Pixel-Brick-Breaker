@@ -1,12 +1,16 @@
+using Project.Scripts.UI.Main_Menu.Pannels;
 using UnityEngine;
 
-public class ExtraTimeCloseButton : CloseButton
+namespace Project.Scripts.UI.Level.ExtraTime.Buttons
 {
-    [SerializeField] private ExtraTimeManager _extraTimeManager;
-
-    protected override void Close()
+    public class ExtraTimeCloseButton : CloseButton
     {
-        _extraTimeManager.EndGame();
-        base.Close();
+        [SerializeField] private ExtraTimeManager _extraTimeManager;
+
+        protected override void Close()
+        {
+            _extraTimeManager.EndGame();
+            base.Close();
+        }
     }
 }

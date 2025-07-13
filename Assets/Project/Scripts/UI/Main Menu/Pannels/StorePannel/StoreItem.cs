@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace UI.Main_Menu.Pannels.StorePannel
+namespace Project.Scripts.UI.Main_Menu.Pannels.StorePannel
 {
     public abstract class StoreItem : MonoBehaviour
     {

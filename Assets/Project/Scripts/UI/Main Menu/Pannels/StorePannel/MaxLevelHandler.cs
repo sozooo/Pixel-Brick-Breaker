@@ -2,7 +2,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace UI.Main_Menu.Pannels.StorePannel
+namespace Project.Scripts.UI.Main_Menu.Pannels.StorePannel
 {
     [RequireComponent(typeof(Button))]
     public class MaxLevelHandler : MonoBehaviour

@@ -1,16 +1,19 @@
 using UnityEngine;
 using YG;
 
-public class Pannel : MonoBehaviour
+namespace Project.Scripts.UI.Main_Menu.Pannels
 {
-    protected void OnEnable()
+    public class Pannel : MonoBehaviour
     {
-        Display();
-    }
+        protected void OnEnable()
+        {
+            Display();
+        }
 
-    protected virtual void Display()
-    {
-        if(YG2.saves.IsAdRemoved == false)
-            YG2.StickyAdActivity(true);
+        protected virtual void Display()
+        {
+            if (YG2.saves.IsAdRemoved == false)
+                YG2.StickyAdActivity(true);
+        }
     }
 }

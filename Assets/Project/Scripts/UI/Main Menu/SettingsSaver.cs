@@ -1,9 +1,11 @@
-﻿using UI.Main_Menu.Pannels.Settings;
+﻿using Project.Scripts.UI.Main_Menu.Pannels;
+using Project.Scripts.UI.Main_Menu.Pannels.Settings;
+using Project.Scripts.UI.Switches;
 using UnityEngine;
 using YG;
 using YG.Insides;
 
-namespace UI.Main_Menu
+namespace Project.Scripts.UI.Main_Menu
 {
     public class SettingsSaver : MonoBehaviour
     {
@@ -35,7 +37,7 @@ namespace UI.Main_Menu
         {
             YG2.saves.MusicLevel = _musicSlider.Slider.value;
             YG2.saves.SoundLevel = _soundSlider.Slider.value;
-            YG2.saves.Muted = _muteSwitch.TogglePosition;;
+            YG2.saves.Muted = _muteSwitch.TogglePosition;
             
             YG2.SaveProgress();
         }

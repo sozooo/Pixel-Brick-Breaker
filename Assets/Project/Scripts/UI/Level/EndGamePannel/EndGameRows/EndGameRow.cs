@@ -1,16 +1,19 @@
+using Project.Scripts.UI.Level.ExtraTime;
 using Project.Scripts.WorkObjects.MessageBrokers;
+using Project.Scripts.WorkObjects.MessageBrokers.Game;
 using TMPro;
 using UniRx;
 using UnityEngine;
 
-namespace UI.Level.EndGamePannel.EndGameRows
+namespace Project.Scripts.UI.Level.EndGamePannel.EndGameRows
 {
     [RequireComponent(typeof(TextMeshProUGUI))]
     public abstract class EndGameRow : MonoBehaviour
     {
+        private readonly CompositeDisposable _disposable = new ();
+        
         [SerializeField] private ExtraTimeManager _extraTimeManager;
     
-        private readonly CompositeDisposable _disposable = new();
         protected TextMeshProUGUI Text;
 
         private void Awake()

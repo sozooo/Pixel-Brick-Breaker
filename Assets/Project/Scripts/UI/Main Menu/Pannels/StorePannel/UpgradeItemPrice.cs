@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace UI.Main_Menu.Pannels.StorePannel
+namespace Project.Scripts.UI.Main_Menu.Pannels.StorePannel
 {
     public class UpgradeItemPrice : Price
     {

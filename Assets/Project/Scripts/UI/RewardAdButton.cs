@@ -1,9 +1,9 @@
+using Project.Scripts.WorkObjects.Enums;
 using UnityEngine;
 using UnityEngine.UI;
-using WorkObjects.Enums;
 using YG;
 
-namespace UI
+namespace Project.Scripts.UI
 {
     public abstract class RewardAdButton : MonoBehaviour
     {

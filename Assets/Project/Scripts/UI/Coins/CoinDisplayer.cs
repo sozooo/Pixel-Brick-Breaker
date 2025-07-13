@@ -1,19 +1,22 @@
-﻿public class CoinDisplayer : RewardDisplayer
+﻿namespace Project.Scripts.UI.Coins
 {
-    private void OnEnable()
+    public class CoinDisplayer : RewardDisplayer
     {
-        Collector.CurrentRewardChanged += Display;
-    }
+        private void OnEnable()
+        {
+            Collector.CurrentRewardChanged += Display;
+        }
 
-    private void OnDisable()
-    {
-        Collector.CurrentRewardChanged -= Display;
-    }
+        private void OnDisable()
+        {
+            Collector.CurrentRewardChanged -= Display;
+        }
 
-    protected override void Display(float count)
-    {
-        base.Display(count);
+        protected override void Display(float count)
+        {
+            base.Display(count);
 
-        LastValue = count;
+            LastValue = count;
+        }
     }
 }

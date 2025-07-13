@@ -1,10 +1,13 @@
 using System;
 using System.Threading;
 using Cysharp.Threading.Tasks;
+using Project.Scripts.UI.Timer;
 using Project.Scripts.WorkObjects.MessageBrokers;
+using Project.Scripts.WorkObjects.MessageBrokers.Figure;
+using Project.Scripts.WorkObjects.MessageBrokers.Game;
 using UniRx;
 
-namespace WorkObjects.Handlers
+namespace Project.Scripts.WorkObjects.Handlers
 {
     [Serializable]
     public class TimerHandler
@@ -33,6 +36,7 @@ namespace WorkObjects.Handlers
             _bonusTime = bonusTime;
             
             _timer.ResetBar();
+            
             _timer.TimePassed += OnTimePassed;
         }
 
@@ -55,7 +59,7 @@ namespace WorkObjects.Handlers
         private void OnTimePassed()
         {
             MessageBrokerHolder.Game
-                .Publish(new M_TimePassed());
+                .Publish(default(M_TimePassed));
         }
     }
 }

@@ -1,15 +1,17 @@
+using Project.Scripts.WorkObjects.Handlers;
 using Project.Scripts.WorkObjects.MessageBrokers;
+using Project.Scripts.WorkObjects.MessageBrokers.Game;
 using UniRx;
 using UnityEngine;
 
-namespace UI.Level
+namespace Project.Scripts.UI.Level
 {
     public class LevelRaisedEffect : MonoBehaviour
     {
+        private readonly CompositeDisposable _disposable = new ();
+        
         [SerializeField] private ParticleSystem _particle;
         [SerializeField] private Audio _audio;
-
-        private readonly CompositeDisposable _disposable = new();
         
         private void OnEnable()
         {

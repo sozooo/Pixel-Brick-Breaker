@@ -1,7 +1,8 @@
 using System;
+using Project.Scripts.WorkObjects;
 using Project.Scripts.WorkObjects.MessageBrokers.Figure;
 
-namespace Project.Scripts.Figure.Handling
+namespace Project.Scripts.FigureSystem.Handling
 {
     [Serializable]
     public class FallingVoxelSpawner : Spawner<FallingVoxel>

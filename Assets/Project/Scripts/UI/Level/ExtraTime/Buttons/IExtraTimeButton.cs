@@ -1,4 +1,7 @@
-public interface IExtraTimeButton
+namespace Project.Scripts.UI.Level.ExtraTime.Buttons
 {
-    public void AddTime();
+    public interface IExtraTimeButton
+    {
+        public void AddTime();
+    }
 }

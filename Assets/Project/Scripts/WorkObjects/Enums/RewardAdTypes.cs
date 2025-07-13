@@ -1,4 +1,4 @@
-namespace WorkObjects.Enums
+namespace Project.Scripts.WorkObjects.Enums
 {
     public enum RewardAdTypes
     {

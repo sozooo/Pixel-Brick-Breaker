@@ -1,8 +1,6 @@
-using UnityEngine;
 using UnityEngine.UI;
-using YG;
 
-namespace UI.Main_Menu.Pannels.StorePannel
+namespace Project.Scripts.UI.Main_Menu.Pannels.StorePannel
 {
     public class RemoveAdItem : PurchaseItem
     {

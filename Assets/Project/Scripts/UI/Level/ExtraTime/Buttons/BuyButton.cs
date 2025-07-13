@@ -1,50 +1,54 @@
+using Project.Scripts.UI.Main_Menu.Pannels.StorePannel;
+using Project.Scripts.Utils;
 using Project.Scripts.WorkObjects.MessageBrokers;
-using UI.Main_Menu.Pannels.StorePannel;
+using Project.Scripts.WorkObjects.MessageBrokers.Game;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
 
-public class BuyButton : MonoBehaviour, IExtraTimeButton
+namespace Project.Scripts.UI.Level.ExtraTime.Buttons
 {
-    [SerializeField] private Button _buyButton;
-    [Inject] private PlayerStats _playerStats;
-    [SerializeField] private int _basePrice = 2000;
-    [SerializeField] private int _priceAdditional = 1000;
-    [SerializeField] private Price _price;
+    public class BuyButton : MonoBehaviour, IExtraTimeButton
+    {
+        [SerializeField] private Button _buyButton;
+        [SerializeField] private int _basePrice = 2000;
+        [SerializeField] private int _priceAdditional = 1000;
+        [SerializeField] private Price _price;
     
-    private int _buybackPrice;
+        [Inject] private PlayerStats _playerStats;
+        private int _buybackPrice;
 
-    private void Awake()
-    {
-        _buybackPrice =_basePrice;
-    }
+        private void Awake()
+        {
+            _buybackPrice = _basePrice;
+        }
     
-    private void OnEnable()
-    {
-        _buyButton.onClick.AddListener(Iteract);
+        private void OnEnable()
+        {
+            _buyButton.onClick.AddListener(Iteract);
         
-        _price.Convert(_buybackPrice);
-    }
+            _price.Convert(_buybackPrice);
+        }
 
-    private void OnDisable()
-    {
-        _buyButton.onClick.RemoveListener(Iteract);
-    }
+        private void OnDisable()
+        {
+            _buyButton.onClick.RemoveListener(Iteract);
+        }
 
-    private void Iteract()
-    {
-        if (_playerStats.TryBuy(_buybackPrice) == false)
-            return;
+        private void Iteract()
+        {
+            if (_playerStats.TryBuy(_buybackPrice) == false)
+                return;
         
-        _buybackPrice += _priceAdditional;
+            _buybackPrice += _priceAdditional;
         
-        AddTime();
-    }
+            AddTime();
+        }
 
-
-    public void AddTime()
-    {
-        MessageBrokerHolder.Game
-            .Publish(new M_TimePurchased());
+        public void AddTime()
+        {
+            MessageBrokerHolder.Game
+                .Publish(default(M_TimePurchased));
+        }
     }
 }

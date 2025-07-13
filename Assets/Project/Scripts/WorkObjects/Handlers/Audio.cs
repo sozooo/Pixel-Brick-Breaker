@@ -1,14 +1,17 @@
-﻿using UnityEngine;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class Audio : MonoBehaviour
+namespace Project.Scripts.WorkObjects.Handlers
 {
-    [SerializeField] private AudioSource _audioSource;
-    [SerializeField] private List<AudioClip> _audioClips;
-
-    public void PlayOneShot()
+    public class Audio : MonoBehaviour
     {
-        _audioSource.PlayOneShot(_audioClips[Random.Range(0, _audioClips.Count)]);
+        [SerializeField] private AudioSource _audioSource;
+        [SerializeField] private List<AudioClip> _audioClips;
+
+        public void PlayOneShot()
+        {
+            _audioSource.PlayOneShot(_audioClips[Random.Range(0, _audioClips.Count)]);
+        }
     }
 }

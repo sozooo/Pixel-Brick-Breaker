@@ -1,1 +1,6 @@
-public struct M_FigureDespawned { }
+namespace Project.Scripts.WorkObjects.MessageBrokers.Figure
+{
+    public struct M_FigureDespawned
+    {
+    }
+}

@@ -5,7 +5,7 @@ using TMPro;
 using UnityEngine;
 using YG;
 
-namespace UI.Switches
+namespace Project.Scripts.UI.Switches
 {
     [RequireComponent(typeof(TMP_Dropdown))]
     public class LanguageSwithcer : MonoBehaviour

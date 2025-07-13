@@ -1,4 +1,4 @@
-namespace Project.Scripts.Figure
+namespace Project.Scripts.FigureSystem
 {
     public interface IVoxelChecker
     {

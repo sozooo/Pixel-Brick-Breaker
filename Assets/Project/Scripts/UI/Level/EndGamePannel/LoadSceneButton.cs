@@ -1,23 +1,28 @@
+using Project.Scripts.WorkObjects.Enums;
+using Project.Scripts.WorkObjects.Handlers;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class LoadSceneButton : MonoBehaviour, IPointerClickHandler
+namespace Project.Scripts.UI.Level.EndGamePannel
 {
-    [SerializeField] private Image _loadScrene;
-    [SerializeField] private SceneLoader _sceneLoader;
-    [SerializeField] private SceneNames _sceneName;
-
-    private void Iteract()
+    public class LoadSceneButton : MonoBehaviour, IPointerClickHandler
     {
-        _loadScrene.gameObject.SetActive(true);
+        [SerializeField] private Image _loadScrene;
+        [SerializeField] private SceneLoader _sceneLoader;
+        [SerializeField] private SceneNames _sceneName;
+
+        private void Iteract()
+        {
+            _loadScrene.gameObject.SetActive(true);
         
-        _sceneLoader.LoadScene((int) _sceneName).Forget();
-    }
+            _sceneLoader.LoadScene((int)_sceneName).Forget();
+        }
 
-    public void OnPointerClick(PointerEventData eventData)
-    {
-        if(eventData.button == PointerEventData.InputButton.Left)
-            Iteract();
+        public void OnPointerClick(PointerEventData eventData)
+        {
+            if (eventData.button == PointerEventData.InputButton.Left)
+                Iteract();
+        }
     }
 }

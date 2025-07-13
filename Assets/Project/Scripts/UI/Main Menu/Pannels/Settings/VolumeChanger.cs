@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
 
-namespace UI.Main_Menu.Pannels.Settings
+namespace Project.Scripts.UI.Main_Menu.Pannels.Settings
 {
     public class VolumeChanger : MonoBehaviour
     {

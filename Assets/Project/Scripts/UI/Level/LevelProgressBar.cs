@@ -1,74 +1,78 @@
-using UnityEngine;
-using TMPro;
 using System.Globalization;
 using Project.Scripts.WorkObjects.MessageBrokers;
 using Project.Scripts.WorkObjects.MessageBrokers.Figure;
+using Project.Scripts.WorkObjects.MessageBrokers.Game;
+using TMPro;
 using UniRx;
+using UnityEngine;
 
-public class LevelProgressBar : ProgressBar
+namespace Project.Scripts.UI.Level
 {
-    [SerializeField] private float _levelUpMultiplyer = 3;
-
-    [Header("Indicators")]
-    [SerializeField] private TextMeshProUGUI _maxIndicator;
-
-    private readonly CompositeDisposable _disposable = new();
-
-    protected override void Disable()
+    public class LevelProgressBar : ProgressBar
     {
-        base.Disable();
+        private readonly CompositeDisposable _disposable = new ();
         
-        _disposable.Clear();
-    }
+        [SerializeField] private float _levelUpMultiplyer = 3;
 
-    public override void ResetBar()
-    {
-        base.ResetBar();
-
-        Current = Minimum;
-
-        MessageBrokerHolder.Figure
-            .Receive<M_VoxelFell>()
-            .Subscribe(_ => Fill())
-            .AddTo(_disposable);
+        [Header("Indicators")]
+        [SerializeField] private TextMeshProUGUI _maxIndicator;
         
-        CalculateMaxIndicator();
+        protected override void Disable()
+        {
+            base.Disable();
         
-        Fill();
-    }
+            _disposable.Clear();
+        }
 
-    protected override void Fill()
-    {
-        Current++;
+        public override void ResetBar()
+        {
+            base.ResetBar();
 
-        base.Fill();
+            Current = Minimum;
 
-        if (Current < Maximum)
-            return;
+            MessageBrokerHolder.Figure
+                .Receive<M_VoxelFell>()
+                .Subscribe(_ => Fill())
+                .AddTo(_disposable);
         
-        IncreaseMaximum(Maximum * _levelUpMultiplyer);
+            CalculateMaxIndicator();
         
-        MessageBrokerHolder.Game
-            .Publish(new M_LevelRaised());
-    }
+            Fill();
+        }
 
-    private void IncreaseMaximum(float increaser)
-    {
-        SetNewMinimum(Maximum);
-        Maximum += increaser;
+        protected override void Fill()
+        {
+            Current++;
 
-        Fill();
+            base.Fill();
 
-        CalculateMaxIndicator();
-    }
+            if (Current < Maximum)
+                return;
+        
+            IncreaseMaximum(Maximum * _levelUpMultiplyer);
+        
+            MessageBrokerHolder.Game
+                .Publish(default(M_LevelRaised));
+        }
+
+        private void IncreaseMaximum(float increaser)
+        {
+            SetNewMinimum(Maximum);
+            Maximum += increaser;
+
+            Fill();
+
+            CalculateMaxIndicator();
+        }
     
-    private void SetNewMinimum(float minimum)
-    {
-        Minimum = minimum;
-    }
+        private void SetNewMinimum(float minimum)
+        {
+            Minimum = minimum;
+        }
 
-    private void CalculateMaxIndicator()
-    {
-        _maxIndicator.text = (Maximum - Minimum).ToString(CultureInfo.InvariantCulture);
+        private void CalculateMaxIndicator()
+        {
+            _maxIndicator.text = (Maximum - Minimum).ToString(CultureInfo.InvariantCulture);
+        }
     }
 }

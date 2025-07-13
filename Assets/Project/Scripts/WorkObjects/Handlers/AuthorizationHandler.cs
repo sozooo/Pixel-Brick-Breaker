@@ -1,7 +1,8 @@
+using Project.Scripts.WorkObjects.Enums;
 using UnityEngine;
 using YG;
 
-namespace WorkObjects.Handlers
+namespace Project.Scripts.WorkObjects.Handlers
 {
     public class AuthorizationHandler : MonoBehaviour
     {

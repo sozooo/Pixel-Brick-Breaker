@@ -1,7 +1,8 @@
+using Project.Scripts.UI.Level.ExtraTime;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace UI.Level
+namespace Project.Scripts.UI.Level
 {
     public class ExitGameplayButton : MonoBehaviour
     {

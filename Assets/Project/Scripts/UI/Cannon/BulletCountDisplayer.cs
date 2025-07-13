@@ -1,28 +1,32 @@
+using System.Globalization;
+using Project.Scripts.CannonSystem;
 using TMPro;
 using UnityEngine;
-using System.Globalization;
 
-[RequireComponent(typeof(TextMeshProUGUI))]
-public class BulletCountDisplayer : MonoBehaviour
+namespace Project.Scripts.UI.Cannon
 {
-    [SerializeField] private TextMeshProUGUI _text;
-    
-    private Shooter _shooter;
-    
-    private void OnDisable()
+    [RequireComponent(typeof(TextMeshProUGUI))]
+    public class BulletCountDisplayer : MonoBehaviour
     {
-        _shooter.BulletCountChanged -= SetNumber;
-    }
+        [SerializeField] private TextMeshProUGUI _text;
     
-    public void Initialize(Shooter shooter)
-    {
-        _shooter = shooter;
+        private Shooter _shooter;
+    
+        private void OnDisable()
+        {
+            _shooter.BulletCountChanged -= SetNumber;
+        }
+    
+        public void Initialize(Shooter shooter)
+        {
+            _shooter = shooter;
         
-        _shooter.BulletCountChanged += SetNumber;
-    }
+            _shooter.BulletCountChanged += SetNumber;
+        }
 
-    private void SetNumber(float number)
-    {
-        _text.text = number.ToString(CultureInfo.InvariantCulture);
+        private void SetNumber(float number)
+        {
+            _text.text = number.ToString(CultureInfo.InvariantCulture);
+        }
     }
 }

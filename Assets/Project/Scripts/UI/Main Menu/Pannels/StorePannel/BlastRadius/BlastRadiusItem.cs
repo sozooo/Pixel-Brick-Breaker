@@ -1,6 +1,6 @@
 using YG;
 
-namespace UI.Main_Menu.Pannels.StorePannel.BlastRadius
+namespace Project.Scripts.UI.Main_Menu.Pannels.StorePannel.BlastRadius
 {
     public class BlastRadiusItem : UpgradeItem
     {

@@ -3,13 +3,13 @@ using Project.Scripts.WorkObjects.MessageBrokers.Figure;
 using UniRx;
 using UnityEngine;
 
-namespace Project.Scripts.Figure.Handling
+namespace Project.Scripts.FigureSystem.Handling
 {
     public class FallingVoxelHandler : MonoBehaviour
     {
-        [SerializeField] private FallingVoxelSpawner _fallingVoxelSpawner;
+        private readonly CompositeDisposable _disposable = new ();
         
-        private readonly CompositeDisposable _disposable = new();
+        [SerializeField] private FallingVoxelSpawner _fallingVoxelSpawner;
         
         private void OnEnable()
         {
