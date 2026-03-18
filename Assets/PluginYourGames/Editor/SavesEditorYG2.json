@@ -7,13 +7,13 @@
         false,
         false
     ],
-    "idSave": 2,
+    "idSave": 34,
     "MusicLevel": 1.0,
     "SoundLevel": 1.0,
     "Muted": false,
-    "Coins": 0,
+    "Coins": 4500,
     "Highscore": 0.0,
-    "TimerLevel": 0,
-    "BlastRadiusLevel": 0,
+    "TimerLevel": 2,
+    "BlastRadiusLevel": 2,
     "IsAdRemoved": false
 }
