@@ -14,5 +14,8 @@ namespace Project.Scripts.FigureSystem
     
         [field: SerializeField] public Vector2Int Position { get; private set; }
         [field: SerializeField] public Color Color { get; private set; }
+
+        public void SetPosition(Vector2Int newPosition) => 
+            Position = newPosition;
     }
 }
