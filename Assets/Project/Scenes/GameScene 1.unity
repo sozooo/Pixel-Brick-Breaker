@@ -15217,7 +15217,7 @@ MonoBehaviour:
       _figureLists:
       - _level: 1
         _figures:
-        - {fileID: 11400000, guid: ad50aba1a77d62245b0615fe0ebae76f, type: 2}
+        - {fileID: 11400000, guid: d59454717f01fb84a8b668021842487f, type: 2}
     _timeToDespawn: 3
     _spawnPoint: {fileID: 22050217}
   _pausePannels:
