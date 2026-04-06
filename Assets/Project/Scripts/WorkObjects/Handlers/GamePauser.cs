@@ -43,12 +43,14 @@ namespace Project.Scripts.WorkObjects.Handlers
             {
                 _input.Disable();
                 Time.timeScale = 0;
+                AudioListener.pause = true;
             }
             else
             {
                 _input.Enable();
                 
                 Time.timeScale = 1;
+                AudioListener.pause = false;
             }
         }
     }

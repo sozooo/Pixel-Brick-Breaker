@@ -14,18 +14,18 @@ namespace Project.Scripts.Utils
         private const string LeaderboardName = "leaderboard";
     
         [Inject] private List<PurchaseItem> _purchases;
-        [Inject] private RemoveAdItem _removeAd;
+        /*[Inject] private RemoveAdItem _removeAd;*/
     
         private Dictionary<string, int> _purchaseItems;
-        private RemoveAdItem _removeAdItem;
+        /*private RemoveAdItem _removeAdItem;*/
     
         public event Action CoinsCountChanged;
     
         public void Initialize()
         {
-            YG2.StickyAdActivity(false);
+            /*YG2.StickyAdActivity(false);*/
         
-            if (_purchases.Any() == false || _removeAd == null)
+            if (_purchases.Any() == false /*|| _removeAd == null*/)
                 return;
         
             _purchaseItems = new Dictionary<string, int>();
@@ -35,10 +35,10 @@ namespace Project.Scripts.Utils
                 _purchaseItems.Add(item.Purchase.id, item.CoinsCount);
             }
 
-            _removeAdItem = _removeAd;
+            /*_removeAdItem = _removeAd;*/
 
-            if (YG2.saves.IsAdRemoved)
-                _removeAdItem.BuyButton.interactable = false;
+            /*if (YG2.saves.IsAdRemoved)
+                _removeAdItem.BuyButton.interactable = false;*/
         
             YG2.onPurchaseSuccess += ProceedPurchase;
 
@@ -92,8 +92,8 @@ namespace Project.Scripts.Utils
 
         private void ProceedPurchase(string id)
         {
-            if (id == _removeAdItem.Purchase.id)
-                RemoveAd();
+            /*if (id == _removeAdItem.Purchase.id)
+                RemoveAd();*/
 
             if (_purchaseItems.TryGetValue(id, out int cost) == false)
                 return;
@@ -103,7 +103,7 @@ namespace Project.Scripts.Utils
             YG2.ConsumePurchases();
         }
 
-        private void RemoveAd()
+        /*private void RemoveAd()
         {
             YG2.saves.IsAdRemoved = true;
         
@@ -112,7 +112,7 @@ namespace Project.Scripts.Utils
             _removeAdItem.BuyButton.interactable = false;
         
             SavePlayerStats();
-        }
+        }*/
     
         private void SavePlayerStats()
         {

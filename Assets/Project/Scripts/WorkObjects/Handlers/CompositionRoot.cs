@@ -40,13 +40,13 @@ namespace Project.Scripts.WorkObjects.Handlers
             _gamePauser.Initialize(_pausePannels, _cancellationToken.Token);
             _figureSpawner.Initialize(_cancellationToken.Token);
 
-            if (YG2.isFirstGameSession)
+            /*if (YG2.isFirstGameSession)
             {
                 _guidePanel.gameObject.SetActive(true);
                 _guideCloseButton.Closed += StartCountDown;
             
                 return;
-            }
+            }*/
         
             StartCountDown();
         }
@@ -56,12 +56,12 @@ namespace Project.Scripts.WorkObjects.Handlers
             _timerHandler.Disable();
             _cancellationToken.Cancel();
         
-            _guideCloseButton.Closed -= StartCountDown;
+            /*_guideCloseButton.Closed -= StartCountDown;*/
         }
 
         private void StartCountDown()
         {
-            _guideCloseButton.Closed -= StartCountDown;
+            /*_guideCloseButton.Closed -= StartCountDown;*/
         
             _countDown.StartCountDown();
         }

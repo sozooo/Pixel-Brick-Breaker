@@ -12,8 +12,8 @@ namespace Project.Scripts.UI.Main_Menu.Pannels
 
         protected virtual void Display()
         {
-            if (YG2.saves.IsAdRemoved == false)
-                YG2.StickyAdActivity(true);
+            /*if (YG2.saves.IsAdRemoved == false)
+                YG2.StickyAdActivity(true);*/
         }
     }
 }

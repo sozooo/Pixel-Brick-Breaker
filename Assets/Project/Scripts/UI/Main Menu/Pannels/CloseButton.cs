@@ -27,8 +27,8 @@ namespace Project.Scripts.UI.Main_Menu.Pannels
         
             _parentPannel.gameObject.SetActive(false);
         
-            if (YG2.saves.IsAdRemoved == false)
-                YG2.StickyAdActivity(false);
+            /*if (YG2.saves.IsAdRemoved == false)
+                YG2.StickyAdActivity(false);*/
         }
     }
 }
