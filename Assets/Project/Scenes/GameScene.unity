@@ -1359,7 +1359,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _purchases: []
-  _removeAd: {fileID: 0}
 --- !u!1 &326716198
 GameObject:
   m_ObjectHideFlags: 0
@@ -15173,6 +15172,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1663920187}
   - component: {fileID: 1663920188}
+  - component: {fileID: 1663920189}
   m_Layer: 0
   m_Name: CompositionRoot
   m_TagString: Untagged
@@ -15277,6 +15277,18 @@ MonoBehaviour:
   _countDown: {fileID: 623548555}
   _levelProgressBar: {fileID: 1222803476}
   _bonusTime: 5
+--- !u!114 &1663920189
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1663920186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4aae60d3d3d840b38e1bfb8a2b27e00c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1704360648
 PrefabInstance:
   m_ObjectHideFlags: 0
