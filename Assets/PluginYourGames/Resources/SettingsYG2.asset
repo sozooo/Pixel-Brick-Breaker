@@ -584,7 +584,7 @@ MonoBehaviour:
     buildNumber: 3
   Simulation:
     device: 0
-    language: en
+    language: tr
     advIntervalSimulation: 0
     durationAdv: 0.5
     loadAdv: 0

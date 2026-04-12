@@ -2059,7 +2059,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _gameTimer: {fileID: 267377004}
   _extraTimePannel: {fileID: 8871992888552588792}
-  _extraTimeCloseButton: {fileID: 1236556123}
+  _extraTimeCloseButton: {fileID: 534888859}
   _gameOverPanel: {fileID: 1154208713}
   _statsCollector: {fileID: 368635205}
   _extraTimeTriesCount: 3
@@ -3847,6 +3847,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8740392155808359275, guid: 85e1a8f3c7a94f545b9eecb512538a04, type: 3}
+      propertyPath: m_text
+      value: "\u0411\u0415\u0421\u041F\u041B\u0410\u0422\u041D\u041E"
+      objectReference: {fileID: 0}
+    - target: {fileID: 8740392155808359275, guid: 85e1a8f3c7a94f545b9eecb512538a04, type: 3}
+      propertyPath: m_fontSize
+      value: 14.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 8740392155808359275, guid: 85e1a8f3c7a94f545b9eecb512538a04, type: 3}
+      propertyPath: m_fontSizeMin
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 8740392155808359275, guid: 85e1a8f3c7a94f545b9eecb512538a04, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8740392155808359275, guid: 85e1a8f3c7a94f545b9eecb512538a04, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3854,6 +3874,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5371900368228075347, guid: 85e1a8f3c7a94f545b9eecb512538a04, type: 3}
       insertIndex: -1
       addedObject: {fileID: 589848148}
+    - targetCorrespondingSourceObject: {fileID: 6685760805336721699, guid: 85e1a8f3c7a94f545b9eecb512538a04, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 589848151}
   m_SourcePrefab: {fileID: 100100000, guid: 85e1a8f3c7a94f545b9eecb512538a04, type: 3}
 --- !u!224 &589848145 stripped
 RectTransform:
@@ -3890,6 +3913,190 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AdIndex: 0
   _button: {fileID: 589848147}
+--- !u!1 &589848149 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6685760805336721699, guid: 85e1a8f3c7a94f545b9eecb512538a04, type: 3}
+  m_PrefabInstance: {fileID: 589848144}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &589848150 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8740392155808359275, guid: 85e1a8f3c7a94f545b9eecb512538a04, type: 3}
+  m_PrefabInstance: {fileID: 589848144}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 589848149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &589848151
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 589848149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f34f36451b093ee4c83ad4aa5459d2ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textMPComponent: {fileID: 589848150}
+  uniqueFontTMP: {fileID: 0}
+  textLComponent: {fileID: 0}
+  info:
+    domainAutoLocalization: com
+    languages:
+      ru: 1
+      en: 1
+      tr: 1
+      az: 0
+      be: 0
+      he: 0
+      hy: 0
+      ka: 0
+      et: 0
+      fr: 0
+      kk: 0
+      ky: 0
+      lt: 0
+      lv: 0
+      ro: 0
+      tg: 0
+      tk: 0
+      uk: 0
+      uz: 0
+      es: 0
+      pt: 0
+      ar: 0
+      id: 0
+      ja: 0
+      it: 0
+      de: 0
+      hi: 0
+    fonts:
+      defaultFont: []
+      ru: []
+      en: []
+      tr: []
+      az: []
+      be: []
+      he: []
+      hy: []
+      ka: []
+      et: []
+      fr: []
+      kk: []
+      ky: []
+      lt: []
+      lv: []
+      ro: []
+      tg: []
+      tk: []
+      uk: []
+      uz: []
+      es: []
+      pt: []
+      ar: []
+      id: []
+      ja: []
+      it: []
+      de: []
+      hi: []
+    fontsTMP:
+      defaultFont:
+      - {fileID: 11400000, guid: 6d50b12c800ec4151ad88211d6b5de39, type: 2}
+      ru: []
+      en: []
+      tr: []
+      az: []
+      be: []
+      he: []
+      hy: []
+      ka: []
+      et: []
+      fr: []
+      kk: []
+      ky: []
+      lt: []
+      lv: []
+      ro: []
+      tg: []
+      tk: []
+      uk: []
+      uz: []
+      es: []
+      pt: []
+      ar: []
+      id: []
+      ja: []
+      it: []
+      de: []
+      hi: []
+    fontsSizeCorrect:
+      ru: fcffffff
+      en: 
+      tr: fcffffff
+      az: 
+      be: 
+      he: 
+      hy: 
+      ka: 
+      et: 
+      fr: 
+      kk: 
+      ky: 
+      lt: 
+      lv: 
+      ro: 
+      tg: 
+      tk: 
+      uk: 
+      uz: 
+      es: 
+      pt: 
+      ar: 
+      id: 
+      ja: 
+      it: 
+      de: 
+      hi: 
+  text: 
+  ru: "\u0411\u0415\u0421\u041F\u041B\u0410\u0422\u041D\u041E"
+  en: FREE
+  tr: OZGUR
+  az: 
+  be: 
+  he: 
+  hy: 
+  ka: 
+  et: 
+  fr: 
+  kk: 
+  ky: 
+  lt: 
+  lv: 
+  ro: 
+  tg: 
+  tk: 
+  uk: 
+  uz: 
+  es: 
+  pt: 
+  ar: 
+  id: 
+  ja: 
+  it: 
+  de: 
+  hi: 
+  changeOnlyFont: 0
+  fontNumber: 0
+  uniqueFont: {fileID: 0}
+  additionalText: {fileID: 0}
+  textHeight: 20
+  processTranslateLabel: 3/3 completed
+  componentTextField: 1
+  countLang: 3
 --- !u!1 &623548548
 GameObject:
   m_ObjectHideFlags: 0
@@ -11892,7 +12099,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -53, y: 689}
+  m_AnchoredPosition: {x: -53, y: 707}
   m_SizeDelta: {x: 719.5, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1065513887
@@ -11942,12 +12149,12 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 86.5
+  m_fontSize: 72.65
   m_fontSizeBase: 86.5
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
-  m_fontSizeMax: 72
+  m_fontSizeMax: 75.12
   m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
@@ -11978,10 +12185,10 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 165.23204, y: 0, z: 66.27829, w: 0}
+  m_margin: {x: 165.23204, y: 0, z: 66.27829, w: -33.039352}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 1
+  m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &1065513888
@@ -13956,7 +14163,7 @@ MonoBehaviour:
   text: 
   ru: "\u041D\u0410\u0413\u0420\u0410\u0414\u0410"
   en: REWARD
-  tr: "\xD6D\xDCL"
+  tr: ODUL
   az: 
   be: 
   he: 
@@ -16654,11 +16861,11 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 102.5
+  m_fontSize: 70
   m_fontSizeBase: 102.5
   m_fontWeight: 400
-  m_enableAutoSizing: 0
-  m_fontSizeMin: 18
+  m_enableAutoSizing: 1
+  m_fontSizeMin: 36.5
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 2
@@ -16690,10 +16897,10 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: 0, w: -30.035797}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 1
+  m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &1934187212
@@ -16780,7 +16987,7 @@ MonoBehaviour:
       hi: []
     fontsTMP:
       defaultFont:
-      - {fileID: 11400000, guid: c85b584c8120c4dac9689fc3a2210884, type: 2}
+      - {fileID: 11400000, guid: 6d50b12c800ec4151ad88211d6b5de39, type: 2}
       ru: []
       en: []
       tr: []
@@ -16839,7 +17046,7 @@ MonoBehaviour:
   text: 
   ru: "\u0418\u0422\u041E\u0413"
   en: SUMMARY
-  tr: "SONU\xC7"
+  tr: SONUC
   az: 
   be: 
   he: 
